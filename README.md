@@ -13,7 +13,7 @@ Chompzilla is a "chomp"-like game. It is played on a **7x9** board. It is a **ve
 ### 🏗️ **How to Build the Game**
 1. Clone the repository using SVN:
     ```bash
-    svn co https://svn.ensisa.uha.fr/scm/svn/imm2425-gr2
+    git clone https://github.com/Fl0wwDev/Chompzilla.git
     ```
 2. Install the dependencies:
     ```bash
