@@ -1,0 +1,40 @@
+\doxysection{ia.\+test.\+c}
+\hypertarget{ia_8test_8c_source}{}\label{ia_8test_8c_source}\index{src/tests/ia.test.c@{src/tests/ia.test.c}}
+\mbox{\hyperlink{ia_8test_8c}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{ia_8test_8c_source_l00001}00001\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{\Hypertarget{ia_8test_8c_source_l00002}00002\ \textcolor{preprocessor}{\#include\ <criterion/criterion.h>}}
+\DoxyCodeLine{\Hypertarget{ia_8test_8c_source_l00003}00003\ \textcolor{preprocessor}{\#include\ "{}../inc/const.h"{}}}
+\DoxyCodeLine{\Hypertarget{ia_8test_8c_source_l00004}00004\ \textcolor{preprocessor}{\#include\ "{}../ia/ia.h"{}}}
+\DoxyCodeLine{\Hypertarget{ia_8test_8c_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{ia_8test_8c_source_l00006}00006\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{ia_8test_8c_a20793b0bb41489c597bed40c0eded42f}{coo}}[3];}
+\DoxyCodeLine{\Hypertarget{ia_8test_8c_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{ia_8test_8c_source_l00011}\mbox{\hyperlink{ia_8test_8c_a0ae72e1592116b8c675a7e9331037551}{00011}}\ \mbox{\hyperlink{ia_8test_8c_a0ae72e1592116b8c675a7e9331037551}{Test}}(ia,\ correct\_counter)}
+\DoxyCodeLine{\Hypertarget{ia_8test_8c_source_l00012}00012\ \{}
+\DoxyCodeLine{\Hypertarget{ia_8test_8c_source_l00013}00013\ \ \ \ \ \ \ \ \ cr\_assert\_not\_null(\mbox{\hyperlink{ia_8test_8c_a20793b0bb41489c597bed40c0eded42f}{coo}},\ \textcolor{stringliteral}{"{}coordinate\ array\ does\ not\ exist"{}});}
+\DoxyCodeLine{\Hypertarget{ia_8test_8c_source_l00014}00014\ \}}
+\DoxyCodeLine{\Hypertarget{ia_8test_8c_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{ia_8test_8c_source_l00019}\mbox{\hyperlink{ia_8test_8c_a5161bc02f96880333a9eac442de47eed}{00019}}\ \mbox{\hyperlink{ia_8test_8c_a0ae72e1592116b8c675a7e9331037551}{Test}}(ia,\ correct\_number\_of\_squares\_removed)}
+\DoxyCodeLine{\Hypertarget{ia_8test_8c_source_l00020}00020\ \{}
+\DoxyCodeLine{\Hypertarget{ia_8test_8c_source_l00021}00021\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ tab[\mbox{\hyperlink{const_8h_a3cfd3aa62338d12609f6d65bce97e9cd}{ROWS}}][\mbox{\hyperlink{const_8h_ab59ad2ee1a48b83c2eef1f019ed8cc48}{COLS}}]\ =\ \{1\};}
+\DoxyCodeLine{\Hypertarget{ia_8test_8c_source_l00022}00022\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ 7;\ i++)}
+\DoxyCodeLine{\Hypertarget{ia_8test_8c_source_l00023}00023\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{ia_8test_8c_source_l00024}00024\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ 9;\ j++)\ \textcolor{comment}{//\ every\ possible\ board}}
+\DoxyCodeLine{\Hypertarget{ia_8test_8c_source_l00025}00025\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{ia_8test_8c_source_l00026}00026\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ x\ =\ 0;\ x\ <\ 7;\ x++)}
+\DoxyCodeLine{\Hypertarget{ia_8test_8c_source_l00027}00027\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{ia_8test_8c_source_l00028}00028\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ y\ =\ 0;\ y\ <\ 9;\ y++)\ \textcolor{comment}{//\ every\ possible\ coordinates}}
+\DoxyCodeLine{\Hypertarget{ia_8test_8c_source_l00029}00029\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{ia_8test_8c_source_l00030}00030\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ tab[i][j]\ =\ 0;\ \textcolor{comment}{//\ whe\ replace\ each\ 1\ by\ a\ 0\ one\ by>}}
+\DoxyCodeLine{\Hypertarget{ia_8test_8c_source_l00031}00031\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ia_8test_8c_a20793b0bb41489c597bed40c0eded42f}{coo}}[0]\ =\ x;}
+\DoxyCodeLine{\Hypertarget{ia_8test_8c_source_l00032}00032\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ia_8test_8c_a20793b0bb41489c597bed40c0eded42f}{coo}}[1]\ =\ y;}
+\DoxyCodeLine{\Hypertarget{ia_8test_8c_source_l00033}00033\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cr\_expect(\mbox{\hyperlink{ia_8c_abeb3c633344f067c2614c1582408aa9a}{squares\_to\_remove}}(\mbox{\hyperlink{ia_8test_8c_a20793b0bb41489c597bed40c0eded42f}{coo}},\ tab,\ \mbox{\hyperlink{const_8h_a3cfd3aa62338d12609f6d65bce97e9cd}{ROWS}},\ \mbox{\hyperlink{const_8h_ab59ad2ee1a48b83c2eef1f019ed8cc48}{COLS}})\ <=\ 5,\ \textcolor{stringliteral}{"{}cant\ delete\ more\ than\ 5\ squares"{}});}
+\DoxyCodeLine{\Hypertarget{ia_8test_8c_source_l00034}00034\ }
+\DoxyCodeLine{\Hypertarget{ia_8test_8c_source_l00035}00035\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cr\_expect(\mbox{\hyperlink{ia_8c_abeb3c633344f067c2614c1582408aa9a}{squares\_to\_remove}}(\mbox{\hyperlink{ia_8test_8c_a20793b0bb41489c597bed40c0eded42f}{coo}},\ tab,\ \mbox{\hyperlink{const_8h_a3cfd3aa62338d12609f6d65bce97e9cd}{ROWS}},\ \mbox{\hyperlink{const_8h_ab59ad2ee1a48b83c2eef1f019ed8cc48}{COLS}})\ >=\ 0,\ \textcolor{stringliteral}{"{}must\ delete\ at\ least\ 1\ square"{}});}
+\DoxyCodeLine{\Hypertarget{ia_8test_8c_source_l00036}00036\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ia_8test_8c_source_l00037}00037\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ia_8test_8c_source_l00038}00038\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ia_8test_8c_source_l00039}00039\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ia_8test_8c_source_l00040}00040\ \}}
+
+\end{DoxyCode}

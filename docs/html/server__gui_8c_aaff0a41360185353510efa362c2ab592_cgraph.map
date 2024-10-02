@@ -1,0 +1,15 @@
+<map id="active_gui_server_gui" name="active_gui_server_gui">
+<area shape="rect" id="Node000001" title="The main window of the application." alt="" coords="5,92,169,117"/>
+<area shape="rect" id="Node000002" href="$server__gui_8c.html#a96659326d93314ae99ea61edd3282779" title="The function to delete a button and the linked buttons This function is called when a button is click..." alt="" coords="217,65,384,91"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="169,92,204,87,204,93,170,97"/>
+<area shape="rect" id="Node000006" href="$server__gui_8c.html#aefd7b1482a448478cecc93060277239e" title="Function to set the state of the buttons." alt="" coords="432,120,645,145"/>
+<area shape="poly" id="edge7_Node000001_Node000006" title=" " alt="" coords="170,107,419,123,418,128,169,112"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="266,67,258,57,262,47,277,41,301,39,330,42,342,51,339,56,328,47,301,44,278,46,266,51,263,56,270,64"/>
+<area shape="rect" id="Node000003" href="$server__gui_8c.html#acbc887e81600259179f64d25ed34c75b" title="Function to quit the game." alt="" coords="455,5,622,31"/>
+<area shape="poly" id="edge3_Node000002_Node000003" title=" " alt="" coords="348,63,431,41,470,31,471,36,433,46,350,68"/>
+<area shape="rect" id="Node000005" href="$server__gui_8c.html#a7b348f3724a1b6554f9a45d5d5b138e5" title=" " alt="" coords="461,55,617,95"/>
+<area shape="poly" id="edge5_Node000002_Node000005" title=" " alt="" coords="384,74,447,74,447,79,384,80"/>
+<area shape="poly" id="edge6_Node000002_Node000006" title=" " alt="" coords="357,88,470,114,469,119,356,93"/>
+<area shape="rect" id="Node000004" href="$server__gui_8c.html#a1225780d89857b9d739aba6a8d3b37ab" title="Function to destroy the window." alt="" coords="693,5,896,31"/>
+<area shape="poly" id="edge4_Node000003_Node000004" title=" " alt="" coords="622,15,679,15,679,21,622,21"/>
+</map>

@@ -1,0 +1,26 @@
+<map id="play_local_game_ia" name="play_local_game_ia">
+<area shape="rect" id="Node000001" title="Function to play a local game in CLI against the IA." alt="" coords="5,129,156,155"/>
+<area shape="rect" id="Node000002" href="$game__logic_8c.html#a7064e50bc10ffe0ff9db40a7f10aa660" title="Function to ask the user for coordinates." alt="" coords="204,5,332,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="93,127,139,85,203,40,214,34,216,39,205,44,143,89,97,131"/>
+<area shape="rect" id="Node000003" href="$game__logic_8c.html#ab2799a5dca6411a7176972326e6323f9" title="Function to display the game board in the CLI." alt="" coords="211,55,325,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="111,127,203,89,219,82,221,87,205,94,113,132"/>
+<area shape="rect" id="Node000004" href="$ia_8c.html#abebe885bba818d17539c9e0c74bbc0e5" title="Main function to get a column." alt="" coords="209,104,327,129"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="156,129,195,124,196,129,156,134"/>
+<area shape="rect" id="Node000007" href="$game__logic_8c.html#a8ed9dd5e9c9e940055fc2fda0bb4d220" title="Function to initialize the game board, it use the constant ROWS and COLS defined in inc/const...." alt="" coords="225,153,311,179"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="156,149,211,156,211,161,156,154"/>
+<area shape="rect" id="Node000008" href="$game__logic_8c.html#a48e253127878279dd9f537a6bb719f55" title="Function to check if the game is over." alt="" coords="211,203,325,228"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="114,152,205,189,221,195,219,200,203,194,112,157"/>
+<area shape="rect" id="Node000009" href="$game__logic_8c.html#ae8ec155c7e09a0a40898d57fd037e583" title="Function to make a move." alt="" coords="217,252,319,277"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="97,153,143,194,205,238,216,244,214,249,203,243,139,198,93,157"/>
+<area shape="rect" id="Node000005" href="$ia_8c.html#a7265a4240c79ed35bf94e10739e4232d" title="Function to get a random coordinate." alt="" coords="401,104,552,129"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="327,114,388,114,388,119,327,119"/>
+<area shape="rect" id="Node000006" href="$ia_8c.html#abeb3c633344f067c2614c1582408aa9a" title="Function to get the number of squares removed." alt="" coords="621,129,772,155"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="552,123,608,129,608,134,552,128"/>
+<area shape="poly" id="edge12_Node000009_Node000006" title=" " alt="" coords="309,249,331,238,344,227,353,215,363,203,379,192,435,169,495,154,554,144,607,140,607,145,554,150,496,159,437,174,381,196,367,207,358,218,348,230,333,243,311,254"/>
+<area shape="rect" id="Node000010" href="$game__logic_8c.html#a0c1e3c44d468721790db3651f98d7f9a" title="Function to convert a column letter to an index." alt="" coords="410,205,543,231"/>
+<area shape="poly" id="edge9_Node000009_Node000010" title=" " alt="" coords="319,251,406,231,407,236,320,256"/>
+<area shape="rect" id="Node000011" href="$game__logic_8c.html#a0f9921b9074eca809c9cbc33f81420c4" title="Function to count the number of squares to remove." alt="" coords="380,255,573,280"/>
+<area shape="poly" id="edge10_Node000009_Node000011" title=" " alt="" coords="320,263,366,263,366,269,320,268"/>
+<area shape="rect" id="Node000012" href="$game__logic_8c.html#a0d417e43bdee123bd7c9e6ffcd6e473b" title="Function to destroy the squares." alt="" coords="412,304,541,329"/>
+<area shape="poly" id="edge11_Node000009_Node000012" title=" " alt="" coords="320,275,381,290,412,298,411,303,379,295,319,280"/>
+</map>

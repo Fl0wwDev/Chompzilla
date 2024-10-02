@@ -1,0 +1,5 @@
+<map id="send_test_message_to_server_client_gui" name="send_test_message_to_server_client_gui">
+<area shape="rect" id="Node000001" title="Function to send a test message to the server." alt="" coords="5,5,176,45"/>
+<area shape="rect" id="Node000002" href="$client__gui_8c.html#a8cf3b1e6663051db6b155a9d047e0554" title="Function to send the coordinates to the server." alt="" coords="224,13,427,38"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="176,23,210,23,210,28,176,28"/>
+</map>

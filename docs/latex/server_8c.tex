@@ -1,0 +1,360 @@
+\doxysection{src/server/server.c File Reference}
+\hypertarget{server_8c}{}\label{server_8c}\index{src/server/server.c@{src/server/server.c}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+{\ttfamily \#include $<$arpa/inet.\+h$>$}\newline
+{\ttfamily \#include $<$pthread.\+h$>$}\newline
+{\ttfamily \#include $<$signal.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include "{}server.\+h"{}}\newline
+{\ttfamily \#include "{}../inc/const.\+h"{}}\newline
+{\ttfamily \#include "{}../game\+\_\+logic/game\+\_\+logic.\+h"{}}\newline
+{\ttfamily \#include "{}../gui/gui\+\_\+gamemode.\+h"{}}\newline
+{\ttfamily \#include "{}../ia/ia.\+h"{}}\newline
+Include dependency graph for server.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{server_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{void}} \mbox{\hyperlink{server_8c_a50fd06011f00587a868c4d3f375dab6d}{handle\+\_\+client\+\_\+move}} (\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{const}} \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{char}} \texorpdfstring{$\ast$}{*}coordinates)
+\begin{DoxyCompactList}\small\item\em Function to handle the client move This function updates the GUI with the client move. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{void}} \mbox{\hyperlink{server_8c_a6af6770776a3dc9fc5102eb2bd0884ba}{close\+\_\+sockets}} ()
+\begin{DoxyCompactList}\small\item\em Function to close the sockets. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{void}} \mbox{\hyperlink{server_8c_a8bfc90b3fb9344e9caafec953baacc0b}{handle\+\_\+sigint}} (\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{int}} \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{sig}})
+\begin{DoxyCompactList}\small\item\em Function to handle the interrupt signal (CTRL+C) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{void}} \mbox{\hyperlink{server_8c_abb0090be21f76dafc36ac4b333a14adc}{play\+\_\+network\+\_\+server}} (\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{unsigned}} \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{short}} \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{port}})
+\begin{DoxyCompactList}\small\item\em Function to manage the network server. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{void}} \mbox{\hyperlink{server_8c_a1271c0951e919351d79c322614184981}{play\+\_\+network\+\_\+server\+\_\+ia}} (\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{unsigned}} \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{short}} \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{port}})
+\begin{DoxyCompactList}\small\item\em Function to launch the server with the IA as a player. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{void}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{server_8c_afd895fed4d709fc1e43bdaf9d2712900}{launch\+\_\+server\+\_\+thread}} (\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{void}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{arg}})
+\begin{DoxyCompactList}\small\item\em Function to launch the server thread. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{void}} \mbox{\hyperlink{server_8c_aec212c6dc9b28a8077489b6c1f6432c7}{start\+\_\+server\+\_\+from\+\_\+gui}} (\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{unsigned}} \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{short}} \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{port}})
+\begin{DoxyCompactList}\small\item\em Function to start the server from the GUI. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{int}} \mbox{\hyperlink{server_8c_a38bf4c0204ad6a02e4d5090b315de54f}{current\+\_\+player}} = 1
+\item 
+\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{int}} \mbox{\hyperlink{server_8c_a6477aab96b073e95533bff349e4d320f}{server\+\_\+ready}} = 0
+\item 
+\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{int}} \mbox{\hyperlink{server_8c_a6cf4711aa7ecd548b03b6e50d44b5aa6}{server\+\_\+fd}} = -\/1
+\item 
+\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{int}} \mbox{\hyperlink{server_8c_a4848332eecf4c58ee3b11a4f8513c3db}{new\+\_\+socket}} = -\/1
+\item 
+\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{pthread\+\_\+mutex\+\_\+t}} \mbox{\hyperlink{server_8c_a482a2d820c7f82bbcdfd063dafebd347}{server\+\_\+mutex}} = \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{PTHREAD\+\_\+\+MUTEX\+\_\+\+INITIALIZER}}
+\item 
+\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{pthread\+\_\+cond\+\_\+t}} \mbox{\hyperlink{server_8c_a5c5363996b241d21660b0b46af5fc10b}{server\+\_\+cond}} = \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{PTHREAD\+\_\+\+COND\+\_\+\+INITIALIZER}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{server_8c_a6af6770776a3dc9fc5102eb2bd0884ba}\label{server_8c_a6af6770776a3dc9fc5102eb2bd0884ba} 
+\index{server.c@{server.c}!close\_sockets@{close\_sockets}}
+\index{close\_sockets@{close\_sockets}!server.c@{server.c}}
+\doxysubsubsection{\texorpdfstring{close\_sockets()}{close\_sockets()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{void}} close\+\_\+sockets (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Function to close the sockets. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{server_8c_source_l00042}{42}} of file \mbox{\hyperlink{server_8c_source}{server.\+c}}.
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{server_8c_a6af6770776a3dc9fc5102eb2bd0884ba_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{server_8c_a50fd06011f00587a868c4d3f375dab6d}\label{server_8c_a50fd06011f00587a868c4d3f375dab6d} 
+\index{server.c@{server.c}!handle\_client\_move@{handle\_client\_move}}
+\index{handle\_client\_move@{handle\_client\_move}!server.c@{server.c}}
+\doxysubsubsection{\texorpdfstring{handle\_client\_move()}{handle\_client\_move()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{void}} handle\+\_\+client\+\_\+move (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{const}} \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{char}} \texorpdfstring{$\ast$}{*}}]{coordinates }\end{DoxyParamCaption})}
+
+
+
+Function to handle the client move This function updates the GUI with the client move. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em coordinates} & The coordinates of the client move \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{server_8c_source_l00031}{31}} of file \mbox{\hyperlink{server_8c_source}{server.\+c}}.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{server_8c_a50fd06011f00587a868c4d3f375dab6d_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=267pt]{server_8c_a50fd06011f00587a868c4d3f375dab6d_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{server_8c_a8bfc90b3fb9344e9caafec953baacc0b}\label{server_8c_a8bfc90b3fb9344e9caafec953baacc0b} 
+\index{server.c@{server.c}!handle\_sigint@{handle\_sigint}}
+\index{handle\_sigint@{handle\_sigint}!server.c@{server.c}}
+\doxysubsubsection{\texorpdfstring{handle\_sigint()}{handle\_sigint()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{void}} handle\+\_\+sigint (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{int}}}]{sig }\end{DoxyParamCaption})}
+
+
+
+Function to handle the interrupt signal (CTRL+C) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sig} & The signal number \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{server_8c_source_l00063}{63}} of file \mbox{\hyperlink{server_8c_source}{server.\+c}}.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=282pt]{server_8c_a8bfc90b3fb9344e9caafec953baacc0b_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{server_8c_a8bfc90b3fb9344e9caafec953baacc0b_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{server_8c_afd895fed4d709fc1e43bdaf9d2712900}\label{server_8c_afd895fed4d709fc1e43bdaf9d2712900} 
+\index{server.c@{server.c}!launch\_server\_thread@{launch\_server\_thread}}
+\index{launch\_server\_thread@{launch\_server\_thread}!server.c@{server.c}}
+\doxysubsubsection{\texorpdfstring{launch\_server\_thread()}{launch\_server\_thread()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{void}} \texorpdfstring{$\ast$}{*} launch\+\_\+server\+\_\+thread (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{void}} \texorpdfstring{$\ast$}{*}}]{arg }\end{DoxyParamCaption})}
+
+
+
+Function to launch the server thread. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em arg} & The port number as a void pointer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void\texorpdfstring{$\ast$}{*} 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{server_8c_source_l00614}{614}} of file \mbox{\hyperlink{server_8c_source}{server.\+c}}.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{server_8c_afd895fed4d709fc1e43bdaf9d2712900_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{server_8c_afd895fed4d709fc1e43bdaf9d2712900_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{server_8c_abb0090be21f76dafc36ac4b333a14adc}\label{server_8c_abb0090be21f76dafc36ac4b333a14adc} 
+\index{server.c@{server.c}!play\_network\_server@{play\_network\_server}}
+\index{play\_network\_server@{play\_network\_server}!server.c@{server.c}}
+\doxysubsubsection{\texorpdfstring{play\_network\_server()}{play\_network\_server()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{void}} play\+\_\+network\+\_\+server (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{unsigned}} \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{short}}}]{port }\end{DoxyParamCaption})}
+
+
+
+Function to manage the network server. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em port} & The port number \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{server_8c_source_l00076}{76}} of file \mbox{\hyperlink{server_8c_source}{server.\+c}}.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{server_8c_abb0090be21f76dafc36ac4b333a14adc_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{server_8c_abb0090be21f76dafc36ac4b333a14adc_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{server_8c_a1271c0951e919351d79c322614184981}\label{server_8c_a1271c0951e919351d79c322614184981} 
+\index{server.c@{server.c}!play\_network\_server\_ia@{play\_network\_server\_ia}}
+\index{play\_network\_server\_ia@{play\_network\_server\_ia}!server.c@{server.c}}
+\doxysubsubsection{\texorpdfstring{play\_network\_server\_ia()}{play\_network\_server\_ia()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{void}} play\+\_\+network\+\_\+server\+\_\+ia (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{unsigned}} \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{short}}}]{port }\end{DoxyParamCaption})}
+
+
+
+Function to launch the server with the IA as a player. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em port} & The port number \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{server_8c_source_l00325}{325}} of file \mbox{\hyperlink{server_8c_source}{server.\+c}}.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{server_8c_a1271c0951e919351d79c322614184981_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{server_8c_a1271c0951e919351d79c322614184981_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{server_8c_aec212c6dc9b28a8077489b6c1f6432c7}\label{server_8c_aec212c6dc9b28a8077489b6c1f6432c7} 
+\index{server.c@{server.c}!start\_server\_from\_gui@{start\_server\_from\_gui}}
+\index{start\_server\_from\_gui@{start\_server\_from\_gui}!server.c@{server.c}}
+\doxysubsubsection{\texorpdfstring{start\_server\_from\_gui()}{start\_server\_from\_gui()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{void}} start\+\_\+server\+\_\+from\+\_\+gui (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{unsigned}} \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{short}}}]{port }\end{DoxyParamCaption})}
+
+
+
+Function to start the server from the GUI. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em port} & The port number \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{server_8c_source_l00631}{631}} of file \mbox{\hyperlink{server_8c_source}{server.\+c}}.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{server_8c_aec212c6dc9b28a8077489b6c1f6432c7_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=276pt]{server_8c_aec212c6dc9b28a8077489b6c1f6432c7_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{server_8c_a38bf4c0204ad6a02e4d5090b315de54f}\label{server_8c_a38bf4c0204ad6a02e4d5090b315de54f} 
+\index{server.c@{server.c}!current\_player@{current\_player}}
+\index{current\_player@{current\_player}!server.c@{server.c}}
+\doxysubsubsection{\texorpdfstring{current\_player}{current\_player}}
+{\footnotesize\ttfamily \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{int}} current\+\_\+player = 1}
+
+
+
+Definition at line \mbox{\hyperlink{server_8c_source_l00016}{16}} of file \mbox{\hyperlink{server_8c_source}{server.\+c}}.
+
+\Hypertarget{server_8c_a4848332eecf4c58ee3b11a4f8513c3db}\label{server_8c_a4848332eecf4c58ee3b11a4f8513c3db} 
+\index{server.c@{server.c}!new\_socket@{new\_socket}}
+\index{new\_socket@{new\_socket}!server.c@{server.c}}
+\doxysubsubsection{\texorpdfstring{new\_socket}{new\_socket}}
+{\footnotesize\ttfamily \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{int}} new\+\_\+socket = -\/1}
+
+
+
+Definition at line \mbox{\hyperlink{server_8c_source_l00019}{19}} of file \mbox{\hyperlink{server_8c_source}{server.\+c}}.
+
+\Hypertarget{server_8c_a5c5363996b241d21660b0b46af5fc10b}\label{server_8c_a5c5363996b241d21660b0b46af5fc10b} 
+\index{server.c@{server.c}!server\_cond@{server\_cond}}
+\index{server\_cond@{server\_cond}!server.c@{server.c}}
+\doxysubsubsection{\texorpdfstring{server\_cond}{server\_cond}}
+{\footnotesize\ttfamily \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{pthread\+\_\+cond\+\_\+t}} server\+\_\+cond = \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{PTHREAD\+\_\+\+COND\+\_\+\+INITIALIZER}}}
+
+
+
+Definition at line \mbox{\hyperlink{server_8c_source_l00022}{22}} of file \mbox{\hyperlink{server_8c_source}{server.\+c}}.
+
+\Hypertarget{server_8c_a6cf4711aa7ecd548b03b6e50d44b5aa6}\label{server_8c_a6cf4711aa7ecd548b03b6e50d44b5aa6} 
+\index{server.c@{server.c}!server\_fd@{server\_fd}}
+\index{server\_fd@{server\_fd}!server.c@{server.c}}
+\doxysubsubsection{\texorpdfstring{server\_fd}{server\_fd}}
+{\footnotesize\ttfamily \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{int}} server\+\_\+fd = -\/1}
+
+
+
+Definition at line \mbox{\hyperlink{server_8c_source_l00018}{18}} of file \mbox{\hyperlink{server_8c_source}{server.\+c}}.
+
+\Hypertarget{server_8c_a482a2d820c7f82bbcdfd063dafebd347}\label{server_8c_a482a2d820c7f82bbcdfd063dafebd347} 
+\index{server.c@{server.c}!server\_mutex@{server\_mutex}}
+\index{server\_mutex@{server\_mutex}!server.c@{server.c}}
+\doxysubsubsection{\texorpdfstring{server\_mutex}{server\_mutex}}
+{\footnotesize\ttfamily \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{pthread\+\_\+mutex\+\_\+t}} server\+\_\+mutex = \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{PTHREAD\+\_\+\+MUTEX\+\_\+\+INITIALIZER}}}
+
+
+
+Definition at line \mbox{\hyperlink{server_8c_source_l00021}{21}} of file \mbox{\hyperlink{server_8c_source}{server.\+c}}.
+
+\Hypertarget{server_8c_a6477aab96b073e95533bff349e4d320f}\label{server_8c_a6477aab96b073e95533bff349e4d320f} 
+\index{server.c@{server.c}!server\_ready@{server\_ready}}
+\index{server\_ready@{server\_ready}!server.c@{server.c}}
+\doxysubsubsection{\texorpdfstring{server\_ready}{server\_ready}}
+{\footnotesize\ttfamily \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{int}} server\+\_\+ready = 0}
+
+
+
+Definition at line \mbox{\hyperlink{server_8c_source_l00017}{17}} of file \mbox{\hyperlink{server_8c_source}{server.\+c}}.
+

@@ -1,0 +1,5 @@
+<map id="Test" name="Test">
+<area shape="rect" id="Node000001" title="Test if the column_to_index function returns the correct index for a given column." alt="" coords="5,5,53,31"/>
+<area shape="rect" id="Node000002" href="$game__logic_8c.html#a0c1e3c44d468721790db3651f98d7f9a" title="Function to convert a column letter to an index." alt="" coords="101,5,235,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="54,15,88,15,88,21,54,21"/>
+</map>

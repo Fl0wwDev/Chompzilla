@@ -1,0 +1,5 @@
+<map id="update_gui_after_move" name="update_gui_after_move">
+<area shape="rect" id="Node000001" title="Function to update the GUI after a move." alt="" coords="5,5,180,31"/>
+<area shape="rect" id="Node000002" href="$gui_8c.html#aa51ce1145109f64d60c2572cc7317b90" title="Function to update the GUI from the server." alt="" coords="228,5,408,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="180,15,214,15,214,21,180,21"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="exit_game_client_gui" name="exit_game_client_gui">
+<area shape="rect" id="Node000001" title="Function to quit the game." alt="" coords="5,5,167,31"/>
+<area shape="rect" id="Node000002" href="$client__gui_8c.html#a038b900fec8cbee508606fd14b4a7ae1" title="Function to destroy the window_client_gui." alt="" coords="215,5,413,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="167,15,201,15,201,21,167,21"/>
+</map>

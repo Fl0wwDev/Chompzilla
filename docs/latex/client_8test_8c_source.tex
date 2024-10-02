@@ -1,0 +1,63 @@
+\doxysection{client.\+test.\+c}
+\hypertarget{client_8test_8c_source}{}\label{client_8test_8c_source}\index{src/tests/client.test.c@{src/tests/client.test.c}}
+\mbox{\hyperlink{client_8test_8c}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{client_8test_8c_source_l00001}00001\ \textcolor{preprocessor}{\#include\ <criterion/criterion.h>}}
+\DoxyCodeLine{\Hypertarget{client_8test_8c_source_l00002}00002\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{\Hypertarget{client_8test_8c_source_l00003}00003\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
+\DoxyCodeLine{\Hypertarget{client_8test_8c_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <string.h>}}
+\DoxyCodeLine{\Hypertarget{client_8test_8c_source_l00005}00005\ \textcolor{preprocessor}{\#include\ "{}../client/client.h"{}}}
+\DoxyCodeLine{\Hypertarget{client_8test_8c_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{client_8test_8c_source_l00010}\mbox{\hyperlink{client_8test_8c_aa686b6803df654123bf47b5b55b6ef6f}{00010}}\ \mbox{\hyperlink{client_8test_8c_aa686b6803df654123bf47b5b55b6ef6f}{Test}}(client,\ play\_network\_client\_exists)\ \{}
+\DoxyCodeLine{\Hypertarget{client_8test_8c_source_l00011}00011\ \ \ \ \ cr\_assert\_not\_null(\mbox{\hyperlink{client_8c_a8308fe6a601a2085a701ce0dc0840226}{play\_network\_client}},\ \textcolor{stringliteral}{"{}play\_network\_client\ does\ not\ exist"{}});}
+\DoxyCodeLine{\Hypertarget{client_8test_8c_source_l00012}00012\ \}}
+\DoxyCodeLine{\Hypertarget{client_8test_8c_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{client_8test_8c_source_l00017}\mbox{\hyperlink{client_8test_8c_a476406ab702cb7c5e05e1bf5e4e49eed}{00017}}\ \mbox{\hyperlink{client_8test_8c_aa686b6803df654123bf47b5b55b6ef6f}{Test}}(client,\ play\_network\_ia\_client\_exists)\ \{}
+\DoxyCodeLine{\Hypertarget{client_8test_8c_source_l00018}00018\ \ \ \ \ cr\_assert\_not\_null(\mbox{\hyperlink{client_8c_ae58acfe4ef90373f7e9200f2deaf2ac6}{play\_network\_ia\_client}},\ \textcolor{stringliteral}{"{}play\_network\_ia\_client\ does\ not\ exist"{}});}
+\DoxyCodeLine{\Hypertarget{client_8test_8c_source_l00019}00019\ \}}
+\DoxyCodeLine{\Hypertarget{client_8test_8c_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{client_8test_8c_source_l00024}\mbox{\hyperlink{client_8test_8c_aee971de784e2da20b3093add3ba7b23e}{00024}}\ \mbox{\hyperlink{client_8test_8c_aa686b6803df654123bf47b5b55b6ef6f}{Test}}(client,\ play\_network\_client\_valid\_params)\ \{}
+\DoxyCodeLine{\Hypertarget{client_8test_8c_source_l00025}00025\ \ \ \ \ \textcolor{keywordtype}{char}\ *server\_ip\ =\ \textcolor{stringliteral}{"{}127.0.0.1"{}};}
+\DoxyCodeLine{\Hypertarget{client_8test_8c_source_l00026}00026\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{short}\ \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{port}}\ =\ 8080;}
+\DoxyCodeLine{\Hypertarget{client_8test_8c_source_l00027}00027\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{client_8test_8c_source_l00028}00028\ \ \ \ \ \textcolor{comment}{//\ Call\ the\ function\ with\ valid\ parameters}}
+\DoxyCodeLine{\Hypertarget{client_8test_8c_source_l00029}00029\ \ \ \ \ \mbox{\hyperlink{client_8c_a8308fe6a601a2085a701ce0dc0840226}{play\_network\_client}}(server\_ip,\ \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{port}});}
+\DoxyCodeLine{\Hypertarget{client_8test_8c_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{client_8test_8c_source_l00031}00031\ \ \ \ \ \textcolor{comment}{//\ Check\ expected\ behavior,\ e.g.,\ no\ errors}}
+\DoxyCodeLine{\Hypertarget{client_8test_8c_source_l00032}00032\ \ \ \ \ cr\_assert(\textcolor{keyword}{true},\ \textcolor{stringliteral}{"{}play\_network\_client\ did\ not\ behave\ as\ expected\ with\ valid\ parameters"{}});}
+\DoxyCodeLine{\Hypertarget{client_8test_8c_source_l00033}00033\ \}}
+\DoxyCodeLine{\Hypertarget{client_8test_8c_source_l00034}00034\ }
+\DoxyCodeLine{\Hypertarget{client_8test_8c_source_l00038}\mbox{\hyperlink{client_8test_8c_a127de683f0c9a0380c6bf2e1dd1905d1}{00038}}\ \mbox{\hyperlink{client_8test_8c_aa686b6803df654123bf47b5b55b6ef6f}{Test}}(client,\ play\_network\_client\_invalid\_ip)\ \{}
+\DoxyCodeLine{\Hypertarget{client_8test_8c_source_l00039}00039\ \ \ \ \ \textcolor{keywordtype}{char}\ *server\_ip\ =\ \textcolor{stringliteral}{"{}invalid\_ip"{}};}
+\DoxyCodeLine{\Hypertarget{client_8test_8c_source_l00040}00040\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{short}\ \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{port}}\ =\ 8080;}
+\DoxyCodeLine{\Hypertarget{client_8test_8c_source_l00041}00041\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{client_8test_8c_source_l00042}00042\ \ \ \ \ \textcolor{comment}{//\ Call\ the\ function\ with\ an\ invalid\ IP}}
+\DoxyCodeLine{\Hypertarget{client_8test_8c_source_l00043}00043\ \ \ \ \ \mbox{\hyperlink{client_8c_a8308fe6a601a2085a701ce0dc0840226}{play\_network\_client}}(server\_ip,\ \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{port}});}
+\DoxyCodeLine{\Hypertarget{client_8test_8c_source_l00044}00044\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{client_8test_8c_source_l00045}00045\ \ \ \ \ \textcolor{comment}{//\ Check\ that\ the\ function\ handles\ the\ error\ correctly}}
+\DoxyCodeLine{\Hypertarget{client_8test_8c_source_l00046}00046\ \ \ \ \ cr\_assert(\textcolor{keyword}{true},\ \textcolor{stringliteral}{"{}play\_network\_client\ did\ not\ handle\ invalid\ IP\ as\ expected"{}});}
+\DoxyCodeLine{\Hypertarget{client_8test_8c_source_l00047}00047\ \}}
+\DoxyCodeLine{\Hypertarget{client_8test_8c_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{client_8test_8c_source_l00052}\mbox{\hyperlink{client_8test_8c_af1ce3959f1356a2a7fdde9ee93591fb8}{00052}}\ \mbox{\hyperlink{client_8test_8c_aa686b6803df654123bf47b5b55b6ef6f}{Test}}(client,\ play\_network\_ia\_client\_valid\_params)\ \{}
+\DoxyCodeLine{\Hypertarget{client_8test_8c_source_l00053}00053\ \ \ \ \ \textcolor{keywordtype}{char}\ *server\_ip\ =\ \textcolor{stringliteral}{"{}127.0.0.1"{}};}
+\DoxyCodeLine{\Hypertarget{client_8test_8c_source_l00054}00054\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{short}\ \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{port}}\ =\ 8080;}
+\DoxyCodeLine{\Hypertarget{client_8test_8c_source_l00055}00055\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{client_8test_8c_source_l00056}00056\ \ \ \ \ \textcolor{comment}{//\ Call\ the\ function\ with\ valid\ parameters}}
+\DoxyCodeLine{\Hypertarget{client_8test_8c_source_l00057}00057\ \ \ \ \ \mbox{\hyperlink{client_8c_ae58acfe4ef90373f7e9200f2deaf2ac6}{play\_network\_ia\_client}}(server\_ip,\ \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{port}});}
+\DoxyCodeLine{\Hypertarget{client_8test_8c_source_l00058}00058\ }
+\DoxyCodeLine{\Hypertarget{client_8test_8c_source_l00059}00059\ \ \ \ \ \textcolor{comment}{//\ Check\ expected\ behavior\ for\ play\_network\_ia\_client}}
+\DoxyCodeLine{\Hypertarget{client_8test_8c_source_l00060}00060\ \ \ \ \ cr\_assert(\textcolor{keyword}{true},\ \textcolor{stringliteral}{"{}play\_network\_ia\_client\ did\ not\ behave\ as\ expected\ with\ valid\ parameters"{}});}
+\DoxyCodeLine{\Hypertarget{client_8test_8c_source_l00061}00061\ \}}
+\DoxyCodeLine{\Hypertarget{client_8test_8c_source_l00062}00062\ }
+\DoxyCodeLine{\Hypertarget{client_8test_8c_source_l00066}\mbox{\hyperlink{client_8test_8c_a12af323c5d161a87ebabddcbed6e3ed5}{00066}}\ \mbox{\hyperlink{client_8test_8c_aa686b6803df654123bf47b5b55b6ef6f}{Test}}(client,\ play\_network\_ia\_client\_invalid\_port)\ \{}
+\DoxyCodeLine{\Hypertarget{client_8test_8c_source_l00067}00067\ \ \ \ \ \textcolor{keywordtype}{char}\ *server\_ip\ =\ \textcolor{stringliteral}{"{}127.0.0.1"{}};}
+\DoxyCodeLine{\Hypertarget{client_8test_8c_source_l00068}00068\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{port}}\ =\ 99999;\ \ \textcolor{comment}{//\ Use\ a\ larger\ type\ to\ avoid\ overflow\ warning}}
+\DoxyCodeLine{\Hypertarget{client_8test_8c_source_l00069}00069\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{client_8test_8c_source_l00070}00070\ \ \ \ \ \textcolor{comment}{//\ Call\ the\ function\ with\ an\ invalid\ port}}
+\DoxyCodeLine{\Hypertarget{client_8test_8c_source_l00071}00071\ \ \ \ \ \mbox{\hyperlink{client_8c_ae58acfe4ef90373f7e9200f2deaf2ac6}{play\_network\_ia\_client}}(server\_ip,\ \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{port}});}
+\DoxyCodeLine{\Hypertarget{client_8test_8c_source_l00072}00072\ }
+\DoxyCodeLine{\Hypertarget{client_8test_8c_source_l00073}00073\ \ \ \ \ \textcolor{comment}{//\ Check\ that\ the\ function\ handles\ the\ error\ correctly}}
+\DoxyCodeLine{\Hypertarget{client_8test_8c_source_l00074}00074\ \ \ \ \ cr\_assert(\textcolor{keyword}{true},\ \textcolor{stringliteral}{"{}play\_network\_ia\_client\ did\ not\ handle\ invalid\ port\ as\ expected"{}});}
+\DoxyCodeLine{\Hypertarget{client_8test_8c_source_l00075}00075\ \}}
+
+\end{DoxyCode}

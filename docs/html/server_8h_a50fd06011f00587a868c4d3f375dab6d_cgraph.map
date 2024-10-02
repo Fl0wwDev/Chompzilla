@@ -1,0 +1,5 @@
+<map id="handle_client_move" name="handle_client_move">
+<area shape="rect" id="Node000001" title="Function to handle the client move This function updates the GUI with the client move." alt="" coords="5,5,159,31"/>
+<area shape="rect" id="Node000002" href="$gui_8c.html#aa51ce1145109f64d60c2572cc7317b90" title="Function to update the GUI from the server." alt="" coords="207,5,387,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="159,15,193,15,193,21,159,21"/>
+</map>

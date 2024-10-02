@@ -1,0 +1,14 @@
+<map id="active_gui_client_gui" name="active_gui_client_gui">
+<area shape="rect" id="Node000001" title="The main window of the application." alt="" coords="5,84,164,109"/>
+<area shape="rect" id="Node000002" href="$client__gui_8c.html#a5c7408bd2f3f0b0767b7ca70315312a4" title="The function to delete a button and the linked buttons This function is called when a button is click..." alt="" coords="212,84,373,109"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="164,94,199,94,199,99,164,99"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="259,86,251,76,255,66,269,60,293,57,322,61,333,70,330,74,320,66,293,63,271,65,259,69,256,75,263,82"/>
+<area shape="rect" id="Node000003" href="$client__gui_8h.html#a581225bf588b199d04663d471c659d72" title=" " alt="" coords="445,5,607,31"/>
+<area shape="poly" id="edge3_Node000002_Node000003" title=" " alt="" coords="319,82,366,60,420,39,448,32,449,37,422,45,368,65,321,86"/>
+<area shape="rect" id="Node000004" href="$client__gui_8c.html#a8cf3b1e6663051db6b155a9d047e0554" title="Function to send the coordinates to the server." alt="" coords="425,55,627,80"/>
+<area shape="poly" id="edge4_Node000002_Node000004" title=" " alt="" coords="373,84,411,79,412,84,374,89"/>
+<area shape="rect" id="Node000005" href="$client__gui_8c.html#a090a894356cc48aa0f80e923e62da046" title="Function to update the error label text." alt="" coords="454,105,598,145"/>
+<area shape="poly" id="edge5_Node000002_Node000005" title=" " alt="" coords="374,104,441,112,440,117,373,109"/>
+<area shape="rect" id="Node000006" href="$client__gui_8c.html#abeb2839518a089326745e785df6b1a52" title="Function to update the label text." alt="" coords="421,169,631,195"/>
+<area shape="poly" id="edge6_Node000002_Node000006" title=" " alt="" coords="319,107,366,131,422,154,452,163,450,168,420,159,364,135,316,112"/>
+</map>

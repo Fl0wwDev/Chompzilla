@@ -1,0 +1,9 @@
+<map id="ask_server_ip_port" name="ask_server_ip_port">
+<area shape="rect" id="Node000001" title="Function to ask the user to enter the server IP address and the port number." alt="" coords="447,5,592,31"/>
+<area shape="rect" id="Node000002" href="$main__menu__utils_8c.html#aa3501c29f05643295bbda8a78253cadd" title="Function to display the game mode menu." alt="" coords="259,5,399,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="433,21,399,21,399,15,433,15"/>
+<area shape="rect" id="Node000003" href="$main__menu__utils_8c.html#a116f5db451cfe52a4f8ae0bdf32e3bbc" title="Function to display the main menu." alt="" coords="108,5,211,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="245,21,211,21,211,15,245,15"/>
+<area shape="rect" id="Node000004" href="$game_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="The main function." alt="" coords="5,5,60,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="94,21,60,21,60,15,94,15"/>
+</map>

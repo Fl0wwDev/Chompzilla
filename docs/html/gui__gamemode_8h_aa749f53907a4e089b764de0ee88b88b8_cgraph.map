@@ -1,0 +1,92 @@
+<map id="launch_gui_gamemode" name="launch_gui_gamemode">
+<area shape="rect" id="Node000001" title="The main function of the application." alt="" coords="5,268,179,293"/>
+<area shape="rect" id="Node000002" href="$gui__gamemode_8c.html#a6f97f03268d2683627c54b1bea3db6f6" title="The main window of the application." alt="" coords="227,268,397,293"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="179,278,213,278,213,283,179,283"/>
+<area shape="rect" id="Node000003" href="$gui__gamemode_8c.html#a1dec6dd8f9b371d7dd67e9d670bf003b" title="Function to host a server with the GUI." alt="" coords="449,208,623,233"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="360,265,474,234,475,240,361,271"/>
+<area shape="rect" id="Node000015" href="$gui__gamemode_8c.html#ac14f1160debf8136367ac538a5b1ab52" title="Function to play a local game with the GUI." alt="" coords="457,261,615,301"/>
+<area shape="poly" id="edge19_Node000002_Node000015" title=" " alt="" coords="398,278,443,278,443,283,398,283"/>
+<area shape="rect" id="Node000031" href="$gui__gamemode_8c.html#a2e03a7b2bf0082181788fa82ce1fcca2" title="Function to play a network game with the GUI as a client." alt="" coords="445,331,627,371"/>
+<area shape="poly" id="edge35_Node000002_Node000031" title=" " alt="" coords="354,291,460,325,458,330,353,296"/>
+<area shape="rect" id="Node000004" href="$gui__gamemode_8c.html#a5dbd76630a15dbe9d88e1cdad214dacc" title="Function to start the server from the GUI." alt="" coords="691,193,867,219"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="623,213,677,209,678,215,624,218"/>
+<area shape="rect" id="Node000005" href="$server__gui_8c.html#a9343452c866f3dacaa46c32d318f3e6f" title="Function to start the server." alt="" coords="932,187,1083,212"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="868,201,918,199,918,205,868,206"/>
+<area shape="rect" id="Node000006" href="$server__gui_8c.html#a899f9da0d92c10826dbe27cb6ee17b74" title="The main function of the application." alt="" coords="1131,168,1297,193"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="1083,190,1117,187,1117,192,1083,195"/>
+<area shape="rect" id="Node000007" href="$server__gui_8c.html#aaff0a41360185353510efa362c2ab592" title="The main window of the application." alt="" coords="1578,168,1742,193"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="1298,178,1564,178,1564,183,1298,183"/>
+<area shape="rect" id="Node000013" href="$server__gui_8c.html#a347b29036b6cd430e39fa92029a7d847" title="Function to start the server GUI." alt="" coords="1345,105,1520,131"/>
+<area shape="poly" id="edge14_Node000006_Node000013" title=" " alt="" coords="1258,165,1374,132,1375,137,1260,171"/>
+<area shape="rect" id="Node000008" href="$server__gui_8c.html#a96659326d93314ae99ea61edd3282779" title="The function to delete a button and the linked buttons This function is called when a button is click..." alt="" coords="1821,73,1988,99"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="1693,165,1857,101,1859,106,1695,170"/>
+<area shape="rect" id="Node000012" href="$server__gui_8c.html#aefd7b1482a448478cecc93060277239e" title="Function to set the state of the buttons." alt="" coords="2057,128,2271,153"/>
+<area shape="poly" id="edge13_Node000007_Node000012" title=" " alt="" coords="1742,173,2009,153,2043,150,2044,155,2010,158,1742,178"/>
+<area shape="poly" id="edge8_Node000008_Node000008" title=" " alt="" coords="1865,75,1857,65,1861,55,1878,49,1905,47,1939,51,1949,55,1952,61,1948,64,1945,59,1938,56,1905,52,1879,54,1865,59,1862,64,1869,71"/>
+<area shape="rect" id="Node000009" href="$server__gui_8c.html#acbc887e81600259179f64d25ed34c75b" title="Function to quit the game." alt="" coords="2081,5,2247,31"/>
+<area shape="poly" id="edge9_Node000008_Node000009" title=" " alt="" coords="1954,71,2100,32,2102,37,1955,76"/>
+<area shape="rect" id="Node000011" href="$server__gui_8c.html#a7b348f3724a1b6554f9a45d5d5b138e5" title=" " alt="" coords="2086,63,2242,103"/>
+<area shape="poly" id="edge11_Node000008_Node000011" title=" " alt="" coords="1988,82,2072,82,2072,87,1988,88"/>
+<area shape="poly" id="edge12_Node000008_Node000012" title=" " alt="" coords="1966,96,2090,122,2089,128,1965,101"/>
+<area shape="rect" id="Node000010" href="$server__gui_8c.html#a1225780d89857b9d739aba6a8d3b37ab" title="Function to destroy the window." alt="" coords="2319,5,2521,31"/>
+<area shape="poly" id="edge10_Node000009_Node000010" title=" " alt="" coords="2248,15,2304,15,2304,21,2248,21"/>
+<area shape="rect" id="Node000014" href="$server__gui_8c.html#a3cd7e8317968bc513a37b52e487c7d06" title="The main window of the application." alt="" coords="1568,80,1752,105"/>
+<area shape="poly" id="edge15_Node000013_Node000014" title=" " alt="" coords="1520,106,1554,102,1555,107,1521,111"/>
+<area shape="poly" id="edge16_Node000014_Node000008" title=" " alt="" coords="1752,87,1807,86,1808,91,1752,93"/>
+<area shape="poly" id="edge17_Node000014_Node000009" title=" " alt="" coords="1684,78,1736,54,1799,34,1869,22,1939,15,2067,12,2067,17,1939,20,1869,27,1801,39,1738,59,1687,82"/>
+<area shape="poly" id="edge18_Node000014_Node000012" title=" " alt="" coords="1753,102,1800,107,2044,129,2043,134,1800,113,1752,107"/>
+<area shape="rect" id="Node000016" href="$gui__gamemode_8c.html#af54567c223d38fbc21da40e9298ab603" title="Function to destroy the gamemode window." alt="" coords="675,253,884,279"/>
+<area shape="poly" id="edge20_Node000015_Node000016" title=" " alt="" coords="615,273,661,270,661,276,616,279"/>
+<area shape="rect" id="Node000017" href="$game__logic_8c.html#a608690d669667bea852499d1c3eae893" title="Function to play a local game with GUI." alt="" coords="700,303,859,328"/>
+<area shape="poly" id="edge21_Node000015_Node000017" title=" " alt="" coords="616,289,687,299,686,305,615,295"/>
+<area shape="rect" id="Node000018" href="$game__logic_8c.html#a8ed9dd5e9c9e940055fc2fda0bb4d220" title="Function to initialize the game board, it use the constant ROWS and COLS defined in inc/const...." alt="" coords="964,265,1051,291"/>
+<area shape="poly" id="edge22_Node000017_Node000018" title=" " alt="" coords="857,300,950,285,951,290,858,305"/>
+<area shape="rect" id="Node000019" href="$gui_8c.html#a79b7aab5800323d88b36cc5bc3edca26" title="The main function of the application." alt="" coords="961,315,1053,340"/>
+<area shape="poly" id="edge23_Node000017_Node000019" title=" " alt="" coords="859,317,947,322,947,327,859,322"/>
+<area shape="rect" id="Node000020" href="$gui_8c.html#a56286ad62f5064199b3fa1e5da729307" title="The main window of the application." alt="" coords="1169,315,1259,340"/>
+<area shape="poly" id="edge24_Node000019_Node000020" title=" " alt="" coords="1053,325,1156,325,1156,330,1053,330"/>
+<area shape="rect" id="Node000021" href="$gui_8c.html#ace23485694fbfeef4e02210878c60359" title="The function to delete a button and the linked buttons This function is called when a button is click..." alt="" coords="1387,315,1478,340"/>
+<area shape="poly" id="edge25_Node000020_Node000021" title=" " alt="" coords="1259,325,1374,325,1374,330,1259,330"/>
+<area shape="rect" id="Node000022" href="$gui_8c.html#aa82cdf9dd9194b7c81bc534e9f07e704" title="Function to quit the game." alt="" coords="1615,321,1705,347"/>
+<area shape="poly" id="edge26_Node000021_Node000022" title=" " alt="" coords="1478,326,1601,330,1601,335,1478,331"/>
+<area shape="rect" id="Node000024" href="$game__logic_8c.html#a7337808f2923d47d1f3b4aa0a621042f" title="Function to handle the game logic for the GUI." alt="" coords="1579,272,1741,297"/>
+<area shape="poly" id="edge28_Node000021_Node000024" title=" " alt="" coords="1478,316,1578,297,1579,302,1479,322"/>
+<area shape="rect" id="Node000023" href="$gui_8c.html#a516ba65090acee0f939477ec3e6e80ea" title="Function to destroy the window." alt="" coords="1841,324,1969,349"/>
+<area shape="poly" id="edge27_Node000022_Node000023" title=" " alt="" coords="1706,332,1827,333,1827,338,1706,337"/>
+<area shape="rect" id="Node000025" href="$game__logic_8c.html#a48e253127878279dd9f537a6bb719f55" title="Function to check if the game is over." alt="" coords="1848,225,1961,251"/>
+<area shape="poly" id="edge29_Node000024_Node000025" title=" " alt="" coords="1727,269,1834,249,1835,254,1728,275"/>
+<area shape="rect" id="Node000026" href="$game__logic_8c.html#ae8ec155c7e09a0a40898d57fd037e583" title="Function to make a move." alt="" coords="1853,275,1956,300"/>
+<area shape="poly" id="edge30_Node000024_Node000026" title=" " alt="" coords="1742,283,1840,284,1840,289,1742,288"/>
+<area shape="rect" id="Node000027" href="$game__logic_8c.html#a0c1e3c44d468721790db3651f98d7f9a" title="Function to convert a column letter to an index." alt="" coords="2097,251,2231,276"/>
+<area shape="poly" id="edge31_Node000026_Node000027" title=" " alt="" coords="1956,280,2083,268,2084,273,1956,285"/>
+<area shape="rect" id="Node000028" href="$game__logic_8c.html#a0f9921b9074eca809c9cbc33f81420c4" title="Function to count the number of squares to remove." alt="" coords="2067,300,2261,325"/>
+<area shape="poly" id="edge32_Node000026_Node000028" title=" " alt="" coords="1956,290,2054,299,2053,305,1956,295"/>
+<area shape="rect" id="Node000029" href="$game__logic_8c.html#a0d417e43bdee123bd7c9e6ffcd6e473b" title="Function to destroy the squares." alt="" coords="2099,349,2229,375"/>
+<area shape="poly" id="edge33_Node000026_Node000029" title=" " alt="" coords="1957,294,2010,309,2035,322,2058,334,2087,343,2085,348,2056,339,2032,326,2008,314,1955,299"/>
+<area shape="rect" id="Node000030" href="$ia_8c.html#abeb3c633344f067c2614c1582408aa9a" title="Function to get the number of squares removed." alt="" coords="2089,201,2239,227"/>
+<area shape="poly" id="edge34_Node000026_Node000030" title=" " alt="" coords="1955,275,2008,260,2032,248,2056,236,2082,228,2083,233,2058,240,2035,252,2010,264,1957,280"/>
+<area shape="rect" id="Node000032" href="$gui__gamemode_8c.html#a137ae724c37fcec06e0eb3aca8d8931d" title="Function to play a local game with the GUI." alt="" coords="694,352,865,377"/>
+<area shape="poly" id="edge36_Node000031_Node000032" title=" " alt="" coords="627,354,681,357,680,362,627,359"/>
+<area shape="rect" id="Node000033" href="$client__gui_8c.html#a77ff651aed26c82c3f39d5ebcf75054e" title="Function to launch the client in GUI mode on a specific IP address and port." alt="" coords="935,389,1080,415"/>
+<area shape="poly" id="edge37_Node000032_Node000033" title=" " alt="" coords="858,375,921,385,920,391,857,380"/>
+<area shape="rect" id="Node000034" href="$client__gui_8c.html#a5e2eec58e49d93f1c3179c695b339fb9" title="The main function of the application." alt="" coords="1133,423,1295,448"/>
+<area shape="poly" id="edge38_Node000033_Node000034" title=" " alt="" coords="1080,411,1122,418,1121,423,1080,416"/>
+<area shape="rect" id="Node000035" href="$client__gui_8c.html#a721d2f68eb86396a76863a984664fabb" title="The main window of the application." alt="" coords="1353,488,1512,513"/>
+<area shape="poly" id="edge39_Node000034_Node000035" title=" " alt="" coords="1258,446,1377,481,1375,487,1257,451"/>
+<area shape="rect" id="Node000041" href="$client__gui_8c.html#a3c6a0ad18447e98edbcc821e194ce8bb" title="The function to receive the coordinates from the server." alt="" coords="1357,415,1508,455"/>
+<area shape="poly" id="edge46_Node000034_Node000041" title=" " alt="" coords="1296,433,1344,433,1344,438,1296,438"/>
+<area shape="rect" id="Node000036" href="$client__gui_8c.html#a5c7408bd2f3f0b0767b7ca70315312a4" title="The function to delete a button and the linked buttons This function is called when a button is click..." alt="" coords="1579,497,1741,523"/>
+<area shape="poly" id="edge40_Node000035_Node000036" title=" " alt="" coords="1513,501,1566,503,1566,509,1512,507"/>
+<area shape="poly" id="edge41_Node000036_Node000036" title=" " alt="" coords="1623,499,1615,489,1619,479,1635,473,1660,471,1692,475,1704,484,1701,488,1690,479,1660,476,1636,478,1623,483,1620,488,1627,495"/>
+<area shape="rect" id="Node000037" href="$client__gui_8h.html#a581225bf588b199d04663d471c659d72" title=" " alt="" coords="1824,377,1985,403"/>
+<area shape="poly" id="edge42_Node000036_Node000037" title=" " alt="" coords="1676,495,1729,458,1799,418,1836,404,1838,409,1801,423,1732,462,1679,499"/>
+<area shape="rect" id="Node000038" href="$client__gui_8c.html#a8cf3b1e6663051db6b155a9d047e0554" title="Function to send the coordinates to the server." alt="" coords="1803,495,2006,520"/>
+<area shape="poly" id="edge43_Node000036_Node000038" title=" " alt="" coords="1741,506,1789,506,1789,511,1741,512"/>
+<area shape="rect" id="Node000039" href="$client__gui_8c.html#a090a894356cc48aa0f80e923e62da046" title="Function to update the error label text." alt="" coords="1833,545,1977,585"/>
+<area shape="poly" id="edge44_Node000036_Node000039" title=" " alt="" coords="1718,520,1820,543,1819,548,1717,525"/>
+<area shape="rect" id="Node000040" href="$client__gui_8c.html#abeb2839518a089326745e785df6b1a52" title="Function to update the label text." alt="" coords="1800,433,2009,459"/>
+<area shape="poly" id="edge45_Node000036_Node000040" title=" " alt="" coords="1709,495,1841,460,1842,465,1710,500"/>
+<area shape="poly" id="edge47_Node000041_Node000036" title=" " alt="" coords="1495,453,1609,491,1607,496,1493,458"/>
+<area shape="poly" id="edge48_Node000041_Node000037" title=" " alt="" coords="1508,425,1568,419,1810,396,1810,401,1568,425,1508,431"/>
+<area shape="poly" id="edge49_Node000041_Node000040" title=" " alt="" coords="1508,434,1786,441,1786,446,1508,440"/>
+</map>

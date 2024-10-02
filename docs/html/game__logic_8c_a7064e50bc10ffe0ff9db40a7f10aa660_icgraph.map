@@ -1,0 +1,46 @@
+<map id="ask_coordinates" name="ask_coordinates">
+<area shape="rect" id="Node000001" title="Function to ask the user for coordinates." alt="" coords="739,369,867,395"/>
+<area shape="rect" id="Node000002" href="$game__logic_8c.html#aada46df6d9266e84b6fc48286bce061e" title="Function to play a local game in CLI." alt="" coords="545,281,677,307"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="761,366,639,309,641,304,763,361"/>
+<area shape="rect" id="Node000007" href="$game__logic_8c.html#a486a0f1c264213b655412ebcf4ab1a91" title="Function to play a local game in CLI against the IA." alt="" coords="536,344,687,369"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="725,374,687,369,687,364,725,369"/>
+<area shape="rect" id="Node000008" href="$client_8c.html#a8308fe6a601a2085a701ce0dc0840226" title="Function to launch the client on a specific IP address and port." alt="" coords="535,129,688,155"/>
+<area shape="poly" id="edge10_Node000001_Node000008" title=" " alt="" coords="781,360,621,157,625,153,785,357"/>
+<area shape="rect" id="Node000012" href="$server_8c.html#abb0090be21f76dafc36ac4b333a14adc" title="Function to manage the network server." alt="" coords="532,393,691,419"/>
+<area shape="poly" id="edge16_Node000001_Node000012" title=" " alt="" coords="725,394,691,399,691,393,725,389"/>
+<area shape="rect" id="Node000018" href="$game__logic_8test_8c.html#adaacb9e685a6d2a8e101dac7e81f4429" title="Test if the ask_coordinates gets the correct coordinates We open a file with the expected coordinates..." alt="" coords="587,443,635,468"/>
+<area shape="poly" id="edge24_Node000001_Node000018" title=" " alt="" coords="763,403,692,432,636,451,635,446,690,428,761,398"/>
+<area shape="rect" id="Node000019" href="$game__logic_8test_8c.html#adc362b651604b101cc3afad893d72641" title="Test if the ask_coordinates function exists." alt="" coords="587,492,635,517"/>
+<area shape="poly" id="edge25_Node000001_Node000019" title=" " alt="" coords="783,407,743,446,692,483,664,495,636,503,635,498,662,490,689,478,740,441,780,403"/>
+<area shape="rect" id="Node000003" href="$main__menu__utils_8c.html#aa3501c29f05643295bbda8a78253cadd" title="Function to display the game mode menu." alt="" coords="333,305,473,331"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="531,306,473,313,473,307,531,301"/>
+<area shape="rect" id="Node000005" href="$game_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="The main function." alt="" coords="5,305,60,331"/>
+<area shape="poly" id="edge5_Node000002_Node000005" title=" " alt="" coords="573,278,531,260,483,246,423,239,360,239,298,245,239,256,134,284,61,310,60,305,133,279,238,251,298,240,360,234,423,233,485,241,533,255,575,273"/>
+<area shape="rect" id="Node000006" href="$game__logic_8test_8c.html#a76ef562385a1ab3eb9f0d5c63db641e0" title="Test if the play_local_game function exists." alt="" coords="379,256,427,281"/>
+<area shape="poly" id="edge6_Node000002_Node000006" title=" " alt="" coords="531,287,427,274,427,269,532,282"/>
+<area shape="rect" id="Node000004" href="$main__menu__utils_8c.html#a116f5db451cfe52a4f8ae0bdf32e3bbc" title="Function to display the main menu." alt="" coords="139,305,242,331"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="319,321,242,321,242,315,319,315"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="125,321,60,321,60,315,125,315"/>
+<area shape="poly" id="edge8_Node000007_Node000003" title=" " alt="" coords="528,344,471,333,472,328,529,339"/>
+<area shape="poly" id="edge9_Node000007_Node000005" title=" " alt="" coords="522,364,331,365,219,359,107,345,60,331,61,326,109,339,219,353,331,360,522,359"/>
+<area shape="poly" id="edge11_Node000008_Node000003" title=" " alt="" coords="598,168,553,231,521,265,485,295,460,308,458,303,483,290,518,262,549,228,593,165"/>
+<area shape="poly" id="edge12_Node000008_Node000005" title=" " alt="" coords="521,150,431,160,326,179,215,209,161,229,109,252,73,279,46,307,42,303,69,275,107,248,159,224,213,204,325,173,431,155,520,144"/>
+<area shape="rect" id="Node000009" href="$client_8test_8c.html#aa686b6803df654123bf47b5b55b6ef6f" title="Test the existence of the play_network_client function." alt="" coords="379,5,427,31"/>
+<area shape="poly" id="edge13_Node000008_Node000009" title=" " alt="" coords="586,122,540,82,483,44,454,33,426,25,428,20,456,28,485,40,543,78,589,118"/>
+<area shape="rect" id="Node000010" href="$client_8test_8c.html#a127de683f0c9a0380c6bf2e1dd1905d1" title="Test the behavior of play_network_client with an invalid IP." alt="" coords="379,55,427,80"/>
+<area shape="poly" id="edge14_Node000008_Node000010" title=" " alt="" coords="567,126,483,94,426,76,428,71,485,89,569,121"/>
+<area shape="rect" id="Node000011" href="$client_8test_8c.html#aee971de784e2da20b3093add3ba7b23e" title="Test the behavior of play_network_client with valid parameters." alt="" coords="379,104,427,129"/>
+<area shape="poly" id="edge15_Node000008_Node000011" title=" " alt="" coords="521,134,427,122,427,117,521,128"/>
+<area shape="poly" id="edge17_Node000012_Node000003" title=" " alt="" coords="554,392,531,383,426,333,429,328,533,378,555,387"/>
+<area shape="poly" id="edge22_Node000012_Node000005" title=" " alt="" coords="519,415,430,416,326,411,215,396,160,384,107,368,74,352,47,333,50,329,77,347,109,364,162,379,216,391,327,405,430,410,518,409"/>
+<area shape="rect" id="Node000013" href="$server_8c.html#afd895fed4d709fc1e43bdaf9d2712900" title="Function to launch the server thread." alt="" coords="321,507,484,532"/>
+<area shape="poly" id="edge18_Node000012_Node000013" title=" " alt="" coords="542,427,534,432,518,448,510,464,502,481,486,497,464,509,462,504,482,493,498,478,506,462,514,445,530,428,539,422"/>
+<area shape="rect" id="Node000017" href="$server_8test_8c.html#ac67d457c0781e7924d6b224406a4c1aa" title="Test if play_network_server exists." alt="" coords="379,457,427,483"/>
+<area shape="poly" id="edge23_Node000012_Node000017" title=" " alt="" coords="556,425,533,433,428,465,426,460,531,427,555,420"/>
+<area shape="rect" id="Node000014" href="$server_8c.html#aec212c6dc9b28a8077489b6c1f6432c7" title="Function to start the server from the GUI." alt="" coords="108,531,273,556"/>
+<area shape="poly" id="edge19_Node000013_Node000014" title=" " alt="" coords="308,533,274,537,273,531,307,527"/>
+<area shape="rect" id="Node000016" href="$server_8test_8c.html#abb1f522b408152def244018727c53b2a" title="Test if launch_server_thread exists." alt="" coords="167,481,215,507"/>
+<area shape="poly" id="edge21_Node000013_Node000016" title=" " alt="" coords="307,511,215,499,215,494,308,505"/>
+<area shape="rect" id="Node000015" href="$server_8test_8c.html#a864ce900764e9094222df3bbc368dc5c" title="Test if start_server_from_gui exists." alt="" coords="9,531,57,556"/>
+<area shape="poly" id="edge20_Node000014_Node000015" title=" " alt="" coords="94,546,57,546,57,541,94,541"/>
+</map>

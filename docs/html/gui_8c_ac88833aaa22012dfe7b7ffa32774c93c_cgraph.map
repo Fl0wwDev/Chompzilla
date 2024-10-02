@@ -1,0 +1,5 @@
+<map id="reset_game_state" name="reset_game_state">
+<area shape="rect" id="Node000001" title="Function to reset the game state This function will reset all the global variables and the game logic..." alt="" coords="5,5,144,31"/>
+<area shape="rect" id="Node000002" href="$game__logic_8c.html#a8ed9dd5e9c9e940055fc2fda0bb4d220" title="Function to initialize the game board, it use the constant ROWS and COLS defined in inc/const...." alt="" coords="192,5,279,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="144,15,178,15,178,21,144,21"/>
+</map>

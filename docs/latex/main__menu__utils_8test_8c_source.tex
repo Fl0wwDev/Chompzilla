@@ -1,0 +1,58 @@
+\doxysection{main\+\_\+menu\+\_\+utils.\+test.\+c}
+\hypertarget{main__menu__utils_8test_8c_source}{}\label{main__menu__utils_8test_8c_source}\index{src/tests/main\_menu\_utils.test.c@{src/tests/main\_menu\_utils.test.c}}
+\mbox{\hyperlink{main__menu__utils_8test_8c}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{main__menu__utils_8test_8c_source_l00001}00001\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{\Hypertarget{main__menu__utils_8test_8c_source_l00002}00002\ \textcolor{preprocessor}{\#include\ <string.h>}}
+\DoxyCodeLine{\Hypertarget{main__menu__utils_8test_8c_source_l00003}00003\ \textcolor{preprocessor}{\#include\ <limits.h>}}
+\DoxyCodeLine{\Hypertarget{main__menu__utils_8test_8c_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
+\DoxyCodeLine{\Hypertarget{main__menu__utils_8test_8c_source_l00005}00005\ \textcolor{preprocessor}{\#include\ <criterion/criterion.h>}}
+\DoxyCodeLine{\Hypertarget{main__menu__utils_8test_8c_source_l00006}00006\ \textcolor{preprocessor}{\#include\ "{}../inc/const.h"{}}}
+\DoxyCodeLine{\Hypertarget{main__menu__utils_8test_8c_source_l00007}00007\ \textcolor{preprocessor}{\#include\ "{}../utils/main\_menu\_utils.h"{}}}
+\DoxyCodeLine{\Hypertarget{main__menu__utils_8test_8c_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{main__menu__utils_8test_8c_source_l00012}\mbox{\hyperlink{main__menu__utils_8test_8c_acb05a1467cbb3119548a3aab78ce11bd}{00012}}\ \mbox{\hyperlink{main__menu__utils_8test_8c_acb05a1467cbb3119548a3aab78ce11bd}{Test}}(main\_menu\_utils,\ help\_menu\_exists)}
+\DoxyCodeLine{\Hypertarget{main__menu__utils_8test_8c_source_l00013}00013\ \{}
+\DoxyCodeLine{\Hypertarget{main__menu__utils_8test_8c_source_l00014}00014\ \ \ \ \ cr\_assert\_not\_null(\mbox{\hyperlink{main__menu__utils_8c_a1c8fc504350d80b9d81d45b7723269d4}{help\_menu}},\ \textcolor{stringliteral}{"{}help\_menu\ does\ not\ exist"{}});}
+\DoxyCodeLine{\Hypertarget{main__menu__utils_8test_8c_source_l00015}00015\ \}}
+\DoxyCodeLine{\Hypertarget{main__menu__utils_8test_8c_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{main__menu__utils_8test_8c_source_l00020}\mbox{\hyperlink{main__menu__utils_8test_8c_ae126475a229818c2ac4fd0c8630e6ac5}{00020}}\ \mbox{\hyperlink{main__menu__utils_8test_8c_acb05a1467cbb3119548a3aab78ce11bd}{Test}}(main\_menu\_utils,\ help\_menu\_prints)}
+\DoxyCodeLine{\Hypertarget{main__menu__utils_8test_8c_source_l00021}00021\ \{}
+\DoxyCodeLine{\Hypertarget{main__menu__utils_8test_8c_source_l00022}00022\ \ \ \ \ \textcolor{comment}{//\ We\ redirect\ the\ stdout\ to\ a\ file}}
+\DoxyCodeLine{\Hypertarget{main__menu__utils_8test_8c_source_l00023}00023\ \ \ \ \ freopen(\textcolor{stringliteral}{"{}/tmp/help\_menu\_prints"{}},\ \textcolor{stringliteral}{"{}w+"{}},\ stdout);}
+\DoxyCodeLine{\Hypertarget{main__menu__utils_8test_8c_source_l00024}00024\ \ \ \ \ \mbox{\hyperlink{main__menu__utils_8c_a1c8fc504350d80b9d81d45b7723269d4}{help\_menu}}();}
+\DoxyCodeLine{\Hypertarget{main__menu__utils_8test_8c_source_l00025}00025\ \ \ \ \ \textcolor{comment}{//\ We\ redirect\ the\ stdout\ to\ the\ console}}
+\DoxyCodeLine{\Hypertarget{main__menu__utils_8test_8c_source_l00026}00026\ \ \ \ \ freopen(\textcolor{stringliteral}{"{}/dev/tty"{}},\ \textcolor{stringliteral}{"{}w"{}},\ stdout);}
+\DoxyCodeLine{\Hypertarget{main__menu__utils_8test_8c_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{main__menu__utils_8test_8c_source_l00028}00028\ \ \ \ \ \textcolor{comment}{//\ We\ open\ the\ file}}
+\DoxyCodeLine{\Hypertarget{main__menu__utils_8test_8c_source_l00029}00029\ \ \ \ \ FILE\ *f\ =\ fopen(\textcolor{stringliteral}{"{}/tmp/help\_menu\_prints"{}},\ \textcolor{stringliteral}{"{}r"{}});}
+\DoxyCodeLine{\Hypertarget{main__menu__utils_8test_8c_source_l00030}00030\ \ \ \ \ \textcolor{keywordtype}{char}\ buffer[255];}
+\DoxyCodeLine{\Hypertarget{main__menu__utils_8test_8c_source_l00031}00031\ \ \ \ \ \textcolor{comment}{//\ We\ read}}
+\DoxyCodeLine{\Hypertarget{main__menu__utils_8test_8c_source_l00032}00032\ \ \ \ \ fgets(buffer,\ 255,\ f);}
+\DoxyCodeLine{\Hypertarget{main__menu__utils_8test_8c_source_l00033}00033\ \ \ \ \ \textcolor{comment}{//\ We\ close\ the\ file}}
+\DoxyCodeLine{\Hypertarget{main__menu__utils_8test_8c_source_l00034}00034\ \ \ \ \ fclose(f);}
+\DoxyCodeLine{\Hypertarget{main__menu__utils_8test_8c_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{main__menu__utils_8test_8c_source_l00036}00036\ \ \ \ \ \textcolor{comment}{//\ We\ check\ if\ the\ string\ is\ not\ empty}}
+\DoxyCodeLine{\Hypertarget{main__menu__utils_8test_8c_source_l00037}00037\ \ \ \ \ cr\_assert\_str\_not\_empty(buffer,\ \textcolor{stringliteral}{"{}help\_menu\ does\ not\ print\ anything"{}});}
+\DoxyCodeLine{\Hypertarget{main__menu__utils_8test_8c_source_l00038}00038\ \}}
+\DoxyCodeLine{\Hypertarget{main__menu__utils_8test_8c_source_l00039}00039\ }
+\DoxyCodeLine{\Hypertarget{main__menu__utils_8test_8c_source_l00043}00043\ \textcolor{comment}{//\ Test\ for\ function\ verify\_port}}
+\DoxyCodeLine{\Hypertarget{main__menu__utils_8test_8c_source_l00044}\mbox{\hyperlink{main__menu__utils_8test_8c_a7db4746194dcdf0e965fa3276ca6525f}{00044}}\ \mbox{\hyperlink{main__menu__utils_8test_8c_acb05a1467cbb3119548a3aab78ce11bd}{Test}}(verify\_port\_tests,\ valid\_ports)\ \{}
+\DoxyCodeLine{\Hypertarget{main__menu__utils_8test_8c_source_l00045}00045\ \ \ \ \ cr\_assert\_eq(\mbox{\hyperlink{main__menu__utils_8c_a727c00129301489befbe406d58fad696}{verify\_port}}(\textcolor{stringliteral}{"{}1024"{}}),\ \textcolor{keyword}{true},\ \textcolor{stringliteral}{"{}Port\ 1024\ should\ be\ valid"{}});}
+\DoxyCodeLine{\Hypertarget{main__menu__utils_8test_8c_source_l00046}00046\ \ \ \ \ cr\_assert\_eq(\mbox{\hyperlink{main__menu__utils_8c_a727c00129301489befbe406d58fad696}{verify\_port}}(\textcolor{stringliteral}{"{}65535"{}}),\ \textcolor{keyword}{true},\ \textcolor{stringliteral}{"{}Port\ 65535\ should\ be\ valid"{}});}
+\DoxyCodeLine{\Hypertarget{main__menu__utils_8test_8c_source_l00047}00047\ \ \ \ \ cr\_assert\_eq(\mbox{\hyperlink{main__menu__utils_8c_a727c00129301489befbe406d58fad696}{verify\_port}}(\textcolor{stringliteral}{"{}2048"{}}),\ \textcolor{keyword}{true},\ \textcolor{stringliteral}{"{}Port\ 2048\ should\ be\ valid"{}});}
+\DoxyCodeLine{\Hypertarget{main__menu__utils_8test_8c_source_l00048}00048\ \}}
+\DoxyCodeLine{\Hypertarget{main__menu__utils_8test_8c_source_l00049}00049\ }
+\DoxyCodeLine{\Hypertarget{main__menu__utils_8test_8c_source_l00050}\mbox{\hyperlink{main__menu__utils_8test_8c_af2418152ba1b42d784054b8be8779ec5}{00050}}\ \mbox{\hyperlink{main__menu__utils_8test_8c_acb05a1467cbb3119548a3aab78ce11bd}{Test}}(verify\_port\_tests,\ invalid\_ports)\ \{}
+\DoxyCodeLine{\Hypertarget{main__menu__utils_8test_8c_source_l00051}00051\ \ \ \ \ cr\_assert\_eq(\mbox{\hyperlink{main__menu__utils_8c_a727c00129301489befbe406d58fad696}{verify\_port}}(\textcolor{stringliteral}{"{}1023"{}}),\ \textcolor{keyword}{false},\ \textcolor{stringliteral}{"{}Port\ 1023\ should\ be\ invalid"{}});}
+\DoxyCodeLine{\Hypertarget{main__menu__utils_8test_8c_source_l00052}00052\ \ \ \ \ cr\_assert\_eq(\mbox{\hyperlink{main__menu__utils_8c_a727c00129301489befbe406d58fad696}{verify\_port}}(\textcolor{stringliteral}{"{}65536"{}}),\ \textcolor{keyword}{false},\ \textcolor{stringliteral}{"{}Port\ 65536\ should\ be\ invalid"{}});}
+\DoxyCodeLine{\Hypertarget{main__menu__utils_8test_8c_source_l00053}00053\ \ \ \ \ cr\_assert\_eq(\mbox{\hyperlink{main__menu__utils_8c_a727c00129301489befbe406d58fad696}{verify\_port}}(\textcolor{stringliteral}{"{}abcd"{}}),\ \textcolor{keyword}{false},\ \textcolor{stringliteral}{"{}Non-\/numeric\ port\ should\ be\ invalid"{}});}
+\DoxyCodeLine{\Hypertarget{main__menu__utils_8test_8c_source_l00054}00054\ \ \ \ \ cr\_assert\_eq(\mbox{\hyperlink{main__menu__utils_8c_a727c00129301489befbe406d58fad696}{verify\_port}}(\textcolor{stringliteral}{"{}"{}}),\ \textcolor{keyword}{false},\ \textcolor{stringliteral}{"{}Empty\ port\ should\ be\ invalid"{}});}
+\DoxyCodeLine{\Hypertarget{main__menu__utils_8test_8c_source_l00055}00055\ \}}
+\DoxyCodeLine{\Hypertarget{main__menu__utils_8test_8c_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{main__menu__utils_8test_8c_source_l00057}00057\ \textcolor{comment}{//\ Test\ for\ function\ verify\_ip\_port}}
+\DoxyCodeLine{\Hypertarget{main__menu__utils_8test_8c_source_l00058}\mbox{\hyperlink{main__menu__utils_8test_8c_abacaca3e1d1117d20c73362eea3e9145}{00058}}\ \mbox{\hyperlink{main__menu__utils_8test_8c_acb05a1467cbb3119548a3aab78ce11bd}{Test}}(verify\_ip\_port\_tests,\ valid\_ip\_ports)\ \{}
+\DoxyCodeLine{\Hypertarget{main__menu__utils_8test_8c_source_l00059}00059\ \ \ \ \ cr\_assert\_eq(\mbox{\hyperlink{main__menu__utils_8c_a63c328f81d1273108072452297330868}{verify\_ip\_port}}(\textcolor{stringliteral}{"{}192.168.1.1:8080"{}}),\ \textcolor{keyword}{true},\ \textcolor{stringliteral}{"{}IP\ and\ port\ 192.168.1.1:8080\ should\ be\ valid"{}});}
+\DoxyCodeLine{\Hypertarget{main__menu__utils_8test_8c_source_l00060}00060\ \ \ \ \ cr\_assert\_eq(\mbox{\hyperlink{main__menu__utils_8c_a63c328f81d1273108072452297330868}{verify\_ip\_port}}(\textcolor{stringliteral}{"{}127.0.0.1:1234"{}}),\ \textcolor{keyword}{true},\ \textcolor{stringliteral}{"{}IP\ and\ port\ 127.0.0.1:1234\ should\ be\ valid"{}});}
+\DoxyCodeLine{\Hypertarget{main__menu__utils_8test_8c_source_l00061}00061\ \}}
+
+\end{DoxyCode}

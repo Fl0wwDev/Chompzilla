@@ -1,0 +1,32 @@
+\doxysection{game\+\_\+logic.\+h}
+\hypertarget{game__logic_8h_source}{}\label{game__logic_8h_source}\index{src/game\_logic/game\_logic.h@{src/game\_logic/game\_logic.h}}
+\mbox{\hyperlink{game__logic_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{game__logic_8h_source_l00001}00001\ \textcolor{preprocessor}{\#ifndef\ GAME\_LOGIC\_H}}
+\DoxyCodeLine{\Hypertarget{game__logic_8h_source_l00002}00002\ \textcolor{preprocessor}{\#define\ GAME\_LOGIC\_H}}
+\DoxyCodeLine{\Hypertarget{game__logic_8h_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{game__logic_8h_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <stdbool.h>}}
+\DoxyCodeLine{\Hypertarget{game__logic_8h_source_l00005}00005\ \textcolor{preprocessor}{\#include\ "{}../inc/const.h"{}}}
+\DoxyCodeLine{\Hypertarget{game__logic_8h_source_l00006}00006\ \textcolor{preprocessor}{\#include\ "{}../gui/gui.h"{}}}
+\DoxyCodeLine{\Hypertarget{game__logic_8h_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{game__logic_8h_source_l00008}00008\ \textcolor{comment}{//\ Declare\ the\ game\ board\ as\ an\ external\ variable}}
+\DoxyCodeLine{\Hypertarget{game__logic_8h_source_l00009}00009\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{game__logic_8h_a9d4edc518925a395bf9da87cca62183c}{board}}[\mbox{\hyperlink{const_8h_a3cfd3aa62338d12609f6d65bce97e9cd}{ROWS}}][\mbox{\hyperlink{const_8h_ab59ad2ee1a48b83c2eef1f019ed8cc48}{COLS}}];}
+\DoxyCodeLine{\Hypertarget{game__logic_8h_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{game__logic_8h_source_l00011}00011\ \textcolor{comment}{//\ Function\ prototypes}}
+\DoxyCodeLine{\Hypertarget{game__logic_8h_source_l00012}00012\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{game__logic_8h_a8ed9dd5e9c9e940055fc2fda0bb4d220}{init\_board}}();}
+\DoxyCodeLine{\Hypertarget{game__logic_8h_source_l00013}00013\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{game__logic_8h_ab2799a5dca6411a7176972326e6323f9}{display\_board}}();}
+\DoxyCodeLine{\Hypertarget{game__logic_8h_source_l00014}00014\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{game__logic_8h_a0c1e3c44d468721790db3651f98d7f9a}{column\_to\_index}}(\textcolor{keywordtype}{char}\ col);}
+\DoxyCodeLine{\Hypertarget{game__logic_8h_source_l00015}00015\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{game__logic_8h_a0f9921b9074eca809c9cbc33f81420c4}{count\_squares\_to\_remove}}(\textcolor{keywordtype}{int}\ row,\ \textcolor{keywordtype}{int}\ col);}
+\DoxyCodeLine{\Hypertarget{game__logic_8h_source_l00016}00016\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{game__logic_8h_a0d417e43bdee123bd7c9e6ffcd6e473b}{destroy\_squares}}(\textcolor{keywordtype}{int}\ row,\ \textcolor{keywordtype}{int}\ col,\ \textcolor{keywordtype}{char}\ destroyed[][3],\ \textcolor{keywordtype}{int}\ *destroyed\_count);}
+\DoxyCodeLine{\Hypertarget{game__logic_8h_source_l00017}00017\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{game__logic_8h_ae8ec155c7e09a0a40898d57fd037e583}{make\_move}}(\textcolor{keywordtype}{char}\ col\_letter,\ \textcolor{keywordtype}{int}\ row,\ \textcolor{keywordtype}{char}\ destroyed[][3],\ \textcolor{keywordtype}{int}\ *destroyed\_count,\ \textcolor{keywordtype}{bool}\ is\_ia);}
+\DoxyCodeLine{\Hypertarget{game__logic_8h_source_l00018}00018\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{game__logic_8h_a48e253127878279dd9f537a6bb719f55}{is\_game\_over}}();}
+\DoxyCodeLine{\Hypertarget{game__logic_8h_source_l00019}00019\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{game__logic_8h_a7064e50bc10ffe0ff9db40a7f10aa660}{ask\_coordinates}}(\textcolor{keywordtype}{char}\ *col,\ \textcolor{keywordtype}{int}\ *row);}
+\DoxyCodeLine{\Hypertarget{game__logic_8h_source_l00020}00020\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{game__logic_8h_aada46df6d9266e84b6fc48286bce061e}{play\_local\_game}}();}
+\DoxyCodeLine{\Hypertarget{game__logic_8h_source_l00021}00021\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{game__logic_8h_a486a0f1c264213b655412ebcf4ab1a91}{play\_local\_game\_ia}}();}
+\DoxyCodeLine{\Hypertarget{game__logic_8h_source_l00022}00022\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{game__logic_8h_a608690d669667bea852499d1c3eae893}{play\_local\_game\_gui}}();}
+\DoxyCodeLine{\Hypertarget{game__logic_8h_source_l00023}00023\ \mbox{\hyperlink{struct_server_response}{ServerResponse}}\ \mbox{\hyperlink{game__logic_8h_a7337808f2923d47d1f3b4aa0a621042f}{local\_game\_gui\_logic}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ coordinates,\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{server_8c_a38bf4c0204ad6a02e4d5090b315de54f}{current\_player}});}
+\DoxyCodeLine{\Hypertarget{game__logic_8h_source_l00024}00024\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{game__logic_8h_af97f0950de3318e0b63fc18f7452b220}{update\_gui\_after\_move}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ coordinates);}
+\DoxyCodeLine{\Hypertarget{game__logic_8h_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{game__logic_8h_source_l00026}00026\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

@@ -1,0 +1,7 @@
+<map id="verify_ip_port" name="verify_ip_port">
+<area shape="rect" id="Node000001" title="Function to verify if the IP address and the port are correct. Format: hhh.hhh.hhh...." alt="" coords="108,31,219,56"/>
+<area shape="rect" id="Node000002" href="$game_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="The main function." alt="" coords="5,5,60,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="94,33,60,26,61,21,95,27"/>
+<area shape="rect" id="Node000003" href="$main__menu__utils_8test_8c.html#abacaca3e1d1117d20c73362eea3e9145" title=" " alt="" coords="9,55,57,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="95,59,58,66,57,60,94,53"/>
+</map>

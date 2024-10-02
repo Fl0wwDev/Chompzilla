@@ -1,0 +1,9 @@
+<map id="help_menu" name="help_menu">
+<area shape="rect" id="Node000001" title="Function to display the help menu." alt="" coords="108,55,203,80"/>
+<area shape="rect" id="Node000002" href="$game_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="The main function." alt="" coords="5,5,60,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="110,52,59,31,61,26,112,47"/>
+<area shape="rect" id="Node000003" href="$main__menu__utils_8test_8c.html#acb05a1467cbb3119548a3aab78ce11bd" title="Test the existence of the help_menu function." alt="" coords="9,55,57,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="94,70,57,70,57,65,94,65"/>
+<area shape="rect" id="Node000004" href="$main__menu__utils_8test_8c.html#ae126475a229818c2ac4fd0c8630e6ac5" title="Test if the help_menu function output a string in the stdout." alt="" coords="9,104,57,129"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="111,88,58,110,56,105,109,83"/>
+</map>

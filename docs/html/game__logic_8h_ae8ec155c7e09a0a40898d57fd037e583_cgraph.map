@@ -1,0 +1,11 @@
+<map id="make_move" name="make_move">
+<area shape="rect" id="Node000001" title="Function to make a move." alt="" coords="5,80,108,105"/>
+<area shape="rect" id="Node000002" href="$game__logic_8c.html#a0c1e3c44d468721790db3651f98d7f9a" title="Function to convert a column letter to an index." alt="" coords="186,5,319,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="78,78,113,58,155,40,178,32,180,37,157,44,116,63,80,82"/>
+<area shape="rect" id="Node000003" href="$game__logic_8c.html#a0f9921b9074eca809c9cbc33f81420c4" title="Function to count the number of squares to remove." alt="" coords="156,55,349,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="108,83,142,79,143,84,109,89"/>
+<area shape="rect" id="Node000004" href="$game__logic_8c.html#a0d417e43bdee123bd7c9e6ffcd6e473b" title="Function to destroy the squares." alt="" coords="188,104,317,129"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="109,96,175,104,174,110,108,102"/>
+<area shape="rect" id="Node000005" href="$ia_8c.html#abeb3c633344f067c2614c1582408aa9a" title="Function to get the number of squares removed." alt="" coords="177,153,328,179"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="82,103,157,138,183,147,182,152,155,143,80,108"/>
+</map>

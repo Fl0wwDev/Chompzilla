@@ -1,0 +1,32 @@
+<map id="exit_game_client_gui" name="exit_game_client_gui">
+<area shape="rect" id="Node000001" title=" " alt="" coords="2155,55,2316,80"/>
+<area shape="rect" id="Node000002" href="$client__gui_8c.html#a5c7408bd2f3f0b0767b7ca70315312a4" title="The function to delete a button and the linked buttons This function is called when a button is click..." alt="" coords="1945,29,2107,55"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="2140,59,2106,54,2107,49,2141,53"/>
+<area shape="rect" id="Node000013" href="$client__gui_8c.html#a3c6a0ad18447e98edbcc821e194ce8bb" title="The function to receive the coordinates from the server." alt="" coords="1743,73,1893,113"/>
+<area shape="poly" id="edge17_Node000001_Node000013" title=" " alt="" coords="2141,76,1894,91,1893,85,2141,70"/>
+<area shape="poly" id="edge14_Node000002_Node000002" title=" " alt="" coords="2063,20,2053,11,2026,8,2004,10,1992,15,1990,20,1996,28,1992,31,1985,21,1988,11,2003,5,2026,3,2055,6,2066,15"/>
+<area shape="rect" id="Node000003" href="$client__gui_8c.html#a721d2f68eb86396a76863a984664fabb" title="The main window of the application." alt="" coords="1739,23,1897,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="1932,42,1897,41,1898,35,1932,36"/>
+<area shape="poly" id="edge15_Node000002_Node000013" title=" " alt="" coords="1960,61,1894,77,1893,72,1959,55"/>
+<area shape="rect" id="Node000004" href="$client__gui_8c.html#a5e2eec58e49d93f1c3179c695b339fb9" title="The main function of the application." alt="" coords="1528,52,1691,77"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="1725,51,1691,56,1691,51,1724,46"/>
+<area shape="rect" id="Node000005" href="$client__gui_8c.html#a77ff651aed26c82c3f39d5ebcf75054e" title="Function to launch the client in GUI mode on a specific IP address and port." alt="" coords="1335,52,1480,77"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="1514,67,1480,67,1480,62,1514,62"/>
+<area shape="rect" id="Node000006" href="$game_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="The main function." alt="" coords="5,75,60,100"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="1321,58,1162,46,979,39,327,39,251,44,176,56,61,82,59,77,175,50,250,39,327,34,979,34,1162,41,1321,53"/>
+<area shape="rect" id="Node000007" href="$gui__gamemode_8c.html#a137ae724c37fcec06e0eb3aca8d8931d" title="Function to play a local game with the GUI." alt="" coords="1116,77,1287,103"/>
+<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="1321,78,1287,82,1287,77,1320,73"/>
+<area shape="rect" id="Node000008" href="$gui__gamemode_8c.html#a2e03a7b2bf0082181788fa82ce1fcca2" title="Function to play a network game with the GUI as a client." alt="" coords="887,74,1068,114"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="1102,94,1068,95,1068,90,1102,89"/>
+<area shape="rect" id="Node000009" href="$gui__gamemode_8c.html#a6f97f03268d2683627c54b1bea3db6f6" title="The main window of the application." alt="" coords="668,81,839,107"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="873,97,839,97,839,91,873,91"/>
+<area shape="rect" id="Node000010" href="$gui__gamemode_8c.html#aa749f53907a4e089b764de0ee88b88b8" title="The main function of the application." alt="" coords="447,81,620,107"/>
+<area shape="poly" id="edge9_Node000009_Node000010" title=" " alt="" coords="655,97,620,97,620,91,655,91"/>
+<area shape="poly" id="edge13_Node000010_Node000006" title=" " alt="" coords="433,95,60,90,60,85,433,90"/>
+<area shape="rect" id="Node000011" href="$main__menu__utils_8c.html#aa3501c29f05643295bbda8a78253cadd" title="Function to display the game mode menu." alt="" coords="259,125,399,151"/>
+<area shape="poly" id="edge10_Node000010_Node000011" title=" " alt="" coords="461,112,389,128,388,123,459,107"/>
+<area shape="rect" id="Node000012" href="$main__menu__utils_8c.html#a116f5db451cfe52a4f8ae0bdf32e3bbc" title="Function to display the main menu." alt="" coords="108,125,211,151"/>
+<area shape="poly" id="edge11_Node000011_Node000012" title=" " alt="" coords="245,141,211,141,211,135,245,135"/>
+<area shape="poly" id="edge12_Node000012_Node000006" title=" " alt="" coords="113,123,59,101,61,96,115,118"/>
+<area shape="poly" id="edge16_Node000013_Node000004" title=" " alt="" coords="1728,83,1690,78,1691,73,1729,78"/>
+</map>

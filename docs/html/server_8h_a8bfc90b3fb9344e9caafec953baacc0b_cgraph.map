@@ -1,0 +1,5 @@
+<map id="handle_sigint" name="handle_sigint">
+<area shape="rect" id="Node000001" title="Function to handle the interrupt signal (CTRL+C)" alt="" coords="5,5,115,31"/>
+<area shape="rect" id="Node000002" href="$server_8c.html#a6af6770776a3dc9fc5102eb2bd0884ba" title="Function to close the sockets." alt="" coords="163,5,275,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="115,15,149,15,149,21,115,21"/>
+</map>

@@ -1,0 +1,105 @@
+\doxysection{src/client/client.c File Reference}
+\hypertarget{client_8c}{}\label{client_8c}\index{src/client/client.c@{src/client/client.c}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include $<$arpa/inet.\+h$>$}\newline
+{\ttfamily \#include "{}client.\+h"{}}\newline
+{\ttfamily \#include "{}../game\+\_\+logic/game\+\_\+logic.\+h"{}}\newline
+{\ttfamily \#include "{}../inc/const.\+h"{}}\newline
+{\ttfamily \#include "{}../ia/ia.\+h"{}}\newline
+Include dependency graph for client.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{client_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{void}} \mbox{\hyperlink{client_8c_a8308fe6a601a2085a701ce0dc0840226}{play\+\_\+network\+\_\+client}} (\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{char}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{server\+\_\+ip}}, \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{unsigned}} \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{short}} \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{port}})
+\begin{DoxyCompactList}\small\item\em Function to launch the client on a specific IP address and port. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{void}} \mbox{\hyperlink{client_8c_ae58acfe4ef90373f7e9200f2deaf2ac6}{play\+\_\+network\+\_\+ia\+\_\+client}} (\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{char}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{server\+\_\+ip}}, \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{unsigned}} \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{short}} \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{port}})
+\begin{DoxyCompactList}\small\item\em Function to launch the client in IA mode on a specific IP address and port. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{client_8c_a8308fe6a601a2085a701ce0dc0840226}\label{client_8c_a8308fe6a601a2085a701ce0dc0840226} 
+\index{client.c@{client.c}!play\_network\_client@{play\_network\_client}}
+\index{play\_network\_client@{play\_network\_client}!client.c@{client.c}}
+\doxysubsubsection{\texorpdfstring{play\_network\_client()}{play\_network\_client()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{void}} play\+\_\+network\+\_\+client (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{char}} \texorpdfstring{$\ast$}{*}}]{server\+\_\+ip,  }\item[{\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{unsigned}} \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{short}}}]{port }\end{DoxyParamCaption})}
+
+
+
+Function to launch the client on a specific IP address and port. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em server\+\_\+ip} & The IP address of the server \\
+\hline
+{\em port} & The port number \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{client_8c_source_l00019}{19}} of file \mbox{\hyperlink{client_8c_source}{client.\+c}}.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{client_8c_a8308fe6a601a2085a701ce0dc0840226_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{client_8c_a8308fe6a601a2085a701ce0dc0840226_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{client_8c_ae58acfe4ef90373f7e9200f2deaf2ac6}\label{client_8c_ae58acfe4ef90373f7e9200f2deaf2ac6} 
+\index{client.c@{client.c}!play\_network\_ia\_client@{play\_network\_ia\_client}}
+\index{play\_network\_ia\_client@{play\_network\_ia\_client}!client.c@{client.c}}
+\doxysubsubsection{\texorpdfstring{play\_network\_ia\_client()}{play\_network\_ia\_client()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{void}} play\+\_\+network\+\_\+ia\+\_\+client (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{char}} \texorpdfstring{$\ast$}{*}}]{server\+\_\+ip,  }\item[{\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{unsigned}} \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{short}}}]{port }\end{DoxyParamCaption})}
+
+
+
+Function to launch the client in IA mode on a specific IP address and port. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em server\+\_\+ip} & The IP address of the server \\
+\hline
+{\em port} & The port number \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{client_8c_source_l00140}{140}} of file \mbox{\hyperlink{client_8c_source}{client.\+c}}.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{client_8c_ae58acfe4ef90373f7e9200f2deaf2ac6_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{client_8c_ae58acfe4ef90373f7e9200f2deaf2ac6_icgraph}
+\end{center}
+\end{figure}

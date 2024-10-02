@@ -1,0 +1,511 @@
+\doxysection{server\+\_\+gui.\+c}
+\hypertarget{server__gui_8c_source}{}\label{server__gui_8c_source}\index{src/gui/server\_gui.c@{src/gui/server\_gui.c}}
+\mbox{\hyperlink{server__gui_8c}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00001}00001\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00002}00002\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00003}00003\ \textcolor{preprocessor}{\#include\ <string.h>}}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <unistd.h>}}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00005}00005\ \textcolor{preprocessor}{\#include\ <arpa/inet.h>}}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00006}00006\ \textcolor{preprocessor}{\#include\ <pthread.h>}}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00007}00007\ \textcolor{preprocessor}{\#include\ <gtk/gtk.h>}}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00008}00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{server__gui_8h}{server\_gui.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00009}00009\ \textcolor{preprocessor}{\#include\ "{}../inc/const.h"{}}}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00011}\mbox{\hyperlink{server__gui_8c_af3864606c4696237c4e62a3d02068a8e}{00011}}\ GtkApplication\ *\mbox{\hyperlink{server__gui_8c_af3864606c4696237c4e62a3d02068a8e}{app\_server\_gui}};}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00012}\mbox{\hyperlink{server__gui_8c_a1065a3d591d68c11de43a3b357d6e39d}{00012}}\ GtkWidget\ *\mbox{\hyperlink{server__gui_8c_a1065a3d591d68c11de43a3b357d6e39d}{window\_server\_gui}};}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00013}\mbox{\hyperlink{server__gui_8c_a95f61ddbf4feaa7a5e44c7640c4fd191}{00013}}\ GtkWidget\ *\mbox{\hyperlink{server__gui_8c_a95f61ddbf4feaa7a5e44c7640c4fd191}{main\_div\_server\_gui}};}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00014}\mbox{\hyperlink{server__gui_8c_a642f93431b7ec9b4eca50de6f76d3e42}{00014}}\ GtkWidget\ *\mbox{\hyperlink{server__gui_8c_a642f93431b7ec9b4eca50de6f76d3e42}{player\_label\_server\_gui}};}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00015}\mbox{\hyperlink{server__gui_8c_a5ec41c681e20d66cd63001918b3b7354}{00015}}\ GtkWidget\ *\mbox{\hyperlink{server__gui_8c_a5ec41c681e20d66cd63001918b3b7354}{error\_label\_server\_gui}};}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00016}\mbox{\hyperlink{server__gui_8c_a997a256561ec9700a65ddf5600ddc2f7}{00016}}\ GtkWidget\ *\mbox{\hyperlink{server__gui_8c_a997a256561ec9700a65ddf5600ddc2f7}{end\_game\_server\_gui}};}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00017}\mbox{\hyperlink{server__gui_8c_ae9654c553153f6f3e6faddf6a1215f6b}{00017}}\ GtkWidget\ *\mbox{\hyperlink{server__gui_8c_ae9654c553153f6f3e6faddf6a1215f6b}{table\_server\_gui}};}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00018}\mbox{\hyperlink{server__gui_8c_af88ee1ecc52e83d6ea3d1f59a9e1d8fd}{00018}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{server__gui_8c_af88ee1ecc52e83d6ea3d1f59a9e1d8fd}{player\_server\_gui}}\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00019}\mbox{\hyperlink{server__gui_8c_a9bb51a73e8f48d4d3227adcd9f9244a2}{00019}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{server__gui_8c_a9bb51a73e8f48d4d3227adcd9f9244a2}{client\_socket\_server\_gui}}\ =\ -\/1;}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00020}\mbox{\hyperlink{server__gui_8c_a6c67d9a0cd7c5df8ce0d0222a04196e8}{00020}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{server__gui_8c_a6c67d9a0cd7c5df8ce0d0222a04196e8}{buttons\_deleted\_server\_gui}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00021}\mbox{\hyperlink{server__gui_8c_acc69955e04146dd5ec121038f72da733}{00021}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{server__gui_8c_acc69955e04146dd5ec121038f72da733}{is\_local\_player\_turn\_server\_gui}}\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00022}00022\ \textcolor{comment}{//\ Mutex\ to\ protect\ the\ turn}}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00023}\mbox{\hyperlink{server__gui_8c_a66df4919bdb5806940d0685a7bc903ab}{00023}}\ pthread\_mutex\_t\ \mbox{\hyperlink{server__gui_8c_a66df4919bdb5806940d0685a7bc903ab}{turn\_mutex\_server\_gui}}\ =\ PTHREAD\_MUTEX\_INITIALIZER;}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00024}\mbox{\hyperlink{server__gui_8c_a8d0f4eae55c128e56497bb7a69ae85f9}{00024}}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{short}\ \mbox{\hyperlink{server__gui_8c_a8d0f4eae55c128e56497bb7a69ae85f9}{port\_server\_gui}};}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00030}\mbox{\hyperlink{server__gui_8c_a1225780d89857b9d739aba6a8d3b37ab}{00030}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{server__gui_8c_a1225780d89857b9d739aba6a8d3b37ab}{destroy\_window\_server\_gui}}()}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00031}00031\ \{}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00032}00032\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{server__gui_8c_a1065a3d591d68c11de43a3b357d6e39d}{window\_server\_gui}}\ !=\ NULL)}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00033}00033\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00034}00034\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Destroying\ window...\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00035}00035\ \ \ \ \ \ \ \ \ gtk\_window\_destroy(GTK\_WINDOW(\mbox{\hyperlink{server__gui_8c_a1065a3d591d68c11de43a3b357d6e39d}{window\_server\_gui}}));}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00036}00036\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00037}00037\ \}}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00043}\mbox{\hyperlink{server__gui_8c_acbc887e81600259179f64d25ed34c75b}{00043}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{server__gui_8c_acbc887e81600259179f64d25ed34c75b}{exit\_game\_server\_gui}}(GtkWidget\ *button,\ gpointer\ user\_data)}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00044}00044\ \{}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00045}00045\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Exiting\ game...\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00046}00046\ \ \ \ \ \mbox{\hyperlink{server__gui_8c_a1225780d89857b9d739aba6a8d3b37ab}{destroy\_window\_server\_gui}}();}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00047}00047\ \}}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00054}\mbox{\hyperlink{server__gui_8c_abf2d4ed76849105e4c9c90a07f7655b6}{00054}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{server__gui_8c_abf2d4ed76849105e4c9c90a07f7655b6}{reset\_game\_state\_server\_gui}}()}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00055}00055\ \{}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00056}00056\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Resetting\ game\ state...\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00057}00057\ \ \ \ \ \mbox{\hyperlink{server__gui_8c_af88ee1ecc52e83d6ea3d1f59a9e1d8fd}{player\_server\_gui}}\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00058}00058\ \ \ \ \ \textcolor{comment}{//\ Reset\ the\ counter}}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00059}00059\ \ \ \ \ \mbox{\hyperlink{server__gui_8c_a6c67d9a0cd7c5df8ce0d0222a04196e8}{buttons\_deleted\_server\_gui}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00060}00060\ \ \ \ \ \textcolor{comment}{//\ Reset\ the\ turn}}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00061}00061\ \ \ \ \ \mbox{\hyperlink{server__gui_8c_acc69955e04146dd5ec121038f72da733}{is\_local\_player\_turn\_server\_gui}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00062}00062\ \}}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00063}00063\ }
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00070}\mbox{\hyperlink{server__gui_8c_a347b29036b6cd430e39fa92029a7d847}{00070}}\ \textcolor{keywordtype}{void}\ *\mbox{\hyperlink{server__gui_8c_a347b29036b6cd430e39fa92029a7d847}{start\_server\_server\_gui}}(\textcolor{keywordtype}{void}\ *arg)}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00071}00071\ \{}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00072}00072\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{server_8c_a6cf4711aa7ecd548b03b6e50d44b5aa6}{server\_fd}};}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00073}00073\ \ \ \ \ \textcolor{keyword}{struct\ }sockaddr\_in\ address;}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00074}00074\ \ \ \ \ \textcolor{keywordtype}{int}\ opt\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00075}00075\ \ \ \ \ \textcolor{keywordtype}{int}\ addrlen\ =\ \textcolor{keyword}{sizeof}(address);}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00076}00076\ }
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00077}00077\ \ \ \ \ \textcolor{keywordflow}{if}\ ((\mbox{\hyperlink{server_8c_a6cf4711aa7ecd548b03b6e50d44b5aa6}{server\_fd}}\ =\ socket(AF\_INET,\ SOCK\_STREAM,\ 0))\ ==\ 0)}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00078}00078\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00079}00079\ \ \ \ \ \ \ \ \ perror(\textcolor{stringliteral}{"{}socket\ failed"{}});}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00080}00080\ \ \ \ \ \ \ \ \ exit(EXIT\_FAILURE);}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00081}00081\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00082}00082\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Socket\ created\ successfully.\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00083}00083\ }
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00084}00084\ \ \ \ \ \textcolor{keywordflow}{if}\ (setsockopt(\mbox{\hyperlink{server_8c_a6cf4711aa7ecd548b03b6e50d44b5aa6}{server\_fd}},\ SOL\_SOCKET,\ SO\_REUSEADDR,\ \&opt,\ \textcolor{keyword}{sizeof}(opt)))}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00085}00085\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00086}00086\ \ \ \ \ \ \ \ \ perror(\textcolor{stringliteral}{"{}setsockopt"{}});}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00087}00087\ \ \ \ \ \ \ \ \ exit(EXIT\_FAILURE);}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00088}00088\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00089}00089\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Socket\ options\ set\ successfully.\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00090}00090\ }
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00091}00091\ \ \ \ \ address.sin\_family\ =\ AF\_INET;}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00092}00092\ \ \ \ \ address.sin\_addr.s\_addr\ =\ INADDR\_ANY;}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00093}00093\ \ \ \ \ address.sin\_port\ =\ htons(\mbox{\hyperlink{server__gui_8c_a8d0f4eae55c128e56497bb7a69ae85f9}{port\_server\_gui}});}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00094}00094\ }
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00095}00095\ \ \ \ \ \textcolor{keywordflow}{if}\ (bind(\mbox{\hyperlink{server_8c_a6cf4711aa7ecd548b03b6e50d44b5aa6}{server\_fd}},\ (\textcolor{keyword}{struct}\ sockaddr\ *)\&address,\ \textcolor{keyword}{sizeof}(address))\ <\ 0)}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00096}00096\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00097}00097\ \ \ \ \ \ \ \ \ perror(\textcolor{stringliteral}{"{}bind\ failed"{}});}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00098}00098\ \ \ \ \ \ \ \ \ exit(EXIT\_FAILURE);}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00099}00099\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00100}00100\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Socket\ bound\ to\ port\ \%d.\(\backslash\)n"{}},\ \mbox{\hyperlink{server__gui_8c_a8d0f4eae55c128e56497bb7a69ae85f9}{port\_server\_gui}});}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00101}00101\ }
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00102}00102\ \ \ \ \ \textcolor{keywordflow}{if}\ (listen(\mbox{\hyperlink{server_8c_a6cf4711aa7ecd548b03b6e50d44b5aa6}{server\_fd}},\ 3)\ <\ 0)}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00103}00103\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00104}00104\ \ \ \ \ \ \ \ \ perror(\textcolor{stringliteral}{"{}listen"{}});}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00105}00105\ \ \ \ \ \ \ \ \ exit(EXIT\_FAILURE);}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00106}00106\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00107}00107\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Server\ is\ now\ listening\ for\ connections...\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00108}00108\ }
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00109}00109\ \ \ \ \ \textcolor{keywordflow}{while}\ (1)}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00110}00110\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00111}00111\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((\mbox{\hyperlink{server__gui_8c_a9bb51a73e8f48d4d3227adcd9f9244a2}{client\_socket\_server\_gui}}\ =\ accept(\mbox{\hyperlink{server_8c_a6cf4711aa7ecd548b03b6e50d44b5aa6}{server\_fd}},\ (\textcolor{keyword}{struct}\ sockaddr\ *)\&address,\ (socklen\_t\ *)\&addrlen))\ <\ 0)}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00112}00112\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00113}00113\ \ \ \ \ \ \ \ \ \ \ \ \ perror(\textcolor{stringliteral}{"{}accept"{}});}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00114}00114\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00115}00115\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00116}00116\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Connection\ established\ with\ client.\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00117}00117\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Client\ connected\ from\ IP:\ \%s,\ Port:\ \%d\(\backslash\)n"{}},\ inet\_ntoa(address.sin\_addr),\ ntohs(address.sin\_port));}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00118}00118\ }
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00119}00119\ \ \ \ \ \ \ \ \ pthread\_t\ client\_thread;}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00120}00120\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ *pclient\ =\ malloc(\textcolor{keyword}{sizeof}(\textcolor{keywordtype}{int}));}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00121}00121\ \ \ \ \ \ \ \ \ *pclient\ =\ \mbox{\hyperlink{server__gui_8c_a9bb51a73e8f48d4d3227adcd9f9244a2}{client\_socket\_server\_gui}};}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00122}00122\ \ \ \ \ \ \ \ \ pthread\_create(\&client\_thread,\ NULL,\ \mbox{\hyperlink{server__gui_8c_a3cd7e8317968bc513a37b52e487c7d06}{handle\_client\_server\_gui}},\ pclient);}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00123}00123\ \ \ \ \ \ \ \ \ pthread\_detach(client\_thread);}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00124}00124\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00125}00125\ \}}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00126}00126\ }
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00132}\mbox{\hyperlink{server__gui_8c_a899f9da0d92c10826dbe27cb6ee17b74}{00132}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{server__gui_8c_a899f9da0d92c10826dbe27cb6ee17b74}{launch\_gui\_server\_gui}}()}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00133}00133\ \{}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00134}00134\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Launching\ GUI...\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00135}00135\ \ \ \ \ \textcolor{keywordtype}{int}\ status;}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00136}00136\ }
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00137}00137\ \ \ \ \ pthread\_t\ server\_thread;}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00138}00138\ \ \ \ \ pthread\_create(\&server\_thread,\ NULL,\ \mbox{\hyperlink{server__gui_8c_a347b29036b6cd430e39fa92029a7d847}{start\_server\_server\_gui}},\ NULL);}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00139}00139\ }
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00140}00140\ \ \ \ \ \mbox{\hyperlink{server__gui_8c_af3864606c4696237c4e62a3d02068a8e}{app\_server\_gui}}\ =\ gtk\_application\_new(\textcolor{stringliteral}{"{}org.chompzilla.chompserver"{}},\ 0);}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00141}00141\ \ \ \ \ g\_signal\_connect(\mbox{\hyperlink{server__gui_8c_af3864606c4696237c4e62a3d02068a8e}{app\_server\_gui}},\ \textcolor{stringliteral}{"{}activate"{}},\ G\_CALLBACK(\mbox{\hyperlink{server__gui_8c_aaff0a41360185353510efa362c2ab592}{active\_gui\_server\_gui}}),\ NULL);}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00142}00142\ \ \ \ \ status\ =\ g\_application\_run(G\_APPLICATION(\mbox{\hyperlink{server__gui_8c_af3864606c4696237c4e62a3d02068a8e}{app\_server\_gui}}),\ 0,\ NULL);}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00143}00143\ \ \ \ \ g\_object\_unref(\mbox{\hyperlink{server__gui_8c_af3864606c4696237c4e62a3d02068a8e}{app\_server\_gui}});}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00144}00144\ }
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00145}00145\ \ \ \ \ \textcolor{keywordflow}{return}\ status;}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00146}00146\ \}}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00147}00147\ }
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00155}\mbox{\hyperlink{server__gui_8c_a5f04b2da3cd2280678c48f6052d486fa}{00155}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{server__gui_8c_a5f04b2da3cd2280678c48f6052d486fa}{restart\_game\_state\_server\_gui}}(GtkWidget\ *button,\ gpointer\ user\_data)}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00156}00156\ \{}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00157}00157\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Restarting\ game...\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00158}00158\ \ \ \ \ \mbox{\hyperlink{server__gui_8c_abf2d4ed76849105e4c9c90a07f7655b6}{reset\_game\_state\_server\_gui}}();}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00159}00159\ \ \ \ \ \mbox{\hyperlink{server__gui_8c_a1225780d89857b9d739aba6a8d3b37ab}{destroy\_window\_server\_gui}}();}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00160}00160\ \ \ \ \ \mbox{\hyperlink{server__gui_8c_a899f9da0d92c10826dbe27cb6ee17b74}{launch\_gui\_server\_gui}}(0,\ NULL);}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00161}00161\ \}}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00162}00162\ }
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00163}\mbox{\hyperlink{server__gui_8c_a7b348f3724a1b6554f9a45d5d5b138e5}{00163}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{server__gui_8c_a7b348f3724a1b6554f9a45d5d5b138e5}{send\_coordinates\_to\_client}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *coordinates)}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00164}00164\ \{}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00165}00165\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{server__gui_8c_a9bb51a73e8f48d4d3227adcd9f9244a2}{client\_socket\_server\_gui}}\ <\ 0)}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00166}00166\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00167}00167\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}No\ client\ connected.\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00168}00168\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00169}00169\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00170}00170\ }
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00171}00171\ \ \ \ \ \textcolor{comment}{//\ Send\ the\ coordinates\ to\ the\ client}}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00172}00172\ \ \ \ \ ssize\_t\ bytes\_sent\ =\ send(\mbox{\hyperlink{server__gui_8c_a9bb51a73e8f48d4d3227adcd9f9244a2}{client\_socket\_server\_gui}},\ coordinates,\ strlen(coordinates),\ 0);}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00173}00173\ \ \ \ \ \textcolor{keywordflow}{if}\ (bytes\_sent\ <\ 0)}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00174}00174\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00175}00175\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Failed\ to\ send\ coordinates\ to\ client.\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00176}00176\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00177}00177\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00178}00178\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00179}00179\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Successfully\ sent\ \%ld\ bytes\ to\ client.\(\backslash\)n"{}},\ bytes\_sent);}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00180}00180\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00181}00181\ \}}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00182}00182\ }
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00189}\mbox{\hyperlink{server__gui_8c_aefd7b1482a448478cecc93060277239e}{00189}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{server__gui_8c_aefd7b1482a448478cecc93060277239e}{set\_buttons\_state\_server\_gui}}(gboolean\ state)}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00190}00190\ \{}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00191}00191\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{const_8h_aebe2a6f3394aa2098f5d1e9cab79371e}{GAME\_X}};\ i++)}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00192}00192\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00193}00193\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ \mbox{\hyperlink{const_8h_af2847316f2b0bfca7ace22fc30d9de0d}{GAME\_Y}};\ j++)}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00194}00194\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00195}00195\ \ \ \ \ \ \ \ \ \ \ \ \ GtkWidget\ *btn\ =\ gtk\_grid\_get\_child\_at(GTK\_GRID(\mbox{\hyperlink{server__gui_8c_ae9654c553153f6f3e6faddf6a1215f6b}{table\_server\_gui}}),\ i\ +\ 1,\ j\ +\ 1);}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00196}00196\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (btn\ \&\&\ !gtk\_widget\_has\_css\_class(btn,\ \textcolor{stringliteral}{"{}btn\_del"{}}))}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00197}00197\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00198}00198\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Enable\ or\ disable\ the\ button}}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00199}00199\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ gtk\_widget\_set\_sensitive(btn,\ state);}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00200}00200\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00201}00201\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00202}00202\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00203}00203\ \}}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00204}00204\ }
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00214}\mbox{\hyperlink{server__gui_8c_a96659326d93314ae99ea61edd3282779}{00214}}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{server__gui_8c_a96659326d93314ae99ea61edd3282779}{del\_button\_server\_gui}}(GtkWidget\ *button,\ gpointer\ user\_data)}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00215}00215\ \{}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00216}00216\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Deleting\ button...\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00217}00217\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *button\_coordinate\ =\ gtk\_widget\_get\_name(button);}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00218}00218\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Button\ clicked:\ \%s\(\backslash\)n"{}},\ button\_coordinate);}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00219}00219\ }
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00220}00220\ \ \ \ \ \textcolor{keywordtype}{int}\ x\ =\ button\_coordinate[0]\ -\/\ \textcolor{charliteral}{'A'};}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00221}00221\ \ \ \ \ \textcolor{keywordtype}{int}\ y\ =\ button\_coordinate[1]\ -\/\ \textcolor{charliteral}{'1'};}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00222}00222\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Parsed\ coordinates:\ x\ =\ \%d,\ y\ =\ \%d\(\backslash\)n"{}},\ x,\ y);}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00223}00223\ }
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00224}00224\ \ \ \ \ GtkWidget\ *\mbox{\hyperlink{server__gui_8c_ae9654c553153f6f3e6faddf6a1215f6b}{table\_server\_gui}}\ =\ gtk\_widget\_get\_parent(button);}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00225}00225\ \ \ \ \ \textcolor{keywordflow}{if}\ (!GTK\_IS\_GRID(\mbox{\hyperlink{server__gui_8c_ae9654c553153f6f3e6faddf6a1215f6b}{table\_server\_gui}}))}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00226}00226\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00227}00227\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ The\ parent\ widget\ is\ not\ a\ GtkGrid.\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00228}00228\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00229}00229\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00230}00230\ }
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00231}00231\ \ \ \ \ \textcolor{keywordtype}{int}\ new\_buttons\_to\_delete\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00232}00232\ }
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00233}00233\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Total\ buttons\ deleted\ so\ far:\ \%d\(\backslash\)n"{}},\ \mbox{\hyperlink{server__gui_8c_a6c67d9a0cd7c5df8ce0d0222a04196e8}{buttons\_deleted\_server\_gui}});}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00234}00234\ }
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00235}00235\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ x;\ i\ <\ \mbox{\hyperlink{const_8h_aebe2a6f3394aa2098f5d1e9cab79371e}{GAME\_X}};\ i++)}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00236}00236\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00237}00237\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ y;\ j\ <\ \mbox{\hyperlink{const_8h_af2847316f2b0bfca7ace22fc30d9de0d}{GAME\_Y}};\ j++)}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00238}00238\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00239}00239\ \ \ \ \ \ \ \ \ \ \ \ \ GtkWidget\ *btn\ =\ gtk\_grid\_get\_child\_at(GTK\_GRID(\mbox{\hyperlink{server__gui_8c_ae9654c553153f6f3e6faddf6a1215f6b}{table\_server\_gui}}),\ i\ +\ 1,\ j\ +\ 1);}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00240}00240\ }
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00241}00241\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (btn\ \&\&\ !gtk\_widget\_has\_css\_class(btn,\ \textcolor{stringliteral}{"{}btn\_del"{}}))}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00242}00242\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00243}00243\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ new\_buttons\_to\_delete++;}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00244}00244\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Button\ at\ [\%d,\ \%d]\ can\ be\ deleted\ (total\ new:\ \%d)\(\backslash\)n"{}},\ i,\ j,\ new\_buttons\_to\_delete);}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00245}00245\ }
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00246}00246\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (new\_buttons\_to\_delete\ >\ 5)}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00247}00247\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00248}00248\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}new\_buttons\_to\_delete:\ \%d\(\backslash\)n"{}},\ new\_buttons\_to\_delete);}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00249}00249\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Cannot\ delete\ more\ than\ 5\ buttons.\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00250}00250\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Update\ the\ error\ label}}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00251}00251\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ gtk\_label\_set\_text(GTK\_LABEL(\mbox{\hyperlink{server__gui_8c_a5ec41c681e20d66cd63001918b3b7354}{error\_label\_server\_gui}}),\ \textcolor{stringliteral}{"{}Cannot\ delete\ more\ than\ 5\ buttons."{}});}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00252}00252\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ gtk\_widget\_add\_css\_class(\mbox{\hyperlink{server__gui_8c_a5ec41c681e20d66cd63001918b3b7354}{error\_label\_server\_gui}},\ \textcolor{stringliteral}{"{}error\_label"{}});}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00253}00253\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00254}00254\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00255}00255\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00256}00256\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00257}00257\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Reset\ the\ error\ label}}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00258}00258\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ gtk\_label\_set\_text(GTK\_LABEL(\mbox{\hyperlink{server__gui_8c_a5ec41c681e20d66cd63001918b3b7354}{error\_label\_server\_gui}}),\ \textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00259}00259\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00260}00260\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00261}00261\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (btn\ \&\&\ gtk\_widget\_has\_css\_class(btn,\ \textcolor{stringliteral}{"{}btn\_del"{}}))}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00262}00262\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00263}00263\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Button\ at\ [\%d,\ \%d]\ already\ deleted\ or\ not\ found.\ Ignoring\ it.\(\backslash\)n"{}},\ i,\ j);}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00264}00264\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00265}00265\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00266}00266\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00267}00267\ }
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00268}00268\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Potential\ new\ buttons\ to\ delete\ in\ this\ move:\ \%d\(\backslash\)n"{}},\ new\_buttons\_to\_delete);}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00269}00269\ }
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00270}00270\ \ \ \ \ \textcolor{comment}{//\ If\ the\ number\ of\ buttons\ is\ in\ the\ limit}}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00271}00271\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ x;\ i\ <\ \mbox{\hyperlink{const_8h_aebe2a6f3394aa2098f5d1e9cab79371e}{GAME\_X}};\ i++)}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00272}00272\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00273}00273\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ y;\ j\ <\ \mbox{\hyperlink{const_8h_af2847316f2b0bfca7ace22fc30d9de0d}{GAME\_Y}};\ j++)}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00274}00274\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00275}00275\ \ \ \ \ \ \ \ \ \ \ \ \ GtkWidget\ *btn\ =\ gtk\_grid\_get\_child\_at(GTK\_GRID(\mbox{\hyperlink{server__gui_8c_ae9654c553153f6f3e6faddf6a1215f6b}{table\_server\_gui}}),\ i\ +\ 1,\ j\ +\ 1);}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00276}00276\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (btn\ \&\&\ !gtk\_widget\_has\_css\_class(btn,\ \textcolor{stringliteral}{"{}btn\_del"{}}))}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00277}00277\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00278}00278\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ gtk\_widget\_add\_css\_class(btn,\ \textcolor{stringliteral}{"{}btn\_del"{}});}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00279}00279\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ g\_signal\_handlers\_disconnect\_by\_func(btn,\ G\_CALLBACK(\mbox{\hyperlink{server__gui_8c_a96659326d93314ae99ea61edd3282779}{del\_button\_server\_gui}}),\ NULL);}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00280}00280\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{server__gui_8c_a6c67d9a0cd7c5df8ce0d0222a04196e8}{buttons\_deleted\_server\_gui}}++;}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00281}00281\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Deleted\ button\ at\ [\%d,\ \%d].\ Total\ deleted\ now:\ \%d\(\backslash\)n"{}},\ i,\ j,\ \mbox{\hyperlink{server__gui_8c_a6c67d9a0cd7c5df8ce0d0222a04196e8}{buttons\_deleted\_server\_gui}});}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00282}00282\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{server__gui_8c_a6c67d9a0cd7c5df8ce0d0222a04196e8}{buttons\_deleted\_server\_gui}}\ ==\ \mbox{\hyperlink{const_8h_a3cfd3aa62338d12609f6d65bce97e9cd}{ROWS}}\ *\ \mbox{\hyperlink{const_8h_ab59ad2ee1a48b83c2eef1f019ed8cc48}{COLS}})}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00283}00283\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00284}00284\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ *end\_game\_message\ =\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00285}00285\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{server__gui_8c_af88ee1ecc52e83d6ea3d1f59a9e1d8fd}{player\_server\_gui}}\ ==\ 2)}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00286}00286\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00287}00287\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ end\_game\_message\ =\ \textcolor{stringliteral}{"{}You\ have\ lost\ :("{}};}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00288}00288\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00289}00289\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00290}00290\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00291}00291\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ end\_game\_message\ =\ \textcolor{stringliteral}{"{}You\ have\ won\ :)"{}};}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00292}00292\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00293}00293\ }
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00294}00294\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ gtk\_label\_set\_text(GTK\_LABEL(\mbox{\hyperlink{server__gui_8c_a997a256561ec9700a65ddf5600ddc2f7}{end\_game\_server\_gui}}),\ g\_strdup\_printf(\textcolor{stringliteral}{"{}Player\ \%d\ has\ lost.\(\backslash\)n\%s"{}},\ \mbox{\hyperlink{server__gui_8c_af88ee1ecc52e83d6ea3d1f59a9e1d8fd}{player\_server\_gui}},\ end\_game\_message));}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00295}00295\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Add\ an\ exit\ button}}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00296}00296\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ GtkWidget\ *exit\_button\ =\ gtk\_button\_new\_with\_label(\textcolor{stringliteral}{"{}Exit"{}});}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00297}00297\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ gtk\_widget\_add\_css\_class(exit\_button,\ \textcolor{stringliteral}{"{}btn\_exit"{}});}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00298}00298\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ g\_signal\_connect(exit\_button,\ \textcolor{stringliteral}{"{}clicked"{}},\ G\_CALLBACK(\mbox{\hyperlink{server__gui_8c_acbc887e81600259179f64d25ed34c75b}{exit\_game\_server\_gui}}),\ NULL);}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00299}00299\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ gtk\_grid\_attach(GTK\_GRID(\mbox{\hyperlink{server__gui_8c_a95f61ddbf4feaa7a5e44c7640c4fd191}{main\_div\_server\_gui}}),\ exit\_button,\ 1,\ 4,\ 1,\ 1);}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00300}00300\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00301}00301\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00302}00302\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00303}00303\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00304}00304\ }
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00305}00305\ \ \ \ \ \textcolor{comment}{//\ Update\ of\ the\ player\ label}}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00306}00306\ \ \ \ \ \mbox{\hyperlink{server__gui_8c_af88ee1ecc52e83d6ea3d1f59a9e1d8fd}{player\_server\_gui}}\ =\ (\mbox{\hyperlink{server__gui_8c_af88ee1ecc52e83d6ea3d1f59a9e1d8fd}{player\_server\_gui}}\ \%\ 2)\ +\ 1;}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00307}00307\ \ \ \ \ gtk\_label\_set\_text(GTK\_LABEL(\mbox{\hyperlink{server__gui_8c_a642f93431b7ec9b4eca50de6f76d3e42}{player\_label\_server\_gui}}),\ g\_strdup\_printf(\textcolor{stringliteral}{"{}Player\ \%d"{}},\ \mbox{\hyperlink{server__gui_8c_af88ee1ecc52e83d6ea3d1f59a9e1d8fd}{player\_server\_gui}}));}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00308}00308\ \ \ \ \ gtk\_widget\_add\_css\_class(\mbox{\hyperlink{server__gui_8c_a642f93431b7ec9b4eca50de6f76d3e42}{player\_label\_server\_gui}},\ \textcolor{stringliteral}{"{}player\_label"{}});}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00309}00309\ }
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00310}00310\ \ \ \ \ \textcolor{comment}{//\ Disable\ the\ buttons\ after\ the\ local\ player's\ turn}}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00311}00311\ \ \ \ \ \mbox{\hyperlink{server__gui_8c_aefd7b1482a448478cecc93060277239e}{set\_buttons\_state\_server\_gui}}(FALSE);}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00312}00312\ }
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00313}00313\ \ \ \ \ \textcolor{comment}{//\ Send\ the\ coordinates\ to\ the\ client}}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00314}00314\ \ \ \ \ \mbox{\hyperlink{server__gui_8c_a7b348f3724a1b6554f9a45d5d5b138e5}{send\_coordinates\_to\_client}}(button\_coordinate);}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00315}00315\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Coordinates\ sent\ to\ client:\ \%s\(\backslash\)n"{}},\ button\_coordinate);}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00316}00316\ \}}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00317}00317\ }
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00326}\mbox{\hyperlink{server__gui_8c_aaff0a41360185353510efa362c2ab592}{00326}}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{server__gui_8c_aaff0a41360185353510efa362c2ab592}{active\_gui\_server\_gui}}(GtkApplication\ *\mbox{\hyperlink{server__gui_8c_af3864606c4696237c4e62a3d02068a8e}{app\_server\_gui}},\ gpointer\ user\_data,\ gboolean\ client\_starts)}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00327}00327\ \{}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00328}00328\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Activating\ GUI...\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00329}00329\ \ \ \ \ GtkWidget\ *button;}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00330}00330\ \ \ \ \ GtkWidget\ *center\_box;}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00331}00331\ \ \ \ \ \textcolor{keywordtype}{char}\ *css\ =\ \textcolor{stringliteral}{"{}.btn\ \{background:\ \#ffc300;\ margin:\ 1px;\}\ .btn:hover\{border:\ 2px\ solid\ \#D72638;\}\ .window\ \{background:\ \#001d3d;\}\ .player\_label\ \{font-\/size:\ 20px;\ font-\/weight:\ bold;\}\ .error\_label\ \{color:\ red;\ font-\/size:\ 18px;\ font-\/weight:\ bold;\}\ .btn\_exit\ \{background:\ \#00916E;\ color:\ black;\}\ .player\_label\{color:\ white;\}\ .coords\{color:\ white;\}\ .btn\_del\{opacity:\ 0;\ transition:\ opacity\ 0.2s;\}"{}};}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00332}00332\ }
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00333}00333\ \ \ \ \ \mbox{\hyperlink{server__gui_8c_a1065a3d591d68c11de43a3b357d6e39d}{window\_server\_gui}}\ =\ gtk\_application\_window\_new(\mbox{\hyperlink{server__gui_8c_af3864606c4696237c4e62a3d02068a8e}{app\_server\_gui}});}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00334}00334\ \ \ \ \ gtk\_window\_set\_title(GTK\_WINDOW(\mbox{\hyperlink{server__gui_8c_a1065a3d591d68c11de43a3b357d6e39d}{window\_server\_gui}}),\ \mbox{\hyperlink{const_8h_a47f2e62c0dbebc787052c165afcada0e}{NAME}});}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00335}00335\ \ \ \ \ gtk\_window\_set\_default\_size(GTK\_WINDOW(\mbox{\hyperlink{server__gui_8c_a1065a3d591d68c11de43a3b357d6e39d}{window\_server\_gui}}),\ \mbox{\hyperlink{const_8h_a498d9f026138406895e9a34b504ac6a6}{WINDOW\_WIDTH}},\ \mbox{\hyperlink{const_8h_a5473cf64fa979b48335079c99532e243}{WINDOW\_HEIGHT}});}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00336}00336\ \ \ \ \ gtk\_widget\_add\_css\_class(\mbox{\hyperlink{server__gui_8c_a1065a3d591d68c11de43a3b357d6e39d}{window\_server\_gui}},\ \textcolor{stringliteral}{"{}window"{}});}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00337}00337\ }
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00338}00338\ \ \ \ \ \mbox{\hyperlink{server__gui_8c_a95f61ddbf4feaa7a5e44c7640c4fd191}{main\_div\_server\_gui}}\ =\ gtk\_grid\_new();}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00339}00339\ \ \ \ \ gtk\_widget\_set\_halign(\mbox{\hyperlink{server__gui_8c_a95f61ddbf4feaa7a5e44c7640c4fd191}{main\_div\_server\_gui}},\ GTK\_ALIGN\_CENTER);}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00340}00340\ \ \ \ \ gtk\_widget\_set\_valign(\mbox{\hyperlink{server__gui_8c_a95f61ddbf4feaa7a5e44c7640c4fd191}{main\_div\_server\_gui}},\ GTK\_ALIGN\_CENTER);}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00341}00341\ \ \ \ \ gtk\_grid\_set\_column\_homogeneous(GTK\_GRID(\mbox{\hyperlink{server__gui_8c_a95f61ddbf4feaa7a5e44c7640c4fd191}{main\_div\_server\_gui}}),\ TRUE);}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00342}00342\ \ \ \ \ gtk\_grid\_set\_column\_spacing(GTK\_GRID(\mbox{\hyperlink{server__gui_8c_a95f61ddbf4feaa7a5e44c7640c4fd191}{main\_div\_server\_gui}}),\ 10);}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00343}00343\ }
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00344}00344\ \ \ \ \ GtkCssProvider\ *provider\ =\ gtk\_css\_provider\_new();}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00345}00345\ \textcolor{preprocessor}{\#if\ GTK\_CHECK\_VERSION(4,\ 12,\ 0)}}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00346}00346\ \ \ \ \ gtk\_css\_provider\_load\_from\_string(provider,\ css);}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00347}00347\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00348}00348\ \ \ \ \ gtk\_css\_provider\_load\_from\_data(provider,\ css,\ -\/1);}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00349}00349\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00350}00350\ \ \ \ \ gtk\_style\_context\_add\_provider\_for\_display(gdk\_display\_get\_default(),\ GTK\_STYLE\_PROVIDER(provider),\ GTK\_STYLE\_PROVIDER\_PRIORITY\_APPLICATION);}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00351}00351\ }
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00352}00352\ \ \ \ \ \mbox{\hyperlink{server__gui_8c_a642f93431b7ec9b4eca50de6f76d3e42}{player\_label\_server\_gui}}\ =\ gtk\_label\_new(g\_strdup\_printf(\textcolor{stringliteral}{"{}Player\ \%d"{}},\ 1));}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00353}00353\ \ \ \ \ gtk\_grid\_attach(GTK\_GRID(\mbox{\hyperlink{server__gui_8c_a95f61ddbf4feaa7a5e44c7640c4fd191}{main\_div\_server\_gui}}),\ \mbox{\hyperlink{server__gui_8c_a642f93431b7ec9b4eca50de6f76d3e42}{player\_label\_server\_gui}},\ 1,\ 0,\ 1,\ 1);}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00354}00354\ \ \ \ \ gtk\_widget\_add\_css\_class(\mbox{\hyperlink{server__gui_8c_a642f93431b7ec9b4eca50de6f76d3e42}{player\_label\_server\_gui}},\ \textcolor{stringliteral}{"{}player\_label"{}});}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00355}00355\ \ \ \ \ gtk\_widget\_set\_margin\_bottom(\mbox{\hyperlink{server__gui_8c_a642f93431b7ec9b4eca50de6f76d3e42}{player\_label\_server\_gui}},\ 10);}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00356}00356\ }
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00357}00357\ \ \ \ \ \mbox{\hyperlink{server__gui_8c_ae9654c553153f6f3e6faddf6a1215f6b}{table\_server\_gui}}\ =\ gtk\_grid\_new();}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00358}00358\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{const_8h_aebe2a6f3394aa2098f5d1e9cab79371e}{GAME\_X}};\ i++)}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00359}00359\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00360}00360\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ *coordinate;}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00361}00361\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}\ (i)}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00362}00362\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00363}00363\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 0:}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00364}00364\ \ \ \ \ \ \ \ \ \ \ \ \ coordinate\ =\ \textcolor{stringliteral}{"{}A"{}};}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00365}00365\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00366}00366\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 1:}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00367}00367\ \ \ \ \ \ \ \ \ \ \ \ \ coordinate\ =\ \textcolor{stringliteral}{"{}B"{}};}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00368}00368\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00369}00369\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 2:}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00370}00370\ \ \ \ \ \ \ \ \ \ \ \ \ coordinate\ =\ \textcolor{stringliteral}{"{}C"{}};}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00371}00371\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00372}00372\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 3:}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00373}00373\ \ \ \ \ \ \ \ \ \ \ \ \ coordinate\ =\ \textcolor{stringliteral}{"{}D"{}};}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00374}00374\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00375}00375\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 4:}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00376}00376\ \ \ \ \ \ \ \ \ \ \ \ \ coordinate\ =\ \textcolor{stringliteral}{"{}E"{}};}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00377}00377\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00378}00378\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 5:}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00379}00379\ \ \ \ \ \ \ \ \ \ \ \ \ coordinate\ =\ \textcolor{stringliteral}{"{}F"{}};}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00380}00380\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00381}00381\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 6:}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00382}00382\ \ \ \ \ \ \ \ \ \ \ \ \ coordinate\ =\ \textcolor{stringliteral}{"{}G"{}};}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00383}00383\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00384}00384\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 7:}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00385}00385\ \ \ \ \ \ \ \ \ \ \ \ \ coordinate\ =\ \textcolor{stringliteral}{"{}H"{}};}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00386}00386\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00387}00387\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 8:}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00388}00388\ \ \ \ \ \ \ \ \ \ \ \ \ coordinate\ =\ \textcolor{stringliteral}{"{}I"{}};}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00389}00389\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00390}00390\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00391}00391\ }
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00392}00392\ \ \ \ \ \ \ \ \ GtkWidget\ *coord\ =\ gtk\_label\_new(coordinate);}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00393}00393\ \ \ \ \ \ \ \ \ gtk\_grid\_attach(GTK\_GRID(\mbox{\hyperlink{server__gui_8c_ae9654c553153f6f3e6faddf6a1215f6b}{table\_server\_gui}}),\ coord,\ i\ +\ 1,\ 0,\ 1,\ 1);}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00394}00394\ \ \ \ \ \ \ \ \ gtk\_widget\_add\_css\_class(coord,\ \textcolor{stringliteral}{"{}coords"{}});}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00395}00395\ \ \ \ \ \ \ \ \ gtk\_widget\_set\_margin\_bottom(coord,\ 10);}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00396}00396\ }
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00397}00397\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ \mbox{\hyperlink{const_8h_af2847316f2b0bfca7ace22fc30d9de0d}{GAME\_Y}};\ j++)}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00398}00398\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00399}00399\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ ==\ 0)}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00400}00400\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00401}00401\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ coord\ =\ gtk\_label\_new(g\_strdup\_printf(\textcolor{stringliteral}{"{}\%d"{}},\ j\ +\ 1));}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00402}00402\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ gtk\_grid\_attach(GTK\_GRID(\mbox{\hyperlink{server__gui_8c_ae9654c553153f6f3e6faddf6a1215f6b}{table\_server\_gui}}),\ coord,\ 0,\ j\ +\ 1,\ 1,\ 1);}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00403}00403\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ gtk\_widget\_add\_css\_class(coord,\ \textcolor{stringliteral}{"{}coords"{}});}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00404}00404\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ gtk\_widget\_set\_margin\_end(coord,\ 10);}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00405}00405\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00406}00406\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ *full\_coordinate\ =\ g\_strconcat(coordinate,\ g\_strdup\_printf(\textcolor{stringliteral}{"{}\%d"{}},\ j\ +\ 1),\ NULL);}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00407}00407\ \ \ \ \ \ \ \ \ \ \ \ \ button\ =\ gtk\_button\_new\_with\_label(\textcolor{stringliteral}{"{}\ "{}});}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00408}00408\ \ \ \ \ \ \ \ \ \ \ \ \ gtk\_widget\_set\_size\_request(button,\ \mbox{\hyperlink{const_8h_af066dd01b4084623c107c8c327603831}{BUTTON\_SIZE}},\ \mbox{\hyperlink{const_8h_af066dd01b4084623c107c8c327603831}{BUTTON\_SIZE}});}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00409}00409\ \ \ \ \ \ \ \ \ \ \ \ \ gtk\_widget\_add\_css\_class(button,\ \textcolor{stringliteral}{"{}btn"{}});}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00410}00410\ \ \ \ \ \ \ \ \ \ \ \ \ gtk\_widget\_set\_name(button,\ full\_coordinate);}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00411}00411\ \ \ \ \ \ \ \ \ \ \ \ \ g\_signal\_connect(button,\ \textcolor{stringliteral}{"{}clicked"{}},\ G\_CALLBACK(\mbox{\hyperlink{server__gui_8c_a96659326d93314ae99ea61edd3282779}{del\_button\_server\_gui}}),\ NULL);}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00412}00412\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Button\ created\ with\ coordinate:\ \%s\(\backslash\)n"{}},\ full\_coordinate);}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00413}00413\ \ \ \ \ \ \ \ \ \ \ \ \ gtk\_grid\_attach(GTK\_GRID(\mbox{\hyperlink{server__gui_8c_ae9654c553153f6f3e6faddf6a1215f6b}{table\_server\_gui}}),\ button,\ i\ +\ 1,\ j\ +\ 1,\ 1,\ 1);}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00414}00414\ \ \ \ \ \ \ \ \ \ \ \ \ g\_free(full\_coordinate);}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00415}00415\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00416}00416\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00417}00417\ }
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00418}00418\ \ \ \ \ center\_box\ =\ gtk\_box\_new(GTK\_ORIENTATION\_VERTICAL,\ 0);}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00419}00419\ \ \ \ \ gtk\_widget\_set\_halign(center\_box,\ GTK\_ALIGN\_CENTER);}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00420}00420\ \ \ \ \ gtk\_widget\_set\_valign(center\_box,\ GTK\_ALIGN\_CENTER);}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00421}00421\ \ \ \ \ gtk\_box\_append(GTK\_BOX(center\_box),\ \mbox{\hyperlink{server__gui_8c_ae9654c553153f6f3e6faddf6a1215f6b}{table\_server\_gui}});}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00422}00422\ }
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00423}00423\ \ \ \ \ \textcolor{comment}{//\ Add\ the\ error\ label}}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00424}00424\ \ \ \ \ \mbox{\hyperlink{server__gui_8c_a5ec41c681e20d66cd63001918b3b7354}{error\_label\_server\_gui}}\ =\ gtk\_label\_new(\textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00425}00425\ \ \ \ \ gtk\_grid\_attach(GTK\_GRID(\mbox{\hyperlink{server__gui_8c_a95f61ddbf4feaa7a5e44c7640c4fd191}{main\_div\_server\_gui}}),\ \mbox{\hyperlink{server__gui_8c_a5ec41c681e20d66cd63001918b3b7354}{error\_label\_server\_gui}},\ 1,\ 2,\ 1,\ 1);}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00426}00426\ \ \ \ \ gtk\_widget\_add\_css\_class(\mbox{\hyperlink{server__gui_8c_a5ec41c681e20d66cd63001918b3b7354}{error\_label\_server\_gui}},\ \textcolor{stringliteral}{"{}error\_label"{}});}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00427}00427\ \ \ \ \ gtk\_widget\_set\_margin\_top(\mbox{\hyperlink{server__gui_8c_a5ec41c681e20d66cd63001918b3b7354}{error\_label\_server\_gui}},\ 10);}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00428}00428\ }
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00429}00429\ \ \ \ \ \textcolor{comment}{//\ Add\ the\ end\ game\ label}}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00430}00430\ \ \ \ \ \mbox{\hyperlink{server__gui_8c_a997a256561ec9700a65ddf5600ddc2f7}{end\_game\_server\_gui}}\ =\ gtk\_label\_new(\textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00431}00431\ \ \ \ \ gtk\_grid\_attach(GTK\_GRID(\mbox{\hyperlink{server__gui_8c_a95f61ddbf4feaa7a5e44c7640c4fd191}{main\_div\_server\_gui}}),\ \mbox{\hyperlink{server__gui_8c_a997a256561ec9700a65ddf5600ddc2f7}{end\_game\_server\_gui}},\ 1,\ 3,\ 1,\ 1);}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00432}00432\ \ \ \ \ gtk\_widget\_add\_css\_class(\mbox{\hyperlink{server__gui_8c_a997a256561ec9700a65ddf5600ddc2f7}{end\_game\_server\_gui}},\ \textcolor{stringliteral}{"{}player\_label"{}});}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00433}00433\ \ \ \ \ gtk\_widget\_set\_margin\_top(\mbox{\hyperlink{server__gui_8c_a997a256561ec9700a65ddf5600ddc2f7}{end\_game\_server\_gui}},\ 10);}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00434}00434\ \ \ \ \ gtk\_widget\_set\_margin\_bottom(\mbox{\hyperlink{server__gui_8c_a997a256561ec9700a65ddf5600ddc2f7}{end\_game\_server\_gui}},\ 10);}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00435}00435\ }
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00436}00436\ \ \ \ \ gtk\_grid\_attach(GTK\_GRID(\mbox{\hyperlink{server__gui_8c_a95f61ddbf4feaa7a5e44c7640c4fd191}{main\_div\_server\_gui}}),\ center\_box,\ 0,\ 1,\ 3,\ 1);}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00437}00437\ \ \ \ \ gtk\_window\_set\_child(GTK\_WINDOW(\mbox{\hyperlink{server__gui_8c_a1065a3d591d68c11de43a3b357d6e39d}{window\_server\_gui}}),\ \mbox{\hyperlink{server__gui_8c_a95f61ddbf4feaa7a5e44c7640c4fd191}{main\_div\_server\_gui}});}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00438}00438\ \ \ \ \ gtk\_window\_present(GTK\_WINDOW(\mbox{\hyperlink{server__gui_8c_a1065a3d591d68c11de43a3b357d6e39d}{window\_server\_gui}}));}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00439}00439\ }
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00440}00440\ \ \ \ \ \textcolor{comment}{//\ If\ the\ client\ starts,\ disable\ the\ buttons}}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00441}00441\ \ \ \ \ \textcolor{keywordflow}{if}\ (client\_starts)}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00442}00442\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00443}00443\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Client\ starts,\ disabling\ buttons.\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00444}00444\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{server__gui_8c_aefd7b1482a448478cecc93060277239e}{set\_buttons\_state\_server\_gui}}(FALSE);}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00445}00445\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{server__gui_8c_acc69955e04146dd5ec121038f72da733}{is\_local\_player\_turn\_server\_gui}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00446}00446\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00447}00447\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00448}00448\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00449}00449\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Server\ starts,\ enabling\ buttons.\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00450}00450\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{server__gui_8c_aefd7b1482a448478cecc93060277239e}{set\_buttons\_state\_server\_gui}}(TRUE);}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00451}00451\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{server__gui_8c_acc69955e04146dd5ec121038f72da733}{is\_local\_player\_turn\_server\_gui}}\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00452}00452\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00453}00453\ \}}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00454}00454\ }
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00461}\mbox{\hyperlink{server__gui_8c_a3cd7e8317968bc513a37b52e487c7d06}{00461}}\ \textcolor{keywordtype}{void}\ *\mbox{\hyperlink{server__gui_8c_a3cd7e8317968bc513a37b52e487c7d06}{handle\_client\_server\_gui}}(\textcolor{keywordtype}{void}\ *arg)}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00462}00462\ \{}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00463}00463\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{server__gui_8c_a9bb51a73e8f48d4d3227adcd9f9244a2}{client\_socket\_server\_gui}}\ =\ *((\textcolor{keywordtype}{int}\ *)arg);}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00464}00464\ \ \ \ \ free(arg);}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00465}00465\ \ \ \ \ \textcolor{keywordtype}{char}\ buffer[\mbox{\hyperlink{const_8h_a6b20d41d6252e9871430c242cb1a56e7}{BUFFER\_SIZE}}]\ =\ \{0\};}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00466}00466\ }
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00467}00467\ \ \ \ \ \textcolor{comment}{//\ Infinite\ loop\ to\ handle\ the\ client}}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00468}00468\ \ \ \ \ \textcolor{keywordflow}{while}\ (1)}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00469}00469\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00470}00470\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ total\_bytes\_read\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00471}00471\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ bytes\_read;}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00472}00472\ }
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00473}00473\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Reading\ of\ the\ client's\ data}}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00474}00474\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ ((bytes\_read\ =\ read(\mbox{\hyperlink{server__gui_8c_a9bb51a73e8f48d4d3227adcd9f9244a2}{client\_socket\_server\_gui}},\ buffer\ +\ total\_bytes\_read,\ \mbox{\hyperlink{const_8h_a6b20d41d6252e9871430c242cb1a56e7}{BUFFER\_SIZE}}\ -\/\ total\_bytes\_read\ -\/\ 1))\ >\ 0)}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00475}00475\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00476}00476\ \ \ \ \ \ \ \ \ \ \ \ \ total\_bytes\_read\ +=\ bytes\_read;}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00477}00477\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ We\ verify\ that\ the\ string\ is\ complete}}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00478}00478\ \ \ \ \ \ \ \ \ \ \ \ \ buffer[total\_bytes\_read]\ =\ \textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00479}00479\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Received\ \%d\ bytes\ from\ client:\ \%s\(\backslash\)n"{}},\ total\_bytes\_read,\ buffer);}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00480}00480\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00481}00481\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00482}00482\ }
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00483}00483\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (bytes\_read\ ==\ 0)}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00484}00484\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00485}00485\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Client\ disconnected.\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00486}00486\ \ \ \ \ \ \ \ \ \ \ \ \ close(\mbox{\hyperlink{server__gui_8c_a9bb51a73e8f48d4d3227adcd9f9244a2}{client\_socket\_server\_gui}});}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00487}00487\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ NULL;}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00488}00488\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00489}00489\ }
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00490}00490\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (bytes\_read\ <\ 0)}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00491}00491\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00492}00492\ \ \ \ \ \ \ \ \ \ \ \ \ perror(\textcolor{stringliteral}{"{}Error\ reading\ from\ client"{}});}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00493}00493\ \ \ \ \ \ \ \ \ \ \ \ \ close(\mbox{\hyperlink{server__gui_8c_a9bb51a73e8f48d4d3227adcd9f9244a2}{client\_socket\_server\_gui}});}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00494}00494\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ NULL;}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00495}00495\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00496}00496\ }
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00497}00497\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Processing\ of\ the\ client's\ data}}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00498}00498\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ x\ =\ buffer[0]\ -\/\ \textcolor{charliteral}{'A'};}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00499}00499\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ y\ =\ buffer[1]\ -\/\ \textcolor{charliteral}{'1'};}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00500}00500\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Parsed\ coordinates:\ x\ =\ \%d,\ y\ =\ \%d\(\backslash\)n"{}},\ x,\ y);}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00501}00501\ }
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00502}00502\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!GTK\_IS\_GRID(\mbox{\hyperlink{server__gui_8c_ae9654c553153f6f3e6faddf6a1215f6b}{table\_server\_gui}}))}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00503}00503\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00504}00504\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ The\ table\ widget\ is\ not\ a\ GtkGrid.\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00505}00505\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00506}00506\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00507}00507\ }
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00508}00508\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ new\_buttons\_to\_delete\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00509}00509\ }
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00510}00510\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Delete\ the\ buttons}}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00511}00511\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ x;\ i\ <\ \mbox{\hyperlink{const_8h_aebe2a6f3394aa2098f5d1e9cab79371e}{GAME\_X}};\ i++)}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00512}00512\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00513}00513\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ y;\ j\ <\ \mbox{\hyperlink{const_8h_af2847316f2b0bfca7ace22fc30d9de0d}{GAME\_Y}};\ j++)}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00514}00514\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00515}00515\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ GtkWidget\ *btn\ =\ gtk\_grid\_get\_child\_at(GTK\_GRID(\mbox{\hyperlink{server__gui_8c_ae9654c553153f6f3e6faddf6a1215f6b}{table\_server\_gui}}),\ i\ +\ 1,\ j\ +\ 1);}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00516}00516\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (btn\ \&\&\ !gtk\_widget\_has\_css\_class(btn,\ \textcolor{stringliteral}{"{}btn\_del"{}}))}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00517}00517\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00518}00518\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ gtk\_widget\_add\_css\_class(btn,\ \textcolor{stringliteral}{"{}btn\_del"{}});}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00519}00519\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ g\_signal\_handlers\_disconnect\_by\_func(btn,\ G\_CALLBACK(\mbox{\hyperlink{server__gui_8c_a96659326d93314ae99ea61edd3282779}{del\_button\_server\_gui}}),\ NULL);}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00520}00520\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{server__gui_8c_a6c67d9a0cd7c5df8ce0d0222a04196e8}{buttons\_deleted\_server\_gui}}++;}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00521}00521\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ new\_buttons\_to\_delete++;}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00522}00522\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Deleted\ button\ at\ [\%d,\ \%d].\ Total\ deleted\ now:\ \%d\(\backslash\)n"{}},\ i,\ j,\ \mbox{\hyperlink{server__gui_8c_a6c67d9a0cd7c5df8ce0d0222a04196e8}{buttons\_deleted\_server\_gui}});}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00523}00523\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00524}00524\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00525}00525\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00526}00526\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Total\ buttons\ deleted\ in\ this\ move:\ \%d\(\backslash\)n"{}},\ new\_buttons\_to\_delete);}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00527}00527\ }
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00528}00528\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ We\ verify\ that\ we\ have\ not\ reached\ the\ end\ of\ the\ game}}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00529}00529\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{server__gui_8c_a6c67d9a0cd7c5df8ce0d0222a04196e8}{buttons\_deleted\_server\_gui}}\ ==\ \mbox{\hyperlink{const_8h_a3cfd3aa62338d12609f6d65bce97e9cd}{ROWS}}\ *\ \mbox{\hyperlink{const_8h_ab59ad2ee1a48b83c2eef1f019ed8cc48}{COLS}})}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00530}00530\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00531}00531\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ We\ check\ if\ the\ current\ player\ has\ win\ or\ lose}}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00532}00532\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ *end\_game\_message\ =\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00533}00533\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{server__gui_8c_af88ee1ecc52e83d6ea3d1f59a9e1d8fd}{player\_server\_gui}}\ ==\ 2)}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00534}00534\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00535}00535\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ end\_game\_message\ =\ \textcolor{stringliteral}{"{}You\ have\ lost\ :("{}};}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00536}00536\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00537}00537\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00538}00538\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00539}00539\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ end\_game\_message\ =\ \textcolor{stringliteral}{"{}You\ have\ won\ :)"{}};}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00540}00540\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00541}00541\ \ \ \ \ \ \ \ \ \ \ \ \ gtk\_label\_set\_text(GTK\_LABEL(\mbox{\hyperlink{server__gui_8c_a997a256561ec9700a65ddf5600ddc2f7}{end\_game\_server\_gui}}),\ g\_strdup\_printf(\textcolor{stringliteral}{"{}Player\ \%d\ has\ lost.\(\backslash\)n\%s"{}},\ \mbox{\hyperlink{server__gui_8c_af88ee1ecc52e83d6ea3d1f59a9e1d8fd}{player\_server\_gui}}\ ==\ 2\ ?\ 2\ :\ 1,\ end\_game\_message));}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00542}00542\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Add\ an\ exit\ button}}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00543}00543\ \ \ \ \ \ \ \ \ \ \ \ \ GtkWidget\ *exit\_button\ =\ gtk\_button\_new\_with\_label(\textcolor{stringliteral}{"{}Exit"{}});}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00544}00544\ \ \ \ \ \ \ \ \ \ \ \ \ gtk\_widget\_add\_css\_class(exit\_button,\ \textcolor{stringliteral}{"{}btn\_exit"{}});}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00545}00545\ \ \ \ \ \ \ \ \ \ \ \ \ g\_signal\_connect(exit\_button,\ \textcolor{stringliteral}{"{}clicked"{}},\ G\_CALLBACK(\mbox{\hyperlink{server__gui_8c_acbc887e81600259179f64d25ed34c75b}{exit\_game\_server\_gui}}),\ NULL);}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00546}00546\ \ \ \ \ \ \ \ \ \ \ \ \ gtk\_grid\_attach(GTK\_GRID(\mbox{\hyperlink{server__gui_8c_a95f61ddbf4feaa7a5e44c7640c4fd191}{main\_div\_server\_gui}}),\ exit\_button,\ 1,\ 4,\ 1,\ 1);}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00547}00547\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00548}00548\ }
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00549}00549\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Update\ the\ player\ label}}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00550}00550\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{server__gui_8c_af88ee1ecc52e83d6ea3d1f59a9e1d8fd}{player\_server\_gui}}\ =\ (\mbox{\hyperlink{server__gui_8c_af88ee1ecc52e83d6ea3d1f59a9e1d8fd}{player\_server\_gui}}\ \%\ 2)\ +\ 1;}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00551}00551\ \ \ \ \ \ \ \ \ gtk\_label\_set\_text(GTK\_LABEL(\mbox{\hyperlink{server__gui_8c_a642f93431b7ec9b4eca50de6f76d3e42}{player\_label\_server\_gui}}),\ g\_strdup\_printf(\textcolor{stringliteral}{"{}Player\ \%d\ (Server)"{}},\ \mbox{\hyperlink{server__gui_8c_af88ee1ecc52e83d6ea3d1f59a9e1d8fd}{player\_server\_gui}}));}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00552}00552\ \ \ \ \ \ \ \ \ gtk\_widget\_add\_css\_class(\mbox{\hyperlink{server__gui_8c_a642f93431b7ec9b4eca50de6f76d3e42}{player\_label\_server\_gui}},\ \textcolor{stringliteral}{"{}player\_label"{}});}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00553}00553\ }
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00554}00554\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Enable\ the\ buttons\ after\ the\ local\ player's\ turn}}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00555}00555\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{server__gui_8c_aefd7b1482a448478cecc93060277239e}{set\_buttons\_state\_server\_gui}}(TRUE);}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00556}00556\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00557}00557\ }
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00558}00558\ \ \ \ \ \textcolor{keywordflow}{return}\ NULL;}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00559}00559\ \}}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00560}00560\ }
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00567}\mbox{\hyperlink{server__gui_8c_a9343452c866f3dacaa46c32d318f3e6f}{00567}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{server__gui_8c_a9343452c866f3dacaa46c32d318f3e6f}{network\_server\_gui}}(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{short}\ \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{port}})}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00568}00568\ \{}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00569}00569\ \ \ \ \ \mbox{\hyperlink{server__gui_8c_a8d0f4eae55c128e56497bb7a69ae85f9}{port\_server\_gui}}\ =\ \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{port}};}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00570}00570\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{server__gui_8c_a899f9da0d92c10826dbe27cb6ee17b74}{launch\_gui\_server\_gui}}();}
+\DoxyCodeLine{\Hypertarget{server__gui_8c_source_l00571}00571\ \}}
+
+\end{DoxyCode}

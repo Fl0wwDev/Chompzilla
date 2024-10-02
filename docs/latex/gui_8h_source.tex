@@ -1,0 +1,34 @@
+\doxysection{gui.\+h}
+\hypertarget{gui_8h_source}{}\label{gui_8h_source}\index{src/gui/gui.h@{src/gui/gui.h}}
+\mbox{\hyperlink{gui_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{gui_8h_source_l00001}00001\ \textcolor{comment}{//\ Guards\ to\ prevent\ multiple\ inclusion}}
+\DoxyCodeLine{\Hypertarget{gui_8h_source_l00002}00002\ \textcolor{preprocessor}{\#ifndef\ GUI\_H}}
+\DoxyCodeLine{\Hypertarget{gui_8h_source_l00003}00003\ \textcolor{preprocessor}{\#define\ GUI\_H}}
+\DoxyCodeLine{\Hypertarget{gui_8h_source_l00004}00004\ }
+\DoxyCodeLine{\Hypertarget{gui_8h_source_l00005}00005\ \textcolor{preprocessor}{\#include\ <gtk/gtk.h>}}
+\DoxyCodeLine{\Hypertarget{gui_8h_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{gui_8h_source_l00007}00007\ \textcolor{comment}{//\ Define\ a\ struct\ to\ encapsulate\ the\ coordinates\ and\ error\ arrays}}
+\DoxyCodeLine{\Hypertarget{gui_8h_source_l00008}\mbox{\hyperlink{struct_server_response}{00008}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{\Hypertarget{gui_8h_source_l00009}00009\ \{}
+\DoxyCodeLine{\Hypertarget{gui_8h_source_l00010}\mbox{\hyperlink{struct_server_response_a2a34eb93658238a0c0fe9bec69b55c3a}{00010}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_server_response_a2a34eb93658238a0c0fe9bec69b55c3a}{coordinates\_size}};}
+\DoxyCodeLine{\Hypertarget{gui_8h_source_l00011}\mbox{\hyperlink{struct_server_response_a64fbbd2ab5a1e37b82a1d5aad28afcd4}{00011}}\ \ \ \ \ \textcolor{keywordtype}{char}\ **\mbox{\hyperlink{struct_server_response_a64fbbd2ab5a1e37b82a1d5aad28afcd4}{coordinates}};}
+\DoxyCodeLine{\Hypertarget{gui_8h_source_l00012}\mbox{\hyperlink{struct_server_response_a37a27b523e8aff433c8a4adda2295f0d}{00012}}\ \ \ \ \ \textcolor{keywordtype}{char}\ *\mbox{\hyperlink{struct_server_response_a37a27b523e8aff433c8a4adda2295f0d}{error}};}
+\DoxyCodeLine{\Hypertarget{gui_8h_source_l00013}\mbox{\hyperlink{struct_server_response_a887970e04bd766eed4500a8364e4a304}{00013}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_server_response_a887970e04bd766eed4500a8364e4a304}{player\_num}};}
+\DoxyCodeLine{\Hypertarget{gui_8h_source_l00014}\mbox{\hyperlink{struct_server_response_a6b1e994c0d518971e2f9f9c80b568203}{00014}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{struct_server_response_a6b1e994c0d518971e2f9f9c80b568203}{is\_game\_over}};}
+\DoxyCodeLine{\Hypertarget{gui_8h_source_l00015}00015\ \}\ \mbox{\hyperlink{struct_server_response}{ServerResponse}};}
+\DoxyCodeLine{\Hypertarget{gui_8h_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{gui_8h_source_l00017}00017\ \textcolor{comment}{//\ Function\ prototypes}}
+\DoxyCodeLine{\Hypertarget{gui_8h_source_l00018}00018\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{gui_8h_a516ba65090acee0f939477ec3e6e80ea}{destroy\_window}}();}
+\DoxyCodeLine{\Hypertarget{gui_8h_source_l00019}00019\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{gui_8h_aa82cdf9dd9194b7c81bc534e9f07e704}{exit\_game}}(GtkWidget\ *button,\ gpointer\ user\_data);}
+\DoxyCodeLine{\Hypertarget{gui_8h_source_l00020}00020\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{gui_8h_ac88833aaa22012dfe7b7ffa32774c93c}{reset\_game\_state}}();}
+\DoxyCodeLine{\Hypertarget{gui_8h_source_l00021}\mbox{\hyperlink{gui_8h_a2819f266214852b4eba5b68c5142bea9}{00021}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{gui_8h_a2819f266214852b4eba5b68c5142bea9}{restart\_game}}(GtkWidget\ *button,\ gpointer\ user\_data);}
+\DoxyCodeLine{\Hypertarget{gui_8h_source_l00022}\mbox{\hyperlink{gui_8h_ace23485694fbfeef4e02210878c60359}{00022}}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{gui_8h_ace23485694fbfeef4e02210878c60359}{del\_button}}(GtkWidget\ *button,\ gpointer\ user\_data);}
+\DoxyCodeLine{\Hypertarget{gui_8h_source_l00023}\mbox{\hyperlink{gui_8h_a56286ad62f5064199b3fa1e5da729307}{00023}}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{gui_8h_a56286ad62f5064199b3fa1e5da729307}{active\_gui}}(GtkApplication\ *\mbox{\hyperlink{gui_8c_a3b78d20f637938b3628571375080c3c6}{app}},\ gpointer\ user\_data);}
+\DoxyCodeLine{\Hypertarget{gui_8h_source_l00024}00024\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{gui_8h_a79b7aab5800323d88b36cc5bc3edca26}{launch\_gui}}(\textcolor{keywordtype}{int}\ argc,\ \textcolor{keywordtype}{char}\ **argv);}
+\DoxyCodeLine{\Hypertarget{gui_8h_source_l00025}00025\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{gui_8h_a59b1fa1aa41a698b6e838bc12842a2a3}{launch\_game\_gui\_on\_client\_connect}}();}
+\DoxyCodeLine{\Hypertarget{gui_8h_source_l00026}00026\ gboolean\ \mbox{\hyperlink{gui_8h_aa51ce1145109f64d60c2572cc7317b90}{update\_gui\_from\_server}}(gpointer\ data);}
+\DoxyCodeLine{\Hypertarget{gui_8h_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{gui_8h_source_l00028}00028\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

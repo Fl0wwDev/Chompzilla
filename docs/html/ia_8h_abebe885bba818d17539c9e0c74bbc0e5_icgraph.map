@@ -1,0 +1,26 @@
+<map id="ia_get_column" name="ia_get_column">
+<area shape="rect" id="Node000001" title="Main function to get a column." alt="" coords="672,81,789,106"/>
+<area shape="rect" id="Node000002" href="$game__logic_8c.html#a486a0f1c264213b655412ebcf4ab1a91" title="Function to play a local game in CLI against the IA." alt="" coords="460,31,611,57"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="666,80,586,59,587,54,667,75"/>
+<area shape="rect" id="Node000006" href="$client_8c.html#ae58acfe4ef90373f7e9200f2deaf2ac6" title="Function to launch the client in IA mode on a specific IP address and port." alt="" coords="449,157,621,182"/>
+<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="685,114,570,159,568,154,683,109"/>
+<area shape="rect" id="Node000010" href="$server_8c.html#a1271c0951e919351d79c322614184981" title="Function to launch the server with the IA as a player." alt="" coords="447,81,624,106"/>
+<area shape="poly" id="edge12_Node000001_Node000010" title=" " alt="" coords="658,96,624,96,624,91,658,91"/>
+<area shape="rect" id="Node000003" href="$main__menu__utils_8c.html#aa3501c29f05643295bbda8a78253cadd" title="Function to display the game mode menu." alt="" coords="259,81,399,106"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="469,62,383,83,382,78,468,57"/>
+<area shape="rect" id="Node000005" href="$game_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="The main function." alt="" coords="5,55,60,81"/>
+<area shape="poly" id="edge5_Node000002_Node000005" title=" " alt="" coords="468,31,393,18,303,10,205,11,156,16,109,26,77,40,51,57,48,53,75,35,107,21,155,11,204,5,303,4,394,13,469,26"/>
+<area shape="rect" id="Node000004" href="$main__menu__utils_8c.html#a116f5db451cfe52a4f8ae0bdf32e3bbc" title="Function to display the main menu." alt="" coords="108,81,211,106"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="245,96,211,96,211,91,245,91"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="94,83,60,76,61,71,95,78"/>
+<area shape="poly" id="edge7_Node000006_Node000003" title=" " alt="" coords="486,154,363,109,365,104,488,149"/>
+<area shape="poly" id="edge8_Node000006_Node000005" title=" " alt="" coords="435,173,362,170,278,162,191,146,107,121,73,103,46,83,50,79,76,99,109,116,192,141,279,156,362,165,435,168"/>
+<area shape="rect" id="Node000007" href="$client_8test_8c.html#a476406ab702cb7c5e05e1bf5e4e49eed" title="Test the existence of the play_network_ia_client function." alt="" coords="305,231,353,257"/>
+<area shape="poly" id="edge9_Node000006_Node000007" title=" " alt="" coords="489,189,400,222,354,239,352,234,398,217,487,184"/>
+<area shape="rect" id="Node000008" href="$client_8test_8c.html#a12af323c5d161a87ebabddcbed6e3ed5" title="Test the behavior of play_network_ia_client with an invalid port." alt="" coords="305,281,353,306"/>
+<area shape="poly" id="edge10_Node000006_Node000008" title=" " alt="" coords="511,193,461,232,400,272,354,290,352,285,397,267,458,228,508,189"/>
+<area shape="rect" id="Node000009" href="$client_8test_8c.html#af1ce3959f1356a2a7fdde9ee93591fb8" title="Test the behavior of play_network_ia_client with valid parameters." alt="" coords="305,182,353,207"/>
+<area shape="poly" id="edge11_Node000006_Node000009" title=" " alt="" coords="436,184,353,194,353,189,436,179"/>
+<area shape="poly" id="edge13_Node000010_Node000003" title=" " alt="" coords="433,96,399,96,399,91,433,91"/>
+<area shape="poly" id="edge14_Node000010_Node000005" title=" " alt="" coords="465,81,398,71,301,65,205,64,60,69,60,64,204,59,301,60,399,65,466,75"/>
+</map>

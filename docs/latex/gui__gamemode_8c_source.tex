@@ -1,0 +1,378 @@
+\doxysection{gui\+\_\+gamemode.\+c}
+\hypertarget{gui__gamemode_8c_source}{}\label{gui__gamemode_8c_source}\index{src/gui/gui\_gamemode.c@{src/gui/gui\_gamemode.c}}
+\mbox{\hyperlink{gui__gamemode_8c}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00001}00001\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00002}00002\ \textcolor{preprocessor}{\#include\ <limits.h>}}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00003}00003\ \textcolor{preprocessor}{\#include\ <arpa/inet.h>}}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00004}00004\ \textcolor{preprocessor}{\#include\ "{}../inc/const.h"{}}}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00005}00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{gui__gamemode_8h}{gui\_gamemode.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00006}00006\ \textcolor{preprocessor}{\#include\ "{}../game\_logic/game\_logic.h"{}}}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00007}00007\ \textcolor{preprocessor}{\#include\ "{}../game.h"{}}}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00008}00008\ \textcolor{preprocessor}{\#include\ <gtk/gtk.h>}}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00009}00009\ \textcolor{preprocessor}{\#include\ "{}../server/server.h"{}}}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00010}00010\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{client__gui_8h}{client\_gui.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00011}00011\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{server__gui_8h}{server\_gui.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00013}00013\ \textcolor{comment}{//\ Global\ variables}}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00014}\mbox{\hyperlink{gui__gamemode_8c_a48ebcef2ebc7114ec3bdd9e899257378}{00014}}\ GtkApplication*\ \mbox{\hyperlink{gui__gamemode_8c_a48ebcef2ebc7114ec3bdd9e899257378}{app\_gamemode}};}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00015}\mbox{\hyperlink{gui__gamemode_8c_a0fed90ad74a791d8a43f02ddb6b6e362}{00015}}\ GtkWidget*\ \mbox{\hyperlink{gui__gamemode_8c_a0fed90ad74a791d8a43f02ddb6b6e362}{window\_gamemode}};}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00016}\mbox{\hyperlink{gui__gamemode_8c_afcf66ef4db0bfa3f8d48ac255b4b4ea4}{00016}}\ GtkWidget*\ \mbox{\hyperlink{gui__gamemode_8c_afcf66ef4db0bfa3f8d48ac255b4b4ea4}{dialog\_wait}};}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00017}\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{00017}}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{short}\ \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{port}};}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00024}\mbox{\hyperlink{gui__gamemode_8c_a455ef2c4ea8abc881a63a124418e3f1f}{00024}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{gui__gamemode_8c_a455ef2c4ea8abc881a63a124418e3f1f}{destroy\_window\_gamemode\_wait}}()\ \{}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00025}00025\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{gui__gamemode_8c_afcf66ef4db0bfa3f8d48ac255b4b4ea4}{dialog\_wait}}\ !=\ NULL\ \&\&\ gtk\_widget\_get\_visible(\mbox{\hyperlink{gui__gamemode_8c_afcf66ef4db0bfa3f8d48ac255b4b4ea4}{dialog\_wait}}))\ \{}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00026}00026\ \ \ \ \ \ \ \ \ gtk\_window\_destroy(GTK\_WINDOW(\mbox{\hyperlink{gui__gamemode_8c_afcf66ef4db0bfa3f8d48ac255b4b4ea4}{dialog\_wait}}));}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00027}00027\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{gui__gamemode_8c_afcf66ef4db0bfa3f8d48ac255b4b4ea4}{dialog\_wait}}\ =\ NULL;}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00028}00028\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00029}00029\ \}}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00037}\mbox{\hyperlink{gui__gamemode_8c_a5dbd76630a15dbe9d88e1cdad214dacc}{00037}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{gui__gamemode_8c_a5dbd76630a15dbe9d88e1cdad214dacc}{start\_button\_server\_gui}}(GtkWidget*\ button,\ gpointer\ user\_data)\ }
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00038}00038\ \{}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00039}00039\ \ \ \ \ \textcolor{comment}{//\ We\ get\ the\ port\ from\ the\ entry}}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00040}00040\ \ \ \ \ GtkWidget*\ grid\ =\ GTK\_WIDGET(gtk\_widget\_get\_parent(button));}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00041}00041\ \ \ \ \ GtkWidget*\ entry\_port\ =\ GTK\_WIDGET(user\_data);}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00043}00043\ \ \ \ \ \textcolor{keywordflow}{if}\ (GTK\_IS\_ENTRY(entry\_port))\ \{}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00044}00044\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ port\_str\ =\ gtk\_editable\_get\_text(GTK\_EDITABLE(entry\_port));}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00045}00045\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ We\ verify\ that\ the\ port\ can\ be\ converted\ to\ an\ unsigned\ short}}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00046}00046\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}STR\ LEN:\ \%ld\(\backslash\)n"{}},\ strlen(port\_str));}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00047}00047\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (port\_str\ ==\ NULL\ ||\ strlen(port\_str)\ ==\ 0\ ||\ strlen(port\_str)\ >\ 5\ ||\ atoi(port\_str)\ >\ USHRT\_MAX)\ \{}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00048}00048\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Port\ number\ is\ empty.\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00049}00049\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ We\ add\ an\ error\ message\ to\ the\ grid}}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00050}00050\ \ \ \ \ \ \ \ \ \ \ \ \ GtkWidget*\ label\_error\ =\ gtk\_label\_new(\textcolor{stringliteral}{"{}Please\ enter\ a\ port\ number."{}});}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00051}00051\ \ \ \ \ \ \ \ \ \ \ \ \ gtk\_widget\_set\_margin\_bottom(label\_error,\ 10);}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00052}00052\ \ \ \ \ \ \ \ \ \ \ \ \ gtk\_widget\_set\_margin\_top(label\_error,\ 10);}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00053}00053\ \ \ \ \ \ \ \ \ \ \ \ \ gtk\_widget\_set\_margin\_start(label\_error,\ 10);}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00054}00054\ \ \ \ \ \ \ \ \ \ \ \ \ gtk\_widget\_set\_margin\_end(label\_error,\ 10);}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00055}00055\ \ \ \ \ \ \ \ \ \ \ \ \ gtk\_grid\_attach(GTK\_GRID(grid),\ label\_error,\ 0,\ 3,\ 2,\ 1);}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00056}00056\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00057}00057\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00058}00058\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00059}00059\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{port}}\ =\ (\textcolor{keywordtype}{unsigned}\ short)atoi(port\_str);}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00060}00060\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00061}00061\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00062}00062\ }
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00063}00063\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{port}}\ ==\ 0\ ||\ \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{port}}\ >\ 65535\ ||\ \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{port}}\ <\ 1024)\ \{}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00064}00064\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Invalid\ port\ number.\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00065}00065\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ We\ add\ an\ error\ message\ to\ the\ grid}}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00066}00066\ \ \ \ \ \ \ \ \ GtkWidget*\ label\_error\ =\ gtk\_label\_new(\textcolor{stringliteral}{"{}Please\ enter\ a\ valid\ port\ number."{}});}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00067}00067\ \ \ \ \ \ \ \ \ gtk\_widget\_set\_margin\_bottom(label\_error,\ 10);}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00068}00068\ \ \ \ \ \ \ \ \ gtk\_widget\_set\_margin\_top(label\_error,\ 10);}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00069}00069\ \ \ \ \ \ \ \ \ gtk\_widget\_set\_margin\_start(label\_error,\ 10);}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00070}00070\ \ \ \ \ \ \ \ \ gtk\_widget\_set\_margin\_end(label\_error,\ 10);}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00071}00071\ \ \ \ \ \ \ \ \ gtk\_grid\_attach(GTK\_GRID(grid),\ label\_error,\ 0,\ 3,\ 2,\ 1);}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00072}00072\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00073}00073\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00074}00074\ }
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00075}00075\ \ \ \ \ \textcolor{comment}{//\ We\ destroy\ the\ window}}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00076}00076\ \ \ \ \ gtk\_window\_destroy(GTK\_WINDOW(gtk\_widget\_get\_parent(grid)));}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00077}00077\ }
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00078}00078\ \ \ \ \ \textcolor{comment}{//\ We\ start\ the\ server}}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00079}00079\ \ \ \ \ \mbox{\hyperlink{server__gui_8c_a9343452c866f3dacaa46c32d318f3e6f}{network\_server\_gui}}(\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{port}});}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00080}00080\ \}}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00081}00081\ }
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00087}\mbox{\hyperlink{gui__gamemode_8c_af54567c223d38fbc21da40e9298ab603}{00087}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{gui__gamemode_8c_af54567c223d38fbc21da40e9298ab603}{destroy\_window\_gamemode}}()\ \{}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00088}00088\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{gui__gamemode_8c_a0fed90ad74a791d8a43f02ddb6b6e362}{window\_gamemode}}\ !=\ NULL\ \&\&\ gtk\_widget\_get\_visible(\mbox{\hyperlink{gui__gamemode_8c_a0fed90ad74a791d8a43f02ddb6b6e362}{window\_gamemode}}))\ \{}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00089}00089\ \ \ \ \ \ \ \ \ gtk\_window\_destroy(GTK\_WINDOW(\mbox{\hyperlink{gui__gamemode_8c_a0fed90ad74a791d8a43f02ddb6b6e362}{window\_gamemode}}));}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00090}00090\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{gui__gamemode_8c_a0fed90ad74a791d8a43f02ddb6b6e362}{window\_gamemode}}\ =\ NULL;\ \textcolor{comment}{//\ Ne\ pas\ oublier\ de\ réinitialiser\ le\ pointeur\ pour\ éviter\ d'essayer\ de\ détruire\ la\ fenêtre\ à\ nouveau}}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00091}00091\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00092}00092\ \}}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00093}00093\ }
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00101}\mbox{\hyperlink{gui__gamemode_8c_ac14f1160debf8136367ac538a5b1ab52}{00101}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{gui__gamemode_8c_ac14f1160debf8136367ac538a5b1ab52}{play\_local\_game\_gui\_button}}(GtkWidget*\ button,\ gpointer\ user\_data)\ }
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00102}00102\ \{}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00103}00103\ \ \ \ \ \textcolor{comment}{//\ We\ destroy\ the\ window}}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00104}00104\ \ \ \ \ \mbox{\hyperlink{gui__gamemode_8c_af54567c223d38fbc21da40e9298ab603}{destroy\_window\_gamemode}}();}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00105}00105\ }
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00106}00106\ \ \ \ \ \textcolor{comment}{//\ We\ launch\ the\ GUI}}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00107}00107\ \ \ \ \ \mbox{\hyperlink{game__logic_8c_a608690d669667bea852499d1c3eae893}{play\_local\_game\_gui}}();}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00108}00108\ \}}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00109}00109\ }
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00117}\mbox{\hyperlink{gui__gamemode_8c_a137ae724c37fcec06e0eb3aca8d8931d}{00117}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{gui__gamemode_8c_a137ae724c37fcec06e0eb3aca8d8931d}{start\_button\_client\_gui}}(GtkWidget*\ button,\ gpointer\ user\_data)}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00118}00118\ \{}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00119}00119\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Starting\ the\ client.\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00120}00120\ \ \ \ \ \textcolor{comment}{//\ We\ get\ the\ ip\ and\ port\ from\ the\ entries}}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00121}00121\ \ \ \ \ GtkWidget*\ grid\ =\ GTK\_WIDGET(gtk\_widget\_get\_parent(button));}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00122}00122\ \ \ \ \ GtkWidget*\ entry\_ip\ =\ GTK\_WIDGET(((\mbox{\hyperlink{struct_ip_port_gtk}{IpPortGtk}}*)user\_data)-\/>entry\_ip);}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00123}00123\ \ \ \ \ GtkWidget*\ entry\_port\ =\ GTK\_WIDGET(((\mbox{\hyperlink{struct_ip_port_gtk}{IpPortGtk}}*)user\_data)-\/>entry\_port);}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00124}00124\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00125}00125\ \ \ \ \ printf(\textcolor{stringliteral}{"{}IP:\ \%p\(\backslash\)n"{}},\ entry\_ip);}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00126}00126\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Port:\ \%p\(\backslash\)n"{}},\ entry\_port);}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00127}00127\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00128}00128\ \ \ \ \ \textcolor{keywordflow}{if}\ (GTK\_IS\_ENTRY(entry\_ip)\ \&\&\ GTK\_IS\_ENTRY(entry\_port))\ \{}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00129}00129\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ ip\ =\ gtk\_editable\_get\_text(GTK\_EDITABLE(entry\_ip));}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00130}00130\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}IP:\ \%s\(\backslash\)n"{}},\ ip);}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00131}00131\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ port\_str\ =\ gtk\_editable\_get\_text(GTK\_EDITABLE(entry\_port));}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00132}00132\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Port:\ \%s\(\backslash\)n"{}},\ port\_str);}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00133}00133\ }
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00134}00134\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ We\ verify\ that\ the\ port\ can\ be\ converted\ to\ an\ unsigned\ short}}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00135}00135\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (port\_str\ ==\ NULL\ ||\ strlen(port\_str)\ ==\ 0\ ||\ strlen(port\_str)\ >\ 5\ ||\ atoi(port\_str)\ >\ USHRT\_MAX)\ \{}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00136}00136\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Port\ number\ is\ empty.\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00137}00137\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ We\ add\ an\ error\ message\ to\ the\ grid}}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00138}00138\ \ \ \ \ \ \ \ \ \ \ \ \ GtkWidget*\ label\_error\ =\ gtk\_label\_new(\textcolor{stringliteral}{"{}Please\ enter\ a\ port\ number."{}});}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00139}00139\ \ \ \ \ \ \ \ \ \ \ \ \ gtk\_widget\_set\_margin\_bottom(label\_error,\ 10);}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00140}00140\ \ \ \ \ \ \ \ \ \ \ \ \ gtk\_widget\_set\_margin\_top(label\_error,\ 10);}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00141}00141\ \ \ \ \ \ \ \ \ \ \ \ \ gtk\_widget\_set\_margin\_start(label\_error,\ 10);}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00142}00142\ \ \ \ \ \ \ \ \ \ \ \ \ gtk\_widget\_set\_margin\_end(label\_error,\ 10);}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00143}00143\ \ \ \ \ \ \ \ \ \ \ \ \ gtk\_grid\_attach(GTK\_GRID(grid),\ label\_error,\ 0,\ 4,\ 2,\ 1);}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00144}00144\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00145}00145\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00146}00146\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00147}00147\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{port}}\ =\ (\textcolor{keywordtype}{unsigned}\ short)atoi(port\_str);}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00148}00148\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00149}00149\ }
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00150}00150\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{port}}\ ==\ 0\ ||\ \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{port}}\ >\ 65535\ ||\ \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{port}}\ <\ 1024)\ \{}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00151}00151\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Invalid\ port\ number.\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00152}00152\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ We\ add\ an\ error\ message\ to\ the\ grid}}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00153}00153\ \ \ \ \ \ \ \ \ \ \ \ \ GtkWidget*\ label\_error\ =\ gtk\_label\_new(\textcolor{stringliteral}{"{}Please\ enter\ a\ valid\ port\ number."{}});}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00154}00154\ \ \ \ \ \ \ \ \ \ \ \ \ gtk\_widget\_set\_margin\_bottom(label\_error,\ 10);}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00155}00155\ \ \ \ \ \ \ \ \ \ \ \ \ gtk\_widget\_set\_margin\_top(label\_error,\ 10);}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00156}00156\ \ \ \ \ \ \ \ \ \ \ \ \ gtk\_widget\_set\_margin\_start(label\_error,\ 10);}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00157}00157\ \ \ \ \ \ \ \ \ \ \ \ \ gtk\_widget\_set\_margin\_end(label\_error,\ 10);}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00158}00158\ \ \ \ \ \ \ \ \ \ \ \ \ gtk\_grid\_attach(GTK\_GRID(grid),\ label\_error,\ 0,\ 4,\ 2,\ 1);}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00159}00159\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00160}00160\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00161}00161\ }
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00162}00162\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ We\ verify\ that\ the\ ip\ is\ correct}}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00163}00163\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }sockaddr\_in\ sa;}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00164}00164\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{ia_8c_a179b70ad0fead86555368dc8edf9469e}{result}}\ =\ inet\_pton(AF\_INET,\ ip,\ \&(sa.sin\_addr));}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00165}00165\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{ia_8c_a179b70ad0fead86555368dc8edf9469e}{result}}\ !=\ 1)\ \{}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00166}00166\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Invalid\ IP\ address.\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00167}00167\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ We\ add\ an\ error\ message\ to\ the\ grid}}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00168}00168\ \ \ \ \ \ \ \ \ \ \ \ \ GtkWidget*\ label\_error\ =\ gtk\_label\_new(\textcolor{stringliteral}{"{}Please\ enter\ a\ valid\ IP\ address."{}});}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00169}00169\ \ \ \ \ \ \ \ \ \ \ \ \ gtk\_widget\_set\_margin\_bottom(label\_error,\ 10);}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00170}00170\ \ \ \ \ \ \ \ \ \ \ \ \ gtk\_widget\_set\_margin\_top(label\_error,\ 10);}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00171}00171\ \ \ \ \ \ \ \ \ \ \ \ \ gtk\_widget\_set\_margin\_start(label\_error,\ 10);}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00172}00172\ \ \ \ \ \ \ \ \ \ \ \ \ gtk\_widget\_set\_margin\_end(label\_error,\ 10);}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00173}00173\ \ \ \ \ \ \ \ \ \ \ \ \ gtk\_grid\_attach(GTK\_GRID(grid),\ label\_error,\ 0,\ 4,\ 2,\ 1);}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00174}00174\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00175}00175\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00176}00176\ }
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00177}00177\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ We\ destroy\ the\ window}}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00178}00178\ \ \ \ \ \ \ \ \ gtk\_window\_destroy(GTK\_WINDOW(gtk\_widget\_get\_parent(grid)));}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00179}00179\ }
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00180}00180\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ We\ start\ the\ client}}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00181}00181\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{client__gui_8c_a77ff651aed26c82c3f39d5ebcf75054e}{network\_client\_gui}}(ip,\ \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{port}});}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00182}00182\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00183}00183\ \}}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00184}00184\ }
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00192}\mbox{\hyperlink{gui__gamemode_8c_a1dec6dd8f9b371d7dd67e9d670bf003b}{00192}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{gui__gamemode_8c_a1dec6dd8f9b371d7dd67e9d670bf003b}{host\_server\_gui\_button}}(GtkWidget*\ button,\ gpointer\ user\_data)\ }
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00193}00193\ \{}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00194}00194\ \ \ \ \ \textcolor{comment}{//\ We\ open\ a\ window\ to\ ask\ for\ the\ port}}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00195}00195\ \ \ \ \ GtkWidget*\ dialog\_port\ =\ gtk\_window\_new();}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00196}00196\ }
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00197}00197\ \ \ \ \ \textcolor{comment}{//\ We\ set\ the\ title\ of\ the\ window}}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00198}00198\ \ \ \ \ gtk\_window\_set\_title(GTK\_WINDOW(dialog\_port),\ \textcolor{stringliteral}{"{}Enter\ the\ port"{}});}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00199}00199\ }
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00200}00200\ \ \ \ \ \textcolor{comment}{//\ We\ create\ a\ grid\ to\ add\ the\ elements}}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00201}00201\ \ \ \ \ GtkWidget*\ grid\_port\ =\ gtk\_grid\_new();}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00202}00202\ }
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00203}00203\ \ \ \ \ \textcolor{comment}{//\ We\ add\ a\ container\ for\ the\ label\ +\ entry\ of\ the\ port}}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00204}00204\ \ \ \ \ GtkWidget*\ container\_port\ =\ gtk\_grid\_new();}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00205}00205\ }
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00206}00206\ \ \ \ \ \textcolor{comment}{//\ We\ add\ a\ label\ for\ the\ port\ in\ the\ grid}}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00207}00207\ \ \ \ \ GtkWidget*\ label\_port\ =\ gtk\_label\_new(\textcolor{stringliteral}{"{}Port:"{}});}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00208}00208\ \ \ \ \ gtk\_grid\_attach(GTK\_GRID(container\_port),\ label\_port,\ 0,\ 1,\ 1,\ 1);}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00209}00209\ }
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00210}00210\ \ \ \ \ \textcolor{comment}{//\ We\ add\ a\ text\ entry\ for\ the\ port\ in\ the\ grid}}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00211}00211\ \ \ \ \ GtkWidget*\ entry\_port\ =\ gtk\_entry\_new();}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00212}00212\ \ \ \ \ gtk\_grid\_attach(GTK\_GRID(container\_port),\ entry\_port,\ 1,\ 1,\ 1,\ 1);}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00213}00213\ \ \ \ \ gtk\_widget\_set\_margin\_start(entry\_port,\ 10);}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00214}00214\ }
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00215}00215\ \ \ \ \ \textcolor{comment}{//\ We\ add\ a\ margin\ to\ the\ container}}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00216}00216\ \ \ \ \ gtk\_widget\_set\_margin\_bottom(container\_port,\ 10);}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00217}00217\ \ \ \ \ gtk\_widget\_set\_margin\_top(container\_port,\ 10);}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00218}00218\ \ \ \ \ gtk\_widget\_set\_margin\_start(container\_port,\ 10);}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00219}00219\ \ \ \ \ gtk\_widget\_set\_margin\_end(container\_port,\ 10);}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00220}00220\ }
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00221}00221\ \ \ \ \ \textcolor{comment}{//\ We\ add\ the\ container\ to\ the\ grid}}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00222}00222\ \ \ \ \ gtk\_grid\_attach(GTK\_GRID(grid\_port),\ container\_port,\ 0,\ 1,\ 2,\ 1);}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00223}00223\ }
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00224}00224\ \ \ \ \ \textcolor{comment}{//\ We\ add\ a\ button\ to\ connect\ to\ the\ server}}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00225}00225\ \ \ \ \ GtkWidget*\ button\_connect\ =\ gtk\_button\_new\_with\_label(\textcolor{stringliteral}{"{}Connect"{}});}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00226}00226\ \ \ \ \ gtk\_widget\_set\_margin\_bottom(button\_connect,\ 10);}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00227}00227\ \ \ \ \ gtk\_widget\_set\_margin\_top(button\_connect,\ 10);}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00228}00228\ \ \ \ \ gtk\_widget\_set\_margin\_start(button\_connect,\ 10);}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00229}00229\ \ \ \ \ gtk\_widget\_set\_margin\_end(button\_connect,\ 10);}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00230}00230\ \ \ \ \ gtk\_grid\_attach(GTK\_GRID(grid\_port),\ button\_connect,\ 0,\ 2,\ 2,\ 1);}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00231}00231\ \ \ \ \ g\_signal\_connect(button\_connect,\ \textcolor{stringliteral}{"{}clicked"{}},\ G\_CALLBACK(\mbox{\hyperlink{gui__gamemode_8c_a5dbd76630a15dbe9d88e1cdad214dacc}{start\_button\_server\_gui}}),\ entry\_port);}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00232}00232\ }
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00233}00233\ \ \ \ \ \textcolor{comment}{//\ We\ add\ the\ grid\ to\ the\ window}}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00234}00234\ \ \ \ \ gtk\_window\_set\_child(GTK\_WINDOW(dialog\_port),\ grid\_port);}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00235}00235\ }
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00236}00236\ \ \ \ \ \textcolor{comment}{//\ We\ show\ the\ window}}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00237}00237\ \ \ \ \ gtk\_window\_present(GTK\_WINDOW(dialog\_port));}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00238}00238\ \}}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00239}00239\ }
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00247}\mbox{\hyperlink{gui__gamemode_8c_a2e03a7b2bf0082181788fa82ce1fcca2}{00247}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{gui__gamemode_8c_a2e03a7b2bf0082181788fa82ce1fcca2}{play\_network\_game\_gui\_button}}(GtkWidget*\ button,\ gpointer\ user\_data)}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00248}00248\ \{}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00249}00249\ \ \ \ \ \textcolor{comment}{//\ We\ open\ a\ dialog\ to\ ask\ for\ the\ ip\ and\ port}}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00250}00250\ \ \ \ \ GtkWidget*\ dialog\_ip\_port\ =\ gtk\_window\_new();}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00251}00251\ }
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00252}00252\ \ \ \ \ \textcolor{comment}{//\ We\ set\ the\ title\ of\ the\ window}}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00253}00253\ \ \ \ \ gtk\_window\_set\_title(GTK\_WINDOW(dialog\_ip\_port),\ \textcolor{stringliteral}{"{}Enter\ the\ IP\ and\ port"{}});}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00254}00254\ }
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00255}00255\ \ \ \ \ \textcolor{comment}{//\ We\ create\ a\ grid\ to\ add\ the\ elements}}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00256}00256\ \ \ \ \ GtkWidget*\ grid\_ip\_port\ =\ gtk\_grid\_new();}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00257}00257\ }
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00258}00258\ \ \ \ \ \textcolor{comment}{//\ We\ add\ a\ container\ for\ the\ label\ +\ entry\ of\ the\ ip}}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00259}00259\ \ \ \ \ GtkWidget*\ container\_ip\ =\ gtk\_grid\_new();}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00260}00260\ }
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00261}00261\ \ \ \ \ \textcolor{comment}{//\ We\ add\ a\ label\ for\ the\ ip\ in\ the\ grid}}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00262}00262\ \ \ \ \ GtkWidget*\ label\_ip\ =\ gtk\_label\_new(\textcolor{stringliteral}{"{}IP\ address:"{}});}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00263}00263\ \ \ \ \ gtk\_grid\_attach(GTK\_GRID(container\_ip),\ label\_ip,\ 0,\ 1,\ 1,\ 1);}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00264}00264\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00265}00265\ \ \ \ \ \textcolor{comment}{//\ We\ add\ a\ text\ entry\ for\ the\ ip\ in\ the\ grid}}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00266}00266\ \ \ \ \ GtkWidget*\ entry\_ip\ =\ gtk\_entry\_new();}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00267}00267\ \ \ \ \ gtk\_grid\_attach(GTK\_GRID(container\_ip),\ entry\_ip,\ 1,\ 1,\ 1,\ 1);}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00268}00268\ \ \ \ \ gtk\_widget\_set\_margin\_start(entry\_ip,\ 10);}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00269}00269\ }
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00270}00270\ \ \ \ \ \textcolor{comment}{//\ We\ add\ a\ margin\ to\ the\ container}}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00271}00271\ \ \ \ \ gtk\_widget\_set\_margin\_bottom(container\_ip,\ 10);}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00272}00272\ \ \ \ \ gtk\_widget\_set\_margin\_top(container\_ip,\ 10);}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00273}00273\ \ \ \ \ gtk\_widget\_set\_margin\_start(container\_ip,\ 10);}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00274}00274\ \ \ \ \ gtk\_widget\_set\_margin\_end(container\_ip,\ 10);}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00275}00275\ }
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00276}00276\ \ \ \ \ \textcolor{comment}{//\ We\ add\ the\ container\ to\ the\ grid}}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00277}00277\ \ \ \ \ gtk\_grid\_attach(GTK\_GRID(grid\_ip\_port),\ container\_ip,\ 0,\ 1,\ 2,\ 1);}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00278}00278\ }
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00279}00279\ \ \ \ \ \textcolor{comment}{//\ We\ add\ a\ container\ for\ the\ label\ +\ entry\ of\ the\ port}}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00280}00280\ \ \ \ \ GtkWidget*\ container\_port\ =\ gtk\_grid\_new();}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00281}00281\ }
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00282}00282\ \ \ \ \ \textcolor{comment}{//\ We\ add\ a\ label\ for\ the\ port\ in\ the\ grid}}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00283}00283\ \ \ \ \ GtkWidget*\ label\_port\ =\ gtk\_label\_new(\textcolor{stringliteral}{"{}Port:"{}});}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00284}00284\ \ \ \ \ gtk\_grid\_attach(GTK\_GRID(container\_port),\ label\_port,\ 0,\ 1,\ 1,\ 1);}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00285}00285\ }
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00286}00286\ \ \ \ \ \textcolor{comment}{//\ We\ add\ a\ text\ entry\ for\ the\ port\ in\ the\ grid}}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00287}00287\ \ \ \ \ GtkWidget*\ entry\_port\ =\ gtk\_entry\_new();}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00288}00288\ \ \ \ \ gtk\_grid\_attach(GTK\_GRID(container\_port),\ entry\_port,\ 1,\ 1,\ 1,\ 1);}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00289}00289\ \ \ \ \ gtk\_widget\_set\_margin\_start(entry\_port,\ 10);}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00290}00290\ }
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00291}00291\ \ \ \ \ \textcolor{comment}{//\ We\ add\ a\ margin\ to\ the\ container}}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00292}00292\ \ \ \ \ gtk\_widget\_set\_margin\_bottom(container\_port,\ 10);}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00293}00293\ \ \ \ \ gtk\_widget\_set\_margin\_top(container\_port,\ 10);}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00294}00294\ \ \ \ \ gtk\_widget\_set\_margin\_start(container\_port,\ 10);}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00295}00295\ \ \ \ \ gtk\_widget\_set\_margin\_end(container\_port,\ 10);}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00296}00296\ }
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00297}00297\ \ \ \ \ \textcolor{comment}{//\ We\ add\ the\ container\ to\ the\ grid}}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00298}00298\ \ \ \ \ gtk\_grid\_attach(GTK\_GRID(grid\_ip\_port),\ container\_port,\ 0,\ 2,\ 2,\ 1);}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00299}00299\ }
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00300}00300\ \ \ \ \ \textcolor{comment}{//\ We\ add\ a\ button\ to\ connect\ to\ the\ server}}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00301}00301\ \ \ \ \ GtkWidget*\ button\_connect\ =\ gtk\_button\_new\_with\_label(\textcolor{stringliteral}{"{}Connect"{}});}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00302}00302\ \ \ \ \ gtk\_widget\_set\_margin\_bottom(button\_connect,\ 10);}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00303}00303\ \ \ \ \ gtk\_widget\_set\_margin\_top(button\_connect,\ 10);}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00304}00304\ \ \ \ \ gtk\_widget\_set\_margin\_start(button\_connect,\ 10);}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00305}00305\ \ \ \ \ gtk\_widget\_set\_margin\_end(button\_connect,\ 10);}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00306}00306\ \ \ \ \ gtk\_grid\_attach(GTK\_GRID(grid\_ip\_port),\ button\_connect,\ 0,\ 3,\ 2,\ 1);}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00307}00307\ }
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00308}00308\ \ \ \ \ \textcolor{comment}{//\ We\ create\ a\ structure\ to\ pass\ the\ ip\ and\ port\ to\ the\ callback}}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00309}00309\ \ \ \ \ \mbox{\hyperlink{struct_ip_port_gtk}{IpPortGtk}}*\ ip\_port\ =\ malloc(\textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_ip_port_gtk}{IpPortGtk}}));}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00310}00310\ }
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00311}00311\ \ \ \ \ \textcolor{comment}{//\ We\ add\ the\ ip\ and\ port\ to\ the\ structure}}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00312}00312\ \ \ \ \ ip\_port-\/>\mbox{\hyperlink{struct_ip_port_gtk_a6b46ec7791669504d8f46b84fe6afcd0}{entry\_ip}}\ =\ entry\_ip;}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00313}00313\ \ \ \ \ ip\_port-\/>\mbox{\hyperlink{struct_ip_port_gtk_aa4c9f7260c3c85588ee06d59403821d3}{entry\_port}}\ =\ entry\_port;}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00314}00314\ }
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00315}00315\ \ \ \ \ g\_signal\_connect(button\_connect,\ \textcolor{stringliteral}{"{}clicked"{}},\ G\_CALLBACK(\mbox{\hyperlink{gui__gamemode_8c_a137ae724c37fcec06e0eb3aca8d8931d}{start\_button\_client\_gui}}),\ ip\_port);}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00316}00316\ }
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00317}00317\ \ \ \ \ \textcolor{comment}{//\ We\ add\ the\ grid\ to\ the\ window}}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00318}00318\ \ \ \ \ gtk\_window\_set\_child(GTK\_WINDOW(dialog\_ip\_port),\ grid\_ip\_port);}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00319}00319\ }
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00320}00320\ \ \ \ \ \textcolor{comment}{//\ We\ show\ the\ window}}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00321}00321\ \ \ \ \ gtk\_window\_present(GTK\_WINDOW(dialog\_ip\_port));}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00322}00322\ \}}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00323}00323\ }
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00331}\mbox{\hyperlink{gui__gamemode_8c_adf152ebad7bc9031d9ed91bca6bac9dd}{00331}}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{gui__gamemode_8c_adf152ebad7bc9031d9ed91bca6bac9dd}{play\_vs\_ia\_gui\_button}}(GtkWidget*\ button,\ gpointer\ user\_data)\ \{}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00332}00332\ \ \ \ \ \textcolor{comment}{//\ We\ destroy\ the\ window}}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00333}00333\ \ \ \ \ \mbox{\hyperlink{gui__gamemode_8c_af54567c223d38fbc21da40e9298ab603}{destroy\_window\_gamemode}}();}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00334}00334\ }
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00335}00335\ \ \ \ \ \textcolor{comment}{//\ We\ launch\ the\ GUI\ (not\ implemented\ yet)}}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00336}00336\ \ \ \ \ \textcolor{comment}{//\ play\_vs\_ia\_gui();}}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00337}00337\ \}}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00338}00338\ }
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00346}\mbox{\hyperlink{gui__gamemode_8c_a6f97f03268d2683627c54b1bea3db6f6}{00346}}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{gui__gamemode_8c_a6f97f03268d2683627c54b1bea3db6f6}{active\_gui\_gamemode}}(GtkApplication*\ \mbox{\hyperlink{gui_8c_a3b78d20f637938b3628571375080c3c6}{app}},\ gpointer\ user\_data)\ \{}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00347}00347\ \ \ \ \ \textcolor{comment}{//\ Creation\ of\ the\ window}}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00348}00348\ \ \ \ \ \mbox{\hyperlink{gui__gamemode_8c_a0fed90ad74a791d8a43f02ddb6b6e362}{window\_gamemode}}\ =\ gtk\_application\_window\_new(\mbox{\hyperlink{gui__gamemode_8c_a48ebcef2ebc7114ec3bdd9e899257378}{app\_gamemode}});}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00349}00349\ \ \ \ \ \textcolor{keywordtype}{char}*\ css\_gamemode\ =\ \textcolor{stringliteral}{"{}.title\_label\{font-\/size:\ 20px;\}\ .btn\_gamemode\{margin-\/bottom:\ 10px;\}"{}};}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00350}00350\ }
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00351}00351\ \ \ \ \ \textcolor{comment}{//\ Setting\ the\ parameters\ of\ the\ window\ (title\ and\ size)}}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00352}00352\ \ \ \ \ gtk\_window\_set\_title(GTK\_WINDOW(\mbox{\hyperlink{gui__gamemode_8c_a0fed90ad74a791d8a43f02ddb6b6e362}{window\_gamemode}}),\ \mbox{\hyperlink{const_8h_a47f2e62c0dbebc787052c165afcada0e}{NAME}});}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00353}00353\ \ \ \ \ gtk\_window\_set\_default\_size(GTK\_WINDOW(\mbox{\hyperlink{gui__gamemode_8c_a0fed90ad74a791d8a43f02ddb6b6e362}{window\_gamemode}}),\ \mbox{\hyperlink{const_8h_ad393b107e0298a469bdccd4dfa1dbe6b}{WINDOW\_GAMEMODE\_WIDTH}},\ \mbox{\hyperlink{const_8h_ac2e9d564bc22569d1755a1813f934dd5}{WINDOW\_GAMEMODE\_HEIGHT}});}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00354}00354\ }
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00355}00355\ \ \ \ \ \textcolor{comment}{//\ Load\ the\ CSS}}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00356}00356\ \ \ \ \ GtkCssProvider*\ provider\_gamemode\ =\ gtk\_css\_provider\_new();}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00357}00357\ \ \ \ \ printf(\textcolor{stringliteral}{"{}GTK\ version:\ \%d.\%d.\%d\(\backslash\)n"{}},\ GTK\_MAJOR\_VERSION,\ GTK\_MINOR\_VERSION,\ GTK\_MICRO\_VERSION);}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00358}00358\ }
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00359}00359\ \ \ \ \ \textcolor{comment}{//\ Check\ the\ GTK\ version\ to\ use\ the\ appropriate\ function}}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00360}00360\ \textcolor{preprocessor}{\#if\ GTK\_CHECK\_VERSION(4,\ 12,\ 0)}}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00361}00361\ \ \ \ \ \textcolor{comment}{//\ user\ version\ >=\ 4.12.0}}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00362}00362\ \ \ \ \ gtk\_css\_provider\_load\_from\_string(provider\_gamemode,\ css\_gamemode);}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00363}00363\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00364}00364\ \ \ \ \ \textcolor{comment}{//\ version\ <\ 4.12.0}}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00365}00365\ \ \ \ \ gtk\_css\_provider\_load\_from\_data(provider\_gamemode,\ css\_gamemode,\ -\/1);}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00366}00366\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00367}00367\ }
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00368}00368\ \ \ \ \ gtk\_style\_context\_add\_provider\_for\_display(gdk\_display\_get\_default(),\ GTK\_STYLE\_PROVIDER(provider\_gamemode),\ GTK\_STYLE\_PROVIDER\_PRIORITY\_APPLICATION);}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00369}00369\ }
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00370}00370\ \ \ \ \ \textcolor{comment}{//\ We\ add\ a\ css\ class\ to\ the\ window}}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00371}00371\ \ \ \ \ gtk\_widget\_add\_css\_class(\mbox{\hyperlink{gui__gamemode_8c_a0fed90ad74a791d8a43f02ddb6b6e362}{window\_gamemode}},\ \textcolor{stringliteral}{"{}window\_gamemode"{}});}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00372}00372\ }
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00373}00373\ \ \ \ \ \textcolor{comment}{//\ We\ create\ a\ main\_div}}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00374}00374\ \ \ \ \ GtkWidget*\ main\_div\_gamemode\ =\ gtk\_grid\_new();}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00375}00375\ }
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00376}00376\ \ \ \ \ \textcolor{comment}{//\ Center\ the\ main\_div\ in\ the\ window}}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00377}00377\ \ \ \ \ gtk\_widget\_set\_halign(main\_div\_gamemode,\ GTK\_ALIGN\_CENTER);}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00378}00378\ \ \ \ \ gtk\_widget\_set\_valign(main\_div\_gamemode,\ GTK\_ALIGN\_CENTER);}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00379}00379\ }
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00380}00380\ \ \ \ \ \textcolor{comment}{//\ We\ create\ a\ label\ to\ display\ the\ title}}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00381}00381\ \ \ \ \ GtkWidget*\ title\_label\ =\ gtk\_label\_new(\textcolor{stringliteral}{"{}Choose\ the\ game\ mode"{}});}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00382}00382\ \ \ \ \ gtk\_widget\_add\_css\_class(title\_label,\ \textcolor{stringliteral}{"{}title\_label"{}});}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00383}00383\ }
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00384}00384\ \ \ \ \ \textcolor{comment}{//\ We\ add\ the\ title\_label\ to\ the\ main\_div}}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00385}00385\ \ \ \ \ gtk\_grid\_attach(GTK\_GRID(main\_div\_gamemode),\ title\_label,\ 0,\ 0,\ 1,\ 1);}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00386}00386\ }
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00387}00387\ \ \ \ \ \textcolor{comment}{//\ Add\ a\ margin\ under\ the\ label}}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00388}00388\ \ \ \ \ gtk\_widget\_set\_margin\_bottom(title\_label,\ 10);}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00389}00389\ }
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00390}00390\ \ \ \ \ \textcolor{comment}{//\ We\ create\ a\ button\ to\ play\ local\ multiplayer}}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00391}00391\ \ \ \ \ GtkWidget*\ local\_button\ =\ gtk\_button\_new\_with\_label(\textcolor{stringliteral}{"{}Local\ Multiplayer"{}});}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00392}00392\ \ \ \ \ gtk\_widget\_add\_css\_class(local\_button,\ \textcolor{stringliteral}{"{}btn\_gamemode"{}});}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00393}00393\ \ \ \ \ g\_signal\_connect(local\_button,\ \textcolor{stringliteral}{"{}clicked"{}},\ G\_CALLBACK(\mbox{\hyperlink{gui__gamemode_8c_ac14f1160debf8136367ac538a5b1ab52}{play\_local\_game\_gui\_button}}),\ NULL);}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00394}00394\ }
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00395}00395\ \ \ \ \ \textcolor{comment}{//\ We\ add\ the\ button\ to\ the\ main\_div}}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00396}00396\ \ \ \ \ gtk\_grid\_attach(GTK\_GRID(main\_div\_gamemode),\ local\_button,\ 0,\ 1,\ 1,\ 1);}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00397}00397\ }
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00398}00398\ \ \ \ \ \textcolor{comment}{//\ We\ create\ a\ button\ to\ host\ a\ server}}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00399}00399\ \ \ \ \ GtkWidget*\ network\_button\ =\ gtk\_button\_new\_with\_label(\textcolor{stringliteral}{"{}Host\ a\ server"{}});}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00400}00400\ \ \ \ \ gtk\_widget\_add\_css\_class(network\_button,\ \textcolor{stringliteral}{"{}btn\_gamemode"{}});}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00401}00401\ \ \ \ \ g\_signal\_connect(network\_button,\ \textcolor{stringliteral}{"{}clicked"{}},\ G\_CALLBACK(\mbox{\hyperlink{gui__gamemode_8c_a1dec6dd8f9b371d7dd67e9d670bf003b}{host\_server\_gui\_button}}),\ NULL);}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00402}00402\ }
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00403}00403\ \ \ \ \ \textcolor{comment}{//\ We\ add\ the\ button\ to\ the\ main\_div}}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00404}00404\ \ \ \ \ gtk\_grid\_attach(GTK\_GRID(main\_div\_gamemode),\ network\_button,\ 0,\ 2,\ 1,\ 1);}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00405}00405\ }
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00406}00406\ \ \ \ \ \textcolor{comment}{//\ We\ create\ a\ button\ to\ connect\ to\ a\ server}}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00407}00407\ \ \ \ \ GtkWidget*\ connect\_button\ =\ gtk\_button\_new\_with\_label(\textcolor{stringliteral}{"{}Connect\ to\ a\ server"{}});}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00408}00408\ \ \ \ \ gtk\_widget\_add\_css\_class(connect\_button,\ \textcolor{stringliteral}{"{}btn\_gamemode"{}});}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00409}00409\ \ \ \ \ g\_signal\_connect(connect\_button,\ \textcolor{stringliteral}{"{}clicked"{}},\ G\_CALLBACK(\mbox{\hyperlink{gui__gamemode_8c_a2e03a7b2bf0082181788fa82ce1fcca2}{play\_network\_game\_gui\_button}}),\ NULL);}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00410}00410\ }
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00411}00411\ \ \ \ \ \textcolor{comment}{//\ We\ add\ the\ button\ to\ the\ main\_div}}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00412}00412\ \ \ \ \ gtk\_grid\_attach(GTK\_GRID(main\_div\_gamemode),\ connect\_button,\ 0,\ 3,\ 1,\ 1);}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00413}00413\ }
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00414}00414\ \ \ \ \ \textcolor{comment}{//\ Add\ the\ main\_div\ to\ the\ window}}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00415}00415\ \ \ \ \ gtk\_window\_set\_child(GTK\_WINDOW(\mbox{\hyperlink{gui__gamemode_8c_a0fed90ad74a791d8a43f02ddb6b6e362}{window\_gamemode}}),\ main\_div\_gamemode);}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00416}00416\ }
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00417}00417\ \ \ \ \ \textcolor{comment}{//\ Showing\ the\ window}}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00418}00418\ \ \ \ \ gtk\_window\_present(GTK\_WINDOW(\mbox{\hyperlink{gui__gamemode_8c_a0fed90ad74a791d8a43f02ddb6b6e362}{window\_gamemode}}));}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00419}00419\ \}}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00420}00420\ }
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00428}\mbox{\hyperlink{gui__gamemode_8c_aa749f53907a4e089b764de0ee88b88b8}{00428}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{gui__gamemode_8c_aa749f53907a4e089b764de0ee88b88b8}{launch\_gui\_gamemode}}(\textcolor{keywordtype}{int}\ argc,\ \textcolor{keywordtype}{char}**\ argv)\ \{}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00429}00429\ \ \ \ \ \textcolor{keywordtype}{int}\ status;}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00430}00430\ }
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00431}00431\ \ \ \ \ \mbox{\hyperlink{gui__gamemode_8c_a48ebcef2ebc7114ec3bdd9e899257378}{app\_gamemode}}\ =\ gtk\_application\_new(\textcolor{stringliteral}{"{}org.chompzilla.gamemenu"{}},\ 0);}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00432}00432\ \ \ \ \ g\_signal\_connect(\mbox{\hyperlink{gui__gamemode_8c_a48ebcef2ebc7114ec3bdd9e899257378}{app\_gamemode}},\ \textcolor{stringliteral}{"{}activate"{}},\ G\_CALLBACK(\mbox{\hyperlink{gui__gamemode_8c_a6f97f03268d2683627c54b1bea3db6f6}{active\_gui\_gamemode}}),\ NULL);}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00433}00433\ \ \ \ \ status\ =\ g\_application\_run(G\_APPLICATION(\mbox{\hyperlink{gui__gamemode_8c_a48ebcef2ebc7114ec3bdd9e899257378}{app\_gamemode}}),\ argc,\ argv);}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00434}00434\ \ \ \ \ g\_object\_unref(\mbox{\hyperlink{gui__gamemode_8c_a48ebcef2ebc7114ec3bdd9e899257378}{app\_gamemode}});}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00435}00435\ }
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00436}00436\ \ \ \ \ \textcolor{keywordflow}{return}\ status;}
+\DoxyCodeLine{\Hypertarget{gui__gamemode_8c_source_l00437}00437\ \}}
+
+\end{DoxyCode}

@@ -1,0 +1,241 @@
+\doxysection{src/gui/gui.h File Reference}
+\hypertarget{gui_8h}{}\label{gui_8h}\index{src/gui/gui.h@{src/gui/gui.h}}
+{\ttfamily \#include $<$gtk/gtk.\+h$>$}\newline
+Include dependency graph for gui.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=156pt]{gui_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{gui_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_server_response}{Server\+Response}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{void}} \mbox{\hyperlink{gui_8h_a516ba65090acee0f939477ec3e6e80ea}{destroy\+\_\+window}} ()
+\begin{DoxyCompactList}\small\item\em Function to destroy the window. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{void}} \mbox{\hyperlink{gui_8h_aa82cdf9dd9194b7c81bc534e9f07e704}{exit\+\_\+game}} (\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{Gtk\+Widget}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{button}}, \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{gpointer}} \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{user\+\_\+data}})
+\begin{DoxyCompactList}\small\item\em Function to quit the game. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{void}} \mbox{\hyperlink{gui_8h_ac88833aaa22012dfe7b7ffa32774c93c}{reset\+\_\+game\+\_\+state}} ()
+\begin{DoxyCompactList}\small\item\em Function to reset the game state This function will reset all the global variables and the game logic state. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{void}} \mbox{\hyperlink{gui_8h_a2819f266214852b4eba5b68c5142bea9}{restart\+\_\+game}} (\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{Gtk\+Widget}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{button}}, \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{gpointer}} \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{user\+\_\+data}})
+\item 
+\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{static}} \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{void}} \mbox{\hyperlink{gui_8h_ace23485694fbfeef4e02210878c60359}{del\+\_\+button}} (\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{Gtk\+Widget}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{button}}, \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{gpointer}} \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{user\+\_\+data}})
+\item 
+\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{static}} \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{void}} \mbox{\hyperlink{gui_8h_a56286ad62f5064199b3fa1e5da729307}{active\+\_\+gui}} (\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{Gtk\+Application}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{gui_8c_a3b78d20f637938b3628571375080c3c6}{app}}, \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{gpointer}} \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{user\+\_\+data}})
+\item 
+\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{int}} \mbox{\hyperlink{gui_8h_a79b7aab5800323d88b36cc5bc3edca26}{launch\+\_\+gui}} (\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{int}} \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{argc}}, \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{char}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{argv}})
+\begin{DoxyCompactList}\small\item\em The main function of the application. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{void}} \mbox{\hyperlink{gui_8h_a59b1fa1aa41a698b6e838bc12842a2a3}{launch\+\_\+game\+\_\+gui\+\_\+on\+\_\+client\+\_\+connect}} ()
+\begin{DoxyCompactList}\small\item\em Function to launch the game GUI when a client connects. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{gboolean}} \mbox{\hyperlink{gui_8h_aa51ce1145109f64d60c2572cc7317b90}{update\+\_\+gui\+\_\+from\+\_\+server}} (\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{gpointer}} \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{data}})
+\begin{DoxyCompactList}\small\item\em Function to update the GUI from the server. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{gui_8h_a56286ad62f5064199b3fa1e5da729307}\label{gui_8h_a56286ad62f5064199b3fa1e5da729307} 
+\index{gui.h@{gui.h}!active\_gui@{active\_gui}}
+\index{active\_gui@{active\_gui}!gui.h@{gui.h}}
+\doxysubsubsection{\texorpdfstring{active\_gui()}{active\_gui()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{static}} \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{void}} active\+\_\+gui (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{Gtk\+Application}} \texorpdfstring{$\ast$}{*}}]{app,  }\item[{\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{gpointer}}}]{user\+\_\+data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\Hypertarget{gui_8h_ace23485694fbfeef4e02210878c60359}\label{gui_8h_ace23485694fbfeef4e02210878c60359} 
+\index{gui.h@{gui.h}!del\_button@{del\_button}}
+\index{del\_button@{del\_button}!gui.h@{gui.h}}
+\doxysubsubsection{\texorpdfstring{del\_button()}{del\_button()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{static}} \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{void}} del\+\_\+button (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{Gtk\+Widget}} \texorpdfstring{$\ast$}{*}}]{button,  }\item[{\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{gpointer}}}]{user\+\_\+data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\Hypertarget{gui_8h_a516ba65090acee0f939477ec3e6e80ea}\label{gui_8h_a516ba65090acee0f939477ec3e6e80ea} 
+\index{gui.h@{gui.h}!destroy\_window@{destroy\_window}}
+\index{destroy\_window@{destroy\_window}!gui.h@{gui.h}}
+\doxysubsubsection{\texorpdfstring{destroy\_window()}{destroy\_window()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{void}} destroy\+\_\+window (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Function to destroy the window. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{gui_8c_source_l00020}{20}} of file \mbox{\hyperlink{gui_8c_source}{gui.\+c}}.
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{gui_8h_a516ba65090acee0f939477ec3e6e80ea_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{gui_8h_aa82cdf9dd9194b7c81bc534e9f07e704}\label{gui_8h_aa82cdf9dd9194b7c81bc534e9f07e704} 
+\index{gui.h@{gui.h}!exit\_game@{exit\_game}}
+\index{exit\_game@{exit\_game}!gui.h@{gui.h}}
+\doxysubsubsection{\texorpdfstring{exit\_game()}{exit\_game()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{void}} exit\+\_\+game (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{Gtk\+Widget}} \texorpdfstring{$\ast$}{*}}]{button,  }\item[{\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{gpointer}}}]{user\+\_\+data }\end{DoxyParamCaption})}
+
+
+
+Function to quit the game. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{gui_8c_source_l00033}{33}} of file \mbox{\hyperlink{gui_8c_source}{gui.\+c}}.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=280pt]{gui_8h_aa82cdf9dd9194b7c81bc534e9f07e704_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{gui_8h_aa82cdf9dd9194b7c81bc534e9f07e704_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{gui_8h_a59b1fa1aa41a698b6e838bc12842a2a3}\label{gui_8h_a59b1fa1aa41a698b6e838bc12842a2a3} 
+\index{gui.h@{gui.h}!launch\_game\_gui\_on\_client\_connect@{launch\_game\_gui\_on\_client\_connect}}
+\index{launch\_game\_gui\_on\_client\_connect@{launch\_game\_gui\_on\_client\_connect}!gui.h@{gui.h}}
+\doxysubsubsection{\texorpdfstring{launch\_game\_gui\_on\_client\_connect()}{launch\_game\_gui\_on\_client\_connect()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{void}} launch\+\_\+game\+\_\+gui\+\_\+on\+\_\+client\+\_\+connect (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Function to launch the game GUI when a client connects. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{gui_8c_source_l00312}{312}} of file \mbox{\hyperlink{gui_8c_source}{gui.\+c}}.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{gui_8h_a59b1fa1aa41a698b6e838bc12842a2a3_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{gui_8h_a59b1fa1aa41a698b6e838bc12842a2a3_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{gui_8h_a79b7aab5800323d88b36cc5bc3edca26}\label{gui_8h_a79b7aab5800323d88b36cc5bc3edca26} 
+\index{gui.h@{gui.h}!launch\_gui@{launch\_gui}}
+\index{launch\_gui@{launch\_gui}!gui.h@{gui.h}}
+\doxysubsubsection{\texorpdfstring{launch\_gui()}{launch\_gui()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{int}} launch\+\_\+gui (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{int}}}]{argc,  }\item[{\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{char}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{argv }\end{DoxyParamCaption})}
+
+
+
+The main function of the application. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em argc} & \+: The number of arguments \\
+\hline
+{\em argv} & \+: The arguments \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int \+: The status of the application 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{gui_8c_source_l00294}{294}} of file \mbox{\hyperlink{gui_8c_source}{gui.\+c}}.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{gui_8h_a79b7aab5800323d88b36cc5bc3edca26_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{gui_8h_a79b7aab5800323d88b36cc5bc3edca26_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{gui_8h_ac88833aaa22012dfe7b7ffa32774c93c}\label{gui_8h_ac88833aaa22012dfe7b7ffa32774c93c} 
+\index{gui.h@{gui.h}!reset\_game\_state@{reset\_game\_state}}
+\index{reset\_game\_state@{reset\_game\_state}!gui.h@{gui.h}}
+\doxysubsubsection{\texorpdfstring{reset\_game\_state()}{reset\_game\_state()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{void}} reset\+\_\+game\+\_\+state (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Function to reset the game state This function will reset all the global variables and the game logic state. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{gui_8c_source_l00052}{52}} of file \mbox{\hyperlink{gui_8c_source}{gui.\+c}}.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=285pt]{gui_8h_ac88833aaa22012dfe7b7ffa32774c93c_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{gui_8h_a2819f266214852b4eba5b68c5142bea9}\label{gui_8h_a2819f266214852b4eba5b68c5142bea9} 
+\index{gui.h@{gui.h}!restart\_game@{restart\_game}}
+\index{restart\_game@{restart\_game}!gui.h@{gui.h}}
+\doxysubsubsection{\texorpdfstring{restart\_game()}{restart\_game()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{void}} restart\+\_\+game (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{Gtk\+Widget}} \texorpdfstring{$\ast$}{*}}]{button,  }\item[{\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{gpointer}}}]{user\+\_\+data }\end{DoxyParamCaption})}
+
+\Hypertarget{gui_8h_aa51ce1145109f64d60c2572cc7317b90}\label{gui_8h_aa51ce1145109f64d60c2572cc7317b90} 
+\index{gui.h@{gui.h}!update\_gui\_from\_server@{update\_gui\_from\_server}}
+\index{update\_gui\_from\_server@{update\_gui\_from\_server}!gui.h@{gui.h}}
+\doxysubsubsection{\texorpdfstring{update\_gui\_from\_server()}{update\_gui\_from\_server()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{gboolean}} update\+\_\+gui\+\_\+from\+\_\+server (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{gpointer}}}]{data }\end{DoxyParamCaption})}
+
+
+
+Function to update the GUI from the server. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & The data to update the GUI with \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+gboolean TRUE if the function is successful, FALSE otherwise 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{gui_8c_source_l00326}{326}} of file \mbox{\hyperlink{gui_8c_source}{gui.\+c}}.
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{gui_8h_aa51ce1145109f64d60c2572cc7317b90_icgraph}
+\end{center}
+\end{figure}

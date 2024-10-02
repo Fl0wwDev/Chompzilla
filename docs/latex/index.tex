@@ -1,0 +1,71 @@
+\chapter{README}
+\hypertarget{index}{}\label{index}\index{README@{README}}
+\label{index_md__r_e_a_d_m_e}%
+\Hypertarget{index_md__r_e_a_d_m_e}%
+ \hypertarget{index_autotoc_md1}{}\doxysection{\texorpdfstring{Description}{Description}}\label{index_autotoc_md1}
+Chompzilla is a "{}chomp"{} like game. It has a board with 7\texorpdfstring{$\ast$}{*}9 squares. It is a versus game with two player. Each player alternately break a square from the board. The player who break the last square loses the game.\hypertarget{index_autotoc_md2}{}\doxysection{\texorpdfstring{Rules of the game}{Rules of the game}}\label{index_autotoc_md2}
+
+\begin{DoxyEnumerate}
+\item The game is played on a 7x9 board.
+\item Players take turns to break a square from the board.
+\item When the player break a square, it also breaks all the squares to the right and below the square.
+\item The player can not break more than five squares in a turn.
+\item The player who break the last square will lose the game.
+\end{DoxyEnumerate}\hypertarget{index_autotoc_md3}{}\doxysection{\texorpdfstring{How to build the game}{How to build the game}}\label{index_autotoc_md3}
+
+\begin{DoxyEnumerate}
+\item Clone the repository with SVN.
+\begin{DoxyItemize}
+\item {\ttfamily svn co \href{https://svn.ensisa.uha.fr/scm/svn/imm2425-gr2}{\texttt{ https\+://svn.\+ensisa.\+uha.\+fr/scm/svn/imm2425-\/gr2}}}
+\end{DoxyItemize}
+\item Install the dependencies\+:
+\begin{DoxyItemize}
+\item Run the script {\ttfamily install\+\_\+deps.\+sh} to install the dependencies. (Works on Debian based systems and Fedora)
+\end{DoxyItemize}
+\item Run the command {\ttfamily make} to build the game with the tests and the documentation. You can also run the command {\ttfamily make game} to build only the game.
+\item Run the command {\ttfamily ./build/game} or {\ttfamily make run} to start the game.
+\end{DoxyEnumerate}\hypertarget{index_autotoc_md4}{}\doxysection{\texorpdfstring{How to build the documentation}{How to build the documentation}}\label{index_autotoc_md4}
+
+\begin{DoxyEnumerate}
+\item Run the command {\ttfamily make docs} to generate the documentation.
+\item Open the file {\ttfamily docs/html/index.\+html} in a browser to view the documentation. You can also use {\ttfamily make open\+\_\+docs} to create and open the documentation.
+\item You can also access to the documentation from \href{https://docs.ensisa.iutmulhouse.fr}{\texttt{ https\+://docs.\+ensisa.\+iutmulhouse.\+fr}}.
+\end{DoxyEnumerate}\hypertarget{index_autotoc_md5}{}\doxysection{\texorpdfstring{How to test the game}{How to test the game}}\label{index_autotoc_md5}
+
+\begin{DoxyEnumerate}
+\item Run the command {\ttfamily make tests} to run the tests using criterion.
+\item Run the command {\ttfamily make coverage} to generate the coverage report.
+\item Open the file {\ttfamily tests/coverage/index.\+html} in a browser to view the coverage report. You can also use {\ttfamily make open\+\_\+coverage} to create and open the coverage report.
+\end{DoxyEnumerate}\hypertarget{index_autotoc_md6}{}\doxysection{\texorpdfstring{How to launch the game}{How to launch the game}}\label{index_autotoc_md6}
+
+\begin{DoxyEnumerate}
+\item Run the command {\ttfamily make run} to launch the game, or run the command {\ttfamily .build/game}.
+\item You can add options to the command to play the game in different modes. Run the command {\ttfamily .build/game -\/-\/help} to see the options.
+\end{DoxyEnumerate}\hypertarget{index_autotoc_md7}{}\doxysection{\texorpdfstring{Game launch options}{Game launch options}}\label{index_autotoc_md7}
+
+\begin{DoxyItemize}
+\item {\ttfamily -\/h} or {\ttfamily -\/-\/help}\+: Display the help message.
+\item {\ttfamily -\/g} or {\ttfamily -\/-\/gui}\+: Launch the game with the graphical interface.
+\item {\ttfamily -\/l} or {\ttfamily -\/-\/local}\+: Launch the game in local mode. You can play with another player on the same computer.
+\item {\ttfamily -\/s} or {\ttfamily -\/-\/server}\+: Launch the game in server mode. You must add the port after the option like \+: {\ttfamily -\/s 5555}
+\item {\ttfamily -\/ia} or {\ttfamily -\/-\/ia}\+: To launch the game with an IA (in local mode, is it versus an IA, and in client you are the IA)
+\item {\ttfamily -\/c} or {\ttfamily -\/-\/client}\+: Launch the game in client mode. You must add the IP and the port of the server like \+: {\ttfamily -\/c 127.\+0.\+0.\+1\+:5555}
+\end{DoxyItemize}\hypertarget{index_autotoc_md8}{}\doxysubsection{\texorpdfstring{Examples}{Examples}}\label{index_autotoc_md8}
+
+\begin{DoxyItemize}
+\item To launch the game in local mode with the graphical interface\+: {\ttfamily ./build/game -\/g -\/l}
+\item To launch the game in CLI connecting to the 127.\+0.\+0.\+1 server on the port 5555\+: {\ttfamily ./build/game -\/c 127.\+0.\+0.\+1\+:5555}
+\item To launch the game in server mode on the port 5555\+: {\ttfamily ./build/game -\/s 5555}
+\item To launch the game in local mode with an IA\+: {\ttfamily ./build/game -\/l -\/ia}
+\item etc.
+\end{DoxyItemize}\hypertarget{index_autotoc_md9}{}\doxysection{\texorpdfstring{How to play the game}{How to play the game}}\label{index_autotoc_md9}
+You can play the game in different modes\+:
+
+
+\begin{DoxyItemize}
+\item Player vs Player on the same computer.
+\item Player vs IA.
+\item Player vs Player on different computers with the help of a server.
+\item IA vs other player on different computers with the help of a server.
+\item IA vs IA on different computers with the help of a server. 
+\end{DoxyItemize}

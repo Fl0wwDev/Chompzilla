@@ -1,0 +1,18 @@
+<map id="start_server_server_gui" name="start_server_server_gui">
+<area shape="rect" id="Node000001" title="Function to start the server GUI." alt="" coords="5,75,180,100"/>
+<area shape="rect" id="Node000002" href="$server__gui_8c.html#a3cd7e8317968bc513a37b52e487c7d06" title="The main window of the application." alt="" coords="228,75,412,100"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="180,85,214,85,214,90,180,90"/>
+<area shape="rect" id="Node000003" href="$server__gui_8c.html#a96659326d93314ae99ea61edd3282779" title="The function to delete a button and the linked buttons This function is called when a button is click..." alt="" coords="460,75,627,100"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="412,85,446,85,446,90,412,90"/>
+<area shape="rect" id="Node000004" href="$server__gui_8c.html#acbc887e81600259179f64d25ed34c75b" title="Function to quit the game." alt="" coords="698,5,865,31"/>
+<area shape="poly" id="edge8_Node000002_Node000004" title=" " alt="" coords="350,72,401,53,459,37,576,21,684,15,684,20,576,26,461,42,402,58,352,77"/>
+<area shape="rect" id="Node000007" href="$server__gui_8c.html#aefd7b1482a448478cecc93060277239e" title="Function to set the state of the buttons." alt="" coords="675,125,888,151"/>
+<area shape="poly" id="edge9_Node000002_Node000007" title=" " alt="" coords="384,97,460,110,661,129,661,134,460,115,383,103"/>
+<area shape="poly" id="edge3_Node000003_Node000003" title=" " alt="" coords="507,76,499,66,503,56,518,50,543,48,574,52,586,61,583,65,572,57,543,53,520,55,507,60,505,66,511,73"/>
+<area shape="poly" id="edge4_Node000003_Node000004" title=" " alt="" coords="587,72,674,46,722,32,724,37,675,51,588,77"/>
+<area shape="rect" id="Node000006" href="$server__gui_8c.html#a7b348f3724a1b6554f9a45d5d5b138e5" title=" " alt="" coords="703,61,859,101"/>
+<area shape="poly" id="edge6_Node000003_Node000006" title=" " alt="" coords="627,82,690,81,690,86,627,88"/>
+<area shape="poly" id="edge7_Node000003_Node000007" title=" " alt="" coords="605,98,708,120,707,125,603,103"/>
+<area shape="rect" id="Node000005" href="$server__gui_8c.html#a1225780d89857b9d739aba6a8d3b37ab" title="Function to destroy the window." alt="" coords="936,5,1139,31"/>
+<area shape="poly" id="edge5_Node000004_Node000005" title=" " alt="" coords="865,15,922,15,922,21,865,21"/>
+</map>

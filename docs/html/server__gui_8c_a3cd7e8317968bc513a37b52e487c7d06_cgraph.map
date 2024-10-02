@@ -1,0 +1,16 @@
+<map id="handle_client_server_gui" name="handle_client_server_gui">
+<area shape="rect" id="Node000001" title="The main window of the application." alt="" coords="5,75,189,100"/>
+<area shape="rect" id="Node000002" href="$server__gui_8c.html#a96659326d93314ae99ea61edd3282779" title="The function to delete a button and the linked buttons This function is called when a button is click..." alt="" coords="237,75,404,100"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="190,85,223,85,223,90,190,90"/>
+<area shape="rect" id="Node000003" href="$server__gui_8c.html#acbc887e81600259179f64d25ed34c75b" title="Function to quit the game." alt="" coords="475,5,642,31"/>
+<area shape="poly" id="edge7_Node000001_Node000003" title=" " alt="" coords="127,72,178,53,237,37,353,21,461,15,461,20,353,26,238,42,180,58,129,77"/>
+<area shape="rect" id="Node000006" href="$server__gui_8c.html#aefd7b1482a448478cecc93060277239e" title="Function to set the state of the buttons." alt="" coords="452,125,665,151"/>
+<area shape="poly" id="edge8_Node000001_Node000006" title=" " alt="" coords="161,97,238,110,439,129,438,134,237,115,160,103"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="285,76,277,66,281,56,296,50,321,48,351,52,364,61,360,65,349,57,321,53,297,55,284,60,282,66,289,73"/>
+<area shape="poly" id="edge3_Node000002_Node000003" title=" " alt="" coords="364,72,451,46,500,32,501,37,453,51,365,77"/>
+<area shape="rect" id="Node000005" href="$server__gui_8c.html#a7b348f3724a1b6554f9a45d5d5b138e5" title=" " alt="" coords="481,61,637,101"/>
+<area shape="poly" id="edge5_Node000002_Node000005" title=" " alt="" coords="404,82,467,81,467,86,404,88"/>
+<area shape="poly" id="edge6_Node000002_Node000006" title=" " alt="" coords="382,98,486,120,484,125,381,103"/>
+<area shape="rect" id="Node000004" href="$server__gui_8c.html#a1225780d89857b9d739aba6a8d3b37ab" title="Function to destroy the window." alt="" coords="713,5,916,31"/>
+<area shape="poly" id="edge4_Node000003_Node000004" title=" " alt="" coords="642,15,699,15,699,21,642,21"/>
+</map>

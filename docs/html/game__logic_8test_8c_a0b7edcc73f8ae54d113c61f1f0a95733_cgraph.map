@@ -1,0 +1,7 @@
+<map id="Test" name="Test">
+<area shape="rect" id="Node000001" title="Test if the board contains only 1s after calling the init_board function." alt="" coords="5,31,53,56"/>
+<area shape="rect" id="Node000002" href="$game__logic_8c.html#ab2799a5dca6411a7176972326e6323f9" title="Function to display the game board in the CLI." alt="" coords="101,5,215,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="53,36,87,29,88,34,54,41"/>
+<area shape="rect" id="Node000003" href="$game__logic_8c.html#a8ed9dd5e9c9e940055fc2fda0bb4d220" title="Function to initialize the game board, it use the constant ROWS and COLS defined in inc/const...." alt="" coords="115,55,201,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="54,45,102,54,101,59,53,50"/>
+</map>

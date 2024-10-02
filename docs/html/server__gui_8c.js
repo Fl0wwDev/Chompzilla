@@ -1,0 +1,28 @@
+var server__gui_8c =
+[
+    [ "active_gui_server_gui", "server__gui_8c.html#aaff0a41360185353510efa362c2ab592", null ],
+    [ "del_button_server_gui", "server__gui_8c.html#a96659326d93314ae99ea61edd3282779", null ],
+    [ "destroy_window_server_gui", "server__gui_8c.html#a1225780d89857b9d739aba6a8d3b37ab", null ],
+    [ "exit_game_server_gui", "server__gui_8c.html#acbc887e81600259179f64d25ed34c75b", null ],
+    [ "handle_client_server_gui", "server__gui_8c.html#a3cd7e8317968bc513a37b52e487c7d06", null ],
+    [ "launch_gui_server_gui", "server__gui_8c.html#a899f9da0d92c10826dbe27cb6ee17b74", null ],
+    [ "network_server_gui", "server__gui_8c.html#a9343452c866f3dacaa46c32d318f3e6f", null ],
+    [ "reset_game_state_server_gui", "server__gui_8c.html#abf2d4ed76849105e4c9c90a07f7655b6", null ],
+    [ "restart_game_state_server_gui", "server__gui_8c.html#a5f04b2da3cd2280678c48f6052d486fa", null ],
+    [ "send_coordinates_to_client", "server__gui_8c.html#a7b348f3724a1b6554f9a45d5d5b138e5", null ],
+    [ "set_buttons_state_server_gui", "server__gui_8c.html#aefd7b1482a448478cecc93060277239e", null ],
+    [ "start_server_server_gui", "server__gui_8c.html#a347b29036b6cd430e39fa92029a7d847", null ],
+    [ "app_server_gui", "server__gui_8c.html#af3864606c4696237c4e62a3d02068a8e", null ],
+    [ "buttons_deleted_server_gui", "server__gui_8c.html#a6c67d9a0cd7c5df8ce0d0222a04196e8", null ],
+    [ "client_socket_server_gui", "server__gui_8c.html#a9bb51a73e8f48d4d3227adcd9f9244a2", null ],
+    [ "end_game_server_gui", "server__gui_8c.html#a997a256561ec9700a65ddf5600ddc2f7", null ],
+    [ "error_label_server_gui", "server__gui_8c.html#a5ec41c681e20d66cd63001918b3b7354", null ],
+    [ "is_local_player_turn_server_gui", "server__gui_8c.html#acc69955e04146dd5ec121038f72da733", null ],
+    [ "main_div_server_gui", "server__gui_8c.html#a95f61ddbf4feaa7a5e44c7640c4fd191", null ],
+    [ "player_label_server_gui", "server__gui_8c.html#a642f93431b7ec9b4eca50de6f76d3e42", null ],
+    [ "player_server_gui", "server__gui_8c.html#af88ee1ecc52e83d6ea3d1f59a9e1d8fd", null ],
+    [ "port_server_gui", "server__gui_8c.html#a8d0f4eae55c128e56497bb7a69ae85f9", null ],
+    [ "table_server_gui", "server__gui_8c.html#ae9654c553153f6f3e6faddf6a1215f6b", null ],
+    [ "turn_mutex_server_gui", "server__gui_8c.html#a66df4919bdb5806940d0685a7bc903ab", null ],
+    [ "window_server_gui", "server__gui_8c.html#a1065a3d591d68c11de43a3b357d6e39d", null ]
+];

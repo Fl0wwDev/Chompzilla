@@ -1,0 +1,16 @@
+<map id="start_client_receive_client_gui" name="start_client_receive_client_gui">
+<area shape="rect" id="Node000001" title="The function to receive the coordinates from the server." alt="" coords="5,97,156,137"/>
+<area shape="rect" id="Node000002" href="$client__gui_8c.html#a5c7408bd2f3f0b0767b7ca70315312a4" title="The function to delete a button and the linked buttons This function is called when a button is click..." alt="" coords="204,104,365,129"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="156,114,190,114,190,119,156,119"/>
+<area shape="rect" id="Node000003" href="$client__gui_8h.html#a581225bf588b199d04663d471c659d72" title=" " alt="" coords="437,5,599,31"/>
+<area shape="poly" id="edge7_Node000001_Node000003" title=" " alt="" coords="126,94,203,66,317,41,423,25,424,30,318,46,205,71,127,99"/>
+<area shape="rect" id="Node000006" href="$client__gui_8c.html#abeb2839518a089326745e785df6b1a52" title="Function to update the label text." alt="" coords="413,169,623,195"/>
+<area shape="poly" id="edge8_Node000001_Node000006" title=" " alt="" coords="157,130,204,139,400,167,399,172,204,145,156,136"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="251,106,244,96,248,86,262,80,285,77,313,81,324,90,321,94,311,86,285,83,263,85,252,89,249,95,256,102"/>
+<area shape="poly" id="edge3_Node000002_Node000003" title=" " alt="" coords="302,102,350,71,412,40,435,32,436,37,414,44,353,75,305,106"/>
+<area shape="rect" id="Node000004" href="$client__gui_8c.html#a8cf3b1e6663051db6b155a9d047e0554" title="Function to send the coordinates to the server." alt="" coords="417,55,619,80"/>
+<area shape="poly" id="edge4_Node000002_Node000004" title=" " alt="" coords="345,101,443,80,444,86,346,107"/>
+<area shape="rect" id="Node000005" href="$client__gui_8c.html#a090a894356cc48aa0f80e923e62da046" title="Function to update the error label text." alt="" coords="446,105,590,145"/>
+<area shape="poly" id="edge5_Node000002_Node000005" title=" " alt="" coords="365,117,432,119,432,124,365,122"/>
+<area shape="poly" id="edge6_Node000002_Node000006" title=" " alt="" coords="325,127,414,154,449,163,448,169,413,159,323,132"/>
+</map>

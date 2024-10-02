@@ -1,0 +1,5 @@
+<map id="reset_game_state_server_gui" name="reset_game_state_server_gui">
+<area shape="rect" id="Node000001" title="Function to reset the game state This function will reset all the global variables and the game logic..." alt="" coords="203,13,417,38"/>
+<area shape="rect" id="Node000002" href="$server__gui_8c.html#a5f04b2da3cd2280678c48f6052d486fa" title="Function to restart the game." alt="" coords="5,5,155,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="189,28,155,28,155,23,189,23"/>
+</map>

@@ -1,0 +1,454 @@
+\doxysection{src/game\+\_\+logic/game\+\_\+logic.c File Reference}
+\hypertarget{game__logic_8c}{}\label{game__logic_8c}\index{src/game\_logic/game\_logic.c@{src/game\_logic/game\_logic.c}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$ctype.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include "{}game\+\_\+logic.\+h"{}}\newline
+{\ttfamily \#include "{}../inc/const.\+h"{}}\newline
+{\ttfamily \#include "{}../gui/gui.\+h"{}}\newline
+{\ttfamily \#include "{}../ia/ia.\+h"{}}\newline
+Include dependency graph for game\+\_\+logic.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{game__logic_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{void}} \mbox{\hyperlink{game__logic_8c_a8ed9dd5e9c9e940055fc2fda0bb4d220}{init\+\_\+board}} ()
+\begin{DoxyCompactList}\small\item\em Function to initialize the game board, it use the constant ROWS and COLS defined in \doxylink{const_8h}{inc/const.\+h}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{void}} \mbox{\hyperlink{game__logic_8c_ab2799a5dca6411a7176972326e6323f9}{display\+\_\+board}} ()
+\begin{DoxyCompactList}\small\item\em Function to display the game board in the CLI. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{int}} \mbox{\hyperlink{game__logic_8c_a0c1e3c44d468721790db3651f98d7f9a}{column\+\_\+to\+\_\+index}} (\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{char}} \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{col}})
+\begin{DoxyCompactList}\small\item\em Function to convert a column letter to an index. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{int}} \mbox{\hyperlink{game__logic_8c_a0f9921b9074eca809c9cbc33f81420c4}{count\+\_\+squares\+\_\+to\+\_\+remove}} (\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{int}} \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{row}}, \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{int}} \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{col}})
+\begin{DoxyCompactList}\small\item\em Function to count the number of squares to remove. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{int}} \mbox{\hyperlink{game__logic_8c_a0d417e43bdee123bd7c9e6ffcd6e473b}{destroy\+\_\+squares}} (\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{int}} \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{row}}, \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{int}} \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{col}}, \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{char}} \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{destroyed}}\mbox{[}$\,$\mbox{]}\mbox{[}3\mbox{]}, \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{int}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{destroyed\+\_\+count}})
+\begin{DoxyCompactList}\small\item\em Function to destroy the squares. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{int}} \mbox{\hyperlink{game__logic_8c_ae8ec155c7e09a0a40898d57fd037e583}{make\+\_\+move}} (\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{char}} \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{col\+\_\+letter}}, \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{int}} \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{row}}, \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{char}} \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{destroyed}}\mbox{[}$\,$\mbox{]}\mbox{[}3\mbox{]}, \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{int}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{destroyed\+\_\+count}}, \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{bool}} \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{is\+\_\+ia}})
+\begin{DoxyCompactList}\small\item\em Function to make a move. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{int}} \mbox{\hyperlink{game__logic_8c_a48e253127878279dd9f537a6bb719f55}{is\+\_\+game\+\_\+over}} ()
+\begin{DoxyCompactList}\small\item\em Function to check if the game is over. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{void}} \mbox{\hyperlink{game__logic_8c_a7064e50bc10ffe0ff9db40a7f10aa660}{ask\+\_\+coordinates}} (\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{char}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{col}}, \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{int}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{row}})
+\begin{DoxyCompactList}\small\item\em Function to ask the user for coordinates. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{void}} \mbox{\hyperlink{game__logic_8c_aada46df6d9266e84b6fc48286bce061e}{play\+\_\+local\+\_\+game}} ()
+\begin{DoxyCompactList}\small\item\em Function to play a local game in CLI. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{void}} \mbox{\hyperlink{game__logic_8c_a486a0f1c264213b655412ebcf4ab1a91}{play\+\_\+local\+\_\+game\+\_\+ia}} ()
+\begin{DoxyCompactList}\small\item\em Function to play a local game in CLI against the IA. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{void}} \mbox{\hyperlink{game__logic_8c_a608690d669667bea852499d1c3eae893}{play\+\_\+local\+\_\+game\+\_\+gui}} ()
+\begin{DoxyCompactList}\small\item\em Function to play a local game with GUI. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_server_response}{Server\+Response}} \mbox{\hyperlink{game__logic_8c_a7337808f2923d47d1f3b4aa0a621042f}{local\+\_\+game\+\_\+gui\+\_\+logic}} (\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{const}} \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{char}} \texorpdfstring{$\ast$}{*}coordinates, \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{int}} \mbox{\hyperlink{server_8c_a38bf4c0204ad6a02e4d5090b315de54f}{current\+\_\+player}})
+\begin{DoxyCompactList}\small\item\em Function to handle the game logic for the GUI. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{void}} \mbox{\hyperlink{game__logic_8c_af97f0950de3318e0b63fc18f7452b220}{update\+\_\+gui\+\_\+after\+\_\+move}} (\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{const}} \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{char}} \texorpdfstring{$\ast$}{*}coordinates)
+\begin{DoxyCompactList}\small\item\em Function to update the GUI after a move. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{int}} \mbox{\hyperlink{game__logic_8c_a9d4edc518925a395bf9da87cca62183c}{board}} \mbox{[}\mbox{\hyperlink{const_8h_a3cfd3aa62338d12609f6d65bce97e9cd}{ROWS}}\mbox{]}\mbox{[}\mbox{\hyperlink{const_8h_ab59ad2ee1a48b83c2eef1f019ed8cc48}{COLS}}\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{game__logic_8c_a7064e50bc10ffe0ff9db40a7f10aa660}\label{game__logic_8c_a7064e50bc10ffe0ff9db40a7f10aa660} 
+\index{game\_logic.c@{game\_logic.c}!ask\_coordinates@{ask\_coordinates}}
+\index{ask\_coordinates@{ask\_coordinates}!game\_logic.c@{game\_logic.c}}
+\doxysubsubsection{\texorpdfstring{ask\_coordinates()}{ask\_coordinates()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{void}} ask\+\_\+coordinates (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{char}} \texorpdfstring{$\ast$}{*}}]{col,  }\item[{\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{int}} \texorpdfstring{$\ast$}{*}}]{row }\end{DoxyParamCaption})}
+
+
+
+Function to ask the user for coordinates. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em col} & The pointer to the column letter \\
+\hline
+{\em row} & The pointer to the row number \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{game__logic_8c_source_l00185}{185}} of file \mbox{\hyperlink{game__logic_8c_source}{game\+\_\+logic.\+c}}.
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{game__logic_8c_a7064e50bc10ffe0ff9db40a7f10aa660_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{game__logic_8c_a0c1e3c44d468721790db3651f98d7f9a}\label{game__logic_8c_a0c1e3c44d468721790db3651f98d7f9a} 
+\index{game\_logic.c@{game\_logic.c}!column\_to\_index@{column\_to\_index}}
+\index{column\_to\_index@{column\_to\_index}!game\_logic.c@{game\_logic.c}}
+\doxysubsubsection{\texorpdfstring{column\_to\_index()}{column\_to\_index()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{int}} column\+\_\+to\+\_\+index (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{char}}}]{col }\end{DoxyParamCaption})}
+
+
+
+Function to convert a column letter to an index. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em col} & The column letter to convert \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int The index of the column 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{game__logic_8c_source_l00050}{50}} of file \mbox{\hyperlink{game__logic_8c_source}{game\+\_\+logic.\+c}}.
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{game__logic_8c_a0c1e3c44d468721790db3651f98d7f9a_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{game__logic_8c_a0f9921b9074eca809c9cbc33f81420c4}\label{game__logic_8c_a0f9921b9074eca809c9cbc33f81420c4} 
+\index{game\_logic.c@{game\_logic.c}!count\_squares\_to\_remove@{count\_squares\_to\_remove}}
+\index{count\_squares\_to\_remove@{count\_squares\_to\_remove}!game\_logic.c@{game\_logic.c}}
+\doxysubsubsection{\texorpdfstring{count\_squares\_to\_remove()}{count\_squares\_to\_remove()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{int}} count\+\_\+squares\+\_\+to\+\_\+remove (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{int}}}]{row,  }\item[{\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{int}}}]{col }\end{DoxyParamCaption})}
+
+
+
+Function to count the number of squares to remove. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em row} & The row of the square to remove \\
+\hline
+{\em col} & The column of the square to remove \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int The number of squares to remove 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{game__logic_8c_source_l00062}{62}} of file \mbox{\hyperlink{game__logic_8c_source}{game\+\_\+logic.\+c}}.
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{game__logic_8c_a0f9921b9074eca809c9cbc33f81420c4_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{game__logic_8c_a0d417e43bdee123bd7c9e6ffcd6e473b}\label{game__logic_8c_a0d417e43bdee123bd7c9e6ffcd6e473b} 
+\index{game\_logic.c@{game\_logic.c}!destroy\_squares@{destroy\_squares}}
+\index{destroy\_squares@{destroy\_squares}!game\_logic.c@{game\_logic.c}}
+\doxysubsubsection{\texorpdfstring{destroy\_squares()}{destroy\_squares()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{int}} destroy\+\_\+squares (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{int}}}]{row,  }\item[{\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{int}}}]{col,  }\item[{\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{char}}}]{destroyed\mbox{[}$\,$\mbox{]}\mbox{[}3\mbox{]},  }\item[{\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{int}} \texorpdfstring{$\ast$}{*}}]{destroyed\+\_\+count }\end{DoxyParamCaption})}
+
+
+
+Function to destroy the squares. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em row} & The row of the square to remove \\
+\hline
+{\em col} & The column of the square to remove \\
+\hline
+{\em destroyed} & The array to store the destroyed squares \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{game__logic_8c_source_l00085}{85}} of file \mbox{\hyperlink{game__logic_8c_source}{game\+\_\+logic.\+c}}.
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{game__logic_8c_a0d417e43bdee123bd7c9e6ffcd6e473b_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{game__logic_8c_ab2799a5dca6411a7176972326e6323f9}\label{game__logic_8c_ab2799a5dca6411a7176972326e6323f9} 
+\index{game\_logic.c@{game\_logic.c}!display\_board@{display\_board}}
+\index{display\_board@{display\_board}!game\_logic.c@{game\_logic.c}}
+\doxysubsubsection{\texorpdfstring{display\_board()}{display\_board()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{void}} display\+\_\+board (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Function to display the game board in the CLI. 
+
+
+
+Definition at line \mbox{\hyperlink{game__logic_8c_source_l00030}{30}} of file \mbox{\hyperlink{game__logic_8c_source}{game\+\_\+logic.\+c}}.
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{game__logic_8c_ab2799a5dca6411a7176972326e6323f9_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{game__logic_8c_a8ed9dd5e9c9e940055fc2fda0bb4d220}\label{game__logic_8c_a8ed9dd5e9c9e940055fc2fda0bb4d220} 
+\index{game\_logic.c@{game\_logic.c}!init\_board@{init\_board}}
+\index{init\_board@{init\_board}!game\_logic.c@{game\_logic.c}}
+\doxysubsubsection{\texorpdfstring{init\_board()}{init\_board()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{void}} init\+\_\+board (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Function to initialize the game board, it use the constant ROWS and COLS defined in \doxylink{const_8h}{inc/const.\+h}. 
+
+
+
+Definition at line \mbox{\hyperlink{game__logic_8c_source_l00016}{16}} of file \mbox{\hyperlink{game__logic_8c_source}{game\+\_\+logic.\+c}}.
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{game__logic_8c_a8ed9dd5e9c9e940055fc2fda0bb4d220_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{game__logic_8c_a48e253127878279dd9f537a6bb719f55}\label{game__logic_8c_a48e253127878279dd9f537a6bb719f55} 
+\index{game\_logic.c@{game\_logic.c}!is\_game\_over@{is\_game\_over}}
+\index{is\_game\_over@{is\_game\_over}!game\_logic.c@{game\_logic.c}}
+\doxysubsubsection{\texorpdfstring{is\_game\_over()}{is\_game\_over()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{int}} is\+\_\+game\+\_\+over (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Function to check if the game is over. 
+
+\begin{DoxyReturn}{Returns}
+int 1 if the game is over, 0 otherwise 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{game__logic_8c_source_l00174}{174}} of file \mbox{\hyperlink{game__logic_8c_source}{game\+\_\+logic.\+c}}.
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{game__logic_8c_a48e253127878279dd9f537a6bb719f55_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{game__logic_8c_a7337808f2923d47d1f3b4aa0a621042f}\label{game__logic_8c_a7337808f2923d47d1f3b4aa0a621042f} 
+\index{game\_logic.c@{game\_logic.c}!local\_game\_gui\_logic@{local\_game\_gui\_logic}}
+\index{local\_game\_gui\_logic@{local\_game\_gui\_logic}!game\_logic.c@{game\_logic.c}}
+\doxysubsubsection{\texorpdfstring{local\_game\_gui\_logic()}{local\_game\_gui\_logic()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_server_response}{Server\+Response}} local\+\_\+game\+\_\+gui\+\_\+logic (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{const}} \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{char}} \texorpdfstring{$\ast$}{*}}]{coordinates,  }\item[{\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{int}}}]{current\+\_\+player }\end{DoxyParamCaption})}
+
+
+
+Function to handle the game logic for the GUI. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em coordinates} & The coordinates of the move \\
+\hline
+{\em current\+\_\+player} & The current player \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{struct_server_response}{Server\+Response} The response struct to send to the GUI 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{game__logic_8c_source_l00419}{419}} of file \mbox{\hyperlink{game__logic_8c_source}{game\+\_\+logic.\+c}}.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{game__logic_8c_a7337808f2923d47d1f3b4aa0a621042f_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{game__logic_8c_a7337808f2923d47d1f3b4aa0a621042f_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{game__logic_8c_ae8ec155c7e09a0a40898d57fd037e583}\label{game__logic_8c_ae8ec155c7e09a0a40898d57fd037e583} 
+\index{game\_logic.c@{game\_logic.c}!make\_move@{make\_move}}
+\index{make\_move@{make\_move}!game\_logic.c@{game\_logic.c}}
+\doxysubsubsection{\texorpdfstring{make\_move()}{make\_move()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{int}} make\+\_\+move (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{char}}}]{col\+\_\+letter,  }\item[{\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{int}}}]{row,  }\item[{\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{char}}}]{destroyed\mbox{[}$\,$\mbox{]}\mbox{[}3\mbox{]},  }\item[{\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{int}} \texorpdfstring{$\ast$}{*}}]{destroyed\+\_\+count,  }\item[{\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{bool}}}]{is\+\_\+ia }\end{DoxyParamCaption})}
+
+
+
+Function to make a move. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em col\+\_\+letter} & The column letter of the move \\
+\hline
+{\em row} & The row of the move \\
+\hline
+{\em destroyed} & The array to store the destroyed squares \\
+\hline
+{\em destroyed\+\_\+count} & The number of destroyed squares \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int The destroyed squares 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{game__logic_8c_source_l00119}{119}} of file \mbox{\hyperlink{game__logic_8c_source}{game\+\_\+logic.\+c}}.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=338pt]{game__logic_8c_ae8ec155c7e09a0a40898d57fd037e583_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{game__logic_8c_ae8ec155c7e09a0a40898d57fd037e583_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{game__logic_8c_aada46df6d9266e84b6fc48286bce061e}\label{game__logic_8c_aada46df6d9266e84b6fc48286bce061e} 
+\index{game\_logic.c@{game\_logic.c}!play\_local\_game@{play\_local\_game}}
+\index{play\_local\_game@{play\_local\_game}!game\_logic.c@{game\_logic.c}}
+\doxysubsubsection{\texorpdfstring{play\_local\_game()}{play\_local\_game()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{void}} play\+\_\+local\+\_\+game (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Function to play a local game in CLI. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{game__logic_8c_source_l00221}{221}} of file \mbox{\hyperlink{game__logic_8c_source}{game\+\_\+logic.\+c}}.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{game__logic_8c_aada46df6d9266e84b6fc48286bce061e_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{game__logic_8c_aada46df6d9266e84b6fc48286bce061e_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{game__logic_8c_a608690d669667bea852499d1c3eae893}\label{game__logic_8c_a608690d669667bea852499d1c3eae893} 
+\index{game\_logic.c@{game\_logic.c}!play\_local\_game\_gui@{play\_local\_game\_gui}}
+\index{play\_local\_game\_gui@{play\_local\_game\_gui}!game\_logic.c@{game\_logic.c}}
+\doxysubsubsection{\texorpdfstring{play\_local\_game\_gui()}{play\_local\_game\_gui()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{void}} play\+\_\+local\+\_\+game\+\_\+gui (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Function to play a local game with GUI. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{game__logic_8c_source_l00406}{406}} of file \mbox{\hyperlink{game__logic_8c_source}{game\+\_\+logic.\+c}}.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{game__logic_8c_a608690d669667bea852499d1c3eae893_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{game__logic_8c_a608690d669667bea852499d1c3eae893_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{game__logic_8c_a486a0f1c264213b655412ebcf4ab1a91}\label{game__logic_8c_a486a0f1c264213b655412ebcf4ab1a91} 
+\index{game\_logic.c@{game\_logic.c}!play\_local\_game\_ia@{play\_local\_game\_ia}}
+\index{play\_local\_game\_ia@{play\_local\_game\_ia}!game\_logic.c@{game\_logic.c}}
+\doxysubsubsection{\texorpdfstring{play\_local\_game\_ia()}{play\_local\_game\_ia()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{void}} play\+\_\+local\+\_\+game\+\_\+ia (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Function to play a local game in CLI against the IA. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{game__logic_8c_source_l00278}{278}} of file \mbox{\hyperlink{game__logic_8c_source}{game\+\_\+logic.\+c}}.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{game__logic_8c_a486a0f1c264213b655412ebcf4ab1a91_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{game__logic_8c_a486a0f1c264213b655412ebcf4ab1a91_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{game__logic_8c_af97f0950de3318e0b63fc18f7452b220}\label{game__logic_8c_af97f0950de3318e0b63fc18f7452b220} 
+\index{game\_logic.c@{game\_logic.c}!update\_gui\_after\_move@{update\_gui\_after\_move}}
+\index{update\_gui\_after\_move@{update\_gui\_after\_move}!game\_logic.c@{game\_logic.c}}
+\doxysubsubsection{\texorpdfstring{update\_gui\_after\_move()}{update\_gui\_after\_move()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{void}} update\+\_\+gui\+\_\+after\+\_\+move (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{const}} \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{char}} \texorpdfstring{$\ast$}{*}}]{coordinates }\end{DoxyParamCaption})}
+
+
+
+Function to update the GUI after a move. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em coordinates} & The coordinates of the move \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 1 if the GUI was updated, 0 otherwise 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{game__logic_8c_source_l00489}{489}} of file \mbox{\hyperlink{game__logic_8c_source}{game\+\_\+logic.\+c}}.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{game__logic_8c_af97f0950de3318e0b63fc18f7452b220_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{game__logic_8c_a9d4edc518925a395bf9da87cca62183c}\label{game__logic_8c_a9d4edc518925a395bf9da87cca62183c} 
+\index{game\_logic.c@{game\_logic.c}!board@{board}}
+\index{board@{board}!game\_logic.c@{game\_logic.c}}
+\doxysubsubsection{\texorpdfstring{board}{board}}
+{\footnotesize\ttfamily \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{int}} board\mbox{[}\mbox{\hyperlink{const_8h_a3cfd3aa62338d12609f6d65bce97e9cd}{ROWS}}\mbox{]}\mbox{[}\mbox{\hyperlink{const_8h_ab59ad2ee1a48b83c2eef1f019ed8cc48}{COLS}}\mbox{]}}
+
+
+
+Definition at line \mbox{\hyperlink{game__logic_8c_source_l00011}{11}} of file \mbox{\hyperlink{game__logic_8c_source}{game\+\_\+logic.\+c}}.
+

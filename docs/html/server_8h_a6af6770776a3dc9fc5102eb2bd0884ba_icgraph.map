@@ -1,0 +1,37 @@
+<map id="close_sockets" name="close_sockets">
+<area shape="rect" id="Node000001" title="Function to close the sockets." alt="" coords="757,307,869,332"/>
+<area shape="rect" id="Node000002" href="$server_8c.html#a8bfc90b3fb9344e9caafec953baacc0b" title="Function to handle the interrupt signal (CTRL+C)" alt="" coords="566,80,675,105"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="790,297,631,107,635,104,794,294"/>
+<area shape="rect" id="Node000007" href="$server_8c.html#abb0090be21f76dafc36ac4b333a14adc" title="Function to manage the network server." alt="" coords="541,256,700,281"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="750,306,669,284,671,279,752,301"/>
+<area shape="rect" id="Node000014" href="$server_8c.html#a1271c0951e919351d79c322614184981" title="Function to launch the server with the IA as a player." alt="" coords="532,307,709,332"/>
+<area shape="poly" id="edge15_Node000001_Node000014" title=" " alt="" coords="743,322,709,322,709,317,743,317"/>
+<area shape="rect" id="Node000015" href="$server_8test_8c.html#a850a607da43b23bb2de815490cd9596c" title="Test if close_sockets closes the sockets." alt="" coords="597,356,645,381"/>
+<area shape="poly" id="edge18_Node000001_Node000015" title=" " alt="" coords="750,338,646,365,644,360,749,333"/>
+<area shape="rect" id="Node000016" href="$server_8test_8c.html#ac8922f8d80b4da4e9f239c4e241cbe48" title="Test if close_sockets exists." alt="" coords="597,405,645,431"/>
+<area shape="poly" id="edge19_Node000001_Node000016" title=" " alt="" coords="789,343,753,371,710,396,677,409,645,417,644,412,675,404,708,392,750,366,786,339"/>
+<area shape="rect" id="Node000003" href="$server_8c.html#aec212c6dc9b28a8077489b6c1f6432c7" title="Function to start the server from the GUI." alt="" coords="108,107,273,132"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="552,100,274,117,273,112,552,94"/>
+<area shape="rect" id="Node000005" href="$server_8test_8c.html#a99c55347f2a7c8395b0574029e85f28e" title="Test if handle_sigint closes the sockets." alt="" coords="379,5,427,31"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="574,78,483,45,426,27,428,22,485,39,576,73"/>
+<area shape="rect" id="Node000006" href="$server_8test_8c.html#a973958ac33c7fc818167518ee3e2a60c" title="Test if handle_sigint exists." alt="" coords="379,55,427,80"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="552,87,427,73,427,67,552,82"/>
+<area shape="rect" id="Node000004" href="$server_8test_8c.html#a864ce900764e9094222df3bbc368dc5c" title="Test if start_server_from_gui exists." alt="" coords="9,107,57,132"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="94,122,57,122,57,117,94,117"/>
+<area shape="rect" id="Node000008" href="$main__menu__utils_8c.html#aa3501c29f05643295bbda8a78253cadd" title="Function to display the game mode menu." alt="" coords="333,307,473,332"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="553,287,459,309,457,304,551,282"/>
+<area shape="rect" id="Node000010" href="$game_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="The main function." alt="" coords="5,307,60,332"/>
+<area shape="poly" id="edge13_Node000007_Node000010" title=" " alt="" coords="528,268,334,271,220,280,109,297,61,311,59,306,107,291,220,275,333,266,527,263"/>
+<area shape="rect" id="Node000011" href="$server_8c.html#afd895fed4d709fc1e43bdaf9d2712900" title="Function to launch the server thread." alt="" coords="321,156,484,181"/>
+<area shape="poly" id="edge10_Node000007_Node000011" title=" " alt="" coords="587,251,539,223,483,195,452,184,454,179,485,190,542,218,590,246"/>
+<area shape="rect" id="Node000013" href="$server_8test_8c.html#ac67d457c0781e7924d6b224406a4c1aa" title="Test if play_network_server exists." alt="" coords="379,205,427,231"/>
+<area shape="poly" id="edge14_Node000007_Node000013" title=" " alt="" coords="551,255,426,226,427,221,552,250"/>
+<area shape="rect" id="Node000009" href="$main__menu__utils_8c.html#a116f5db451cfe52a4f8ae0bdf32e3bbc" title="Function to display the main menu." alt="" coords="139,307,242,332"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="319,322,242,322,242,317,319,317"/>
+<area shape="poly" id="edge9_Node000009_Node000010" title=" " alt="" coords="125,322,60,322,60,317,125,317"/>
+<area shape="poly" id="edge11_Node000011_Node000003" title=" " alt="" coords="334,155,245,135,247,129,335,150"/>
+<area shape="rect" id="Node000012" href="$server_8test_8c.html#abb1f522b408152def244018727c53b2a" title="Test if launch_server_thread exists." alt="" coords="167,156,215,181"/>
+<area shape="poly" id="edge12_Node000011_Node000012" title=" " alt="" coords="307,171,215,171,215,166,307,166"/>
+<area shape="poly" id="edge16_Node000014_Node000008" title=" " alt="" coords="518,322,473,322,473,317,518,317"/>
+<area shape="poly" id="edge17_Node000014_Node000010" title=" " alt="" coords="551,337,484,347,378,358,295,363,213,361,107,347,59,333,61,328,109,342,213,356,295,358,378,352,484,342,550,332"/>
+</map>

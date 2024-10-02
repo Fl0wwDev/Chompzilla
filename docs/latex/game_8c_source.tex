@@ -1,0 +1,262 @@
+\doxysection{game.\+c}
+\hypertarget{game_8c_source}{}\label{game_8c_source}\index{src/game.c@{src/game.c}}
+\mbox{\hyperlink{game_8c}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00001}00001\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00002}00002\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00003}00003\ \textcolor{preprocessor}{\#include\ <string.h>}}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <limits.h>}}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00005}00005\ \textcolor{preprocessor}{\#include\ <arpa/inet.h>}}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00006}00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{main__menu__utils_8h}{utils/main\_menu\_utils.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00007}00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{game__logic_8h}{game\_logic/game\_logic.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00008}00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{server_8h}{server/server.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00009}00009\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{client_8h}{client/client.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00010}00010\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{gui__gamemode_8h}{gui/gui\_gamemode.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00011}00011\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{client__gui_8h}{gui/client\_gui.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00012}00012\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{server__gui_8h}{gui/server\_gui.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00021}\mbox{\hyperlink{game_8c_a0ddf1224851353fc92bfbff6f499fa97}{00021}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{game_8c_a0ddf1224851353fc92bfbff6f499fa97}{main}}(\textcolor{keywordtype}{int}\ argc,\ \textcolor{keywordtype}{char}\ *argv[])}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00022}00022\ \{}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00023}00023\ \ \ \ \ \textcolor{keywordflow}{if}\ (argc\ >\ 1)}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00024}00024\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00025}00025\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ List\ of\ arguments}}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00026}00026\ \textcolor{comment}{\ \ \ \ \ \ \ \ 1.\ -\/h\ or\ -\/-\/help:\ Display\ the\ help\ message}}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00027}00027\ \textcolor{comment}{\ \ \ \ \ \ \ \ 2.\ -\/g\ or\ -\/-\/gui:\ Launch\ the\ GUI}}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00028}00028\ \textcolor{comment}{\ \ \ \ \ \ \ \ 3.\ -\/l\ or\ -\/-\/local:\ Launch\ the\ local\ game}}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00029}00029\ \textcolor{comment}{\ \ \ \ \ \ \ \ 4.\ -\/s\ or\ -\/-\/server:\ Launch\ the\ server}}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00030}00030\ \textcolor{comment}{\ \ \ \ \ \ \ \ 5.\ -\/ia\ or\ -\/-\/ia:\ Launch\ the\ IA}}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00031}00031\ \textcolor{comment}{\ \ \ \ \ \ \ \ 6.\ -\/c\ or\ -\/-\/client:\ Launch\ the\ client\ (with\ the\ server\ IP\ address\ after\ the\ argument)}}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00032}00032\ \textcolor{comment}{\ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00034}00034\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ help\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00035}00035\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ gui\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00036}00036\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ local\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00037}00037\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ server\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00038}00038\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ *server\_port\ =\ NULL;}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00039}00039\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ ia\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00040}00040\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ client\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00041}00041\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ *server\_ip\ =\ NULL;}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00043}00043\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ First\ we\ get\ the\ arguments}}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00044}00044\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 1;\ i\ <\ argc;\ i++)}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00045}00045\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00046}00046\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (strcmp(argv[i],\ \textcolor{stringliteral}{"{}-\/h"{}})\ ==\ 0\ ||\ strcmp(argv[i],\ \textcolor{stringliteral}{"{}-\/-\/help"{}})\ ==\ 0)}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00047}00047\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00048}00048\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ help\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00049}00049\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00050}00050\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (strcmp(argv[i],\ \textcolor{stringliteral}{"{}-\/g"{}})\ ==\ 0\ ||\ strcmp(argv[i],\ \textcolor{stringliteral}{"{}-\/-\/gui"{}})\ ==\ 0)}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00051}00051\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00052}00052\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ gui\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00053}00053\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00054}00054\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (strcmp(argv[i],\ \textcolor{stringliteral}{"{}-\/l"{}})\ ==\ 0\ ||\ strcmp(argv[i],\ \textcolor{stringliteral}{"{}-\/-\/local"{}})\ ==\ 0)}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00055}00055\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00056}00056\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ local\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00057}00057\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00058}00058\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (strcmp(argv[i],\ \textcolor{stringliteral}{"{}-\/s"{}})\ ==\ 0\ ||\ strcmp(argv[i],\ \textcolor{stringliteral}{"{}-\/-\/server"{}})\ ==\ 0)}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00059}00059\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00060}00060\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ server\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00061}00061\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ We\ search\ in\ all\ the\ arguments\ if\ we\ have\ the\ port\ number}}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00062}00062\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ i\ +\ 1;\ j\ <\ argc;\ j++)}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00063}00063\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00064}00064\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{main__menu__utils_8c_a727c00129301489befbe406d58fad696}{verify\_port}}(argv[j]))}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00065}00065\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00066}00066\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ server\_port\ =\ argv[j];}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00067}00067\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00068}00068\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00069}00069\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00070}00070\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (server\_port\ ==\ NULL)}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00071}00071\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00072}00072\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}No\ port\ number\ provided.\ Please\ provide\ a\ port\ number\ between\ 1024\ and\ 65535.\ Exiting\ the\ game.\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00073}00073\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00074}00074\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00075}00075\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00076}00076\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (strcmp(argv[i],\ \textcolor{stringliteral}{"{}-\/ia"{}})\ ==\ 0\ ||\ strcmp(argv[i],\ \textcolor{stringliteral}{"{}-\/-\/ia"{}})\ ==\ 0)}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00077}00077\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00078}00078\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ia\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00079}00079\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00080}00080\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (strcmp(argv[i],\ \textcolor{stringliteral}{"{}-\/c"{}})\ ==\ 0\ ||\ strcmp(argv[i],\ \textcolor{stringliteral}{"{}-\/-\/client"{}})\ ==\ 0)}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00081}00081\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00082}00082\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ client\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00083}00083\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ We\ search\ in\ all\ the\ arguments\ if\ we\ have\ the\ server\ IP\ address}}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00084}00084\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ i\ +\ 1;\ j\ <\ argc;\ j++)}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00085}00085\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00086}00086\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{main__menu__utils_8c_a63c328f81d1273108072452297330868}{verify\_ip\_port}}(argv[j]))}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00087}00087\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00088}00088\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ server\_ip\ =\ argv[j];}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00089}00089\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00090}00090\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00091}00091\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00092}00092\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (server\_ip\ ==\ NULL)}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00093}00093\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00094}00094\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}No\ server\ IP\ address\ or\ format\ is\ incorrect.\ Please\ use\ the\ format\ hhh.hhh.hhh.hhh:pppp.\ Exiting\ the\ game.\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00095}00095\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00096}00096\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00097}00097\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00098}00098\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00099}00099\ }
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00100}00100\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (help)}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00101}00101\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00102}00102\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{main__menu__utils_8c_a1c8fc504350d80b9d81d45b7723269d4}{help\_menu}}();}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00103}00103\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00104}00104\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00105}00105\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (gui)}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00106}00106\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00107}00107\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ local\ game\ with\ GUI}}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00108}00108\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (local)}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00109}00109\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00110}00110\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{game__logic_8c_a608690d669667bea852499d1c3eae893}{play\_local\_game\_gui}}();}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00111}00111\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00112}00112\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00113}00113\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (server)}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00114}00114\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00115}00115\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ We\ verify\ that\ we\ have\ a\ port\ number}}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00116}00116\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (server\_port\ !=\ NULL)}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00117}00117\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00118}00118\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ We\ verify\ that\ the\ port\ number\ is\ correct;}}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00119}00119\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{main__menu__utils_8c_a727c00129301489befbe406d58fad696}{verify\_port}}(server\_port))}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00120}00120\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00121}00121\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Invalid\ port\ number.\ Please\ choose\ a\ number\ between\ 1024\ and\ 65535.\ Exiting\ the\ game.\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00122}00122\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00123}00123\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00124}00124\ }
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00125}00125\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{short}\ \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{port}}\ =\ atoi(server\_port);}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00126}00126\ }
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00127}00127\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Launch\ the\ server\ from\ the\ GUI}}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00128}00128\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{server__gui_8c_a9343452c866f3dacaa46c32d318f3e6f}{network\_server\_gui}}(\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{port}});}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00129}00129\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00130}00130\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00131}00131\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00132}00132\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00133}00133\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}No\ port\ number\ provided.\ Exiting\ the\ game.\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00134}00134\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00135}00135\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00136}00136\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00137}00137\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00138}00138\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (client)}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00139}00139\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00140}00140\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Verify\ that\ we\ have\ the\ server\ IP\ address\ and\ the\ port}}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00141}00141\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (server\_ip\ !=\ NULL)}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00142}00142\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00143}00143\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{main__menu__utils_8c_a63c328f81d1273108072452297330868}{verify\_ip\_port}}(server\_ip))}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00144}00144\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00145}00145\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Invalid\ IP\ address.\ Please\ use\ the\ format\ hhh.hhh.hhh.hhh:pppp.\ Exiting\ the\ game.\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00146}00146\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00147}00147\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00148}00148\ }
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00149}00149\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ We\ cut\ the\ IP\ address\ and\ the\ port}}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00150}00150\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ *ip\ =\ strtok(server\_ip,\ \textcolor{stringliteral}{"{}:"{}});}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00151}00151\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ *\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{port}}\ =\ strtok(NULL,\ \textcolor{stringliteral}{"{}:"{}});}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00152}00152\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{short}\ server\_port\ =\ atoi(\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{port}});}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00153}00153\ }
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00154}00154\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Launch\ the\ client\ from\ the\ GUI}}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00155}00155\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{client__gui_8c_a77ff651aed26c82c3f39d5ebcf75054e}{network\_client\_gui}}(ip,\ server\_port);}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00156}00156\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00157}00157\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00158}00158\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00159}00159\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00160}00160\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}No\ server\ IP\ address\ provided.\ Exiting\ the\ game.\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00161}00161\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00162}00162\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00163}00163\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00164}00164\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00165}00165\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00166}00166\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{gui__gamemode_8c_aa749f53907a4e089b764de0ee88b88b8}{launch\_gui\_gamemode}}(0,\ NULL);}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00167}00167\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00168}00168\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00169}00169\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00170}00170\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (local)}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00171}00171\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00172}00172\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (ia)}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00173}00173\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00174}00174\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{game__logic_8c_a486a0f1c264213b655412ebcf4ab1a91}{play\_local\_game\_ia}}();}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00175}00175\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00176}00176\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00177}00177\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00178}00178\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00179}00179\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{game__logic_8c_aada46df6d9266e84b6fc48286bce061e}{play\_local\_game}}();}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00180}00180\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00181}00181\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00182}00182\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00183}00183\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (server)}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00184}00184\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00185}00185\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ We\ verify\ that\ we\ have\ the\ port\ number}}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00186}00186\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (server\_port\ !=\ NULL)}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00187}00187\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00188}00188\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ We\ verify\ that\ the\ port\ number\ is\ correct;}}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00189}00189\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{main__menu__utils_8c_a727c00129301489befbe406d58fad696}{verify\_port}}(server\_port))}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00190}00190\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00191}00191\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Invalid\ port\ number.\ Please\ choose\ a\ number\ between\ 1024\ and\ 65535.\ Exiting\ the\ game.\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00192}00192\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00193}00193\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00194}00194\ }
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00195}00195\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{short}\ \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{port}}\ =\ atoi(server\_port);}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00196}00196\ }
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00197}00197\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (ia)}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00198}00198\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00199}00199\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Launch\ the\ server\ with\ IA}}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00200}00200\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{server_8c_a1271c0951e919351d79c322614184981}{play\_network\_server\_ia}}(\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{port}});}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00201}00201\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00202}00202\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00203}00203\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00204}00204\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Launch\ the\ server}}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00205}00205\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{server_8c_abb0090be21f76dafc36ac4b333a14adc}{play\_network\_server}}(\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{port}});}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00206}00206\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00207}00207\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00208}00208\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00209}00209\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00210}00210\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00211}00211\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}No\ port\ number\ provided.\ Exiting\ the\ game.\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00212}00212\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00213}00213\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00214}00214\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00215}00215\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (client)}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00216}00216\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00217}00217\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ We\ verify\ that\ we\ have\ the\ server\ IP\ address}}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00218}00218\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (server\_ip\ !=\ NULL)}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00219}00219\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00220}00220\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{main__menu__utils_8c_a63c328f81d1273108072452297330868}{verify\_ip\_port}}(server\_ip))}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00221}00221\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00222}00222\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Invalid\ IP\ address.\ Please\ use\ the\ format\ hhh.hhh.hhh.hhh:pppp.\ Exiting\ the\ game.\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00223}00223\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00224}00224\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00225}00225\ }
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00226}00226\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ We\ cut\ the\ IP\ address\ and\ the\ port}}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00227}00227\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ *ip\ =\ strtok(server\_ip,\ \textcolor{stringliteral}{"{}:"{}});}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00228}00228\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ *\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{port}}\ =\ strtok(NULL,\ \textcolor{stringliteral}{"{}:"{}});}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00229}00229\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{short}\ server\_port\ =\ atoi(\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{port}});}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00230}00230\ }
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00231}00231\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (ia)}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00232}00232\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00233}00233\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Launching\ the\ IA\ client\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00234}00234\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Launch\ the\ IA\ client}}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00235}00235\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{client_8c_ae58acfe4ef90373f7e9200f2deaf2ac6}{play\_network\_ia\_client}}(ip,\ server\_port);}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00236}00236\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00237}00237\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00238}00238\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00239}00239\ }
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00240}00240\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Launch\ the\ client}}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00241}00241\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{client_8c_a8308fe6a601a2085a701ce0dc0840226}{play\_network\_client}}(ip,\ server\_port);}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00242}00242\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00243}00243\ }
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00244}00244\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00245}00245\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00246}00246\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00247}00247\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00248}00248\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}No\ server\ IP\ address\ provided.\ Exiting\ the\ game.\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00249}00249\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00250}00250\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00251}00251\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00252}00252\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00253}00253\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00254}00254\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Invalid\ arguments.\ Exiting\ the\ game.\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00255}00255\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00256}00256\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00257}00257\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00258}00258\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00259}00259\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00260}00260\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{main__menu__utils_8c_a116f5db451cfe52a4f8ae0bdf32e3bbc}{game\_menu}}();\ \textcolor{comment}{//\ Launch\ the\ main\ menu}}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00261}00261\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00262}00262\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{game_8c_source_l00263}00263\ \}}
+
+\end{DoxyCode}

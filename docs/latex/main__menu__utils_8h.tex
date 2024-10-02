@@ -1,0 +1,220 @@
+\doxysection{src/utils/main\+\_\+menu\+\_\+utils.h File Reference}
+\hypertarget{main__menu__utils_8h}{}\label{main__menu__utils_8h}\index{src/utils/main\_menu\_utils.h@{src/utils/main\_menu\_utils.h}}
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+Include dependency graph for main\+\_\+menu\+\_\+utils.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=196pt]{main__menu__utils_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{main__menu__utils_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_ip_port}{Ip\+Port}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{void}} \mbox{\hyperlink{main__menu__utils_8h_a1c8fc504350d80b9d81d45b7723269d4}{help\+\_\+menu}} ()
+\begin{DoxyCompactList}\small\item\em Function to display the help menu. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_ip_port}{Ip\+Port}} \mbox{\hyperlink{main__menu__utils_8h_ae72f785f8a3201f468f21a1fbec4ec94}{ask\+\_\+server\+\_\+ip\+\_\+port}} ()
+\begin{DoxyCompactList}\small\item\em Function to ask the user to enter the server IP address and the port number. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{bool}} \mbox{\hyperlink{main__menu__utils_8h_a727c00129301489befbe406d58fad696}{verify\+\_\+port}} (\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{char}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{port}})
+\begin{DoxyCompactList}\small\item\em Function to verify if the port is correct. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{bool}} \mbox{\hyperlink{main__menu__utils_8h_a63c328f81d1273108072452297330868}{verify\+\_\+ip\+\_\+port}} (\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{char}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{server\+\_\+ip}})
+\begin{DoxyCompactList}\small\item\em Function to verify if the IP address and the port are correct. Format\+: hhh.\+hhh.\+hhh.\+hhh\+:pppp. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{void}} \mbox{\hyperlink{main__menu__utils_8h_aa3501c29f05643295bbda8a78253cadd}{gamemode\+\_\+menu}} (\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{int}} \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{interface\+\_\+type}})
+\begin{DoxyCompactList}\small\item\em Function to display the game mode menu. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{void}} \mbox{\hyperlink{main__menu__utils_8h_a116f5db451cfe52a4f8ae0bdf32e3bbc}{game\+\_\+menu}} ()
+\begin{DoxyCompactList}\small\item\em Function to display the main menu. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{main__menu__utils_8h_ae72f785f8a3201f468f21a1fbec4ec94}\label{main__menu__utils_8h_ae72f785f8a3201f468f21a1fbec4ec94} 
+\index{main\_menu\_utils.h@{main\_menu\_utils.h}!ask\_server\_ip\_port@{ask\_server\_ip\_port}}
+\index{ask\_server\_ip\_port@{ask\_server\_ip\_port}!main\_menu\_utils.h@{main\_menu\_utils.h}}
+\doxysubsubsection{\texorpdfstring{ask\_server\_ip\_port()}{ask\_server\_ip\_port()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_ip_port}{Ip\+Port}} ask\+\_\+server\+\_\+ip\+\_\+port (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Function to ask the user to enter the server IP address and the port number. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{main__menu__utils_8c_source_l00035}{35}} of file \mbox{\hyperlink{main__menu__utils_8c_source}{main\+\_\+menu\+\_\+utils.\+c}}.
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{main__menu__utils_8h_ae72f785f8a3201f468f21a1fbec4ec94_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{main__menu__utils_8h_a116f5db451cfe52a4f8ae0bdf32e3bbc}\label{main__menu__utils_8h_a116f5db451cfe52a4f8ae0bdf32e3bbc} 
+\index{main\_menu\_utils.h@{main\_menu\_utils.h}!game\_menu@{game\_menu}}
+\index{game\_menu@{game\_menu}!main\_menu\_utils.h@{main\_menu\_utils.h}}
+\doxysubsubsection{\texorpdfstring{game\_menu()}{game\_menu()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{void}} game\+\_\+menu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Function to display the main menu. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{main__menu__utils_8c_source_l00277}{277}} of file \mbox{\hyperlink{main__menu__utils_8c_source}{main\+\_\+menu\+\_\+utils.\+c}}.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{main__menu__utils_8h_a116f5db451cfe52a4f8ae0bdf32e3bbc_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=234pt]{main__menu__utils_8h_a116f5db451cfe52a4f8ae0bdf32e3bbc_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{main__menu__utils_8h_aa3501c29f05643295bbda8a78253cadd}\label{main__menu__utils_8h_aa3501c29f05643295bbda8a78253cadd} 
+\index{main\_menu\_utils.h@{main\_menu\_utils.h}!gamemode\_menu@{gamemode\_menu}}
+\index{gamemode\_menu@{gamemode\_menu}!main\_menu\_utils.h@{main\_menu\_utils.h}}
+\doxysubsubsection{\texorpdfstring{gamemode\_menu()}{gamemode\_menu()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{void}} gamemode\+\_\+menu (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{int}}}]{interface\+\_\+type }\end{DoxyParamCaption})}
+
+
+
+Function to display the game mode menu. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em type} & The type of interface selected (1 for CLI, 2 for GUI) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{main__menu__utils_8c_source_l00172}{172}} of file \mbox{\hyperlink{main__menu__utils_8c_source}{main\+\_\+menu\+\_\+utils.\+c}}.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{main__menu__utils_8h_aa3501c29f05643295bbda8a78253cadd_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{main__menu__utils_8h_aa3501c29f05643295bbda8a78253cadd_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{main__menu__utils_8h_a1c8fc504350d80b9d81d45b7723269d4}\label{main__menu__utils_8h_a1c8fc504350d80b9d81d45b7723269d4} 
+\index{main\_menu\_utils.h@{main\_menu\_utils.h}!help\_menu@{help\_menu}}
+\index{help\_menu@{help\_menu}!main\_menu\_utils.h@{main\_menu\_utils.h}}
+\doxysubsubsection{\texorpdfstring{help\_menu()}{help\_menu()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{void}} help\+\_\+menu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Function to display the help menu. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{main__menu__utils_8c_source_l00017}{17}} of file \mbox{\hyperlink{main__menu__utils_8c_source}{main\+\_\+menu\+\_\+utils.\+c}}.
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=228pt]{main__menu__utils_8h_a1c8fc504350d80b9d81d45b7723269d4_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{main__menu__utils_8h_a63c328f81d1273108072452297330868}\label{main__menu__utils_8h_a63c328f81d1273108072452297330868} 
+\index{main\_menu\_utils.h@{main\_menu\_utils.h}!verify\_ip\_port@{verify\_ip\_port}}
+\index{verify\_ip\_port@{verify\_ip\_port}!main\_menu\_utils.h@{main\_menu\_utils.h}}
+\doxysubsubsection{\texorpdfstring{verify\_ip\_port()}{verify\_ip\_port()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{bool}} verify\+\_\+ip\+\_\+port (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{char}} \texorpdfstring{$\ast$}{*}}]{server\+\_\+ip }\end{DoxyParamCaption})}
+
+
+
+Function to verify if the IP address and the port are correct. Format\+: hhh.\+hhh.\+hhh.\+hhh\+:pppp. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ip} & The IP address to verify \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool True if the IP address is correct, false otherwise 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{main__menu__utils_8c_source_l00108}{108}} of file \mbox{\hyperlink{main__menu__utils_8c_source}{main\+\_\+menu\+\_\+utils.\+c}}.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=268pt]{main__menu__utils_8h_a63c328f81d1273108072452297330868_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=240pt]{main__menu__utils_8h_a63c328f81d1273108072452297330868_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{main__menu__utils_8h_a727c00129301489befbe406d58fad696}\label{main__menu__utils_8h_a727c00129301489befbe406d58fad696} 
+\index{main\_menu\_utils.h@{main\_menu\_utils.h}!verify\_port@{verify\_port}}
+\index{verify\_port@{verify\_port}!main\_menu\_utils.h@{main\_menu\_utils.h}}
+\doxysubsubsection{\texorpdfstring{verify\_port()}{verify\_port()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{bool}} verify\+\_\+port (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{char}} \texorpdfstring{$\ast$}{*}}]{port }\end{DoxyParamCaption})}
+
+
+
+Function to verify if the port is correct. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em port} & The port number to verify \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool True if the port is correct, false otherwise 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{main__menu__utils_8c_source_l00075}{75}} of file \mbox{\hyperlink{main__menu__utils_8c_source}{main\+\_\+menu\+\_\+utils.\+c}}.
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=345pt]{main__menu__utils_8h_a727c00129301489befbe406d58fad696_icgraph}
+\end{center}
+\end{figure}

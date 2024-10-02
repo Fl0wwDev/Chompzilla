@@ -1,0 +1,7 @@
+<map id="Test" name="Test">
+<area shape="rect" id="Node000001" title="Test if the is_game_over function returns 0 when the game is not over." alt="" coords="5,31,53,56"/>
+<area shape="rect" id="Node000002" href="$game__logic_8c.html#a8ed9dd5e9c9e940055fc2fda0bb4d220" title="Function to initialize the game board, it use the constant ROWS and COLS defined in inc/const...." alt="" coords="115,5,201,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="53,36,101,27,102,32,54,41"/>
+<area shape="rect" id="Node000003" href="$game__logic_8c.html#a48e253127878279dd9f537a6bb719f55" title="Function to check if the game is over." alt="" coords="101,55,215,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="54,45,88,52,87,57,53,50"/>
+</map>

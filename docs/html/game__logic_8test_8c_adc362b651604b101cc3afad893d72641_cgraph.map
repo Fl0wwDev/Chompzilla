@@ -1,0 +1,5 @@
+<map id="Test" name="Test">
+<area shape="rect" id="Node000001" title="Test if the ask_coordinates function exists." alt="" coords="5,5,53,31"/>
+<area shape="rect" id="Node000002" href="$game__logic_8c.html#a7064e50bc10ffe0ff9db40a7f10aa660" title="Function to ask the user for coordinates." alt="" coords="101,5,229,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="54,15,88,15,88,21,54,21"/>
+</map>

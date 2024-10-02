@@ -1,0 +1,5 @@
+<map id="Test" name="Test">
+<area shape="rect" id="Node000001" title="Test the existence of the ask_server_ip_port function." alt="" coords="5,5,53,31"/>
+<area shape="rect" id="Node000002" href="$main__menu__utils_8c.html#ae72f785f8a3201f468f21a1fbec4ec94" title="Function to ask the user to enter the server IP address and the port number." alt="" coords="101,5,247,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="53,15,87,15,87,21,53,21"/>
+</map>

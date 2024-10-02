@@ -1,0 +1,91 @@
+\doxysection{ia.\+c}
+\hypertarget{ia_8c_source}{}\label{ia_8c_source}\index{src/ia/ia.c@{src/ia/ia.c}}
+\mbox{\hyperlink{ia_8c}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{ia_8c_source_l00001}00001\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{\Hypertarget{ia_8c_source_l00002}00002\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
+\DoxyCodeLine{\Hypertarget{ia_8c_source_l00003}00003\ \textcolor{preprocessor}{\#include\ <time.h>}}
+\DoxyCodeLine{\Hypertarget{ia_8c_source_l00004}00004\ \textcolor{preprocessor}{\#include\ "{}../inc/const.h"{}}}
+\DoxyCodeLine{\Hypertarget{ia_8c_source_l00005}00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{ia_8h}{ia.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{ia_8c_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{ia_8c_source_l00007}\mbox{\hyperlink{ia_8c_a20793b0bb41489c597bed40c0eded42f}{00007}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{ia_8c_a20793b0bb41489c597bed40c0eded42f}{coo}}[3];}
+\DoxyCodeLine{\Hypertarget{ia_8c_source_l00008}\mbox{\hyperlink{ia_8c_a179b70ad0fead86555368dc8edf9469e}{00008}}\ \textcolor{keywordtype}{char}\ *\mbox{\hyperlink{ia_8c_a179b70ad0fead86555368dc8edf9469e}{result}};}
+\DoxyCodeLine{\Hypertarget{ia_8c_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{ia_8c_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{ia_8c_source_l00020}\mbox{\hyperlink{ia_8c_abeb3c633344f067c2614c1582408aa9a}{00020}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{ia_8c_abeb3c633344f067c2614c1582408aa9a}{squares\_to\_remove}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ *\mbox{\hyperlink{ia_8c_a20793b0bb41489c597bed40c0eded42f}{coo}},\ \textcolor{keywordtype}{int}\ tab[\mbox{\hyperlink{const_8h_a3cfd3aa62338d12609f6d65bce97e9cd}{ROWS}}][\mbox{\hyperlink{const_8h_ab59ad2ee1a48b83c2eef1f019ed8cc48}{COLS}}],\ \textcolor{keywordtype}{int}\ rows,\ \textcolor{keywordtype}{int}\ cols)}
+\DoxyCodeLine{\Hypertarget{ia_8c_source_l00021}00021\ \{}
+\DoxyCodeLine{\Hypertarget{ia_8c_source_l00022}00022\ \ \ \ \ \textcolor{keywordtype}{int}\ count\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{ia_8c_source_l00023}00023\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ \mbox{\hyperlink{ia_8c_a20793b0bb41489c597bed40c0eded42f}{coo}}[0];\ i\ <\ rows;\ i++)}
+\DoxyCodeLine{\Hypertarget{ia_8c_source_l00024}00024\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{ia_8c_source_l00025}00025\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ \mbox{\hyperlink{ia_8c_a20793b0bb41489c597bed40c0eded42f}{coo}}[1];\ j\ <\ cols;\ j++)}
+\DoxyCodeLine{\Hypertarget{ia_8c_source_l00026}00026\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{ia_8c_source_l00027}00027\ \ \ \ \ \ \ \ \ \ \ \ \ count\ +=\ tab[i][j];}
+\DoxyCodeLine{\Hypertarget{ia_8c_source_l00028}00028\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (count\ ==\ 6)}
+\DoxyCodeLine{\Hypertarget{ia_8c_source_l00029}00029\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{ia_8c_source_l00030}00030\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ count;}
+\DoxyCodeLine{\Hypertarget{ia_8c_source_l00031}00031\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ia_8c_source_l00032}00032\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ia_8c_source_l00033}00033\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ia_8c_source_l00034}00034\ \ \ \ \ \textcolor{keywordflow}{return}\ count;}
+\DoxyCodeLine{\Hypertarget{ia_8c_source_l00035}00035\ \}}
+\DoxyCodeLine{\Hypertarget{ia_8c_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{ia_8c_source_l00045}\mbox{\hyperlink{ia_8c_a7265a4240c79ed35bf94e10739e4232d}{00045}}\ \textcolor{keywordtype}{int}\ *\mbox{\hyperlink{ia_8c_a7265a4240c79ed35bf94e10739e4232d}{randomCoordinates}}(\textcolor{keywordtype}{int}\ rows,\ \textcolor{keywordtype}{int}\ cols,\ \textcolor{keywordtype}{int}\ tab[\mbox{\hyperlink{const_8h_a3cfd3aa62338d12609f6d65bce97e9cd}{ROWS}}][\mbox{\hyperlink{const_8h_ab59ad2ee1a48b83c2eef1f019ed8cc48}{COLS}}])}
+\DoxyCodeLine{\Hypertarget{ia_8c_source_l00046}00046\ \{}
+\DoxyCodeLine{\Hypertarget{ia_8c_source_l00047}00047\ }
+\DoxyCodeLine{\Hypertarget{ia_8c_source_l00048}00048\ \ \ \ \ \textcolor{comment}{//\ Array\ to\ store\ valid\ coordinates\ in\ byte\ -\/\ MAX\_LIST\_SIZE\ arbitrary}}
+\DoxyCodeLine{\Hypertarget{ia_8c_source_l00049}00049\ \ \ \ \ \textcolor{keywordtype}{int}\ liste[\mbox{\hyperlink{const_8h_a52a03eea6b90f6bc967ed15a7e6a36b9}{MAX\_LIST\_SIZE}}\ *\ 8][3];}
+\DoxyCodeLine{\Hypertarget{ia_8c_source_l00050}00050\ \ \ \ \ \textcolor{keywordtype}{int}\ count\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{ia_8c_source_l00051}00051\ \ \ \ \ \mbox{\hyperlink{ia_8c_a20793b0bb41489c597bed40c0eded42f}{coo}}[0]\ =\ rows;}
+\DoxyCodeLine{\Hypertarget{ia_8c_source_l00052}00052\ }
+\DoxyCodeLine{\Hypertarget{ia_8c_source_l00053}00053\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ rows;\ i++)}
+\DoxyCodeLine{\Hypertarget{ia_8c_source_l00054}00054\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{ia_8c_source_l00055}00055\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ia_8c_a20793b0bb41489c597bed40c0eded42f}{coo}}[0]\ =\ \mbox{\hyperlink{ia_8c_a20793b0bb41489c597bed40c0eded42f}{coo}}[0]\ -\/\ 1;}
+\DoxyCodeLine{\Hypertarget{ia_8c_source_l00056}00056\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ia_8c_a20793b0bb41489c597bed40c0eded42f}{coo}}[1]\ =\ cols;}
+\DoxyCodeLine{\Hypertarget{ia_8c_source_l00057}00057\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ cols;\ j++)}
+\DoxyCodeLine{\Hypertarget{ia_8c_source_l00058}00058\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{ia_8c_source_l00059}00059\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{ia_8c_a20793b0bb41489c597bed40c0eded42f}{coo}}[1]\ =\ \mbox{\hyperlink{ia_8c_a20793b0bb41489c597bed40c0eded42f}{coo}}[1]\ -\/\ 1;}
+\DoxyCodeLine{\Hypertarget{ia_8c_source_l00060}00060\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ var\_nbr\_casse\ =\ \mbox{\hyperlink{ia_8c_abeb3c633344f067c2614c1582408aa9a}{squares\_to\_remove}}(\mbox{\hyperlink{ia_8c_a20793b0bb41489c597bed40c0eded42f}{coo}},\ tab,\ rows,\ cols);}
+\DoxyCodeLine{\Hypertarget{ia_8c_source_l00061}00061\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ var\_nbr\_casse\ >\ 0)}
+\DoxyCodeLine{\Hypertarget{ia_8c_source_l00062}00062\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{ia_8c_source_l00063}00063\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (var\_nbr\_casse\ <=\ 5)}
+\DoxyCodeLine{\Hypertarget{ia_8c_source_l00064}00064\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{ia_8c_source_l00065}00065\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ liste[count][0]\ =\ \mbox{\hyperlink{ia_8c_a20793b0bb41489c597bed40c0eded42f}{coo}}[0];}
+\DoxyCodeLine{\Hypertarget{ia_8c_source_l00066}00066\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ liste[count][1]\ =\ \mbox{\hyperlink{ia_8c_a20793b0bb41489c597bed40c0eded42f}{coo}}[1];}
+\DoxyCodeLine{\Hypertarget{ia_8c_source_l00067}00067\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ count++;}
+\DoxyCodeLine{\Hypertarget{ia_8c_source_l00068}00068\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (count\ ==\ \mbox{\hyperlink{const_8h_a52a03eea6b90f6bc967ed15a7e6a36b9}{MAX\_LIST\_SIZE}})}
+\DoxyCodeLine{\Hypertarget{ia_8c_source_l00069}00069\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{ia_8c_source_l00070}00070\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{ia_8c_source_l00071}00071\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ia_8c_source_l00072}00072\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ia_8c_source_l00073}00073\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{ia_8c_source_l00074}00074\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{ia_8c_source_l00075}00075\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ia_8c_source_l00076}00076\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ia_8c_source_l00077}00077\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (count\ ==\ \mbox{\hyperlink{const_8h_a52a03eea6b90f6bc967ed15a7e6a36b9}{MAX\_LIST\_SIZE}})}
+\DoxyCodeLine{\Hypertarget{ia_8c_source_l00078}00078\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{ia_8c_source_l00079}00079\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ia_8c_source_l00080}00080\ \ \ \ \ \textcolor{comment}{//\ Choose\ a\ random\ index}}
+\DoxyCodeLine{\Hypertarget{ia_8c_source_l00081}00081\ \ \ \ \ \textcolor{keywordtype}{int}\ randomIndex\ =\ rand()\ \%\ count;}
+\DoxyCodeLine{\Hypertarget{ia_8c_source_l00082}00082\ \ \ \ \ \mbox{\hyperlink{ia_8c_a20793b0bb41489c597bed40c0eded42f}{coo}}[0]\ =\ liste[randomIndex][0];}
+\DoxyCodeLine{\Hypertarget{ia_8c_source_l00083}00083\ \ \ \ \ \mbox{\hyperlink{ia_8c_a20793b0bb41489c597bed40c0eded42f}{coo}}[1]\ =\ liste[randomIndex][1];}
+\DoxyCodeLine{\Hypertarget{ia_8c_source_l00084}00084\ }
+\DoxyCodeLine{\Hypertarget{ia_8c_source_l00085}00085\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{ia_8c_a20793b0bb41489c597bed40c0eded42f}{coo}};}
+\DoxyCodeLine{\Hypertarget{ia_8c_source_l00086}00086\ \}}
+\DoxyCodeLine{\Hypertarget{ia_8c_source_l00087}00087\ }
+\DoxyCodeLine{\Hypertarget{ia_8c_source_l00094}\mbox{\hyperlink{ia_8c_abebe885bba818d17539c9e0c74bbc0e5}{00094}}\ \textcolor{keywordtype}{char}\ *\mbox{\hyperlink{ia_8c_abebe885bba818d17539c9e0c74bbc0e5}{ia\_get\_column}}(\textcolor{keywordtype}{int}\ tab[\mbox{\hyperlink{const_8h_a3cfd3aa62338d12609f6d65bce97e9cd}{ROWS}}][\mbox{\hyperlink{const_8h_ab59ad2ee1a48b83c2eef1f019ed8cc48}{COLS}}])}
+\DoxyCodeLine{\Hypertarget{ia_8c_source_l00095}00095\ \{}
+\DoxyCodeLine{\Hypertarget{ia_8c_source_l00096}00096\ \ \ \ \ \mbox{\hyperlink{ia_8c_a179b70ad0fead86555368dc8edf9469e}{result}}\ =\ malloc(4\ *\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{char}));}
+\DoxyCodeLine{\Hypertarget{ia_8c_source_l00097}00097\ \ \ \ \ \textcolor{comment}{//\ Intialize\ random\ number\ generator\ with\ the\ current\ time}}
+\DoxyCodeLine{\Hypertarget{ia_8c_source_l00098}00098\ \ \ \ \ srand(time(NULL));}
+\DoxyCodeLine{\Hypertarget{ia_8c_source_l00099}00099\ }
+\DoxyCodeLine{\Hypertarget{ia_8c_source_l00100}00100\ \ \ \ \ \textcolor{keywordtype}{int}\ *coord\ =\ \mbox{\hyperlink{ia_8c_a7265a4240c79ed35bf94e10739e4232d}{randomCoordinates}}(\mbox{\hyperlink{const_8h_a3cfd3aa62338d12609f6d65bce97e9cd}{ROWS}},\ \mbox{\hyperlink{const_8h_ab59ad2ee1a48b83c2eef1f019ed8cc48}{COLS}},\ tab);}
+\DoxyCodeLine{\Hypertarget{ia_8c_source_l00101}00101\ }
+\DoxyCodeLine{\Hypertarget{ia_8c_source_l00102}00102\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ lettre[]\ =\ \textcolor{stringliteral}{"{}ABCDEFGHI"{}};}
+\DoxyCodeLine{\Hypertarget{ia_8c_source_l00103}00103\ \ \ \ \ \textcolor{keywordtype}{int}\ row\ =\ coord[0]\ +\ 1;}
+\DoxyCodeLine{\Hypertarget{ia_8c_source_l00104}00104\ \ \ \ \ \textcolor{keywordtype}{char}\ col\ =\ lettre[coord[1]];}
+\DoxyCodeLine{\Hypertarget{ia_8c_source_l00105}00105\ }
+\DoxyCodeLine{\Hypertarget{ia_8c_source_l00106}00106\ \ \ \ \ sprintf(\mbox{\hyperlink{ia_8c_a179b70ad0fead86555368dc8edf9469e}{result}},\ \textcolor{stringliteral}{"{}\%c\%d"{}},\ col,\ row);}
+\DoxyCodeLine{\Hypertarget{ia_8c_source_l00107}00107\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{ia_8c_a179b70ad0fead86555368dc8edf9469e}{result}};}
+\DoxyCodeLine{\Hypertarget{ia_8c_source_l00108}00108\ \}}
+
+\end{DoxyCode}

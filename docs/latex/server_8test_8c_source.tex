@@ -1,0 +1,50 @@
+\doxysection{server.\+test.\+c}
+\hypertarget{server_8test_8c_source}{}\label{server_8test_8c_source}\index{src/tests/server.test.c@{src/tests/server.test.c}}
+\mbox{\hyperlink{server_8test_8c}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{server_8test_8c_source_l00001}00001\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{\Hypertarget{server_8test_8c_source_l00002}00002\ \textcolor{preprocessor}{\#include\ <criterion/criterion.h>}}
+\DoxyCodeLine{\Hypertarget{server_8test_8c_source_l00003}00003\ \textcolor{preprocessor}{\#include\ "{}../server/server.h"{}}}
+\DoxyCodeLine{\Hypertarget{server_8test_8c_source_l00004}00004\ }
+\DoxyCodeLine{\Hypertarget{server_8test_8c_source_l00008}\mbox{\hyperlink{server_8test_8c_a2c8c01f174c5cb95ee8a76a3c6fe56fd}{00008}}\ \mbox{\hyperlink{server_8test_8c_a2c8c01f174c5cb95ee8a76a3c6fe56fd}{Test}}(server,\ handle\_client\_move\_exists)\{}
+\DoxyCodeLine{\Hypertarget{server_8test_8c_source_l00009}00009\ \ \ \ \ cr\_assert\_not\_null(\mbox{\hyperlink{server_8c_a50fd06011f00587a868c4d3f375dab6d}{handle\_client\_move}},\ \textcolor{stringliteral}{"{}handle\_client\_move\ does\ not\ exist"{}});}
+\DoxyCodeLine{\Hypertarget{server_8test_8c_source_l00010}00010\ \}}
+\DoxyCodeLine{\Hypertarget{server_8test_8c_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{server_8test_8c_source_l00016}\mbox{\hyperlink{server_8test_8c_ac8922f8d80b4da4e9f239c4e241cbe48}{00016}}\ \mbox{\hyperlink{server_8test_8c_a2c8c01f174c5cb95ee8a76a3c6fe56fd}{Test}}(server,\ close\_sockets\_exists)\{}
+\DoxyCodeLine{\Hypertarget{server_8test_8c_source_l00017}00017\ \ \ \ \ cr\_assert\_not\_null(\mbox{\hyperlink{server_8c_a6af6770776a3dc9fc5102eb2bd0884ba}{close\_sockets}},\ \textcolor{stringliteral}{"{}close\_sockets\ does\ not\ exist"{}});}
+\DoxyCodeLine{\Hypertarget{server_8test_8c_source_l00018}00018\ \}}
+\DoxyCodeLine{\Hypertarget{server_8test_8c_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{server_8test_8c_source_l00023}\mbox{\hyperlink{server_8test_8c_a850a607da43b23bb2de815490cd9596c}{00023}}\ \mbox{\hyperlink{server_8test_8c_a2c8c01f174c5cb95ee8a76a3c6fe56fd}{Test}}(server,\ close\_sockets\_closes\_sockets)\{}
+\DoxyCodeLine{\Hypertarget{server_8test_8c_source_l00024}00024\ \ \ \ \ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{server_8c_a6cf4711aa7ecd548b03b6e50d44b5aa6}{server\_fd}};}
+\DoxyCodeLine{\Hypertarget{server_8test_8c_source_l00025}00025\ \ \ \ \ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{server_8c_a4848332eecf4c58ee3b11a4f8513c3db}{new\_socket}};}
+\DoxyCodeLine{\Hypertarget{server_8test_8c_source_l00026}00026\ \ \ \ \ \mbox{\hyperlink{server_8c_a6af6770776a3dc9fc5102eb2bd0884ba}{close\_sockets}}();}
+\DoxyCodeLine{\Hypertarget{server_8test_8c_source_l00027}00027\ \ \ \ \ cr\_assert\_eq(\mbox{\hyperlink{server_8c_a4848332eecf4c58ee3b11a4f8513c3db}{new\_socket}},\ -\/1,\ \textcolor{stringliteral}{"{}new\_socket\ is\ not\ closed"{}});}
+\DoxyCodeLine{\Hypertarget{server_8test_8c_source_l00028}00028\ \ \ \ \ cr\_assert\_eq(\mbox{\hyperlink{server_8c_a6cf4711aa7ecd548b03b6e50d44b5aa6}{server\_fd}},\ -\/1,\ \textcolor{stringliteral}{"{}server\_fd\ is\ not\ closed"{}});}
+\DoxyCodeLine{\Hypertarget{server_8test_8c_source_l00029}00029\ \}}
+\DoxyCodeLine{\Hypertarget{server_8test_8c_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{server_8test_8c_source_l00034}\mbox{\hyperlink{server_8test_8c_a973958ac33c7fc818167518ee3e2a60c}{00034}}\ \mbox{\hyperlink{server_8test_8c_a2c8c01f174c5cb95ee8a76a3c6fe56fd}{Test}}(server,\ handle\_sigint\_exists)\{}
+\DoxyCodeLine{\Hypertarget{server_8test_8c_source_l00035}00035\ \ \ \ \ cr\_assert\_not\_null(\mbox{\hyperlink{server_8c_a8bfc90b3fb9344e9caafec953baacc0b}{handle\_sigint}},\ \textcolor{stringliteral}{"{}handle\_sigint\ does\ not\ exist"{}});}
+\DoxyCodeLine{\Hypertarget{server_8test_8c_source_l00036}00036\ \}}
+\DoxyCodeLine{\Hypertarget{server_8test_8c_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{server_8test_8c_source_l00041}\mbox{\hyperlink{server_8test_8c_a99c55347f2a7c8395b0574029e85f28e}{00041}}\ \mbox{\hyperlink{server_8test_8c_a2c8c01f174c5cb95ee8a76a3c6fe56fd}{Test}}(server,\ handle\_sigint\_closes\_sockets)\{}
+\DoxyCodeLine{\Hypertarget{server_8test_8c_source_l00042}00042\ \ \ \ \ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{server_8c_a6cf4711aa7ecd548b03b6e50d44b5aa6}{server\_fd}};}
+\DoxyCodeLine{\Hypertarget{server_8test_8c_source_l00043}00043\ \ \ \ \ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{server_8c_a4848332eecf4c58ee3b11a4f8513c3db}{new\_socket}};}
+\DoxyCodeLine{\Hypertarget{server_8test_8c_source_l00044}00044\ \ \ \ \ \mbox{\hyperlink{server_8c_a8bfc90b3fb9344e9caafec953baacc0b}{handle\_sigint}}(0);}
+\DoxyCodeLine{\Hypertarget{server_8test_8c_source_l00045}00045\ \ \ \ \ cr\_assert\_eq(\mbox{\hyperlink{server_8c_a4848332eecf4c58ee3b11a4f8513c3db}{new\_socket}},\ -\/1,\ \textcolor{stringliteral}{"{}new\_socket\ is\ not\ closed"{}});}
+\DoxyCodeLine{\Hypertarget{server_8test_8c_source_l00046}00046\ \ \ \ \ cr\_assert\_eq(\mbox{\hyperlink{server_8c_a6cf4711aa7ecd548b03b6e50d44b5aa6}{server\_fd}},\ -\/1,\ \textcolor{stringliteral}{"{}server\_fd\ is\ not\ closed"{}});}
+\DoxyCodeLine{\Hypertarget{server_8test_8c_source_l00047}00047\ \}}
+\DoxyCodeLine{\Hypertarget{server_8test_8c_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{server_8test_8c_source_l00052}\mbox{\hyperlink{server_8test_8c_ac67d457c0781e7924d6b224406a4c1aa}{00052}}\ \mbox{\hyperlink{server_8test_8c_a2c8c01f174c5cb95ee8a76a3c6fe56fd}{Test}}(server,\ play\_network\_server\_exists)\{}
+\DoxyCodeLine{\Hypertarget{server_8test_8c_source_l00053}00053\ \ \ \ \ cr\_assert\_not\_null(\mbox{\hyperlink{server_8c_abb0090be21f76dafc36ac4b333a14adc}{play\_network\_server}},\ \textcolor{stringliteral}{"{}play\_network\_server\ does\ not\ exist"{}});}
+\DoxyCodeLine{\Hypertarget{server_8test_8c_source_l00054}00054\ \}}
+\DoxyCodeLine{\Hypertarget{server_8test_8c_source_l00055}00055\ }
+\DoxyCodeLine{\Hypertarget{server_8test_8c_source_l00059}\mbox{\hyperlink{server_8test_8c_abb1f522b408152def244018727c53b2a}{00059}}\ \mbox{\hyperlink{server_8test_8c_a2c8c01f174c5cb95ee8a76a3c6fe56fd}{Test}}(server,\ launch\_server\_thread\_exists)\{}
+\DoxyCodeLine{\Hypertarget{server_8test_8c_source_l00060}00060\ \ \ \ \ cr\_assert\_not\_null(\mbox{\hyperlink{server_8c_afd895fed4d709fc1e43bdaf9d2712900}{launch\_server\_thread}},\ \textcolor{stringliteral}{"{}launch\_server\_thread\ does\ not\ exist"{}});}
+\DoxyCodeLine{\Hypertarget{server_8test_8c_source_l00061}00061\ \}}
+\DoxyCodeLine{\Hypertarget{server_8test_8c_source_l00062}00062\ }
+\DoxyCodeLine{\Hypertarget{server_8test_8c_source_l00066}\mbox{\hyperlink{server_8test_8c_a864ce900764e9094222df3bbc368dc5c}{00066}}\ \mbox{\hyperlink{server_8test_8c_a2c8c01f174c5cb95ee8a76a3c6fe56fd}{Test}}(server,\ start\_server\_from\_gui\_exists)\{}
+\DoxyCodeLine{\Hypertarget{server_8test_8c_source_l00067}00067\ \ \ \ \ cr\_assert\_not\_null(\mbox{\hyperlink{server_8c_aec212c6dc9b28a8077489b6c1f6432c7}{start\_server\_from\_gui}},\ \textcolor{stringliteral}{"{}start\_server\_from\_gui\ does\ not\ exist"{}});}
+\DoxyCodeLine{\Hypertarget{server_8test_8c_source_l00068}00068\ \}}
+\DoxyCodeLine{\Hypertarget{server_8test_8c_source_l00069}00069\ }
+
+\end{DoxyCode}

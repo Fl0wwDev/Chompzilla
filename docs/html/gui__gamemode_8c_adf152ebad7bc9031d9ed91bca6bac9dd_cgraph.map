@@ -1,0 +1,5 @@
+<map id="play_vs_ia_gui_button" name="play_vs_ia_gui_button">
+<area shape="rect" id="Node000001" title="Function to play a game against the IA with the GUI." alt="" coords="5,5,172,31"/>
+<area shape="rect" id="Node000002" href="$gui__gamemode_8c.html#af54567c223d38fbc21da40e9298ab603" title="Function to destroy the gamemode window." alt="" coords="220,5,429,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="172,15,206,15,206,21,172,21"/>
+</map>

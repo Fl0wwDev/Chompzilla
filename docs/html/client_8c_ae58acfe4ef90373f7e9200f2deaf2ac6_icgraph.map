@@ -1,0 +1,16 @@
+<map id="play_network_ia_client" name="play_network_ia_client">
+<area shape="rect" id="Node000001" title="Function to launch the client in IA mode on a specific IP address and port." alt="" coords="447,107,619,132"/>
+<area shape="rect" id="Node000002" href="$main__menu__utils_8c.html#aa3501c29f05643295bbda8a78253cadd" title="Function to display the game mode menu." alt="" coords="259,5,399,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="495,103,397,52,357,33,359,28,400,48,497,98"/>
+<area shape="rect" id="Node000004" href="$game_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="The main function." alt="" coords="5,31,60,56"/>
+<area shape="poly" id="edge4_Node000001_Node000004" title=" " alt="" coords="450,107,398,98,60,49,61,44,399,93,451,102"/>
+<area shape="rect" id="Node000005" href="$client_8test_8c.html#a476406ab702cb7c5e05e1bf5e4e49eed" title="Test the existence of the play_network_ia_client function." alt="" coords="305,107,353,132"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="433,122,353,122,353,117,433,117"/>
+<area shape="rect" id="Node000006" href="$client_8test_8c.html#a12af323c5d161a87ebabddcbed6e3ed5" title="Test the behavior of play_network_ia_client with an invalid port." alt="" coords="305,156,353,181"/>
+<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="467,138,354,166,353,160,466,133"/>
+<area shape="rect" id="Node000007" href="$client_8test_8c.html#af1ce3959f1356a2a7fdde9ee93591fb8" title="Test the behavior of play_network_ia_client with valid parameters." alt="" coords="305,205,353,231"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="501,142,454,169,400,196,354,213,352,208,398,192,451,164,498,137"/>
+<area shape="rect" id="Node000003" href="$main__menu__utils_8c.html#a116f5db451cfe52a4f8ae0bdf32e3bbc" title="Function to display the main menu." alt="" coords="108,5,211,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="245,21,211,21,211,15,245,15"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="95,34,61,41,60,35,94,28"/>
+</map>

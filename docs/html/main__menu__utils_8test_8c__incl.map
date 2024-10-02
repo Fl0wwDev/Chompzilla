@@ -1,0 +1,19 @@
+<map id="src/tests/main_menu_utils.test.c" name="src/tests/main_menu_utils.test.c">
+<area shape="rect" id="Node000001" title=" " alt="" coords="242,5,401,45"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,101,72,126"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="248,48,86,96,79,98,78,93,85,91,247,43"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="97,101,167,126"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="281,48,171,98,168,93,279,43"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="191,101,262,126"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="302,48,252,93,248,89,299,44"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="286,101,357,126"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="324,46,324,87,319,87,319,46"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="381,101,528,126"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="352,43,427,91,424,95,349,48"/>
+<area shape="rect" id="Node000007" href="$const_8h.html" title=" " alt="" coords="552,101,656,126"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="384,43,554,94,552,99,383,48"/>
+<area shape="rect" id="Node000008" href="$main__menu__utils_8h.html" title=" " alt="" coords="681,93,823,133"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="401,39,668,91,667,96,400,44"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="711,181,793,207"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="755,134,755,167,749,167,749,134"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="Test" name="Test">
+<area shape="rect" id="Node000001" title="Test if the destroy_squares function exists." alt="" coords="5,5,53,31"/>
+<area shape="rect" id="Node000002" href="$game__logic_8c.html#a0d417e43bdee123bd7c9e6ffcd6e473b" title="Function to destroy the squares." alt="" coords="101,5,231,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="53,15,87,15,87,21,53,21"/>
+</map>

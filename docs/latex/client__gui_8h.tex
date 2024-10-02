@@ -1,0 +1,300 @@
+\doxysection{src/gui/client\+\_\+gui.h File Reference}
+\hypertarget{client__gui_8h}{}\label{client__gui_8h}\index{src/gui/client\_gui.h@{src/gui/client\_gui.h}}
+{\ttfamily \#include $<$gtk/gtk.\+h$>$}\newline
+Include dependency graph for client\+\_\+gui.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=188pt]{client__gui_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{client__gui_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{void}} \mbox{\hyperlink{client__gui_8h_a038b900fec8cbee508606fd14b4a7ae1}{destroy\+\_\+window\+\_\+client\+\_\+gui}} ()
+\begin{DoxyCompactList}\small\item\em Function to destroy the window\+\_\+client\+\_\+gui. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{void}} \mbox{\hyperlink{client__gui_8h_a581225bf588b199d04663d471c659d72}{exit\+\_\+game\+\_\+client\+\_\+gui}} ()
+\item 
+\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{void}} \mbox{\hyperlink{client__gui_8h_a5107d81793d4f8042df08d4ed761bd71}{reset\+\_\+game\+\_\+state\+\_\+client\+\_\+gui}} ()
+\begin{DoxyCompactList}\small\item\em Function to reset the game state This function will reset all the global variables and the game logic state. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{void}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{client__gui_8h_a8cf3b1e6663051db6b155a9d047e0554}{start\+\_\+client\+\_\+send\+\_\+client\+\_\+gui}} (\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{void}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{arg}})
+\begin{DoxyCompactList}\small\item\em Function to send the coordinates to the server. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{static}} \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{void}} \mbox{\hyperlink{client__gui_8h_a5c7408bd2f3f0b0767b7ca70315312a4}{del\+\_\+button\+\_\+client\+\_\+gui}} (\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{Gtk\+Widget}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{button}}, \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{gpointer}} \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{user\+\_\+data}})
+\item 
+\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{gboolean}} \mbox{\hyperlink{client__gui_8h_abeb2839518a089326745e785df6b1a52}{update\+\_\+label\+\_\+text\+\_\+client\+\_\+gui}} (\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{gpointer}} \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{data}})
+\begin{DoxyCompactList}\small\item\em Function to update the label text. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{gboolean}} \mbox{\hyperlink{client__gui_8h_a090a894356cc48aa0f80e923e62da046}{update\+\_\+error\+\_\+label\+\_\+text\+\_\+client\+\_\+gui}} (\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{gpointer}} \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{data}})
+\begin{DoxyCompactList}\small\item\em Function to update the error label text. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{static}} \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{void}} \mbox{\hyperlink{client__gui_8h_a721d2f68eb86396a76863a984664fabb}{active\+\_\+gui\+\_\+client\+\_\+gui}} (\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{Gtk\+Application}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{client__gui_8c_a494ce877feb30eb7ee05f9738678f0bc}{app\+\_\+client\+\_\+gui}}, \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{gpointer}} \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{user\+\_\+data}})
+\item 
+\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{void}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{client__gui_8h_a3c6a0ad18447e98edbcc821e194ce8bb}{start\+\_\+client\+\_\+receive\+\_\+client\+\_\+gui}} (\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{void}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{arg}})
+\begin{DoxyCompactList}\small\item\em The function to receive the coordinates from the server. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{int}} \mbox{\hyperlink{client__gui_8h_a5e2eec58e49d93f1c3179c695b339fb9}{launch\+\_\+gui\+\_\+client\+\_\+gui}} ()
+\begin{DoxyCompactList}\small\item\em The main function of the application. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{int}} \mbox{\hyperlink{client__gui_8h_a77ff651aed26c82c3f39d5ebcf75054e}{network\+\_\+client\+\_\+gui}} (\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{const}} \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{char}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{server\+\_\+ip}}, \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{unsigned}} \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{short}} \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{port}})
+\begin{DoxyCompactList}\small\item\em Function to launch the client in GUI mode on a specific IP address and port. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{client__gui_8h_a721d2f68eb86396a76863a984664fabb}\label{client__gui_8h_a721d2f68eb86396a76863a984664fabb} 
+\index{client\_gui.h@{client\_gui.h}!active\_gui\_client\_gui@{active\_gui\_client\_gui}}
+\index{active\_gui\_client\_gui@{active\_gui\_client\_gui}!client\_gui.h@{client\_gui.h}}
+\doxysubsubsection{\texorpdfstring{active\_gui\_client\_gui()}{active\_gui\_client\_gui()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{static}} \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{void}} active\+\_\+gui\+\_\+client\+\_\+gui (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{Gtk\+Application}} \texorpdfstring{$\ast$}{*}}]{app\+\_\+client\+\_\+gui,  }\item[{\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{gpointer}}}]{user\+\_\+data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\Hypertarget{client__gui_8h_a5c7408bd2f3f0b0767b7ca70315312a4}\label{client__gui_8h_a5c7408bd2f3f0b0767b7ca70315312a4} 
+\index{client\_gui.h@{client\_gui.h}!del\_button\_client\_gui@{del\_button\_client\_gui}}
+\index{del\_button\_client\_gui@{del\_button\_client\_gui}!client\_gui.h@{client\_gui.h}}
+\doxysubsubsection{\texorpdfstring{del\_button\_client\_gui()}{del\_button\_client\_gui()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{static}} \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{void}} del\+\_\+button\+\_\+client\+\_\+gui (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{Gtk\+Widget}} \texorpdfstring{$\ast$}{*}}]{button,  }\item[{\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{gpointer}}}]{user\+\_\+data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\Hypertarget{client__gui_8h_a038b900fec8cbee508606fd14b4a7ae1}\label{client__gui_8h_a038b900fec8cbee508606fd14b4a7ae1} 
+\index{client\_gui.h@{client\_gui.h}!destroy\_window\_client\_gui@{destroy\_window\_client\_gui}}
+\index{destroy\_window\_client\_gui@{destroy\_window\_client\_gui}!client\_gui.h@{client\_gui.h}}
+\doxysubsubsection{\texorpdfstring{destroy\_window\_client\_gui()}{destroy\_window\_client\_gui()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{void}} destroy\+\_\+window\+\_\+client\+\_\+gui (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Function to destroy the window\+\_\+client\+\_\+gui. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{client__gui_8c_source_l00033}{33}} of file \mbox{\hyperlink{client__gui_8c_source}{client\+\_\+gui.\+c}}.
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{client__gui_8h_a038b900fec8cbee508606fd14b4a7ae1_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{client__gui_8h_a581225bf588b199d04663d471c659d72}\label{client__gui_8h_a581225bf588b199d04663d471c659d72} 
+\index{client\_gui.h@{client\_gui.h}!exit\_game\_client\_gui@{exit\_game\_client\_gui}}
+\index{exit\_game\_client\_gui@{exit\_game\_client\_gui}!client\_gui.h@{client\_gui.h}}
+\doxysubsubsection{\texorpdfstring{exit\_game\_client\_gui()}{exit\_game\_client\_gui()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{void}} exit\+\_\+game\+\_\+client\+\_\+gui (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{client__gui_8h_a581225bf588b199d04663d471c659d72_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{client__gui_8h_a5e2eec58e49d93f1c3179c695b339fb9}\label{client__gui_8h_a5e2eec58e49d93f1c3179c695b339fb9} 
+\index{client\_gui.h@{client\_gui.h}!launch\_gui\_client\_gui@{launch\_gui\_client\_gui}}
+\index{launch\_gui\_client\_gui@{launch\_gui\_client\_gui}!client\_gui.h@{client\_gui.h}}
+\doxysubsubsection{\texorpdfstring{launch\_gui\_client\_gui()}{launch\_gui\_client\_gui()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{int}} launch\+\_\+gui\+\_\+client\+\_\+gui (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+The main function of the application. 
+
+\begin{DoxyReturn}{Returns}
+int \+: The status of the application 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{client__gui_8c_source_l00475}{475}} of file \mbox{\hyperlink{client__gui_8c_source}{client\+\_\+gui.\+c}}.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{client__gui_8h_a5e2eec58e49d93f1c3179c695b339fb9_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{client__gui_8h_a5e2eec58e49d93f1c3179c695b339fb9_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{client__gui_8h_a77ff651aed26c82c3f39d5ebcf75054e}\label{client__gui_8h_a77ff651aed26c82c3f39d5ebcf75054e} 
+\index{client\_gui.h@{client\_gui.h}!network\_client\_gui@{network\_client\_gui}}
+\index{network\_client\_gui@{network\_client\_gui}!client\_gui.h@{client\_gui.h}}
+\doxysubsubsection{\texorpdfstring{network\_client\_gui()}{network\_client\_gui()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{int}} network\+\_\+client\+\_\+gui (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{const}} \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{char}} \texorpdfstring{$\ast$}{*}}]{server\+\_\+ip,  }\item[{\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{unsigned}} \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{short}}}]{port }\end{DoxyParamCaption})}
+
+
+
+Function to launch the client in GUI mode on a specific IP address and port. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em server\+\_\+ip} & The IP address of the server \\
+\hline
+{\em port} & The port number \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{client__gui_8c_source_l00521}{521}} of file \mbox{\hyperlink{client__gui_8c_source}{client\+\_\+gui.\+c}}.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{client__gui_8h_a77ff651aed26c82c3f39d5ebcf75054e_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{client__gui_8h_a77ff651aed26c82c3f39d5ebcf75054e_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{client__gui_8h_a5107d81793d4f8042df08d4ed761bd71}\label{client__gui_8h_a5107d81793d4f8042df08d4ed761bd71} 
+\index{client\_gui.h@{client\_gui.h}!reset\_game\_state\_client\_gui@{reset\_game\_state\_client\_gui}}
+\index{reset\_game\_state\_client\_gui@{reset\_game\_state\_client\_gui}!client\_gui.h@{client\_gui.h}}
+\doxysubsubsection{\texorpdfstring{reset\_game\_state\_client\_gui()}{reset\_game\_state\_client\_gui()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{void}} reset\+\_\+game\+\_\+state\+\_\+client\+\_\+gui (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Function to reset the game state This function will reset all the global variables and the game logic state. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{client__gui_8c_source_l00057}{57}} of file \mbox{\hyperlink{client__gui_8c_source}{client\+\_\+gui.\+c}}.
+
+\Hypertarget{client__gui_8h_a3c6a0ad18447e98edbcc821e194ce8bb}\label{client__gui_8h_a3c6a0ad18447e98edbcc821e194ce8bb} 
+\index{client\_gui.h@{client\_gui.h}!start\_client\_receive\_client\_gui@{start\_client\_receive\_client\_gui}}
+\index{start\_client\_receive\_client\_gui@{start\_client\_receive\_client\_gui}!client\_gui.h@{client\_gui.h}}
+\doxysubsubsection{\texorpdfstring{start\_client\_receive\_client\_gui()}{start\_client\_receive\_client\_gui()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{void}} \texorpdfstring{$\ast$}{*} start\+\_\+client\+\_\+receive\+\_\+client\+\_\+gui (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{void}} \texorpdfstring{$\ast$}{*}}]{arg }\end{DoxyParamCaption})}
+
+
+
+The function to receive the coordinates from the server. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em arg} & The argument to pass to the function (coordinates) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void\texorpdfstring{$\ast$}{*} 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{client__gui_8c_source_l00371}{371}} of file \mbox{\hyperlink{client__gui_8c_source}{client\+\_\+gui.\+c}}.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{client__gui_8h_a3c6a0ad18447e98edbcc821e194ce8bb_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{client__gui_8h_a3c6a0ad18447e98edbcc821e194ce8bb_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{client__gui_8h_a8cf3b1e6663051db6b155a9d047e0554}\label{client__gui_8h_a8cf3b1e6663051db6b155a9d047e0554} 
+\index{client\_gui.h@{client\_gui.h}!start\_client\_send\_client\_gui@{start\_client\_send\_client\_gui}}
+\index{start\_client\_send\_client\_gui@{start\_client\_send\_client\_gui}!client\_gui.h@{client\_gui.h}}
+\doxysubsubsection{\texorpdfstring{start\_client\_send\_client\_gui()}{start\_client\_send\_client\_gui()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{void}} \texorpdfstring{$\ast$}{*} start\+\_\+client\+\_\+send\+\_\+client\+\_\+gui (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{void}} \texorpdfstring{$\ast$}{*}}]{arg }\end{DoxyParamCaption})}
+
+
+
+Function to send the coordinates to the server. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em arg} & The argument to pass to the function (coordinates) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void\texorpdfstring{$\ast$}{*} 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{client__gui_8c_source_l00101}{101}} of file \mbox{\hyperlink{client__gui_8c_source}{client\+\_\+gui.\+c}}.
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{client__gui_8h_a8cf3b1e6663051db6b155a9d047e0554_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{client__gui_8h_a090a894356cc48aa0f80e923e62da046}\label{client__gui_8h_a090a894356cc48aa0f80e923e62da046} 
+\index{client\_gui.h@{client\_gui.h}!update\_error\_label\_text\_client\_gui@{update\_error\_label\_text\_client\_gui}}
+\index{update\_error\_label\_text\_client\_gui@{update\_error\_label\_text\_client\_gui}!client\_gui.h@{client\_gui.h}}
+\doxysubsubsection{\texorpdfstring{update\_error\_label\_text\_client\_gui()}{update\_error\_label\_text\_client\_gui()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{gboolean}} update\+\_\+error\+\_\+label\+\_\+text\+\_\+client\+\_\+gui (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{gpointer}}}]{data }\end{DoxyParamCaption})}
+
+
+
+Function to update the error label text. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & The data to update \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+gboolean 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{client__gui_8c_source_l00087}{87}} of file \mbox{\hyperlink{client__gui_8c_source}{client\+\_\+gui.\+c}}.
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{client__gui_8h_a090a894356cc48aa0f80e923e62da046_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{client__gui_8h_abeb2839518a089326745e785df6b1a52}\label{client__gui_8h_abeb2839518a089326745e785df6b1a52} 
+\index{client\_gui.h@{client\_gui.h}!update\_label\_text\_client\_gui@{update\_label\_text\_client\_gui}}
+\index{update\_label\_text\_client\_gui@{update\_label\_text\_client\_gui}!client\_gui.h@{client\_gui.h}}
+\doxysubsubsection{\texorpdfstring{update\_label\_text\_client\_gui()}{update\_label\_text\_client\_gui()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{gboolean}} update\+\_\+label\+\_\+text\+\_\+client\+\_\+gui (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{gpointer}}}]{data }\end{DoxyParamCaption})}
+
+
+
+Function to update the label text. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & The data to update \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+gboolean 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{client__gui_8c_source_l00073}{73}} of file \mbox{\hyperlink{client__gui_8c_source}{client\+\_\+gui.\+c}}.
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{client__gui_8h_abeb2839518a089326745e785df6b1a52_icgraph}
+\end{center}
+\end{figure}

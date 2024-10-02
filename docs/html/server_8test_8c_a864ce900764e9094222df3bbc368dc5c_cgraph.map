@@ -1,0 +1,57 @@
+<map id="Test" name="Test">
+<area shape="rect" id="Node000001" title="Test if start_server_from_gui exists." alt="" coords="5,81,53,107"/>
+<area shape="rect" id="Node000002" href="$server_8c.html#aec212c6dc9b28a8077489b6c1f6432c7" title="Function to start the server from the GUI." alt="" coords="101,81,267,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="54,91,87,91,87,97,54,97"/>
+<area shape="rect" id="Node000003" href="$server_8c.html#a8bfc90b3fb9344e9caafec953baacc0b" title="Function to handle the interrupt signal (CTRL+C)" alt="" coords="550,19,659,44"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="267,79,536,39,537,44,267,84"/>
+<area shape="rect" id="Node000005" href="$server_8c.html#afd895fed4d709fc1e43bdaf9d2712900" title="Function to launch the server thread." alt="" coords="315,107,477,132"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="267,101,301,105,301,111,267,107"/>
+<area shape="rect" id="Node000004" href="$server_8c.html#a6af6770776a3dc9fc5102eb2bd0884ba" title="Function to close the sockets." alt="" coords="766,5,878,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="659,25,752,20,753,25,660,31"/>
+<area shape="rect" id="Node000006" href="$server_8c.html#abb0090be21f76dafc36ac4b333a14adc" title="Function to manage the network server." alt="" coords="525,157,684,183"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="450,130,539,151,538,157,449,135"/>
+<area shape="poly" id="edge7_Node000006_Node000004" title=" " alt="" coords="614,155,661,104,694,74,731,48,760,33,762,38,733,52,698,78,665,108,618,159"/>
+<area shape="rect" id="Node000007" href="$game__logic_8c.html#a7064e50bc10ffe0ff9db40a7f10aa660" title="Function to ask the user for coordinates." alt="" coords="758,207,886,232"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="662,180,753,201,751,206,661,185"/>
+<area shape="rect" id="Node000008" href="$game__logic_8c.html#ab2799a5dca6411a7176972326e6323f9" title="Function to display the game board in the CLI." alt="" coords="765,256,879,281"/>
+<area shape="poly" id="edge8_Node000006_Node000008" title=" " alt="" coords="625,181,673,211,733,242,753,250,751,255,731,247,670,216,623,185"/>
+<area shape="rect" id="Node000009" href="$game__logic_8c.html#a8ed9dd5e9c9e940055fc2fda0bb4d220" title="Function to initialize the game board, it use the constant ROWS and COLS defined in inc/const...." alt="" coords="1255,107,1341,132"/>
+<area shape="poly" id="edge9_Node000006_Node000009" title=" " alt="" coords="663,155,732,143,875,130,1018,122,1241,117,1241,122,1018,127,876,135,732,149,664,160"/>
+<area shape="rect" id="Node000010" href="$game__logic_8c.html#a48e253127878279dd9f537a6bb719f55" title="Function to check if the game is over." alt="" coords="1886,137,1999,163"/>
+<area shape="poly" id="edge10_Node000006_Node000010" title=" " alt="" coords="631,155,677,135,731,117,828,92,904,76,981,68,1081,66,1576,66,1666,73,1754,89,1833,110,1896,130,1894,135,1832,115,1753,94,1665,78,1576,71,1081,71,982,74,905,81,829,97,733,122,679,140,633,160"/>
+<area shape="rect" id="Node000011" href="$gui_8c.html#a59b1fa1aa41a698b6e838bc12842a2a3" title="Function to launch the game GUI when a client connects." alt="" coords="743,306,901,346"/>
+<area shape="poly" id="edge11_Node000006_Node000011" title=" " alt="" coords="618,181,664,234,697,265,733,292,744,298,741,302,731,296,694,269,660,238,614,184"/>
+<area shape="rect" id="Node000021" href="$game__logic_8c.html#ae8ec155c7e09a0a40898d57fd037e583" title="Function to make a move." alt="" coords="1891,343,1994,368"/>
+<area shape="poly" id="edge28_Node000006_Node000021" title=" " alt="" coords="613,182,627,218,651,267,687,317,709,338,733,356,780,379,822,392,861,398,898,397,979,388,1026,383,1081,381,1576,381,1739,374,1878,361,1878,366,1740,379,1576,386,1081,386,1027,388,980,393,899,403,860,403,821,397,778,384,731,360,705,342,683,320,647,270,622,221,608,184"/>
+<area shape="rect" id="Node000026" href="$gui_8c.html#aa51ce1145109f64d60c2572cc7317b90" title="Function to update the GUI from the server." alt="" coords="732,157,912,183"/>
+<area shape="poly" id="edge29_Node000006_Node000026" title=" " alt="" coords="684,167,718,167,718,173,684,173"/>
+<area shape="rect" id="Node000012" href="$gui__gamemode_8c.html#af54567c223d38fbc21da40e9298ab603" title="Function to destroy the gamemode window." alt="" coords="977,268,1187,293"/>
+<area shape="poly" id="edge12_Node000011_Node000012" title=" " alt="" coords="901,310,995,293,996,298,902,315"/>
+<area shape="rect" id="Node000013" href="$gui__gamemode_8c.html#a455ef2c4ea8abc881a63a124418e3f1f" title="Function to destroy the waiting window." alt="" coords="960,317,1204,343"/>
+<area shape="poly" id="edge13_Node000011_Node000013" title=" " alt="" coords="902,325,946,325,946,331,902,330"/>
+<area shape="rect" id="Node000014" href="$game__logic_8c.html#a608690d669667bea852499d1c3eae893" title="Function to play a local game with GUI." alt="" coords="1003,188,1161,213"/>
+<area shape="poly" id="edge14_Node000011_Node000014" title=" " alt="" coords="886,303,911,292,935,274,959,254,1034,216,1037,221,961,259,938,278,913,296,888,308"/>
+<area shape="poly" id="edge15_Node000014_Node000009" title=" " alt="" coords="1116,185,1249,135,1251,140,1118,190"/>
+<area shape="rect" id="Node000015" href="$gui_8c.html#a79b7aab5800323d88b36cc5bc3edca26" title="The main function of the application." alt="" coords="1252,188,1344,213"/>
+<area shape="poly" id="edge16_Node000014_Node000015" title=" " alt="" coords="1162,198,1239,198,1239,203,1162,203"/>
+<area shape="rect" id="Node000016" href="$gui_8c.html#a56286ad62f5064199b3fa1e5da729307" title="The main window of the application." alt="" coords="1392,188,1481,213"/>
+<area shape="poly" id="edge17_Node000015_Node000016" title=" " alt="" coords="1344,198,1378,198,1378,203,1344,203"/>
+<area shape="rect" id="Node000017" href="$gui_8c.html#ace23485694fbfeef4e02210878c60359" title="The function to delete a button and the linked buttons This function is called when a button is click..." alt="" coords="1529,188,1620,213"/>
+<area shape="poly" id="edge18_Node000016_Node000017" title=" " alt="" coords="1482,198,1515,198,1515,203,1482,203"/>
+<area shape="rect" id="Node000018" href="$gui_8c.html#aa82cdf9dd9194b7c81bc534e9f07e704" title="Function to quit the game." alt="" coords="1704,212,1795,237"/>
+<area shape="poly" id="edge19_Node000017_Node000018" title=" " alt="" coords="1621,204,1690,214,1690,219,1620,209"/>
+<area shape="rect" id="Node000020" href="$game__logic_8c.html#a7337808f2923d47d1f3b4aa0a621042f" title="Function to handle the game logic for the GUI." alt="" coords="1668,163,1831,188"/>
+<area shape="poly" id="edge21_Node000017_Node000020" title=" " alt="" coords="1620,192,1654,186,1655,192,1621,197"/>
+<area shape="rect" id="Node000019" href="$gui_8c.html#a516ba65090acee0f939477ec3e6e80ea" title="Function to destroy the window." alt="" coords="1879,212,2007,237"/>
+<area shape="poly" id="edge20_Node000018_Node000019" title=" " alt="" coords="1795,222,1865,222,1865,227,1795,227"/>
+<area shape="poly" id="edge22_Node000020_Node000010" title=" " alt="" coords="1831,162,1872,156,1873,162,1831,167"/>
+<area shape="poly" id="edge23_Node000020_Node000021" title=" " alt="" coords="1808,186,1832,199,1855,221,1881,256,1928,329,1924,332,1877,259,1851,225,1829,203,1806,190"/>
+<area shape="rect" id="Node000022" href="$game__logic_8c.html#a0c1e3c44d468721790db3651f98d7f9a" title="Function to convert a column letter to an index." alt="" coords="2085,268,2218,293"/>
+<area shape="poly" id="edge24_Node000021_Node000022" title=" " alt="" coords="1968,340,2054,304,2082,294,2084,300,2056,308,1971,345"/>
+<area shape="rect" id="Node000023" href="$game__logic_8c.html#a0f9921b9074eca809c9cbc33f81420c4" title="Function to count the number of squares to remove." alt="" coords="2055,317,2248,343"/>
+<area shape="poly" id="edge25_Node000021_Node000023" title=" " alt="" coords="1994,346,2041,341,2041,346,1995,352"/>
+<area shape="rect" id="Node000024" href="$game__logic_8c.html#a0d417e43bdee123bd7c9e6ffcd6e473b" title="Function to destroy the squares." alt="" coords="2087,367,2216,392"/>
+<area shape="poly" id="edge26_Node000021_Node000024" title=" " alt="" coords="1995,359,2073,368,2073,373,1994,364"/>
+<area shape="rect" id="Node000025" href="$ia_8c.html#abeb3c633344f067c2614c1582408aa9a" title="Function to get the number of squares removed." alt="" coords="2076,416,2227,441"/>
+<area shape="poly" id="edge27_Node000021_Node000025" title=" " alt="" coords="1970,366,2056,402,2080,410,2079,415,2054,407,1968,371"/>
+</map>

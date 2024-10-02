@@ -1,0 +1,7 @@
+<map id="Test" name="Test">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,53,31"/>
+<area shape="rect" id="Node000002" href="$main__menu__utils_8c.html#a63c328f81d1273108072452297330868" title="Function to verify if the IP address and the port are correct. Format: hhh.hhh.hhh...." alt="" coords="101,5,212,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="54,15,88,15,88,21,54,21"/>
+<area shape="rect" id="Node000003" href="$main__menu__utils_8c.html#a727c00129301489befbe406d58fad696" title="Function to verify if the port is correct." alt="" coords="260,5,352,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="212,15,246,15,246,21,212,21"/>
+</map>

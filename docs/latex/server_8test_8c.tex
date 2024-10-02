@@ -1,0 +1,202 @@
+\doxysection{src/tests/server.test.\+c File Reference}
+\hypertarget{server_8test_8c}{}\label{server_8test_8c}\index{src/tests/server.test.c@{src/tests/server.test.c}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$criterion/criterion.\+h$>$}\newline
+{\ttfamily \#include "{}../server/server.\+h"{}}\newline
+Include dependency graph for server.\+test.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{server_8test_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{server_8test_8c_a2c8c01f174c5cb95ee8a76a3c6fe56fd}{Test}} (\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{server}}, \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{handle\+\_\+client\+\_\+move\+\_\+exists}})
+\begin{DoxyCompactList}\small\item\em Test to check if the handle\+\_\+client\+\_\+move function exists. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{server_8test_8c_ac8922f8d80b4da4e9f239c4e241cbe48}{Test}} (\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{server}}, \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{close\+\_\+sockets\+\_\+exists}})
+\begin{DoxyCompactList}\small\item\em Test if close\+\_\+sockets exists. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{server_8test_8c_a850a607da43b23bb2de815490cd9596c}{Test}} (\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{server}}, \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{close\+\_\+sockets\+\_\+closes\+\_\+sockets}})
+\begin{DoxyCompactList}\small\item\em Test if close\+\_\+sockets closes the sockets. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{server_8test_8c_a973958ac33c7fc818167518ee3e2a60c}{Test}} (\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{server}}, \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{handle\+\_\+sigint\+\_\+exists}})
+\begin{DoxyCompactList}\small\item\em Test if handle\+\_\+sigint exists. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{server_8test_8c_a99c55347f2a7c8395b0574029e85f28e}{Test}} (\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{server}}, \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{handle\+\_\+sigint\+\_\+closes\+\_\+sockets}})
+\begin{DoxyCompactList}\small\item\em Test if handle\+\_\+sigint closes the sockets. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{server_8test_8c_ac67d457c0781e7924d6b224406a4c1aa}{Test}} (\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{server}}, \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{play\+\_\+network\+\_\+server\+\_\+exists}})
+\begin{DoxyCompactList}\small\item\em Test if play\+\_\+network\+\_\+server exists. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{server_8test_8c_abb1f522b408152def244018727c53b2a}{Test}} (\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{server}}, \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{launch\+\_\+server\+\_\+thread\+\_\+exists}})
+\begin{DoxyCompactList}\small\item\em Test if launch\+\_\+server\+\_\+thread exists. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{server_8test_8c_a864ce900764e9094222df3bbc368dc5c}{Test}} (\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{server}}, \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{start\+\_\+server\+\_\+from\+\_\+gui\+\_\+exists}})
+\begin{DoxyCompactList}\small\item\em Test if start\+\_\+server\+\_\+from\+\_\+gui exists. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{server_8test_8c_a850a607da43b23bb2de815490cd9596c}\label{server_8test_8c_a850a607da43b23bb2de815490cd9596c} 
+\index{server.test.c@{server.test.c}!Test@{Test}}
+\index{Test@{Test}!server.test.c@{server.test.c}}
+\doxysubsubsection{\texorpdfstring{Test()}{Test()}\hspace{0.1cm}{\footnotesize\ttfamily [1/8]}}
+{\footnotesize\ttfamily Test (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{server}}}]{,  }\item[{\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{close\+\_\+sockets\+\_\+closes\+\_\+sockets}}}]{ }\end{DoxyParamCaption})}
+
+
+
+Test if close\+\_\+sockets closes the sockets. 
+
+
+
+Definition at line \mbox{\hyperlink{server_8test_8c_source_l00023}{23}} of file \mbox{\hyperlink{server_8test_8c_source}{server.\+test.\+c}}.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=236pt]{server_8test_8c_a850a607da43b23bb2de815490cd9596c_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{server_8test_8c_ac8922f8d80b4da4e9f239c4e241cbe48}\label{server_8test_8c_ac8922f8d80b4da4e9f239c4e241cbe48} 
+\index{server.test.c@{server.test.c}!Test@{Test}}
+\index{Test@{Test}!server.test.c@{server.test.c}}
+\doxysubsubsection{\texorpdfstring{Test()}{Test()}\hspace{0.1cm}{\footnotesize\ttfamily [2/8]}}
+{\footnotesize\ttfamily Test (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{server}}}]{,  }\item[{\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{close\+\_\+sockets\+\_\+exists}}}]{ }\end{DoxyParamCaption})}
+
+
+
+Test if close\+\_\+sockets exists. 
+
+
+
+Definition at line \mbox{\hyperlink{server_8test_8c_source_l00016}{16}} of file \mbox{\hyperlink{server_8test_8c_source}{server.\+test.\+c}}.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=236pt]{server_8test_8c_ac8922f8d80b4da4e9f239c4e241cbe48_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{server_8test_8c_a2c8c01f174c5cb95ee8a76a3c6fe56fd}\label{server_8test_8c_a2c8c01f174c5cb95ee8a76a3c6fe56fd} 
+\index{server.test.c@{server.test.c}!Test@{Test}}
+\index{Test@{Test}!server.test.c@{server.test.c}}
+\doxysubsubsection{\texorpdfstring{Test()}{Test()}\hspace{0.1cm}{\footnotesize\ttfamily [3/8]}}
+{\footnotesize\ttfamily Test (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{server}}}]{,  }\item[{\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{handle\+\_\+client\+\_\+move\+\_\+exists}}}]{ }\end{DoxyParamCaption})}
+
+
+
+Test to check if the handle\+\_\+client\+\_\+move function exists. 
+
+
+
+Definition at line \mbox{\hyperlink{server_8test_8c_source_l00008}{8}} of file \mbox{\hyperlink{server_8test_8c_source}{server.\+test.\+c}}.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{server_8test_8c_a2c8c01f174c5cb95ee8a76a3c6fe56fd_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{server_8test_8c_a99c55347f2a7c8395b0574029e85f28e}\label{server_8test_8c_a99c55347f2a7c8395b0574029e85f28e} 
+\index{server.test.c@{server.test.c}!Test@{Test}}
+\index{Test@{Test}!server.test.c@{server.test.c}}
+\doxysubsubsection{\texorpdfstring{Test()}{Test()}\hspace{0.1cm}{\footnotesize\ttfamily [4/8]}}
+{\footnotesize\ttfamily Test (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{server}}}]{,  }\item[{\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{handle\+\_\+sigint\+\_\+closes\+\_\+sockets}}}]{ }\end{DoxyParamCaption})}
+
+
+
+Test if handle\+\_\+sigint closes the sockets. 
+
+
+
+Definition at line \mbox{\hyperlink{server_8test_8c_source_l00041}{41}} of file \mbox{\hyperlink{server_8test_8c_source}{server.\+test.\+c}}.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{server_8test_8c_a99c55347f2a7c8395b0574029e85f28e_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{server_8test_8c_a973958ac33c7fc818167518ee3e2a60c}\label{server_8test_8c_a973958ac33c7fc818167518ee3e2a60c} 
+\index{server.test.c@{server.test.c}!Test@{Test}}
+\index{Test@{Test}!server.test.c@{server.test.c}}
+\doxysubsubsection{\texorpdfstring{Test()}{Test()}\hspace{0.1cm}{\footnotesize\ttfamily [5/8]}}
+{\footnotesize\ttfamily Test (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{server}}}]{,  }\item[{\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{handle\+\_\+sigint\+\_\+exists}}}]{ }\end{DoxyParamCaption})}
+
+
+
+Test if handle\+\_\+sigint exists. 
+
+
+
+Definition at line \mbox{\hyperlink{server_8test_8c_source_l00034}{34}} of file \mbox{\hyperlink{server_8test_8c_source}{server.\+test.\+c}}.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{server_8test_8c_a973958ac33c7fc818167518ee3e2a60c_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{server_8test_8c_abb1f522b408152def244018727c53b2a}\label{server_8test_8c_abb1f522b408152def244018727c53b2a} 
+\index{server.test.c@{server.test.c}!Test@{Test}}
+\index{Test@{Test}!server.test.c@{server.test.c}}
+\doxysubsubsection{\texorpdfstring{Test()}{Test()}\hspace{0.1cm}{\footnotesize\ttfamily [6/8]}}
+{\footnotesize\ttfamily Test (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{server}}}]{,  }\item[{\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{launch\+\_\+server\+\_\+thread\+\_\+exists}}}]{ }\end{DoxyParamCaption})}
+
+
+
+Test if launch\+\_\+server\+\_\+thread exists. 
+
+
+
+Definition at line \mbox{\hyperlink{server_8test_8c_source_l00059}{59}} of file \mbox{\hyperlink{server_8test_8c_source}{server.\+test.\+c}}.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{server_8test_8c_abb1f522b408152def244018727c53b2a_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{server_8test_8c_ac67d457c0781e7924d6b224406a4c1aa}\label{server_8test_8c_ac67d457c0781e7924d6b224406a4c1aa} 
+\index{server.test.c@{server.test.c}!Test@{Test}}
+\index{Test@{Test}!server.test.c@{server.test.c}}
+\doxysubsubsection{\texorpdfstring{Test()}{Test()}\hspace{0.1cm}{\footnotesize\ttfamily [7/8]}}
+{\footnotesize\ttfamily Test (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{server}}}]{,  }\item[{\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{play\+\_\+network\+\_\+server\+\_\+exists}}}]{ }\end{DoxyParamCaption})}
+
+
+
+Test if play\+\_\+network\+\_\+server exists. 
+
+
+
+Definition at line \mbox{\hyperlink{server_8test_8c_source_l00052}{52}} of file \mbox{\hyperlink{server_8test_8c_source}{server.\+test.\+c}}.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{server_8test_8c_ac67d457c0781e7924d6b224406a4c1aa_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{server_8test_8c_a864ce900764e9094222df3bbc368dc5c}\label{server_8test_8c_a864ce900764e9094222df3bbc368dc5c} 
+\index{server.test.c@{server.test.c}!Test@{Test}}
+\index{Test@{Test}!server.test.c@{server.test.c}}
+\doxysubsubsection{\texorpdfstring{Test()}{Test()}\hspace{0.1cm}{\footnotesize\ttfamily [8/8]}}
+{\footnotesize\ttfamily Test (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{server}}}]{,  }\item[{\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{start\+\_\+server\+\_\+from\+\_\+gui\+\_\+exists}}}]{ }\end{DoxyParamCaption})}
+
+
+
+Test if start\+\_\+server\+\_\+from\+\_\+gui exists. 
+
+
+
+Definition at line \mbox{\hyperlink{server_8test_8c_source_l00066}{66}} of file \mbox{\hyperlink{server_8test_8c_source}{server.\+test.\+c}}.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{server_8test_8c_a864ce900764e9094222df3bbc368dc5c_cgraph}
+\end{center}
+\end{figure}

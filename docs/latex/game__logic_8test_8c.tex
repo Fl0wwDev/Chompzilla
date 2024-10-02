@@ -1,0 +1,695 @@
+\doxysection{src/tests/game\+\_\+logic.test.\+c File Reference}
+\hypertarget{game__logic_8test_8c}{}\label{game__logic_8test_8c}\index{src/tests/game\_logic.test.c@{src/tests/game\_logic.test.c}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$criterion/criterion.\+h$>$}\newline
+{\ttfamily \#include "{}../inc/const.\+h"{}}\newline
+{\ttfamily \#include "{}../game\+\_\+logic/game\+\_\+logic.\+h"{}}\newline
+Include dependency graph for game\+\_\+logic.\+test.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{game__logic_8test_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{game__logic_8test_8c_acf1924975da19ec2dd70f8a4f68a5bae}{Test}} (\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{game}}, \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{test\+\_\+board\+\_\+exists}})
+\begin{DoxyCompactList}\small\item\em Test if the board array exists. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{game__logic_8test_8c_a5e2cf85f7e8f7104ca58642d3dac38d6}{Test}} (\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{game}}, \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{test\+\_\+init\+\_\+board\+\_\+exists}})
+\begin{DoxyCompactList}\small\item\em Test if the init\+\_\+board function exists. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{game__logic_8test_8c_a487628322760a6d839d196cc168bbd6f}{Test}} (\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{game}}, \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{test\+\_\+init\+\_\+board\+\_\+contains\+\_\+only\+\_\+ones}})
+\begin{DoxyCompactList}\small\item\em Test if the init\+\_\+board function sets all squares to 1. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{game__logic_8test_8c_a3bffa9850507f854bd5bc54ded5c7ae9}{Test}} (\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{game}}, \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{test\+\_\+board\+\_\+dimensions}})
+\begin{DoxyCompactList}\small\item\em Test if the board respects the ROWS and COLS constants. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{game__logic_8test_8c_abf7519720e608a8d65be69850fcc50c5}{Test}} (\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{game}}, \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{test\+\_\+display\+\_\+board\+\_\+exists}})
+\begin{DoxyCompactList}\small\item\em Test if the display\+\_\+board function exists. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{game__logic_8test_8c_a8f55c1f1256bb613f00337ebce2b3d81}{Test}} (\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{game}}, \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{test\+\_\+display\+\_\+board\+\_\+row\+\_\+col}})
+\begin{DoxyCompactList}\small\item\em Test if the display\+\_\+board function displays the board correctly (row and column numbers) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{game__logic_8test_8c_a0b7edcc73f8ae54d113c61f1f0a95733}{Test}} (\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{game}}, \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{test\+\_\+display\+\_\+board\+\_\+only\+\_\+ones}})
+\begin{DoxyCompactList}\small\item\em Test if the board contains only 1s after calling the init\+\_\+board function. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{game__logic_8test_8c_a481be4f8e131c209fdacce2c0e8fd2df}{Test}} (\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{game}}, \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{test\+\_\+column\+\_\+to\+\_\+index\+\_\+exists}})
+\begin{DoxyCompactList}\small\item\em Test if the column\+\_\+to\+\_\+index function exists. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{game__logic_8test_8c_a357c0b6ffcdb274f6ba283ce65d46b5f}{Test}} (\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{game}}, \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{test\+\_\+column\+\_\+to\+\_\+index}})
+\begin{DoxyCompactList}\small\item\em Test if the column\+\_\+to\+\_\+index function returns the correct index for a given column. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{game__logic_8test_8c_a32fda7ff61905222e92801ee8fff34d1}{Test}} (\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{game}}, \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{test\+\_\+count\+\_\+squares\+\_\+to\+\_\+remove\+\_\+exists}})
+\begin{DoxyCompactList}\small\item\em Test if the count\+\_\+squares\+\_\+to\+\_\+remove function exists. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{game__logic_8test_8c_a06a44d8224463bacd621510ac4857e0e}{Test}} (\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{game}}, \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{test\+\_\+count\+\_\+squares\+\_\+to\+\_\+remove}})
+\begin{DoxyCompactList}\small\item\em Test if the count\+\_\+squares\+\_\+to\+\_\+remove function returns the correct number of squares to remove. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{game__logic_8test_8c_a61cb5a5099c0817c0d78529ff9778cf7}{Test}} (\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{game}}, \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{test\+\_\+destroy\+\_\+squares\+\_\+exists}})
+\begin{DoxyCompactList}\small\item\em Test if the destroy\+\_\+squares function exists. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{game__logic_8test_8c_a5e30b8f6de1beba6eb126db3847d6a69}{Test}} (\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{game}}, \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{test\+\_\+destroy\+\_\+squares\+\_\+\+I7}})
+\begin{DoxyCompactList}\small\item\em Test if the destroy\+\_\+squares function removes the correct number of squares for I7. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{game__logic_8test_8c_a9f74d41e588566b5f64a97436c39f6a0}{Test}} (\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{game}}, \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{test\+\_\+destroy\+\_\+squares\+\_\+\+H6}})
+\begin{DoxyCompactList}\small\item\em Test if the destroy\+\_\+squares function removes the correct number of squares for H6. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{game__logic_8test_8c_a3e6369d14821f442d39f4e12b686dc98}{Test}} (\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{game}}, \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{test\+\_\+destroy\+\_\+squares\+\_\+\+A1}})
+\begin{DoxyCompactList}\small\item\em Test if the destroy\+\_\+squares function removes the correct number of squares for A1. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{game__logic_8test_8c_afd2249bcfcfc43e23f1704c3efb3b677}{Test}} (\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{game}}, \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{test\+\_\+make\+\_\+move\+\_\+exists}})
+\begin{DoxyCompactList}\small\item\em Test if the make\+\_\+move function exists. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{game__logic_8test_8c_a74781f1ddcdcebcd4f02178039aeb9d5}{Test}} (\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{game}}, \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{test\+\_\+make\+\_\+move\+\_\+invalid\+\_\+coordinates}})
+\begin{DoxyCompactList}\small\item\em Test if the make\+\_\+move function returns 0 for invalid coordinates. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{game__logic_8test_8c_a14cf1295cd40fa838a3f62749956c9d1}{Test}} (\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{game}}, \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{test\+\_\+make\+\_\+move\+\_\+already\+\_\+destroyed\+\_\+square}})
+\begin{DoxyCompactList}\small\item\em Test if the make\+\_\+move function returns 0 for already destroyed squares. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{game__logic_8test_8c_af7449acc9db85521c87c5516a00ec33b}{Test}} (\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{game}}, \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{test\+\_\+make\+\_\+move\+\_\+valid\+\_\+move}})
+\begin{DoxyCompactList}\small\item\em Test if the make\+\_\+move function returns 1 for a valid move. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{game__logic_8test_8c_a4226be9326139a50a84c93e5fd5e1d6c}{Test}} (\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{game}}, \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{test\+\_\+is\+\_\+game\+\_\+over\+\_\+exists}})
+\begin{DoxyCompactList}\small\item\em Test if the is\+\_\+game\+\_\+over function exists. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{game__logic_8test_8c_a13582c0eecdb9662aa2b04ffe359cade}{Test}} (\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{game}}, \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{test\+\_\+is\+\_\+game\+\_\+over\+\_\+not\+\_\+over}})
+\begin{DoxyCompactList}\small\item\em Test if the is\+\_\+game\+\_\+over function returns 0 when the game is not over. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{game__logic_8test_8c_a7b563565888d02dca542d882a9bf206b}{Test}} (\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{game}}, \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{test\+\_\+is\+\_\+game\+\_\+over\+\_\+over}})
+\begin{DoxyCompactList}\small\item\em Test if the is\+\_\+game\+\_\+over function returns 1 when the game is over. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{game__logic_8test_8c_adc362b651604b101cc3afad893d72641}{Test}} (\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{game}}, \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{test\+\_\+ask\+\_\+coordinates\+\_\+exists}})
+\begin{DoxyCompactList}\small\item\em Test if the ask\+\_\+coordinates function exists. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{game__logic_8test_8c_adaacb9e685a6d2a8e101dac7e81f4429}{Test}} (\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{game}}, \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{test\+\_\+ask\+\_\+coordinates}})
+\begin{DoxyCompactList}\small\item\em Test if the ask\+\_\+coordinates gets the correct coordinates We open a file with the expected coordinates and redirect stdin to it We call the ask\+\_\+coordinates function and check if the coordinates are correct in the two pointers passed as arguments We redirect stdin back to the terminal. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{game__logic_8test_8c_a76ef562385a1ab3eb9f0d5c63db641e0}{Test}} (\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{game}}, \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{test\+\_\+play\+\_\+local\+\_\+game\+\_\+exists}})
+\begin{DoxyCompactList}\small\item\em Test if the play\+\_\+local\+\_\+game function exists. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{game__logic_8test_8c_ae1a3de9650cf3af7af535b571d0fa8da}{Test}} (\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{game}}, \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{test\+\_\+play\+\_\+local\+\_\+game\+\_\+gui\+\_\+exists}})
+\begin{DoxyCompactList}\small\item\em Test if the play\+\_\+local\+\_\+game\+\_\+gui function exists. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{game__logic_8test_8c_aacf09efd5cd330ea27925ec39f6c3588}{Test}} (\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{game}}, \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{test\+\_\+local\+\_\+game\+\_\+gui\+\_\+logic\+\_\+exists}})
+\begin{DoxyCompactList}\small\item\em Test if the local\+\_\+game\+\_\+gui\+\_\+logic function exists. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{game__logic_8test_8c_aa10fd08a4ab0ed674b6a862219f1b140}{Test}} (\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{game}}, \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{test\+\_\+local\+\_\+game\+\_\+gui\+\_\+logic\+\_\+returns\+\_\+struct}})
+\begin{DoxyCompactList}\small\item\em Test if the local\+\_\+game\+\_\+gui\+\_\+logic function returns a \doxylink{struct_server_response}{Server\+Response} struct. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{game__logic_8test_8c_ac1d1eae02806bcccabc3f092ee65a061}{Test}} (\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{game}}, \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{test\+\_\+local\+\_\+game\+\_\+gui\+\_\+logic\+\_\+invalid\+\_\+coordinates}})
+\begin{DoxyCompactList}\small\item\em Test if the local\+\_\+game\+\_\+gui\+\_\+logic function returns a \doxylink{struct_server_response}{Server\+Response} struct in case of invalid coordinates. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{game__logic_8test_8c_aeccbc26803177c1354486e698b111e74}{Test}} (\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{game}}, \mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{test\+\_\+local\+\_\+game\+\_\+gui\+\_\+logic\+\_\+invalid\+\_\+move}})
+\begin{DoxyCompactList}\small\item\em Test if the local\+\_\+game\+\_\+gui\+\_\+logic function returns a \doxylink{struct_server_response}{Server\+Response} struct in case of invalid move. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{game__logic_8test_8c_adaacb9e685a6d2a8e101dac7e81f4429}\label{game__logic_8test_8c_adaacb9e685a6d2a8e101dac7e81f4429} 
+\index{game\_logic.test.c@{game\_logic.test.c}!Test@{Test}}
+\index{Test@{Test}!game\_logic.test.c@{game\_logic.test.c}}
+\doxysubsubsection{\texorpdfstring{Test()}{Test()}\hspace{0.1cm}{\footnotesize\ttfamily [1/30]}}
+{\footnotesize\ttfamily Test (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{game}}}]{,  }\item[{\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{test\+\_\+ask\+\_\+coordinates}}}]{ }\end{DoxyParamCaption})}
+
+
+
+Test if the ask\+\_\+coordinates gets the correct coordinates We open a file with the expected coordinates and redirect stdin to it We call the ask\+\_\+coordinates function and check if the coordinates are correct in the two pointers passed as arguments We redirect stdin back to the terminal. 
+
+
+
+Definition at line \mbox{\hyperlink{game__logic_8test_8c_source_l00353}{353}} of file \mbox{\hyperlink{game__logic_8test_8c_source}{game\+\_\+logic.\+test.\+c}}.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=248pt]{game__logic_8test_8c_adaacb9e685a6d2a8e101dac7e81f4429_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{game__logic_8test_8c_adc362b651604b101cc3afad893d72641}\label{game__logic_8test_8c_adc362b651604b101cc3afad893d72641} 
+\index{game\_logic.test.c@{game\_logic.test.c}!Test@{Test}}
+\index{Test@{Test}!game\_logic.test.c@{game\_logic.test.c}}
+\doxysubsubsection{\texorpdfstring{Test()}{Test()}\hspace{0.1cm}{\footnotesize\ttfamily [2/30]}}
+{\footnotesize\ttfamily Test (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{game}}}]{,  }\item[{\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{test\+\_\+ask\+\_\+coordinates\+\_\+exists}}}]{ }\end{DoxyParamCaption})}
+
+
+
+Test if the ask\+\_\+coordinates function exists. 
+
+
+
+Definition at line \mbox{\hyperlink{game__logic_8test_8c_source_l00342}{342}} of file \mbox{\hyperlink{game__logic_8test_8c_source}{game\+\_\+logic.\+test.\+c}}.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=248pt]{game__logic_8test_8c_adc362b651604b101cc3afad893d72641_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{game__logic_8test_8c_a3bffa9850507f854bd5bc54ded5c7ae9}\label{game__logic_8test_8c_a3bffa9850507f854bd5bc54ded5c7ae9} 
+\index{game\_logic.test.c@{game\_logic.test.c}!Test@{Test}}
+\index{Test@{Test}!game\_logic.test.c@{game\_logic.test.c}}
+\doxysubsubsection{\texorpdfstring{Test()}{Test()}\hspace{0.1cm}{\footnotesize\ttfamily [3/30]}}
+{\footnotesize\ttfamily Test (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{game}}}]{,  }\item[{\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{test\+\_\+board\+\_\+dimensions}}}]{ }\end{DoxyParamCaption})}
+
+
+
+Test if the board respects the ROWS and COLS constants. 
+
+
+
+Definition at line \mbox{\hyperlink{game__logic_8test_8c_source_l00045}{45}} of file \mbox{\hyperlink{game__logic_8test_8c_source}{game\+\_\+logic.\+test.\+c}}.
+
+\Hypertarget{game__logic_8test_8c_acf1924975da19ec2dd70f8a4f68a5bae}\label{game__logic_8test_8c_acf1924975da19ec2dd70f8a4f68a5bae} 
+\index{game\_logic.test.c@{game\_logic.test.c}!Test@{Test}}
+\index{Test@{Test}!game\_logic.test.c@{game\_logic.test.c}}
+\doxysubsubsection{\texorpdfstring{Test()}{Test()}\hspace{0.1cm}{\footnotesize\ttfamily [4/30]}}
+{\footnotesize\ttfamily Test (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{game}}}]{,  }\item[{\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{test\+\_\+board\+\_\+exists}}}]{ }\end{DoxyParamCaption})}
+
+
+
+Test if the board array exists. 
+
+
+
+Definition at line \mbox{\hyperlink{game__logic_8test_8c_source_l00009}{9}} of file \mbox{\hyperlink{game__logic_8test_8c_source}{game\+\_\+logic.\+test.\+c}}.
+
+\Hypertarget{game__logic_8test_8c_a357c0b6ffcdb274f6ba283ce65d46b5f}\label{game__logic_8test_8c_a357c0b6ffcdb274f6ba283ce65d46b5f} 
+\index{game\_logic.test.c@{game\_logic.test.c}!Test@{Test}}
+\index{Test@{Test}!game\_logic.test.c@{game\_logic.test.c}}
+\doxysubsubsection{\texorpdfstring{Test()}{Test()}\hspace{0.1cm}{\footnotesize\ttfamily [5/30]}}
+{\footnotesize\ttfamily Test (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{game}}}]{,  }\item[{\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{test\+\_\+column\+\_\+to\+\_\+index}}}]{ }\end{DoxyParamCaption})}
+
+
+
+Test if the column\+\_\+to\+\_\+index function returns the correct index for a given column. 
+
+
+
+Definition at line \mbox{\hyperlink{game__logic_8test_8c_source_l00142}{142}} of file \mbox{\hyperlink{game__logic_8test_8c_source}{game\+\_\+logic.\+test.\+c}}.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=252pt]{game__logic_8test_8c_a357c0b6ffcdb274f6ba283ce65d46b5f_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{game__logic_8test_8c_a481be4f8e131c209fdacce2c0e8fd2df}\label{game__logic_8test_8c_a481be4f8e131c209fdacce2c0e8fd2df} 
+\index{game\_logic.test.c@{game\_logic.test.c}!Test@{Test}}
+\index{Test@{Test}!game\_logic.test.c@{game\_logic.test.c}}
+\doxysubsubsection{\texorpdfstring{Test()}{Test()}\hspace{0.1cm}{\footnotesize\ttfamily [6/30]}}
+{\footnotesize\ttfamily Test (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{game}}}]{,  }\item[{\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{test\+\_\+column\+\_\+to\+\_\+index\+\_\+exists}}}]{ }\end{DoxyParamCaption})}
+
+
+
+Test if the column\+\_\+to\+\_\+index function exists. 
+
+
+
+Definition at line \mbox{\hyperlink{game__logic_8test_8c_source_l00134}{134}} of file \mbox{\hyperlink{game__logic_8test_8c_source}{game\+\_\+logic.\+test.\+c}}.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=252pt]{game__logic_8test_8c_a481be4f8e131c209fdacce2c0e8fd2df_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{game__logic_8test_8c_a06a44d8224463bacd621510ac4857e0e}\label{game__logic_8test_8c_a06a44d8224463bacd621510ac4857e0e} 
+\index{game\_logic.test.c@{game\_logic.test.c}!Test@{Test}}
+\index{Test@{Test}!game\_logic.test.c@{game\_logic.test.c}}
+\doxysubsubsection{\texorpdfstring{Test()}{Test()}\hspace{0.1cm}{\footnotesize\ttfamily [7/30]}}
+{\footnotesize\ttfamily Test (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{game}}}]{,  }\item[{\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{test\+\_\+count\+\_\+squares\+\_\+to\+\_\+remove}}}]{ }\end{DoxyParamCaption})}
+
+
+
+Test if the count\+\_\+squares\+\_\+to\+\_\+remove function returns the correct number of squares to remove. 
+
+
+
+Definition at line \mbox{\hyperlink{game__logic_8test_8c_source_l00166}{166}} of file \mbox{\hyperlink{game__logic_8test_8c_source}{game\+\_\+logic.\+test.\+c}}.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=297pt]{game__logic_8test_8c_a06a44d8224463bacd621510ac4857e0e_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{game__logic_8test_8c_a32fda7ff61905222e92801ee8fff34d1}\label{game__logic_8test_8c_a32fda7ff61905222e92801ee8fff34d1} 
+\index{game\_logic.test.c@{game\_logic.test.c}!Test@{Test}}
+\index{Test@{Test}!game\_logic.test.c@{game\_logic.test.c}}
+\doxysubsubsection{\texorpdfstring{Test()}{Test()}\hspace{0.1cm}{\footnotesize\ttfamily [8/30]}}
+{\footnotesize\ttfamily Test (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{game}}}]{,  }\item[{\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{test\+\_\+count\+\_\+squares\+\_\+to\+\_\+remove\+\_\+exists}}}]{ }\end{DoxyParamCaption})}
+
+
+
+Test if the count\+\_\+squares\+\_\+to\+\_\+remove function exists. 
+
+
+
+Definition at line \mbox{\hyperlink{game__logic_8test_8c_source_l00158}{158}} of file \mbox{\hyperlink{game__logic_8test_8c_source}{game\+\_\+logic.\+test.\+c}}.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=297pt]{game__logic_8test_8c_a32fda7ff61905222e92801ee8fff34d1_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{game__logic_8test_8c_a3e6369d14821f442d39f4e12b686dc98}\label{game__logic_8test_8c_a3e6369d14821f442d39f4e12b686dc98} 
+\index{game\_logic.test.c@{game\_logic.test.c}!Test@{Test}}
+\index{Test@{Test}!game\_logic.test.c@{game\_logic.test.c}}
+\doxysubsubsection{\texorpdfstring{Test()}{Test()}\hspace{0.1cm}{\footnotesize\ttfamily [9/30]}}
+{\footnotesize\ttfamily Test (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{game}}}]{,  }\item[{\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{test\+\_\+destroy\+\_\+squares\+\_\+\+A1}}}]{ }\end{DoxyParamCaption})}
+
+
+
+Test if the destroy\+\_\+squares function removes the correct number of squares for A1. 
+
+
+
+Definition at line \mbox{\hyperlink{game__logic_8test_8c_source_l00223}{223}} of file \mbox{\hyperlink{game__logic_8test_8c_source}{game\+\_\+logic.\+test.\+c}}.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=249pt]{game__logic_8test_8c_a3e6369d14821f442d39f4e12b686dc98_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{game__logic_8test_8c_a61cb5a5099c0817c0d78529ff9778cf7}\label{game__logic_8test_8c_a61cb5a5099c0817c0d78529ff9778cf7} 
+\index{game\_logic.test.c@{game\_logic.test.c}!Test@{Test}}
+\index{Test@{Test}!game\_logic.test.c@{game\_logic.test.c}}
+\doxysubsubsection{\texorpdfstring{Test()}{Test()}\hspace{0.1cm}{\footnotesize\ttfamily [10/30]}}
+{\footnotesize\ttfamily Test (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{game}}}]{,  }\item[{\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{test\+\_\+destroy\+\_\+squares\+\_\+exists}}}]{ }\end{DoxyParamCaption})}
+
+
+
+Test if the destroy\+\_\+squares function exists. 
+
+
+
+Definition at line \mbox{\hyperlink{game__logic_8test_8c_source_l00183}{183}} of file \mbox{\hyperlink{game__logic_8test_8c_source}{game\+\_\+logic.\+test.\+c}}.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=249pt]{game__logic_8test_8c_a61cb5a5099c0817c0d78529ff9778cf7_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{game__logic_8test_8c_a9f74d41e588566b5f64a97436c39f6a0}\label{game__logic_8test_8c_a9f74d41e588566b5f64a97436c39f6a0} 
+\index{game\_logic.test.c@{game\_logic.test.c}!Test@{Test}}
+\index{Test@{Test}!game\_logic.test.c@{game\_logic.test.c}}
+\doxysubsubsection{\texorpdfstring{Test()}{Test()}\hspace{0.1cm}{\footnotesize\ttfamily [11/30]}}
+{\footnotesize\ttfamily Test (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{game}}}]{,  }\item[{\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{test\+\_\+destroy\+\_\+squares\+\_\+\+H6}}}]{ }\end{DoxyParamCaption})}
+
+
+
+Test if the destroy\+\_\+squares function removes the correct number of squares for H6. 
+
+
+
+Definition at line \mbox{\hyperlink{game__logic_8test_8c_source_l00207}{207}} of file \mbox{\hyperlink{game__logic_8test_8c_source}{game\+\_\+logic.\+test.\+c}}.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=249pt]{game__logic_8test_8c_a9f74d41e588566b5f64a97436c39f6a0_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{game__logic_8test_8c_a5e30b8f6de1beba6eb126db3847d6a69}\label{game__logic_8test_8c_a5e30b8f6de1beba6eb126db3847d6a69} 
+\index{game\_logic.test.c@{game\_logic.test.c}!Test@{Test}}
+\index{Test@{Test}!game\_logic.test.c@{game\_logic.test.c}}
+\doxysubsubsection{\texorpdfstring{Test()}{Test()}\hspace{0.1cm}{\footnotesize\ttfamily [12/30]}}
+{\footnotesize\ttfamily Test (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{game}}}]{,  }\item[{\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{test\+\_\+destroy\+\_\+squares\+\_\+\+I7}}}]{ }\end{DoxyParamCaption})}
+
+
+
+Test if the destroy\+\_\+squares function removes the correct number of squares for I7. 
+
+
+
+Definition at line \mbox{\hyperlink{game__logic_8test_8c_source_l00191}{191}} of file \mbox{\hyperlink{game__logic_8test_8c_source}{game\+\_\+logic.\+test.\+c}}.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=249pt]{game__logic_8test_8c_a5e30b8f6de1beba6eb126db3847d6a69_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{game__logic_8test_8c_abf7519720e608a8d65be69850fcc50c5}\label{game__logic_8test_8c_abf7519720e608a8d65be69850fcc50c5} 
+\index{game\_logic.test.c@{game\_logic.test.c}!Test@{Test}}
+\index{Test@{Test}!game\_logic.test.c@{game\_logic.test.c}}
+\doxysubsubsection{\texorpdfstring{Test()}{Test()}\hspace{0.1cm}{\footnotesize\ttfamily [13/30]}}
+{\footnotesize\ttfamily Test (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{game}}}]{,  }\item[{\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{test\+\_\+display\+\_\+board\+\_\+exists}}}]{ }\end{DoxyParamCaption})}
+
+
+
+Test if the display\+\_\+board function exists. 
+
+
+
+Definition at line \mbox{\hyperlink{game__logic_8test_8c_source_l00057}{57}} of file \mbox{\hyperlink{game__logic_8test_8c_source}{game\+\_\+logic.\+test.\+c}}.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=237pt]{game__logic_8test_8c_abf7519720e608a8d65be69850fcc50c5_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{game__logic_8test_8c_a0b7edcc73f8ae54d113c61f1f0a95733}\label{game__logic_8test_8c_a0b7edcc73f8ae54d113c61f1f0a95733} 
+\index{game\_logic.test.c@{game\_logic.test.c}!Test@{Test}}
+\index{Test@{Test}!game\_logic.test.c@{game\_logic.test.c}}
+\doxysubsubsection{\texorpdfstring{Test()}{Test()}\hspace{0.1cm}{\footnotesize\ttfamily [14/30]}}
+{\footnotesize\ttfamily Test (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{game}}}]{,  }\item[{\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{test\+\_\+display\+\_\+board\+\_\+only\+\_\+ones}}}]{ }\end{DoxyParamCaption})}
+
+
+
+Test if the board contains only 1s after calling the init\+\_\+board function. 
+
+
+
+Definition at line \mbox{\hyperlink{game__logic_8test_8c_source_l00099}{99}} of file \mbox{\hyperlink{game__logic_8test_8c_source}{game\+\_\+logic.\+test.\+c}}.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=237pt]{game__logic_8test_8c_a0b7edcc73f8ae54d113c61f1f0a95733_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{game__logic_8test_8c_a8f55c1f1256bb613f00337ebce2b3d81}\label{game__logic_8test_8c_a8f55c1f1256bb613f00337ebce2b3d81} 
+\index{game\_logic.test.c@{game\_logic.test.c}!Test@{Test}}
+\index{Test@{Test}!game\_logic.test.c@{game\_logic.test.c}}
+\doxysubsubsection{\texorpdfstring{Test()}{Test()}\hspace{0.1cm}{\footnotesize\ttfamily [15/30]}}
+{\footnotesize\ttfamily Test (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{game}}}]{,  }\item[{\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{test\+\_\+display\+\_\+board\+\_\+row\+\_\+col}}}]{ }\end{DoxyParamCaption})}
+
+
+
+Test if the display\+\_\+board function displays the board correctly (row and column numbers) 
+
+
+
+Definition at line \mbox{\hyperlink{game__logic_8test_8c_source_l00065}{65}} of file \mbox{\hyperlink{game__logic_8test_8c_source}{game\+\_\+logic.\+test.\+c}}.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=237pt]{game__logic_8test_8c_a8f55c1f1256bb613f00337ebce2b3d81_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{game__logic_8test_8c_a487628322760a6d839d196cc168bbd6f}\label{game__logic_8test_8c_a487628322760a6d839d196cc168bbd6f} 
+\index{game\_logic.test.c@{game\_logic.test.c}!Test@{Test}}
+\index{Test@{Test}!game\_logic.test.c@{game\_logic.test.c}}
+\doxysubsubsection{\texorpdfstring{Test()}{Test()}\hspace{0.1cm}{\footnotesize\ttfamily [16/30]}}
+{\footnotesize\ttfamily Test (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{game}}}]{,  }\item[{\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{test\+\_\+init\+\_\+board\+\_\+contains\+\_\+only\+\_\+ones}}}]{ }\end{DoxyParamCaption})}
+
+
+
+Test if the init\+\_\+board function sets all squares to 1. 
+
+
+
+Definition at line \mbox{\hyperlink{game__logic_8test_8c_source_l00026}{26}} of file \mbox{\hyperlink{game__logic_8test_8c_source}{game\+\_\+logic.\+test.\+c}}.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=217pt]{game__logic_8test_8c_a487628322760a6d839d196cc168bbd6f_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{game__logic_8test_8c_a5e2cf85f7e8f7104ca58642d3dac38d6}\label{game__logic_8test_8c_a5e2cf85f7e8f7104ca58642d3dac38d6} 
+\index{game\_logic.test.c@{game\_logic.test.c}!Test@{Test}}
+\index{Test@{Test}!game\_logic.test.c@{game\_logic.test.c}}
+\doxysubsubsection{\texorpdfstring{Test()}{Test()}\hspace{0.1cm}{\footnotesize\ttfamily [17/30]}}
+{\footnotesize\ttfamily Test (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{game}}}]{,  }\item[{\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{test\+\_\+init\+\_\+board\+\_\+exists}}}]{ }\end{DoxyParamCaption})}
+
+
+
+Test if the init\+\_\+board function exists. 
+
+
+
+Definition at line \mbox{\hyperlink{game__logic_8test_8c_source_l00018}{18}} of file \mbox{\hyperlink{game__logic_8test_8c_source}{game\+\_\+logic.\+test.\+c}}.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=217pt]{game__logic_8test_8c_a5e2cf85f7e8f7104ca58642d3dac38d6_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{game__logic_8test_8c_a4226be9326139a50a84c93e5fd5e1d6c}\label{game__logic_8test_8c_a4226be9326139a50a84c93e5fd5e1d6c} 
+\index{game\_logic.test.c@{game\_logic.test.c}!Test@{Test}}
+\index{Test@{Test}!game\_logic.test.c@{game\_logic.test.c}}
+\doxysubsubsection{\texorpdfstring{Test()}{Test()}\hspace{0.1cm}{\footnotesize\ttfamily [18/30]}}
+{\footnotesize\ttfamily Test (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{game}}}]{,  }\item[{\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{test\+\_\+is\+\_\+game\+\_\+over\+\_\+exists}}}]{ }\end{DoxyParamCaption})}
+
+
+
+Test if the is\+\_\+game\+\_\+over function exists. 
+
+
+
+Definition at line \mbox{\hyperlink{game__logic_8test_8c_source_l00297}{297}} of file \mbox{\hyperlink{game__logic_8test_8c_source}{game\+\_\+logic.\+test.\+c}}.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=237pt]{game__logic_8test_8c_a4226be9326139a50a84c93e5fd5e1d6c_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{game__logic_8test_8c_a13582c0eecdb9662aa2b04ffe359cade}\label{game__logic_8test_8c_a13582c0eecdb9662aa2b04ffe359cade} 
+\index{game\_logic.test.c@{game\_logic.test.c}!Test@{Test}}
+\index{Test@{Test}!game\_logic.test.c@{game\_logic.test.c}}
+\doxysubsubsection{\texorpdfstring{Test()}{Test()}\hspace{0.1cm}{\footnotesize\ttfamily [19/30]}}
+{\footnotesize\ttfamily Test (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{game}}}]{,  }\item[{\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{test\+\_\+is\+\_\+game\+\_\+over\+\_\+not\+\_\+over}}}]{ }\end{DoxyParamCaption})}
+
+
+
+Test if the is\+\_\+game\+\_\+over function returns 0 when the game is not over. 
+
+
+
+Definition at line \mbox{\hyperlink{game__logic_8test_8c_source_l00305}{305}} of file \mbox{\hyperlink{game__logic_8test_8c_source}{game\+\_\+logic.\+test.\+c}}.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=237pt]{game__logic_8test_8c_a13582c0eecdb9662aa2b04ffe359cade_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{game__logic_8test_8c_a7b563565888d02dca542d882a9bf206b}\label{game__logic_8test_8c_a7b563565888d02dca542d882a9bf206b} 
+\index{game\_logic.test.c@{game\_logic.test.c}!Test@{Test}}
+\index{Test@{Test}!game\_logic.test.c@{game\_logic.test.c}}
+\doxysubsubsection{\texorpdfstring{Test()}{Test()}\hspace{0.1cm}{\footnotesize\ttfamily [20/30]}}
+{\footnotesize\ttfamily Test (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{game}}}]{,  }\item[{\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{test\+\_\+is\+\_\+game\+\_\+over\+\_\+over}}}]{ }\end{DoxyParamCaption})}
+
+
+
+Test if the is\+\_\+game\+\_\+over function returns 1 when the game is over. 
+
+
+
+Definition at line \mbox{\hyperlink{game__logic_8test_8c_source_l00318}{318}} of file \mbox{\hyperlink{game__logic_8test_8c_source}{game\+\_\+logic.\+test.\+c}}.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=249pt]{game__logic_8test_8c_a7b563565888d02dca542d882a9bf206b_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{game__logic_8test_8c_aacf09efd5cd330ea27925ec39f6c3588}\label{game__logic_8test_8c_aacf09efd5cd330ea27925ec39f6c3588} 
+\index{game\_logic.test.c@{game\_logic.test.c}!Test@{Test}}
+\index{Test@{Test}!game\_logic.test.c@{game\_logic.test.c}}
+\doxysubsubsection{\texorpdfstring{Test()}{Test()}\hspace{0.1cm}{\footnotesize\ttfamily [21/30]}}
+{\footnotesize\ttfamily Test (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{game}}}]{,  }\item[{\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{test\+\_\+local\+\_\+game\+\_\+gui\+\_\+logic\+\_\+exists}}}]{ }\end{DoxyParamCaption})}
+
+
+
+Test if the local\+\_\+game\+\_\+gui\+\_\+logic function exists. 
+
+
+
+Definition at line \mbox{\hyperlink{game__logic_8test_8c_source_l00401}{401}} of file \mbox{\hyperlink{game__logic_8test_8c_source}{game\+\_\+logic.\+test.\+c}}.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{game__logic_8test_8c_aacf09efd5cd330ea27925ec39f6c3588_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{game__logic_8test_8c_ac1d1eae02806bcccabc3f092ee65a061}\label{game__logic_8test_8c_ac1d1eae02806bcccabc3f092ee65a061} 
+\index{game\_logic.test.c@{game\_logic.test.c}!Test@{Test}}
+\index{Test@{Test}!game\_logic.test.c@{game\_logic.test.c}}
+\doxysubsubsection{\texorpdfstring{Test()}{Test()}\hspace{0.1cm}{\footnotesize\ttfamily [22/30]}}
+{\footnotesize\ttfamily Test (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{game}}}]{,  }\item[{\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{test\+\_\+local\+\_\+game\+\_\+gui\+\_\+logic\+\_\+invalid\+\_\+coordinates}}}]{ }\end{DoxyParamCaption})}
+
+
+
+Test if the local\+\_\+game\+\_\+gui\+\_\+logic function returns a \doxylink{struct_server_response}{Server\+Response} struct in case of invalid coordinates. 
+
+
+
+Definition at line \mbox{\hyperlink{game__logic_8test_8c_source_l00420}{420}} of file \mbox{\hyperlink{game__logic_8test_8c_source}{game\+\_\+logic.\+test.\+c}}.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{game__logic_8test_8c_ac1d1eae02806bcccabc3f092ee65a061_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{game__logic_8test_8c_aeccbc26803177c1354486e698b111e74}\label{game__logic_8test_8c_aeccbc26803177c1354486e698b111e74} 
+\index{game\_logic.test.c@{game\_logic.test.c}!Test@{Test}}
+\index{Test@{Test}!game\_logic.test.c@{game\_logic.test.c}}
+\doxysubsubsection{\texorpdfstring{Test()}{Test()}\hspace{0.1cm}{\footnotesize\ttfamily [23/30]}}
+{\footnotesize\ttfamily Test (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{game}}}]{,  }\item[{\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{test\+\_\+local\+\_\+game\+\_\+gui\+\_\+logic\+\_\+invalid\+\_\+move}}}]{ }\end{DoxyParamCaption})}
+
+
+
+Test if the local\+\_\+game\+\_\+gui\+\_\+logic function returns a \doxylink{struct_server_response}{Server\+Response} struct in case of invalid move. 
+
+
+
+Definition at line \mbox{\hyperlink{game__logic_8test_8c_source_l00436}{436}} of file \mbox{\hyperlink{game__logic_8test_8c_source}{game\+\_\+logic.\+test.\+c}}.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{game__logic_8test_8c_aeccbc26803177c1354486e698b111e74_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{game__logic_8test_8c_aa10fd08a4ab0ed674b6a862219f1b140}\label{game__logic_8test_8c_aa10fd08a4ab0ed674b6a862219f1b140} 
+\index{game\_logic.test.c@{game\_logic.test.c}!Test@{Test}}
+\index{Test@{Test}!game\_logic.test.c@{game\_logic.test.c}}
+\doxysubsubsection{\texorpdfstring{Test()}{Test()}\hspace{0.1cm}{\footnotesize\ttfamily [24/30]}}
+{\footnotesize\ttfamily Test (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{game}}}]{,  }\item[{\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{test\+\_\+local\+\_\+game\+\_\+gui\+\_\+logic\+\_\+returns\+\_\+struct}}}]{ }\end{DoxyParamCaption})}
+
+
+
+Test if the local\+\_\+game\+\_\+gui\+\_\+logic function returns a \doxylink{struct_server_response}{Server\+Response} struct. 
+
+
+
+Definition at line \mbox{\hyperlink{game__logic_8test_8c_source_l00409}{409}} of file \mbox{\hyperlink{game__logic_8test_8c_source}{game\+\_\+logic.\+test.\+c}}.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{game__logic_8test_8c_aa10fd08a4ab0ed674b6a862219f1b140_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{game__logic_8test_8c_a14cf1295cd40fa838a3f62749956c9d1}\label{game__logic_8test_8c_a14cf1295cd40fa838a3f62749956c9d1} 
+\index{game\_logic.test.c@{game\_logic.test.c}!Test@{Test}}
+\index{Test@{Test}!game\_logic.test.c@{game\_logic.test.c}}
+\doxysubsubsection{\texorpdfstring{Test()}{Test()}\hspace{0.1cm}{\footnotesize\ttfamily [25/30]}}
+{\footnotesize\ttfamily Test (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{game}}}]{,  }\item[{\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{test\+\_\+make\+\_\+move\+\_\+already\+\_\+destroyed\+\_\+square}}}]{ }\end{DoxyParamCaption})}
+
+
+
+Test if the make\+\_\+move function returns 0 for already destroyed squares. 
+
+
+
+Definition at line \mbox{\hyperlink{game__logic_8test_8c_source_l00263}{263}} of file \mbox{\hyperlink{game__logic_8test_8c_source}{game\+\_\+logic.\+test.\+c}}.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{game__logic_8test_8c_a14cf1295cd40fa838a3f62749956c9d1_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{game__logic_8test_8c_afd2249bcfcfc43e23f1704c3efb3b677}\label{game__logic_8test_8c_afd2249bcfcfc43e23f1704c3efb3b677} 
+\index{game\_logic.test.c@{game\_logic.test.c}!Test@{Test}}
+\index{Test@{Test}!game\_logic.test.c@{game\_logic.test.c}}
+\doxysubsubsection{\texorpdfstring{Test()}{Test()}\hspace{0.1cm}{\footnotesize\ttfamily [26/30]}}
+{\footnotesize\ttfamily Test (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{game}}}]{,  }\item[{\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{test\+\_\+make\+\_\+move\+\_\+exists}}}]{ }\end{DoxyParamCaption})}
+
+
+
+Test if the make\+\_\+move function exists. 
+
+
+
+Definition at line \mbox{\hyperlink{game__logic_8test_8c_source_l00239}{239}} of file \mbox{\hyperlink{game__logic_8test_8c_source}{game\+\_\+logic.\+test.\+c}}.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{game__logic_8test_8c_afd2249bcfcfc43e23f1704c3efb3b677_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{game__logic_8test_8c_a74781f1ddcdcebcd4f02178039aeb9d5}\label{game__logic_8test_8c_a74781f1ddcdcebcd4f02178039aeb9d5} 
+\index{game\_logic.test.c@{game\_logic.test.c}!Test@{Test}}
+\index{Test@{Test}!game\_logic.test.c@{game\_logic.test.c}}
+\doxysubsubsection{\texorpdfstring{Test()}{Test()}\hspace{0.1cm}{\footnotesize\ttfamily [27/30]}}
+{\footnotesize\ttfamily Test (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{game}}}]{,  }\item[{\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{test\+\_\+make\+\_\+move\+\_\+invalid\+\_\+coordinates}}}]{ }\end{DoxyParamCaption})}
+
+
+
+Test if the make\+\_\+move function returns 0 for invalid coordinates. 
+
+
+
+Definition at line \mbox{\hyperlink{game__logic_8test_8c_source_l00247}{247}} of file \mbox{\hyperlink{game__logic_8test_8c_source}{game\+\_\+logic.\+test.\+c}}.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{game__logic_8test_8c_a74781f1ddcdcebcd4f02178039aeb9d5_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{game__logic_8test_8c_af7449acc9db85521c87c5516a00ec33b}\label{game__logic_8test_8c_af7449acc9db85521c87c5516a00ec33b} 
+\index{game\_logic.test.c@{game\_logic.test.c}!Test@{Test}}
+\index{Test@{Test}!game\_logic.test.c@{game\_logic.test.c}}
+\doxysubsubsection{\texorpdfstring{Test()}{Test()}\hspace{0.1cm}{\footnotesize\ttfamily [28/30]}}
+{\footnotesize\ttfamily Test (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{game}}}]{,  }\item[{\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{test\+\_\+make\+\_\+move\+\_\+valid\+\_\+move}}}]{ }\end{DoxyParamCaption})}
+
+
+
+Test if the make\+\_\+move function returns 1 for a valid move. 
+
+
+
+Definition at line \mbox{\hyperlink{game__logic_8test_8c_source_l00281}{281}} of file \mbox{\hyperlink{game__logic_8test_8c_source}{game\+\_\+logic.\+test.\+c}}.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{game__logic_8test_8c_af7449acc9db85521c87c5516a00ec33b_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{game__logic_8test_8c_a76ef562385a1ab3eb9f0d5c63db641e0}\label{game__logic_8test_8c_a76ef562385a1ab3eb9f0d5c63db641e0} 
+\index{game\_logic.test.c@{game\_logic.test.c}!Test@{Test}}
+\index{Test@{Test}!game\_logic.test.c@{game\_logic.test.c}}
+\doxysubsubsection{\texorpdfstring{Test()}{Test()}\hspace{0.1cm}{\footnotesize\ttfamily [29/30]}}
+{\footnotesize\ttfamily Test (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{game}}}]{,  }\item[{\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{test\+\_\+play\+\_\+local\+\_\+game\+\_\+exists}}}]{ }\end{DoxyParamCaption})}
+
+
+
+Test if the play\+\_\+local\+\_\+game function exists. 
+
+
+
+Definition at line \mbox{\hyperlink{game__logic_8test_8c_source_l00385}{385}} of file \mbox{\hyperlink{game__logic_8test_8c_source}{game\+\_\+logic.\+test.\+c}}.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{game__logic_8test_8c_a76ef562385a1ab3eb9f0d5c63db641e0_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{game__logic_8test_8c_ae1a3de9650cf3af7af535b571d0fa8da}\label{game__logic_8test_8c_ae1a3de9650cf3af7af535b571d0fa8da} 
+\index{game\_logic.test.c@{game\_logic.test.c}!Test@{Test}}
+\index{Test@{Test}!game\_logic.test.c@{game\_logic.test.c}}
+\doxysubsubsection{\texorpdfstring{Test()}{Test()}\hspace{0.1cm}{\footnotesize\ttfamily [30/30]}}
+{\footnotesize\ttfamily Test (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{game}}}]{,  }\item[{\mbox{\hyperlink{gui__gamemode_8c_ab85ff85aa1f60f4a1c1ca1225a9dad06}{test\+\_\+play\+\_\+local\+\_\+game\+\_\+gui\+\_\+exists}}}]{ }\end{DoxyParamCaption})}
+
+
+
+Test if the play\+\_\+local\+\_\+game\+\_\+gui function exists. 
+
+
+
+Definition at line \mbox{\hyperlink{game__logic_8test_8c_source_l00393}{393}} of file \mbox{\hyperlink{game__logic_8test_8c_source}{game\+\_\+logic.\+test.\+c}}.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{game__logic_8test_8c_ae1a3de9650cf3af7af535b571d0fa8da_cgraph}
+\end{center}
+\end{figure}

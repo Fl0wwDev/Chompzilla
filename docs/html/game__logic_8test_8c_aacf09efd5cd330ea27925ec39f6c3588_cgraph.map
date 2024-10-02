@@ -1,0 +1,17 @@
+<map id="Test" name="Test">
+<area shape="rect" id="Node000001" title="Test if the local_game_gui_logic function exists." alt="" coords="5,56,53,81"/>
+<area shape="rect" id="Node000002" href="$game__logic_8c.html#a7337808f2923d47d1f3b4aa0a621042f" title="Function to handle the game logic for the GUI." alt="" coords="101,56,264,81"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="54,66,88,66,88,71,54,71"/>
+<area shape="rect" id="Node000003" href="$game__logic_8c.html#a48e253127878279dd9f537a6bb719f55" title="Function to check if the game is over." alt="" coords="312,31,425,56"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="264,55,298,50,299,55,265,60"/>
+<area shape="rect" id="Node000004" href="$game__logic_8c.html#ae8ec155c7e09a0a40898d57fd037e583" title="Function to make a move." alt="" coords="317,80,420,105"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="265,77,304,82,303,87,264,82"/>
+<area shape="rect" id="Node000005" href="$game__logic_8c.html#a0c1e3c44d468721790db3651f98d7f9a" title="Function to convert a column letter to an index." alt="" coords="503,5,637,31"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="398,77,424,65,448,52,472,40,495,32,497,37,474,44,450,56,427,70,400,82"/>
+<area shape="rect" id="Node000006" href="$game__logic_8c.html#a0f9921b9074eca809c9cbc33f81420c4" title="Function to count the number of squares to remove." alt="" coords="473,55,667,80"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="420,84,460,79,460,84,420,89"/>
+<area shape="rect" id="Node000007" href="$game__logic_8c.html#a0d417e43bdee123bd7c9e6ffcd6e473b" title="Function to destroy the squares." alt="" coords="505,104,635,129"/>
+<area shape="poly" id="edge6_Node000004_Node000007" title=" " alt="" coords="420,96,492,105,491,110,420,101"/>
+<area shape="rect" id="Node000008" href="$ia_8c.html#abeb3c633344f067c2614c1582408aa9a" title="Function to get the number of squares removed." alt="" coords="495,153,645,179"/>
+<area shape="poly" id="edge7_Node000004_Node000008" title=" " alt="" coords="395,103,474,138,502,147,500,152,472,143,393,108"/>
+</map>

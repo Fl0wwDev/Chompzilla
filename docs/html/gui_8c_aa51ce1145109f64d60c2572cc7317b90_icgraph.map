@@ -1,0 +1,32 @@
+<map id="update_gui_from_server" name="update_gui_from_server">
+<area shape="rect" id="Node000001" title="Function to update the GUI from the server." alt="" coords="757,180,937,205"/>
+<area shape="rect" id="Node000002" href="$server_8c.html#a50fd06011f00587a868c4d3f375dab6d" title="Function to handle the client move This function updates the GUI with the client move." alt="" coords="544,56,697,81"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="809,176,644,84,647,79,812,171"/>
+<area shape="rect" id="Node000004" href="$server_8c.html#abb0090be21f76dafc36ac4b333a14adc" title="Function to manage the network server." alt="" coords="541,155,700,180"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="743,184,700,179,700,174,744,178"/>
+<area shape="rect" id="Node000013" href="$server_8c.html#a1271c0951e919351d79c322614184981" title="Function to launch the server with the IA as a player." alt="" coords="532,205,709,231"/>
+<area shape="poly" id="edge13_Node000001_Node000013" title=" " alt="" coords="744,207,710,211,709,205,743,202"/>
+<area shape="rect" id="Node000014" href="$game__logic_8c.html#af97f0950de3318e0b63fc18f7452b220" title="Function to update the GUI after a move." alt="" coords="533,255,708,280"/>
+<area shape="poly" id="edge16_Node000001_Node000014" title=" " alt="" coords="802,213,710,246,672,257,670,252,709,241,800,208"/>
+<area shape="rect" id="Node000003" href="$server_8test_8c.html#a2c8c01f174c5cb95ee8a76a3c6fe56fd" title="Test to check if the handle_client_move function exists." alt="" coords="379,5,427,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="551,55,426,26,427,21,552,50"/>
+<area shape="rect" id="Node000005" href="$main__menu__utils_8c.html#aa3501c29f05643295bbda8a78253cadd" title="Function to display the game mode menu." alt="" coords="333,205,473,231"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="553,186,459,208,457,203,551,181"/>
+<area shape="rect" id="Node000007" href="$game_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="The main function." alt="" coords="5,205,60,231"/>
+<area shape="poly" id="edge11_Node000004_Node000007" title=" " alt="" coords="528,168,334,172,221,181,109,197,61,210,60,205,107,191,220,175,333,166,528,162"/>
+<area shape="rect" id="Node000008" href="$server_8c.html#afd895fed4d709fc1e43bdaf9d2712900" title="Function to launch the server thread." alt="" coords="321,55,484,80"/>
+<area shape="poly" id="edge7_Node000004_Node000008" title=" " alt="" coords="586,150,538,122,483,95,449,83,450,78,485,90,541,118,589,145"/>
+<area shape="rect" id="Node000012" href="$server_8test_8c.html#ac67d457c0781e7924d6b224406a4c1aa" title="Test if play_network_server exists." alt="" coords="379,104,427,129"/>
+<area shape="poly" id="edge12_Node000004_Node000012" title=" " alt="" coords="551,154,426,125,427,119,552,149"/>
+<area shape="rect" id="Node000006" href="$main__menu__utils_8c.html#a116f5db451cfe52a4f8ae0bdf32e3bbc" title="Function to display the main menu." alt="" coords="139,205,242,231"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="319,221,242,221,242,215,319,215"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="125,221,60,221,60,215,125,215"/>
+<area shape="rect" id="Node000009" href="$server_8c.html#aec212c6dc9b28a8077489b6c1f6432c7" title="Function to start the server from the GUI." alt="" coords="108,31,273,56"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="307,59,273,55,274,50,308,54"/>
+<area shape="rect" id="Node000011" href="$server_8test_8c.html#abb1f522b408152def244018727c53b2a" title="Test if launch_server_thread exists." alt="" coords="167,80,215,105"/>
+<area shape="poly" id="edge10_Node000008_Node000011" title=" " alt="" coords="308,81,215,93,215,87,307,76"/>
+<area shape="rect" id="Node000010" href="$server_8test_8c.html#a864ce900764e9094222df3bbc368dc5c" title="Test if start_server_from_gui exists." alt="" coords="9,31,57,56"/>
+<area shape="poly" id="edge9_Node000009_Node000010" title=" " alt="" coords="94,46,57,46,57,41,94,41"/>
+<area shape="poly" id="edge14_Node000013_Node000005" title=" " alt="" coords="518,221,473,221,473,215,518,215"/>
+<area shape="poly" id="edge15_Node000013_Node000007" title=" " alt="" coords="551,236,484,246,378,256,295,262,213,260,107,246,59,232,61,227,109,241,213,254,295,257,378,251,484,241,550,231"/>
+</map>

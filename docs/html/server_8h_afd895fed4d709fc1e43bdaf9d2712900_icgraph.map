@@ -1,0 +1,9 @@
+<map id="launch_server_thread" name="launch_server_thread">
+<area shape="rect" id="Node000001" title="Function to launch the server thread." alt="" coords="315,31,477,56"/>
+<area shape="rect" id="Node000002" href="$server_8c.html#aec212c6dc9b28a8077489b6c1f6432c7" title="Function to start the server from the GUI." alt="" coords="101,5,267,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="301,35,267,31,267,25,301,29"/>
+<area shape="rect" id="Node000004" href="$server_8test_8c.html#abb1f522b408152def244018727c53b2a" title="Test if launch_server_thread exists." alt="" coords="160,55,208,80"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="301,57,209,67,208,62,300,51"/>
+<area shape="rect" id="Node000003" href="$server_8test_8c.html#a864ce900764e9094222df3bbc368dc5c" title="Test if start_server_from_gui exists." alt="" coords="5,5,53,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="88,21,54,21,54,15,88,15"/>
+</map>
