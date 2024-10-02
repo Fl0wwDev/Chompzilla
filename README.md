@@ -1,4 +1,4 @@
-# ChompZilla
+# Chompzilla
 
 ## Description
 
