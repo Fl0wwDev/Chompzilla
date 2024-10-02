@@ -1,4 +1,4 @@
-# README
+# ChompZilla
 
 ## Description
 
